@@ -39,6 +39,7 @@ export const ClickableCard = (props: ClickableCardProps) => {
           flex w-full
           cursor-pointer
           items-center
+          min-h-full
           gap-4
           text-left
           transition-all duration-300
