@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/* Grand Motors Select scrollbar */
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #b8944a, #8f7135);
+  border-radius: 999px;
+  border: 2px solid #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #d4b567, #b8944a);
+}
+
+html {
+  scroll-behavior: smooth;
+}
