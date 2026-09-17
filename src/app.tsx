@@ -18,6 +18,8 @@ import { Routes, Route } from "react-router-dom";
 import { RegulationPage } from "./pages/regulationPage";
 import { PrivacyPolicyPage } from "./pages/privacyPolicyPage";
 import { DetailingPage } from "./pages/detailingPage";
+import CarsPage from "./pages/carsPage";
+import CarDetailsPage from "./pages/carDetailsPage";
 
 const App = () => {
   return (
@@ -59,6 +61,10 @@ const App = () => {
         <Route path="/regulamin" element={<RegulationPage />} />
 
         <Route path="/polityka-prywatnosci" element={<PrivacyPolicyPage />} />
+
+        <Route path="/cars" element={<CarsPage />} />
+
+        <Route path="/cars/:slug" element={<CarDetailsPage />} />
       </Routes>
     </div>
   );

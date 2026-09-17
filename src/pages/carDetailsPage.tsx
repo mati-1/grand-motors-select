@@ -1,0 +1,101 @@
+import { useParams, Link } from "react-router-dom";
+
+import { LineComponent } from "../components/line";
+import { CarGallery } from "../components/cars/car-slug/carGallery";
+import { CarInfo } from "../components/cars/car-slug/carInfo";
+import { CarDescription } from "../components/cars/car-slug/carDescription";
+import { CarEquipment } from "../components/cars/car-slug/carEquipment";
+import { CarDetails } from "../components/cars/car-slug/carDetails";
+import { CarHistory } from "../components/cars/car-slug/carHistory";
+import { CarContact } from "../components/cars/car-slug/carContact";
+import { carsList } from "../components/cars/cars";
+
+export const CarDetailsPage = () => {
+  const { slug } = useParams<{ slug: string }>();
+
+  const car = carsList.find((item) => item.slug === slug);
+
+  if (!car) {
+    return (
+      <main className="flex min-h-screen flex-col items-center justify-center bg-[#050505] px-[5vw] text-center">
+        <span className="text-[9px] tracking-[0.3em] text-[#b99a5c]">
+          404 / NIE ZNALEZIONO
+        </span>
+
+        <h1 className="mt-5 text-[32px] text-[#ddd]">
+          SAMOCHÓD NIE JEST DOSTĘPNY.
+        </h1>
+
+        <p className="mt-4 max-w-100 text-[11px] leading-[1.8] text-[#666]">
+          Wybrany samochód nie istnieje lub został usunięty z aktualnej oferty.
+        </p>
+
+        <Link
+          to="/cars"
+          className="
+            mt-8
+            border
+            border-[#b99a5c]/30
+            px-6
+            py-3
+            text-[8px]
+            tracking-[0.2em]
+            text-[#d2b878]
+            transition
+            hover:border-[#b99a5c]/60
+            hover:bg-[#b99a5c]/5
+          "
+        >
+          WRÓĆ DO OFERTY
+        </Link>
+      </main>
+    );
+  }
+
+  return (
+    <main className="w-full bg-[#050505]">
+      {/* TOP */}
+      <section className="px-[5vw] pb-16 pt-32 sm:pb-24">
+        <Link
+          to="/cars"
+          className="
+            inline-flex
+            items-center
+            gap-3
+            text-[8px]
+            tracking-[0.22em]
+            text-[#666]
+            transition
+            hover:text-[#d2b878]
+          "
+        >
+          ← WRÓĆ DO OFERTY
+        </Link>
+
+        <div className="mt-10 grid gap-10 xl:grid-cols-[1.5fr_0.8fr] xl:items-start">
+          <CarGallery images={car.images} alt={`${car.brand} ${car.model}`} />
+
+          <CarInfo car={car} />
+        </div>
+      </section>
+
+      {/* DESCRIPTION */}
+      <div className="px-[5vw]">
+        <CarDescription car={car} />
+
+        <CarEquipment car={car} />
+
+        <CarDetails car={car} />
+
+        <CarHistory car={car} />
+      </div>
+
+      {/* CONTACT */}
+      <CarContact />
+
+      <LineComponent className="mt-0!" />
+    </main>
+  );
+};
+
+export default CarDetailsPage;
