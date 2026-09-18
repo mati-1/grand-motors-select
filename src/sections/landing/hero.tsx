@@ -6,14 +6,19 @@ export const HeroComponentSection = () => {
     <section
       id="home"
       className="
-    relative flex min-h-150 h-screen
-    items-center overflow-hidden
+    relative
+    flex
+    min-h-150
+    h-screen
+    items-center
+    overflow-hidden
     bg-[#050505]
     bg-[url('/hero.png')]
-    bg-position-[80%_center]
-    sm:bg-position-[75%_center]
-    lg:bg-position-[65%_center]
+    bg-cover
+    bg-center
     bg-no-repeat
+    sm:bg-[position:58%_center]
+    lg:bg-[position:52%_center]
   "
     >
       {/* OVERLAY */}
