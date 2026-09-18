@@ -17,8 +17,8 @@ export const HeroComponentSection = () => {
     bg-cover
     bg-center
     bg-no-repeat
-    sm:bg-[position:58%_center]
-    lg:bg-[position:52%_center]
+    sm:bg-position-[58%_center]
+    lg:bg-position-[52%_center]
   "
     >
       {/* OVERLAY */}
