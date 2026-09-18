@@ -29,9 +29,10 @@ export const CarsComponent = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-5.5 md:grid-cols-2 xl:grid-cols-3">
-          {carsList.map((car) => (
-            <CarCard key={`${car.brand}-${car.model}`} car={car} />
-          ))}
+          {carsList.slice(0, 3).map((car) => {
+            if (car.status === "sold") return;
+            return <CarCard key={`${car.brand}-${car.model}`} car={car} />;
+          })}
         </div>
       </div>
       <LineComponent className="mt-0!" />
