@@ -12,8 +12,8 @@ export const CarsGrid = ({ cars }: CarsGridProps) => {
       className="
         scroll-mt-23
         px-[5vw]
-        py-16
-        sm:py-24
+        py-14
+        sm:py-20
       "
     >
       <div

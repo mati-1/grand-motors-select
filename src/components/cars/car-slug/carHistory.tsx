@@ -1,4 +1,6 @@
+import { MainHeadingComponent } from "../../headings";
 import type { CarType } from "../cars";
+import { CarReportCard } from "./carReportCard";
 
 type CarHistoryProps = {
   car: CarType;
@@ -6,48 +8,32 @@ type CarHistoryProps = {
 
 export const CarHistory = ({ car }: CarHistoryProps) => {
   return (
-    <section className="border-b border-white/5 py-16 sm:py-20">
-      <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+    <section className="border-b border-white/5 py-12 sm:py-16">
+      <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
+        {/* LEFT */}
         <div>
-          <span className="text-[9px] tracking-[0.3em] text-[#b99a5c]">
-            04 / HISTORIA
-          </span>
+          <MainHeadingComponent className="text-[12px]! mt-0! tracking-[0.3em] text-[#b99a5c] md:text-[14px]!">
+            04 / HISTORIA SAMOCHODU
+          </MainHeadingComponent>
 
-          <h2 className="mt-4 text-[28px] font-normal text-[#ddd]">
-            INFORMACJE
-            <br />O <span className="text-[#d2b878]">SAMOCHODZIE.</span>
+          <h2 className="mt-8 max-w-100 font-serif text-[34px] leading-[1.05] text-[#ddd] sm:text-[42px]">
+            HISTORIA
+            <br />
+            <span className="text-[#666]">ZWERYFIKOWANA.</span>
           </h2>
+
+          <p className="mt-6 max-w-95 text-[11px] leading-[1.9] tracking-[0.04em] text-[#666]">
+            Informacje dotyczące historii pojazdu oraz dostępna dokumentacja są
+            udostępniane przez GMS w ramach prezentacji samochodu.
+          </p>
         </div>
 
-        <div>
-          {car.history.map((item, index) => (
-            <div
-              key={item.title}
-              className={`
-                flex gap-5 py-6
-                ${
-                  index !== car.history.length - 1
-                    ? "border-b border-white/10"
-                    : ""
-                }
-              `}
-            >
-              <span className="font-serif text-[12px] text-[#b99a5c]">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-
-              <div>
-                <h3 className="text-[11px] tracking-[0.12em] text-[#ddd]">
-                  {item.title}
-                </h3>
-
-                <p className="mt-2 text-[10px] leading-[1.8] text-[#666]">
-                  {item.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+        <CarReportCard
+          title={`${car.brand} ${car.model}`}
+          subtitle="RAPORT HISTORII POJAZDU"
+          fileUrl={`/reports/${car.slug}-carvertical.pdf`}
+          fileName={`${car.slug}-carvertical.pdf`}
+        />
       </div>
     </section>
   );

@@ -5,37 +5,22 @@ export const CarsHero = () => {
     <section
       className="
         relative
-        flex min-h-[58vh]
-        flex-col justify-end
+        flex min-h-[45vh]
+        flex-col justify-center
         overflow-hidden
         border-b border-white/5
         px-[5vw]
-        pb-16
-        pt-32
+        pt-[10vh]
+         bg-[#b99a5c]/20
+          bg-linear-to-r from-black/90 via-black/75 to-black/90
       "
     >
-      <div
-        className="
-          pointer-events-none
-          absolute right-[5vw] top-1/2
-          hidden -translate-y-1/2
-          select-none
-          font-serif
-          text-[clamp(180px,28vw,420px)]
-          leading-none
-          text-white/[0.018]
-          xl:block
-        "
-      >
-        01
-      </div>
-
       <div className="relative z-10">
         <SubHeadingComponent>
           GRAND MOTORS <span className="text-[#d2b878]">SELECT</span>
         </SubHeadingComponent>
 
-        <MainHeadingComponent>
+        <MainHeadingComponent className="text-4xl! sm:text-5xl!">
           NASZA
           <br />
           <span className="text-[#d2b878]">OFERTA.</span>

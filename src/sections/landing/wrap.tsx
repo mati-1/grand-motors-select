@@ -1,4 +1,5 @@
 import { ButtonComponent } from "../../components/button";
+import { MainHeadingComponent } from "../../components/headings";
 import { LineComponent } from "../../components/line";
 import { PageSectionComponent } from "../../components/page-section";
 
@@ -13,13 +14,13 @@ export const WrapSectionComponent = () => {
         PROFESJONALNY <span className="text-[#d2b878]">WRAP</span>
       </div>
 
-      <h2 className="mt-4 font-serif text-[34px] font-normal leading-[1.15] sm:mt-5 sm:text-[50px] sm:leading-tight">
+      <MainHeadingComponent className="text-[34px]! sm:text-[50px]!">
         ZMIENIAMY
         <br />
         WYGLĄD
         <br />
         <span className="text-[#d2b878]">NIE CHARAKTER.</span>
-      </h2>
+      </MainHeadingComponent>
 
       <LineComponent type="right" className="my-6 w-[30%]" />
 

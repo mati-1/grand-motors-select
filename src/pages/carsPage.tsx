@@ -1,13 +1,17 @@
 import { LineComponent } from "../components/line";
-import { CarsCta } from "../components/cars/carsCta";
+import { ContactSectionComponent } from "../sections/landing/contact";
 import { CarsEmptyState } from "../components/cars/carsEmptyState";
-import { CarsFilters } from "../components/cars/carsFilters";
+import { CarsFilters } from "../components/cars/filters/carsFilters";
 import { CarsGrid } from "../components/cars/carsGrid";
 import { CarsHero } from "../components/cars/carsHero";
 import { useCarFilters } from "../hooks/useCarFilters";
+import { FooterComponent } from "../sections/landing/footer";
 
 export const CarsPage = () => {
   const {
+    view,
+    setView,
+
     search,
     setSearch,
 
@@ -16,12 +20,17 @@ export const CarsPage = () => {
 
     minYear,
     setMinYear,
+    maxYear,
+    setMaxYear,
 
     minPrice,
     setMinPrice,
 
     maxPrice,
     setMaxPrice,
+
+    fuel,
+    setFuel,
 
     sort,
     setSort,
@@ -30,6 +39,7 @@ export const CarsPage = () => {
     years,
 
     filteredCars,
+
     hasActiveFilters,
     clearFilters,
   } = useCarFilters();
@@ -39,6 +49,8 @@ export const CarsPage = () => {
       <CarsHero />
 
       <CarsFilters
+        view={view}
+        onViewChange={setView}
         search={search}
         onSearchChange={setSearch}
         brand={brand}
@@ -49,6 +61,10 @@ export const CarsPage = () => {
         onMinPriceChange={setMinPrice}
         maxPrice={maxPrice}
         onMaxPriceChange={setMaxPrice}
+        fuel={fuel}
+        maxYear={maxYear}
+        onMaxYearChange={setMaxYear}
+        onFuelChange={setFuel}
         sort={sort}
         onSortChange={setSort}
         brands={brands}
@@ -64,9 +80,11 @@ export const CarsPage = () => {
         <CarsEmptyState onClearFilters={clearFilters} />
       )}
 
-      <CarsCta />
+      <ContactSectionComponent />
 
       <LineComponent className="mt-0!" />
+
+      <FooterComponent />
     </main>
   );
 };

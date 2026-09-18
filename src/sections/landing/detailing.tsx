@@ -1,6 +1,7 @@
 import { ButtonComponent } from "../../components/button";
 import { LineComponent } from "../../components/line";
 import { PageSectionComponent } from "../../components/page-section";
+import { MainHeadingComponent } from "../../components/headings";
 
 export const DetailingSectionComponent = () => {
   return (
@@ -13,13 +14,13 @@ export const DetailingSectionComponent = () => {
         PROFESJONALNY <span className="text-[#d2b878]">DETAILING</span>
       </div>
 
-      <h2 className="mt-4 font-serif text-[34px] font-normal leading-[1.15] sm:mt-5 sm:text-[50px] sm:leading-tight">
+      <MainHeadingComponent className="text-[34px]! sm:text-[50px]!">
         DETAL
         <br />
         KTÓRY
         <br />
         <span className="text-[#d2b878]">WIDAĆ.</span>
-      </h2>
+      </MainHeadingComponent>
 
       <LineComponent type="left" className="my-6 w-[30%]" />
 

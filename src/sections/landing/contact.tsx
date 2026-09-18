@@ -32,7 +32,6 @@ export const ContactSectionComponent = ({
           </SubHeadingComponent>
           <MainHeadingComponent
             className="                mt-4
-                font-serif font-normal leading-[1.05]
                 text-[42px]
                 sm:mt-5 sm:text-[52px]
                 lg:text-[62px]"
@@ -117,7 +116,7 @@ export const ContactSectionComponent = ({
                 sm:text-[20px]! hover:underline"
               >
                 <a
-                  href="tel:+48123456789"
+                  href="tel:+48514137133"
                   className="
 
                   "
@@ -254,7 +253,7 @@ export const ContactSectionComponent = ({
               procesie zakupu oraz naszych usługach.
             </p>
           </div>
-          <ButtonComponent size="big" type="main" href="tel:+48123456789">
+          <ButtonComponent size="big" type="main" href="tel:+48514137133">
             ZADZWOŃ DO NAS →
           </ButtonComponent>
         </div>

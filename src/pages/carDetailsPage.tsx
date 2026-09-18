@@ -5,15 +5,15 @@ import { CarGallery } from "../components/cars/car-slug/carGallery";
 import { CarInfo } from "../components/cars/car-slug/carInfo";
 import { CarDescription } from "../components/cars/car-slug/carDescription";
 import { CarEquipment } from "../components/cars/car-slug/carEquipment";
-import { CarDetails } from "../components/cars/car-slug/carDetails";
 import { CarHistory } from "../components/cars/car-slug/carHistory";
-import { CarContact } from "../components/cars/car-slug/carContact";
 import { carsList } from "../components/cars/cars";
+import { FooterComponent } from "../sections/landing/footer";
+import { ContactSectionComponent } from "../sections/landing/contact";
 
 export const CarDetailsPage = () => {
   const { slug } = useParams<{ slug: string }>();
 
-  const car = carsList.find((item) => item.slug === slug);
+  const car = [...carsList].find((item) => item.slug === slug);
 
   if (!car) {
     return (
@@ -62,7 +62,7 @@ export const CarDetailsPage = () => {
             inline-flex
             items-center
             gap-3
-            text-[8px]
+            text-[10px]
             tracking-[0.22em]
             text-[#666]
             transition
@@ -73,7 +73,11 @@ export const CarDetailsPage = () => {
         </Link>
 
         <div className="mt-10 grid gap-10 xl:grid-cols-[1.5fr_0.8fr] xl:items-start">
-          <CarGallery images={car.images} alt={`${car.brand} ${car.model}`} />
+          <CarGallery
+            car={car}
+            images={car.images}
+            alt={`${car.brand} ${car.model}`}
+          />
 
           <CarInfo car={car} />
         </div>
@@ -84,14 +88,13 @@ export const CarDetailsPage = () => {
         <CarDescription car={car} />
 
         <CarEquipment car={car} />
-
-        <CarDetails car={car} />
-
-        <CarHistory car={car} />
+        {car.status === "available" && <CarHistory car={car} />}
       </div>
 
       {/* CONTACT */}
-      <CarContact />
+      <ContactSectionComponent />
+
+      <FooterComponent />
 
       <LineComponent className="mt-0!" />
     </main>
