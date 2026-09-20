@@ -26,12 +26,15 @@ export const HeroComponentSection = () => {
         loop
         playsInline
         className="
-      absolute
-      inset-0
-      h-full
-      w-full
-      object-cover
-    "
+    absolute
+    inset-0
+    h-full
+    w-full
+    object-cover
+    object-[10%_center]
+    sm:object-[58%_center]
+    lg:object-[52%_center]
+  "
       >
         <source src="/hero.mp4" type="video/mp4" />
       </video>
