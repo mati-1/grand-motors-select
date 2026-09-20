@@ -13,7 +13,6 @@ export const HeroComponentSection = () => {
     items-center
     overflow-hidden
     bg-[#050505]
-    bg-[url('/hero.png')]
     bg-cover
     bg-center
     bg-no-repeat
@@ -21,6 +20,21 @@ export const HeroComponentSection = () => {
     lg:bg-position-[52%_center]
   "
     >
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="
+      absolute
+      inset-0
+      h-full
+      w-full
+      object-cover
+    "
+      >
+        <source src="/hero.mp4" type="video/mp4" />
+      </video>
       {/* OVERLAY */}
       <div
         className="
