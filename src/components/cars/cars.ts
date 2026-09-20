@@ -240,14 +240,14 @@ export const carsList: CarType[] = [
     status: "available",
     price: "140 000 zł",
     vin: "WBA8B9C50HK123456",
-    image: "../../../public/cars/bmwx6m/1.png",
+    image: "/cars/bmwx6m/1.png",
 
     images: [
-      "../../../public/cars/bmwx6m/1.png",
-      "../../../public/cars/bmwx6m/2.png",
-      "../../../public/cars/bmwx6m/3.png",
-      "../../../public/cars/bmwx6m/4.png",
-      "../../../public/cars/bmwx6m/5.png",
+      "/cars/bmwx6m/1.png",
+      "/cars/bmwx6m/2.png",
+      "/cars/bmwx6m/3.png",
+      "/cars/bmwx6m/4.png",
+      "/cars/bmwx6m/5.png",
     ],
 
     description:
