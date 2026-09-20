@@ -5,7 +5,12 @@ import { PageSectionComponent } from "../../components/page-section";
 
 export const WrapSectionComponent = () => {
   return (
-    <PageSectionComponent id="wrap" type="left" image="/wrap/wrap2.jpg">
+    <PageSectionComponent
+      id="wrap"
+      type="left"
+      image="/wrap/wrap2.jpg"
+      className="scale-x-[-1]"
+    >
       <div className="text-[9px] tracking-[0.3em] text-[#999] sm:text-[10px] sm:tracking-[0.4em]">
         PROFESJONALNY <span className="text-[#d2b878]">WRAP</span>
       </div>

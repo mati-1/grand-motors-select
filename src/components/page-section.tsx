@@ -6,11 +6,13 @@ export const PageSectionComponent = ({
   children,
   type,
   id,
+  className,
 }: {
   image: string;
   type?: "left" | "right";
   children: React.ReactNode;
   id: string;
+  className?: string;
 }) => {
   return (
     <section
@@ -23,16 +25,18 @@ export const PageSectionComponent = ({
         className={`flex flex-col  ${type === "right" ? "lg:flex-row" : "lg:flex-row-reverse"}`}
       >
         {/* IMAGE */}
-        <div
-          className="relative min-h-90 w-full shrink-0 bg-cover bg-center sm:min-h-105 lg:w-1/2"
-          style={{
-            backgroundImage: `linear-gradient(90deg, rgba(0,0,0,.2), rgba(0,0,0,.85)),  url('${image}')`,
-          }}
-        >
+        <div className="relative min-h-90 w-full shrink-0 overflow-hidden sm:min-h-105 lg:w-1/2">
+          <div
+            className={`absolute inset-0 bg-cover bg-center bg-no-repeat ${className ?? ""}`}
+            style={{
+              backgroundImage: `linear-gradient(90deg, rgba(0,0,0,.2), rgba(0,0,0,.85)), url('${image}')`,
+            }}
+          />
+
           <div className="absolute bottom-5 right-5 text-right text-[9px] tracking-[0.3em] sm:bottom-8 sm:right-8 sm:text-[10px] lg:bottom-12 lg:right-12 lg:text-[11px] lg:tracking-[0.4em]">
             <LogoComponent
               type="emblem"
-              className="w-9! lg:w-12! grayscale opacity-20 pointer-events-none"
+              className="w-9! pointer-events-none grayscale opacity-20 lg:w-12!"
               clickable={false}
             />
           </div>
