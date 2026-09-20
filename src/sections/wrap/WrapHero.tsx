@@ -128,7 +128,7 @@ export const WrapHero = () => {
             sm:items-center
           "
         >
-          <ButtonComponent type="main" href="#wrap-contact" size="big">
+          <ButtonComponent type="main" href="/contact" size="big">
             UMÓW WRAP <span>→</span>
           </ButtonComponent>
 
