@@ -1,4 +1,3 @@
-import heroimg from "../../../public/detailing-hero.jpg";
 import { ButtonComponent } from "../../components/button";
 import {
   MainHeadingComponent,
@@ -9,20 +8,43 @@ export const DetailingHero = () => {
   return (
     <section
       id="detailing-home"
-      className="    relative flex min-h-150 h-screen
+      className="relative flex min-h-150 h-screen
     items-center overflow-hidden
-    bg-[#050505]
-    bg-[url('/hero.png')]
-    bg-position-[80%_center]
-    sm:bg-position-[75%_center]
-    lg:bg-position-[65%_center]
-    bg-no-repeat"
+    bg-[#050505]"
     >
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="
+    absolute
+    inset-0
+    h-full
+    w-full
+    object-cover
+    object-[50%_center]
+    sm:object-[58%_center]
+    lg:object-[52%_center]
+  "
+      >
+        <source src="/detailing.mp4" type="video/mp4" />
+      </video>
       <div
-        className="absolute inset-0 bg-cover bg-position-[65%_center] sm:bg-center"
-        style={{
-          backgroundImage: `url(${heroimg})`,
-        }}
+        className="
+          absolute inset-0 z-0
+          bg-linear-to-r
+          from-black via-black/80
+          to-black/25
+        "
+      />
+
+      {/* SUBTELNE PRZYCIEMNIENIE DOŁU */}
+      <div
+        className="
+          absolute inset-x-0 bottom-0 z-1 h-40
+          bg-linear-to-t from-black/70 to-transparent
+        "
       />
 
       <div className="absolute inset-0 bg-linear-to-r from-black via-black/75 to-black/15" />

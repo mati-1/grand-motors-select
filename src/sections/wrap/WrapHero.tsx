@@ -17,23 +17,42 @@ export const WrapHero = () => {
     border-b
     border-white/5
     bg-[#050505]
-    bg-[url('/wrap/wrap2.jpg')]
-    bg-cover
-    bg-position-[30%_center]
-    md:bg-center
-    bg-no-repeat
     px-[5vw]
     h-screen
   "
     >
-      {/* BACKGROUND */}
-
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="
+    absolute
+    inset-0
+    h-full
+    w-full
+    object-cover
+    object-[50%_center]
+    sm:object-[58%_center]
+    lg:object-[52%_center]
+  "
+      >
+        <source src="/wrap.mp4" type="video/mp4" />
+      </video>
       <div
         className="
-          pointer-events-none
-          absolute
-          inset-0
-          bg-[radial-gradient(ellipse_at_75%_45%,rgba(185,154,92,0.13),transparent_42%)]
+          absolute inset-0 z-0
+          bg-linear-to-r
+          from-black via-black/80
+          to-black/25
+        "
+      />
+
+      {/* SUBTELNE PRZYCIEMNIENIE DOŁU */}
+      <div
+        className="
+          absolute inset-x-0 bottom-0 z-1 h-40
+          bg-linear-to-t from-black/70 to-transparent
         "
       />
 
