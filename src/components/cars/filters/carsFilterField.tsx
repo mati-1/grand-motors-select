@@ -18,6 +18,10 @@ export const CarsFilterField = ({
         w-full
         relative
         bg-[#080808]
+        border-b
+        border-l
+        border-r
+        border-[#0b0b0b]
         transition-colors
         duration-300
         cursor-pointer
@@ -52,6 +56,7 @@ export const CarsFilterField = ({
           tracking-[0.25em]
           text-[#666]
           transition-colors
+          cursor-pointer
           duration-300
           group-hover:text-[#888]
           group-focus-within:text-[#b99a5c]

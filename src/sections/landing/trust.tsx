@@ -14,7 +14,7 @@ type ProcessItemProps = {
   last?: boolean;
 };
 
-const ProcessItem = ({
+export const ProcessItem = ({
   number,
   title,
   description,

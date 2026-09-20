@@ -2,7 +2,7 @@ import {
   SubHeadingComponent,
   MainHeadingComponent,
 } from "./components/headings";
-
+import WrapPage from "./pages/WrapPage";
 import { CarsComponent } from "./sections/landing/cars";
 import { ContactSectionComponent } from "./sections/landing/contact";
 import { DetailingSectionComponent } from "./sections/landing/detailing";
@@ -20,6 +20,7 @@ import { PrivacyPolicyPage } from "./pages/privacyPolicyPage";
 import { DetailingPage } from "./pages/detailingPage";
 import CarsPage from "./pages/carsPage";
 import CarDetailsPage from "./pages/carDetailsPage";
+import ContactPage from "./pages/contactPage";
 
 const App = () => {
   return (
@@ -65,6 +66,10 @@ const App = () => {
         <Route path="/cars" element={<CarsPage />} />
 
         <Route path="/cars/:slug" element={<CarDetailsPage />} />
+
+        <Route path="/wrap" element={<WrapPage />} />
+
+        <Route path="/contact" element={<ContactPage />} />
       </Routes>
     </div>
   );

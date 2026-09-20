@@ -5,11 +5,7 @@ import { PageSectionComponent } from "../../components/page-section";
 
 export const WrapSectionComponent = () => {
   return (
-    <PageSectionComponent
-      id="wrap"
-      type="left"
-      image="https://image.ceneostatic.pl/data/products/136005906/i-mercedes-c63s-amg-510km-coupe-ceramika-s-pl-f-vat.jpg"
-    >
+    <PageSectionComponent id="wrap" type="left" image="/wrap/wrap2.jpg">
       <div className="text-[9px] tracking-[0.3em] text-[#999] sm:text-[10px] sm:tracking-[0.4em]">
         PROFESJONALNY <span className="text-[#d2b878]">WRAP</span>
       </div>
@@ -37,8 +33,8 @@ export const WrapSectionComponent = () => {
         <br />
         Ty wybierasz kolor. My dbamy o każdy szczegół.
       </p>
-      <ButtonComponent href="#cars" size="small">
-        POZNAJ CENNIK →
+      <ButtonComponent href="/wrap" size="small">
+        POZNAJ OFERTĘ →
       </ButtonComponent>
     </PageSectionComponent>
   );
