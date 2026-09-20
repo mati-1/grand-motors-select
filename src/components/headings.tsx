@@ -6,7 +6,9 @@ export const MainHeadingComponent = ({
   className?: string;
 }) => {
   return (
-    <h1 className={`mt-3 font-medium text-2xl md:text-4xl ${className || ""}`}>
+    <h1
+      className={`mt-3 font-semibold text-2xl md:text-4xl ${className || ""}`}
+    >
       {children}
     </h1>
   );

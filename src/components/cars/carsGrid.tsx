@@ -14,6 +14,8 @@ export const CarsGrid = ({ cars }: CarsGridProps) => {
         px-[5vw]
         py-14
         sm:py-20
+        bg-[#b99a5c]/20
+        bg-linear-to-r from-black/90 via-black/75 to-black/90
       "
     >
       <div
