@@ -25,6 +25,7 @@ export const WrapHero = () => {
         autoPlay
         muted
         loop
+        preload="auto"
         playsInline
         className="
     absolute

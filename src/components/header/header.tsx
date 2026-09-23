@@ -62,6 +62,7 @@ export const HeaderComponent = () => {
               if (n.href === "/contact") {
                 return (
                   <ButtonComponent
+                    key={n.label}
                     href={isContactPage ? "tel:+48514137133" : "/contact"}
                     type="main"
                   >

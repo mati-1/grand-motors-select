@@ -25,6 +25,7 @@ export const HeroComponentSection = () => {
         muted
         loop
         playsInline
+        preload="auto"
         className="
     absolute
     inset-0

@@ -17,6 +17,7 @@ export const DetailingHero = () => {
         muted
         loop
         playsInline
+        preload="auto"
         className="
     absolute
     inset-0

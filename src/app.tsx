@@ -13,7 +13,7 @@ import { ReviewsComponent } from "./sections/landing/reviews/reviews";
 import { TrustComponent } from "./sections/landing/trust";
 import { WrapSectionComponent } from "./sections/landing/wrap";
 
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 import { RegulationPage } from "./pages/regulationPage";
 import { PrivacyPolicyPage } from "./pages/privacyPolicyPage";
@@ -21,11 +21,25 @@ import { DetailingPage } from "./pages/detailingPage";
 import CarsPage from "./pages/carsPage";
 import CarDetailsPage from "./pages/carDetailsPage";
 import ContactPage from "./pages/contactPage";
+import { PageLoader } from "./components/page-loader";
+
+const pageVideos: Record<string, string> = {
+  "/": "/hero.mp4",
+  "/detailing": "/detailing.mp4",
+  "/wrap": "/wrap.mp4",
+  "/cars": "/cars.mp4",
+};
 
 const App = () => {
+  const location = useLocation();
+
+  const videoSrc = pageVideos[location.pathname];
+
   return (
     <div className="min-h-screen bg-[#050505] text-[#f4f4f2]">
       <HeaderComponent />
+
+      <PageLoader videoSrc={videoSrc} />
 
       <Routes>
         <Route

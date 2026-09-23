@@ -19,6 +19,7 @@ export const CarsHero = () => {
         autoPlay
         muted
         loop
+        preload="auto"
         playsInline
         className="
     absolute
