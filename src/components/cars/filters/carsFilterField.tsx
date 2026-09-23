@@ -1,15 +1,13 @@
-type CarsFilterFieldProps = {
+type CarsFilterFieldProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   label: string;
   children: React.ReactNode;
-  className?: string;
-  onClick?: () => void;
 };
 
 export const CarsFilterField = ({
   label,
   children,
   className = "",
-  onClick,
+  ...buttonProps
 }: CarsFilterFieldProps) => {
   return (
     <button
@@ -28,7 +26,7 @@ export const CarsFilterField = ({
         hover:bg-[#0b0b0b]
         ${className}
       `}
-      onClick={onClick}
+      {...buttonProps}
     >
       {/* top accent */}
       <div

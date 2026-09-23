@@ -56,10 +56,10 @@ export const CarsFilterSelect = ({
       <CarsFilterField
         label={label}
         onClick={() => setIsOpen((current) => !current)}
+        type="button"
+        aria-expanded={isOpen}
       >
-        <button
-          type="button"
-          aria-expanded={isOpen}
+        <div
           className="
             group/select
             flex
@@ -103,7 +103,7 @@ export const CarsFilterSelect = ({
           >
             ↓
           </span>
-        </button>
+        </div>
       </CarsFilterField>
 
       {/* DROPDOWN */}
