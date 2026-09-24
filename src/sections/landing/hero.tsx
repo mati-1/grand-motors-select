@@ -182,7 +182,7 @@ export const HeroComponentSection = () => {
             </ButtonComponent>
 
             <ButtonComponent type="secondary" href="#cars-trust" size="big">
-              POZNAJ NAS
+              NASZE STANDARDY
             </ButtonComponent>
           </div>
 
