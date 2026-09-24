@@ -9,7 +9,7 @@ export type SortOption =
   | "yearDesc"
   | "mileageAsc";
 
-export type CarView = "available" | "sold";
+export type CarView = "available" | "sold" | "reservation";
 
 const parseNumber = (value: string) => {
   return Number(value.replace(/[^\d]/g, ""));
@@ -41,8 +41,10 @@ export const useCarFilters = () => {
 
     // STATUS
 
-    if (view === "available") {
-      result = result.filter((car) => car.status === "available");
+    if (view === "available" || view === "reservation") {
+      result = result.filter(
+        (car) => car.status === "available" || car.status === "reservation",
+      );
     }
 
     if (view === "sold") {

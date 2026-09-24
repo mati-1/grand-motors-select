@@ -101,6 +101,9 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
     ["LICZBA MIEJSC", car.details.seats],
     ["LICZBA DRZWI", car.details.doors],
     ["KRAJ POCHODZENIA", car.details.country],
+    ["PALIWO", car.fuel],
+    ["FAKTURA", car.invoice],
+    ["CARVERTICAL", car.carvertical ? "Dostępny" : "Brak"],
   ];
 
   const [copied, setCopied] = useState(false);

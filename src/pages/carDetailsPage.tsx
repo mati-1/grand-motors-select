@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import { LineComponent } from "../components/line";
 import { CarGallery } from "../components/cars/car-slug/carGallery";
@@ -12,6 +12,7 @@ import { ContactSectionComponent } from "../sections/landing/contact";
 
 export const CarDetailsPage = () => {
   const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
 
   const car = [...carsList].find((item) => item.slug === slug);
 
@@ -30,8 +31,8 @@ export const CarDetailsPage = () => {
           Wybrany samochód nie istnieje lub został usunięty z aktualnej oferty.
         </p>
 
-        <Link
-          to="/cars"
+        <button
+          onClick={() => navigate(-1)}
           className="
             mt-8
             border
@@ -47,7 +48,7 @@ export const CarDetailsPage = () => {
           "
         >
           WRÓĆ DO OFERTY
-        </Link>
+        </button>
       </main>
     );
   }
@@ -56,11 +57,12 @@ export const CarDetailsPage = () => {
     <main className="w-full bg-[#050505]">
       {/* TOP */}
       <section className="px-[5vw] pb-16 pt-32 sm:pb-24">
-        <Link
-          to="/cars"
+        <button
+          onClick={() => navigate(-1)}
           className="
             inline-flex
             items-center
+            cursor-pointer
             gap-3
             text-[10px]
             tracking-[0.22em]
@@ -70,9 +72,9 @@ export const CarDetailsPage = () => {
           "
         >
           ← WRÓĆ DO OFERTY
-        </Link>
+        </button>
 
-        <div className="mt-10 grid gap-10 xl:grid-cols-[1.5fr_0.8fr] xl:items-start">
+        <div className="mt-7 grid gap-10 xl:grid-cols-[1.5fr_0.8fr] xl:items-start">
           <CarGallery
             car={car}
             images={car.images}
@@ -88,7 +90,7 @@ export const CarDetailsPage = () => {
         <CarDescription car={car} />
 
         <CarEquipment car={car} />
-        {car.status === "available" && <CarHistory car={car} />}
+        {car.status !== "sold" && <CarHistory car={car} />}
       </div>
 
       {/* CONTACT */}

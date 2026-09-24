@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { ButtonComponent } from "../../button";
 import type { CarType } from "../cars";
 
 type CarInfoProps = {
@@ -10,7 +12,7 @@ type SpecificationItemProps = {
   index: number;
 };
 
-const SpecificationItem = ({ label, value, index }: SpecificationItemProps) => {
+const SpecificationItem = ({ label, value }: SpecificationItemProps) => {
   return (
     <div
       className="
@@ -60,19 +62,6 @@ const SpecificationItem = ({ label, value, index }: SpecificationItemProps) => {
             {value}
           </p>
         </div>
-
-        <span
-          className="
-            pt-0.5
-            font-serif
-            text-[10px]
-            text-[#333]
-            transition-colors duration-300
-            group-hover:text-[#b99a5c]/50
-          "
-        >
-          {String(index + 1).padStart(2, "0")}
-        </span>
       </div>
     </div>
   );
@@ -86,12 +75,10 @@ export const CarInfo = ({ car }: CarInfoProps) => {
     ["MOC", car.power],
     ["SKRZYNIA", car.transmission],
     ["NAPĘD", car.drive],
-    ["PALIWO", car.fuel],
-    ["FAKTURA", car.invoice],
-    ["CARVERTICAL", car.carvertical === true ? "DOSTĘPNY" : ""],
   ];
-
+  const [isPhoneOpened, setIsPhoneOpened] = useState(false);
   const isAvailable = car.status === "available";
+  const isReservated = car.status === "reservation";
 
   return (
     <div>
@@ -108,7 +95,7 @@ export const CarInfo = ({ car }: CarInfoProps) => {
           <span
             className={`
               h-1.5 w-1.5 rounded-full
-              ${isAvailable ? "bg-[#b99a5c]" : "bg-[#555]"}
+              ${isAvailable || isReservated ? "bg-[#b99a5c]" : "bg-[#555]"}
             `}
           />
 
@@ -119,7 +106,11 @@ export const CarInfo = ({ car }: CarInfoProps) => {
               text-[#555]
             "
           >
-            {isAvailable ? "DOSTĘPNE" : "SPRZEDANE"}
+            {isReservated
+              ? "Rezerwacja"
+              : isAvailable
+                ? "DOSTĘPNE"
+                : "SPRZEDANE"}
           </span>
         </div>
       </div>
@@ -164,10 +155,9 @@ export const CarInfo = ({ car }: CarInfoProps) => {
             <div
               className={`
                 mt-3
-                font-serif
                 text-[30px]
                 leading-none
-                ${isAvailable ? "text-[#d2b878]" : "text-[#666] line-through"}
+                ${isAvailable || isReservated ? "text-[#d2b878]" : "text-[#666] line-through"}
               `}
             >
               {car.price}
@@ -175,7 +165,7 @@ export const CarInfo = ({ car }: CarInfoProps) => {
           </div>
 
           <div className="pb-0.5 text-right">
-            {isAvailable && car.negotiation ? (
+            {isAvailable || (isReservated && car.negotiation) ? (
               <span
                 className="
                   text-[10px]
@@ -185,7 +175,7 @@ export const CarInfo = ({ car }: CarInfoProps) => {
               >
                 DO NEGOCJACJI
               </span>
-            ) : !isAvailable ? (
+            ) : !isAvailable && !isReservated ? (
               <span
                 className="
                   text-[10px]
@@ -213,11 +203,10 @@ export const CarInfo = ({ car }: CarInfoProps) => {
                 text-[#555]
               "
             >
-              SPECYFIKACJA
+              W SKRÓCIE
             </span>
           </div>
         </div>
-
         <div
           className="
             grid
@@ -238,6 +227,86 @@ export const CarInfo = ({ car }: CarInfoProps) => {
               index={index}
             />
           ))}
+        </div>
+
+        <div
+          className="
+    fixed
+    bottom-0
+    left-0
+    right-0
+    z-30
+    flex
+    items-center
+    justify-between
+    gap-2
+    border-t
+    border-white/10
+    bg-[#080808]/95
+    p-3
+    backdrop-blur-xl
+    sm:static
+    sm:mt-8
+    sm:border-t-0
+    sm:bg-transparent
+    sm:p-0
+    sm:backdrop-blur-none
+  "
+        >
+          {/* OTOMOTO */}
+          <a
+            href="https://www.otomoto.pl/"
+            target="_blank"
+            rel="noreferrer"
+            className="
+      group
+      inline-flex
+      items-center
+      justify-center
+      gap-3
+      border
+      border-white/10
+      bg-white/2
+      px-5
+      h-13
+      py-3.5
+      text-[10px]
+      tracking-[0.2em]
+      text-[#999]
+      transition-all
+      duration-300
+      hover:border-[#b99a5c]/40
+      hover:bg-[#b99a5c]/5
+      hover:text-[#d2b878]
+    "
+          >
+            <span>OTOMOTO</span>
+
+            <span
+              className="
+        text-[#b99a5c]
+        transition-transform
+        duration-300
+        group-hover:translate-x-1
+      "
+            >
+              ↗
+            </span>
+          </a>
+
+          {/* TELEFON */}
+          <ButtonComponent
+            type="secondary"
+            href={!isPhoneOpened ? undefined : "tel:+48514137133"}
+            className="cursor-pointer text-[11px]! lg:text-[12px]! min-h-13!"
+            onClick={() => setIsPhoneOpened(true)}
+          >
+            {isPhoneOpened ? (
+              <span>514 137 133</span>
+            ) : (
+              <span>Wyświetl numer</span>
+            )}
+          </ButtonComponent>
         </div>
       </div>
     </div>

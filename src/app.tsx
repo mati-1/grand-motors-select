@@ -9,7 +9,7 @@ import { DetailingSectionComponent } from "./sections/landing/detailing";
 import { FooterComponent } from "./sections/landing/footer";
 import { HeaderComponent } from "./components/header/header";
 import { HeroComponentSection } from "./sections/landing/hero";
-import { ReviewsComponent } from "./sections/landing/reviews/reviews";
+// import { ReviewsComponent } from "./sections/landing/reviews/reviews";
 import { TrustComponent } from "./sections/landing/trust";
 import { WrapSectionComponent } from "./sections/landing/wrap";
 
@@ -63,7 +63,7 @@ const App = () => {
 
                 <DetailingSectionComponent />
                 <WrapSectionComponent />
-                <ReviewsComponent />
+                {/* <ReviewsComponent /> */}
                 <ContactSectionComponent />
               </main>
 

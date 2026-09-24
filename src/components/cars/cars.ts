@@ -19,7 +19,7 @@ export type CarType = {
   images: string[];
   negotiation: boolean;
   description: string;
-  status: "available" | "sold";
+  status: "available" | "sold" | "reservation";
   invoice: "VAT 23%" | "VAT MARŻA";
 
   equipment: string[];
@@ -237,7 +237,7 @@ export const carsList: CarType[] = [
     transmission: "Automatyczna",
     drive: "xDrive",
     fuel: "Benzyna",
-    status: "available",
+    status: "reservation",
     price: "140 000 zł",
     vin: "WBA8B9C50HK123456",
     image: "/cars/bmwx6m/1.png",

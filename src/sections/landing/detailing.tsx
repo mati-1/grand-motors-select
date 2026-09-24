@@ -14,7 +14,7 @@ export const DetailingSectionComponent = () => {
         PROFESJONALNY <span className="text-[#d2b878]">DETAILING</span>
       </div>
 
-      <MainHeadingComponent className="text-[34px]! sm:text-[50px]!">
+      <MainHeadingComponent className="text-[34px]! max-lg:mb-5 sm:text-[50px]!">
         DETAL
         <br />
         KTÓRY
@@ -22,7 +22,7 @@ export const DetailingSectionComponent = () => {
         <span className="text-[#d2b878]">WIDAĆ.</span>
       </MainHeadingComponent>
 
-      <LineComponent type="left" className="my-6 w-[30%]" />
+      <LineComponent type="left" className="my-6 w-[30%] hidden lg:block" />
 
       <p className="mb-6 max-w-117.5 text-[12px] leading-[1.8] text-[#888] sm:text-[13px] sm:leading-[1.9]">
         Detailing w GRAND MOTORS SELECT to coś więcej niż dokładne umycie
@@ -32,11 +32,6 @@ export const DetailingSectionComponent = () => {
         Pracujemy nad każdym detalem — od dokładnego oczyszczenia i pielęgnacji
         lakieru, przez wnętrze, aż po zabezpieczenie powierzchni. Wszystko po
         to, aby samochód odzyskał świeżość, głębię i właściwy wygląd.
-        <br />
-        <br />
-        Każde auto traktujemy indywidualnie, dobierając zakres prac do jego
-        stanu i oczekiwanego efektu. Bo dobrze przygotowany samochód nie
-        potrzebuje przesady.
       </p>
       <ButtonComponent href="/detailing" size="small">
         POZNAJ ZAKRES USŁUG →

@@ -6,19 +6,19 @@ export const HeroComponentSection = () => {
     <section
       id="home"
       className="
-    relative
-    flex
-    min-h-150
-    h-screen
-    items-center
-    overflow-hidden
-    bg-[#050505]
-    bg-cover
-    bg-center
-    bg-no-repeat
-    sm:bg-position-[58%_center]
-    lg:bg-position-[52%_center]
-  "
+        relative
+        flex
+        min-h-150
+        h-screen
+        items-center
+        overflow-hidden
+        bg-[#050505]
+        bg-cover
+        bg-center
+        bg-no-repeat
+        sm:bg-position-[58%_center]
+        lg:bg-position-[52%_center]
+      "
     >
       <video
         autoPlay
@@ -27,33 +27,36 @@ export const HeroComponentSection = () => {
         playsInline
         preload="auto"
         className="
-    absolute
-    inset-0
-    h-full
-    w-full
-    object-cover
-    object-[10%_center]
-    sm:object-[58%_center]
-    lg:object-[52%_center]
-  "
+          absolute
+          inset-0
+          h-full
+          w-full
+          object-cover
+          object-[5%_center]
+          sm:object-[58%_center]
+          lg:object-[52%_center]
+        "
       >
         <source src="/hero.mp4" type="video/mp4" />
       </video>
+
       {/* OVERLAY */}
       <div
         className="
           absolute inset-0 z-0
           bg-linear-to-r
-          from-black via-black/80
+          from-black
+          via-black/90
+          lg:via-black/75
           to-black/25
         "
       />
 
-      {/* SUBTELNE PRZYCIEMNIENIE DOŁU */}
+      {/* BOTTOM GRADIENT */}
       <div
         className="
           absolute inset-x-0 bottom-0 z-1 h-40
-          bg-linear-to-t from-black/70 to-transparent
+          bg-linear-to-t from-black/80 to-transparent
         "
       />
 
@@ -91,31 +94,34 @@ export const HeroComponentSection = () => {
           {/* EYEBROW */}
           <div
             className="
+              flex
+              items-center
+              gap-3
               text-[8px]
               tracking-[0.28em]
-              text-[#999]
+              text-[#888]
               sm:text-[9px]
               sm:tracking-[0.35em]
               lg:text-[10px]
-              lg:tracking-[0.4em]
             "
           >
-            STARANNIE WYSELEKCJONOWANE{" "}
-            <span className="text-[#d2b878]">SAMOCHODY</span>
+            <span className="h-px w-7 bg-[#b99a5c]/60" />
+
+            <span className="text-[10px]">zapoznaj się z ofertą</span>
           </div>
 
           {/* HEADING */}
-          <MainHeadingComponent className="text-[clamp(46px,8vw,94px)]!">
+          <MainHeadingComponent className="mt-5 text-[clamp(46px,8vw,94px)]! leading-[0.90]!">
             WIĘCEJ NIŻ
             <br />
-            <span className="text-[#d2b878]">SAMOCHODY.</span>
+            <span className="text-[#d2b878]">SAMOCHODY</span>
           </MainHeadingComponent>
 
           {/* DESCRIPTION */}
           <p
             className="
               mt-6
-              max-w-125
+              max-w-110
               text-[11px]
               leading-[1.8]
               tracking-[0.03em]
@@ -126,10 +132,8 @@ export const HeroComponentSection = () => {
               lg:text-[13px]
             "
           >
-            Wybieramy samochody, które sami chcielibyśmy mieć w swoim garażu.
-            <br />
-            Każdy egzemplarz przechodzi indywidualną selekcję, weryfikację i
-            przygotowanie.
+            Selekcja samochodów premium, profesjonalny detailing i
+            zabezpieczenia, które dopełniają całość.
           </p>
 
           {/* BUTTONS */}
@@ -137,7 +141,10 @@ export const HeroComponentSection = () => {
             className="
               mt-7
               flex flex-col items-start gap-3
-              sm:mt-9 sm:flex-row sm:items-center sm:gap-4
+              sm:mt-9
+              sm:flex-row
+              sm:items-center
+              sm:gap-4
             "
           >
             <ButtonComponent type="main" href="#cars" size="big">
@@ -145,44 +152,45 @@ export const HeroComponentSection = () => {
             </ButtonComponent>
 
             <ButtonComponent type="secondary" href="#cars-trust" size="big">
-              JAK WYGLĄDA ZAKUP?
+              POZNAJ NAS
             </ButtonComponent>
           </div>
 
-          {/* BOTTOM INFO */}
+          {/* SERVICES */}
           <div
             className="
               mt-12
-              flex flex-col gap-5
+              flex
+              flex-col
+              sm:flex-row
+              sm:items-center
+              gap-x-7
+              gap-y-3
               sm:mt-16
-              sm:flex-row sm:items-center sm:gap-12
-              lg:mt-20 lg:gap-20
+              sm:gap-x-10
+              lg:mt-20
+              lg:gap-x-14
             "
           >
-            <div className="flex flex-col sm:flex-row gap-9 sm:gap-20 items-start sm:items-center">
-              <div
-                className="
-              flex flex-col gap-1
-              text-[8px]
-              tracking-[0.28em]
-              text-[#666]
-              sm:text-[9px]
-              sm:tracking-[0.35em]
-              "
-              >
-                <span>SELECTED CARS.</span>
+            <div className="flex items-center gap-3">
+              <span className="h-px w-5 bg-[#b99a5c]/50" />
+              <span className="text-[8px] tracking-[0.25em] text-[#999]">
+                SAMOCHODY
+              </span>
+            </div>
 
-                <strong className="font-normal text-[#999]">
-                  PREPARED PROPERLY.
-                </strong>
-              </div>
+            <div className="flex items-center gap-3">
+              <span className="h-px w-5 bg-[#b99a5c]/50" />
+              <span className="text-[8px] tracking-[0.25em] text-[#999]">
+                DETAILING
+              </span>
+            </div>
 
-              <div className="flex flex-col gap-2 text-[8px] tracking-[0.25em] text-[#666]">
-                <span className="text-[#d2b878]">GRAND MOTORS SELECT</span>
-                <span className="text-[#999]">
-                  SAMOCHODY • DETAILING • WRAP
-                </span>
-              </div>
+            <div className="flex items-center gap-3">
+              <span className="h-px w-5 bg-[#b99a5c]/50" />
+              <span className="text-[8px] tracking-[0.25em] text-[#999]">
+                WRAP
+              </span>
             </div>
           </div>
         </div>

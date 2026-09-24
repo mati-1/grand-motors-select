@@ -6,6 +6,7 @@ import {
 } from "../../components/headings";
 import { LineComponent } from "../../components/line";
 import { ClickableCard } from "../../components/clickableCard";
+import { CarWarranty } from "../../components/CarWarranty";
 
 type ProcessItemProps = {
   number: string;
@@ -61,13 +62,6 @@ export const TrustComponent = () => {
         "Nie budujemy oferty na ilości. Wybieramy samochody pod kątem ich historii, stanu technicznego, specyfikacji oraz ogólnej kondycji. Do oferty trafiają egzemplarze, które sami chcielibyśmy postawić w swoim garażu.",
     },
     {
-      number: "02",
-      title: "ZWERYFIKOWANA HISTORIA",
-      subtitle: "DOKUMENTACJA I POCHODZENIE",
-      description:
-        "Przed wprowadzeniem samochodu do oferty analizujemy dostępne informacje dotyczące jego pochodzenia, historii oraz dokumentacji. Przekazujemy klientowi informacje, które posiadamy na temat konkretnego egzemplarza.",
-    },
-    {
       number: "03",
       title: "MOŻLIWOŚĆ SPRAWDZENIA",
       subtitle: "NIEZALEŻNA KONTROLA AUTA",
@@ -92,7 +86,8 @@ export const TrustComponent = () => {
   return (
     <section
       id="cars-trust"
-      className="flex w-full scroll-mt-22 flex-col items-stretch justify-center bg-[#050505]"
+      className="flex w-full scroll-mt-22 flex-col items-stretch justify-center           bg-[#b99a5c]/20
+          bg-linear-to-r from-black/90 via-black/75 to-black/90 "
     >
       <LineComponent className="mt-0! self-start" />
 
@@ -105,11 +100,8 @@ export const TrustComponent = () => {
           mt-5 grid w-full
           grid-cols-1
           gap-0
-          border-y border-[#b99a5c]/20
-          bg-[#b99a5c]/20
-          bg-linear-to-r from-black/90 via-black/75 to-black/90
-          sm:grid-cols-2
-          xl:grid-cols-4
+          border-t border-[#b99a5c]/20
+          lg:grid-cols-3
         "
       >
         {trustItems.map((item) => (
@@ -170,11 +162,9 @@ export const TrustComponent = () => {
         <div className="col-span-full border-t border-[#b99a5c]/20 bg-black/20">
           <div className="px-5 py-7 sm:px-8 sm:py-9 lg:px-[5vw]">
             <div className="my-4 md:my-8">
-              <SubHeadingComponent>
-                GRAND MOTORS <span className="text-[#d2b878]">SELECT</span>
-              </SubHeadingComponent>
-
-              <MainHeadingComponent>JAK WYGLĄDA ZAKUP?</MainHeadingComponent>
+              <MainHeadingComponent>
+                JAK WYGLĄDA <span className="text-[#d2b878]">ZAKUP?</span>{" "}
+              </MainHeadingComponent>
               <p className="max-w-180 text-[11px] leading-[1.8] tracking-[0.04em] text-[#777] sm:text-[12px]">
                 Od pierwszego kontaktu do wydania samochodu — krok po kroku.
               </p>
@@ -189,67 +179,24 @@ export const TrustComponent = () => {
 
               <ProcessItem
                 number="02"
-                title="ROZMOWA I DODATKOWE INFORMACJE"
-                description="Odpowiadamy na pytania dotyczące samochodu, jego historii, wyposażenia i stanu."
-              />
-
-              <ProcessItem
-                number="03"
                 title="OGLĘDZINY SAMOCHODU"
                 description="Możesz zobaczyć samochód na żywo i dokładnie zapoznać się z jego stanem."
               />
 
               <ProcessItem
-                number="04"
+                number="03"
                 title="NIEZALEŻNA WERYFIKACJA"
                 description="Na życzenie możesz zlecić dodatkową kontrolę samochodu w wybranym przez siebie serwisie lub stacji diagnostycznej."
               />
 
               <ProcessItem
-                number="05"
+                number="04"
                 title="DECYZJA I FORMALNOŚCI"
                 description="Po zaakceptowaniu samochodu ustalamy szczegóły transakcji, przygotowujemy dokumenty i finalizujemy zakup."
               />
-
-              <ProcessItem
-                number="06"
-                title="PRZYGOTOWANIE DO WYDANIA"
-                description="Samochód zostaje przygotowany do odbioru zgodnie z ustalonym zakresem prac."
-              />
-
-              <ProcessItem
-                number="07"
-                title="WYDANIE SAMOCHODU"
-                description="Odbierasz samochód wraz z przekazywanymi dokumentami, kluczykami oraz informacjami dotyczącymi dalszego użytkowania."
-                last
-              />
             </div>
 
-            {/* GWARANCJA */}
-            <div className="mt-8 border border-[#b99a5c]/25 bg-[#b99a5c]/5 p-5 sm:mt-10 sm:p-7">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:gap-8">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center border border-[#b99a5c]/40 font-serif text-[17px] text-[#d2b878]">
-                  ★
-                </div>
-
-                <div>
-                  <span className="block text-[12px] tracking-[0.2em] text-[#b99a5c]">
-                    DODATKOWA OCHRONA
-                  </span>
-
-                  <h4 className="mt-2 text-[11px] tracking-[0.15em] text-[#ddd]">
-                    GWARANCJA
-                  </h4>
-
-                  <p className="mt-2 max-w-180 text-[10px] leading-[1.8] tracking-[0.04em] text-[#777] sm:text-[12px]">
-                    Wybrane samochody są objęte gwarancją na zasadach
-                    określonych przy konkretnym egzemplarzu. Zakres ochrony,
-                    okres obowiązywania oraz elementy objęte gwarancją są
-                    każdorazowo wskazane w warunkach sprzedaży.
-                  </p>
-                </div>
-              </div>
-            </div>
+            <CarWarranty />
           </div>
         </div>
       </div>
