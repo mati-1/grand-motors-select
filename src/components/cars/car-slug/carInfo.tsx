@@ -88,7 +88,10 @@ export const CarInfo = ({ car }: CarInfoProps) => {
           bg-linear-to-r from-black/90 via-black/75 to-black/90 items-center justify-between gap-6"
       >
         <div className="text-[9px] tracking-[0.3em] text-[#b99a5c]">
-          GRAND MOTORS SELECT
+          GRAND MOTORS SELECT{" "}
+          {car.status === "sold" && (
+            <span className="text-[#666]">OFERTA ARCHIWALNA</span>
+          )}
         </div>
 
         <div className="flex items-center gap-2">
@@ -229,8 +232,9 @@ export const CarInfo = ({ car }: CarInfoProps) => {
           ))}
         </div>
 
-        <div
-          className="
+        {car.status !== "sold" && (
+          <div
+            className="
     fixed
     bottom-0
     left-0
@@ -252,13 +256,13 @@ export const CarInfo = ({ car }: CarInfoProps) => {
     sm:p-0
     sm:backdrop-blur-none
   "
-        >
-          {/* OTOMOTO */}
-          <a
-            href="https://www.otomoto.pl/"
-            target="_blank"
-            rel="noreferrer"
-            className="
+          >
+            {/* OTOMOTO */}
+            <a
+              href="https://www.otomoto.pl/"
+              target="_blank"
+              rel="noreferrer"
+              className="
       group
       inline-flex
       items-center
@@ -279,35 +283,36 @@ export const CarInfo = ({ car }: CarInfoProps) => {
       hover:bg-[#b99a5c]/5
       hover:text-[#d2b878]
     "
-          >
-            <span>OTOMOTO</span>
+            >
+              <span>OTOMOTO</span>
 
-            <span
-              className="
+              <span
+                className="
         text-[#b99a5c]
         transition-transform
         duration-300
         group-hover:translate-x-1
       "
-            >
-              ↗
-            </span>
-          </a>
+              >
+                ↗
+              </span>
+            </a>
 
-          {/* TELEFON */}
-          <ButtonComponent
-            type="secondary"
-            href={!isPhoneOpened ? undefined : "tel:+48514137133"}
-            className="cursor-pointer text-[11px]! lg:text-[12px]! min-h-13!"
-            onClick={() => setIsPhoneOpened(true)}
-          >
-            {isPhoneOpened ? (
-              <span>514 137 133</span>
-            ) : (
-              <span>Wyświetl numer</span>
-            )}
-          </ButtonComponent>
-        </div>
+            {/* TELEFON */}
+            <ButtonComponent
+              type="secondary"
+              href={!isPhoneOpened ? undefined : "tel:+48514137133"}
+              className="cursor-pointer text-[11px]! lg:text-[12px]! min-h-13!"
+              onClick={() => setIsPhoneOpened(true)}
+            >
+              {isPhoneOpened ? (
+                <span>514 137 133</span>
+              ) : (
+                <span>Wyświetl numer</span>
+              )}
+            </ButtonComponent>
+          </div>
+        )}
       </div>
     </div>
   );
