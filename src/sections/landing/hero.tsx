@@ -36,9 +36,8 @@ export const HeroComponentSection = () => {
           h-full
           w-full
           object-cover
-          object-[5%_center]
-          sm:object-[58%_center]
-          lg:object-[52%_center]
+          object-[45%_center]
+          md:object-[60%_center]
         "
       >
         <source src="/hero.mp4" type="video/mp4" />
@@ -55,7 +54,7 @@ export const HeroComponentSection = () => {
           z-0
           bg-linear-to-r
           from-black
-          via-black/90
+          via-black/75
           lg:via-black/75
           to-black/25
         "
