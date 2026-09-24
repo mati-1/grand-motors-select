@@ -23,6 +23,7 @@ import CarDetailsPage from "./pages/carDetailsPage";
 import ContactPage from "./pages/contactPage";
 import { PageLoader } from "./components/page-loader";
 import { CookieBanner } from "./components/CookieBanner";
+// import { SafeSectionComponent } from "./sections/landing/safe";
 
 const pageVideos: Record<string, string> = {
   "/": "/hero.mp4",
@@ -63,6 +64,7 @@ const App = () => {
 
                 <DetailingSectionComponent />
                 <WrapSectionComponent />
+                {/* <SafeSectionComponent /> */}
                 {/* <ReviewsComponent /> */}
                 <ContactSectionComponent />
               </main>

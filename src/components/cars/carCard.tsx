@@ -138,7 +138,6 @@ export const CarCard = ({ car }: { car: CarType }) => {
           <div className="mt-5">
             <strong
               className={`
-                font-serif
                 text-[21px]
                 font-normal
                 text-[#d2b878]
