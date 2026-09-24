@@ -30,6 +30,7 @@ const pageVideos: Record<string, string> = {
   "/detailing": "/detailing.mp4",
   "/wrap": "/wrap.mp4",
   "/cars": "/cars.mp4",
+  "/contact": "/contact.mp4",
 };
 
 const App = () => {

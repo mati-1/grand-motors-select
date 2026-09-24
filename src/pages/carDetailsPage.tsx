@@ -1,12 +1,16 @@
 import { useParams, useNavigate } from "react-router-dom";
 
 import { LineComponent } from "../components/line";
+import { PageLoader } from "../components/page-loader";
+
 import { CarGallery } from "../components/cars/car-slug/carGallery";
 import { CarInfo } from "../components/cars/car-slug/carInfo";
 import { CarDescription } from "../components/cars/car-slug/carDescription";
 import { CarEquipment } from "../components/cars/car-slug/carEquipment";
 import { CarHistory } from "../components/cars/car-slug/carHistory";
+
 import { carsList } from "../components/cars/cars";
+
 import { FooterComponent } from "../sections/landing/footer";
 import { ContactSectionComponent } from "../sections/landing/contact";
 
@@ -54,52 +58,57 @@ export const CarDetailsPage = () => {
   }
 
   return (
-    <main className="w-full bg-[#050505]">
-      {/* TOP */}
-      <section className="px-[5vw] pb-16 pt-32 sm:pb-24">
-        <button
-          onClick={() => navigate(-1)}
-          className="
-            inline-flex
-            items-center
-            cursor-pointer
-            gap-3
-            text-[10px]
-            tracking-[0.22em]
-            text-[#666]
-            transition
-            hover:text-[#d2b878]
-          "
-        >
-          ← WRÓĆ DO OFERTY
-        </button>
+    <>
+      <PageLoader imageSources={car.images} />
 
-        <div className="mt-7 grid gap-10 xl:grid-cols-[1.5fr_0.8fr] xl:items-start">
-          <CarGallery
-            car={car}
-            images={car.images}
-            alt={`${car.brand} ${car.model}`}
-          />
+      <main className="w-full bg-[#050505]">
+        {/* TOP */}
+        <section className="px-[5vw] pb-16 pt-32 sm:pb-24">
+          <button
+            onClick={() => navigate(-1)}
+            className="
+              inline-flex
+              cursor-pointer
+              items-center
+              gap-3
+              text-[10px]
+              tracking-[0.22em]
+              text-[#666]
+              transition
+              hover:text-[#d2b878]
+            "
+          >
+            ← WRÓĆ DO OFERTY
+          </button>
 
-          <CarInfo car={car} />
+          <div className="mt-7 grid gap-10 xl:grid-cols-[1.5fr_0.8fr] xl:items-start">
+            <CarGallery
+              car={car}
+              images={car.images}
+              alt={`${car.brand} ${car.model}`}
+            />
+
+            <CarInfo car={car} />
+          </div>
+        </section>
+
+        {/* DESCRIPTION */}
+        <div className="px-[5vw]">
+          <CarDescription car={car} />
+
+          <CarEquipment car={car} />
+
+          {car.status !== "sold" && <CarHistory car={car} />}
         </div>
-      </section>
 
-      {/* DESCRIPTION */}
-      <div className="px-[5vw]">
-        <CarDescription car={car} />
+        {/* CONTACT */}
+        <ContactSectionComponent />
 
-        <CarEquipment car={car} />
-        {car.status !== "sold" && <CarHistory car={car} />}
-      </div>
+        <FooterComponent />
 
-      {/* CONTACT */}
-      <ContactSectionComponent />
-
-      <FooterComponent />
-
-      <LineComponent className="mt-0!" />
-    </main>
+        <LineComponent className="mt-0!" />
+      </main>
+    </>
   );
 };
 

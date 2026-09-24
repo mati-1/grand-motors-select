@@ -46,7 +46,7 @@ const DetailItem = ({ label, value, index }: DetailItemProps) => {
       />
 
       <div className="flex items-start justify-between gap-4">
-        <div>
+        <div className="min-w-0">
           <p
             className="
               text-[10px]
@@ -60,7 +60,8 @@ const DetailItem = ({ label, value, index }: DetailItemProps) => {
             {label}
           </p>
 
-          <p
+          {/* VALUE */}
+          <div
             className="
               mt-2
               text-[13px]
@@ -72,7 +73,7 @@ const DetailItem = ({ label, value, index }: DetailItemProps) => {
             "
           >
             {value}
-          </p>
+          </div>
         </div>
 
         <span
