@@ -11,7 +11,7 @@ import { CarHistory } from "../components/cars/car-slug/carHistory";
 
 import { carsList } from "../components/cars/cars";
 
-import { FooterComponent } from "../sections/landing/footer";
+import { FooterComponent } from "../components/footer";
 import { ContactSectionComponent } from "../sections/landing/contact";
 
 export const CarDetailsPage = () => {

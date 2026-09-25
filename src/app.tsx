@@ -6,7 +6,7 @@ import WrapPage from "./pages/WrapPage";
 import { CarsComponent } from "./sections/landing/cars";
 import { ContactSectionComponent } from "./sections/landing/contact";
 import { DetailingSectionComponent } from "./sections/landing/detailing";
-import { FooterComponent } from "./sections/landing/footer";
+import { FooterComponent } from "./components/footer";
 import { HeaderComponent } from "./components/header/header";
 import { HeroComponentSection } from "./sections/landing/hero";
 // import { ReviewsComponent } from "./sections/landing/reviews/reviews";

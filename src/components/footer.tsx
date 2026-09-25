@@ -1,5 +1,5 @@
-import { LogoComponent } from "../../components/logo";
-import { LineComponent } from "../../components/line";
+import { LogoComponent } from "./logo";
+import { LineComponent } from "./line";
 
 export const FooterComponent = () => {
   return (
@@ -32,42 +32,42 @@ export const FooterComponent = () => {
 
             <nav className="flex flex-col gap-3">
               <a
-                href="#home"
+                href="/"
                 className="w-fit text-[9px] tracking-[0.12em] text-[#777] transition-colors hover:text-[#d2b878]"
               >
                 STRONA GŁÓWNA
               </a>
 
               <a
-                href="#cars"
+                href="/cars"
                 className="w-fit text-[9px] tracking-[0.12em] text-[#777] transition-colors hover:text-[#d2b878]"
               >
                 SAMOCHODY
               </a>
 
               <a
-                href="#detailing"
+                href="/detailing"
                 className="w-fit text-[9px] tracking-[0.12em] text-[#777] transition-colors hover:text-[#d2b878]"
               >
                 DETAILING
               </a>
 
               <a
-                href="#wrap"
+                href="/wrap"
                 className="w-fit text-[9px] tracking-[0.12em] text-[#777] transition-colors hover:text-[#d2b878]"
               >
                 WRAP
               </a>
 
-              <a
+              {/* <a
                 href="#reviews"
                 className="w-fit text-[9px] tracking-[0.12em] text-[#777] transition-colors hover:text-[#d2b878]"
               >
                 OPINIE
-              </a>
+              </a> */}
 
               <a
-                href="#contact"
+                href="/contact"
                 className="w-fit text-[9px] tracking-[0.12em] text-[#777] transition-colors hover:text-[#d2b878]"
               >
                 KONTAKT

@@ -5,7 +5,7 @@ import { CarsFilters } from "../components/cars/filters/carsFilters";
 import { CarsGrid } from "../components/cars/carsGrid";
 import { CarsHero } from "../components/cars/carsHero";
 import { useCarFilters } from "../hooks/useCarFilters";
-import { FooterComponent } from "../sections/landing/footer";
+import { FooterComponent } from "../components/footer";
 
 export const CarsPage = () => {
   const {

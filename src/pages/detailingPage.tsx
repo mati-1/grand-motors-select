@@ -5,7 +5,7 @@ import { DetailingBeforeAfter } from "../sections/detailing/detailingBeforeAfter
 import { DetailingPackages } from "../sections/detailing/detailingPackages";
 import { DetailingServices } from "../sections/detailing/detailingServices";
 import { DetailingCta } from "../sections/detailing/detailingCta";
-import { FooterComponent } from "../sections/landing/footer";
+import { FooterComponent } from "../components/footer";
 
 export const DetailingPage = () => {
   return (

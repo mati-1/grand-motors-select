@@ -5,7 +5,7 @@ import { WrapProcess } from "../sections/wrap/WrapProcess";
 import { WrapBeforeAfter } from "../sections/wrap/WrapBeforeAfter";
 import { WrapPackages } from "../sections/wrap/WrapPackages";
 import { ContactSectionComponent } from "../sections/landing/contact";
-import { FooterComponent } from "../sections/landing/footer";
+import { FooterComponent } from "../components/footer";
 
 export const WrapPage = () => {
   return (
