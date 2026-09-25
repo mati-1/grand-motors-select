@@ -7,20 +7,32 @@ type PageLoaderProps = {
   imageSources?: string[];
 };
 
-const MIN_IMAGE_LOADER_TIME = 1100;
+const MIN_IMAGE_LOADER_TIME = 1000;
 const CLOSE_DELAY = 300;
 const FADE_DURATION = 900;
+const MAX_WAIT_TIME = 6000;
 
 const getVideoStorageKey = (videoSrc: string) => `gms-video-loaded:${videoSrc}`;
 
-const getGalleryStorageKey = (imageSources: string[]) =>
-  `gms-gallery-loaded:${imageSources.slice(0, 10).join("|")}`;
+const getGalleryStorageKey = (signature: string) =>
+  `gms-gallery-loaded:${signature}`;
 
 export const PageLoader = ({ videoSrc, imageSources }: PageLoaderProps) => {
-  const galleryImages = imageSources?.slice(0, 10) ?? [];
+  const gallerySignature = imageSources?.slice(0, 10).join("|") ?? "";
+
+  const galleryImages =
+    gallerySignature.length > 0 ? gallerySignature.split("|") : [];
 
   const galleryStorageKey =
-    galleryImages.length > 0 ? getGalleryStorageKey(galleryImages) : undefined;
+    gallerySignature.length > 0
+      ? getGalleryStorageKey(gallerySignature)
+      : undefined;
+
+  /*
+   * =========================================================
+   * INITIAL STATE
+   * =========================================================
+   */
 
   const [loading, setLoading] = useState(() => {
     if (videoSrc) {
@@ -36,15 +48,23 @@ export const PageLoader = ({ videoSrc, imageSources }: PageLoaderProps) => {
 
   const [closing, setClosing] = useState(false);
 
+  /*
+   * =========================================================
+   * EFFECT
+   * =========================================================
+   */
+
   useEffect(() => {
     let closeTimeout: ReturnType<typeof setTimeout> | undefined;
     let removeTimeout: ReturnType<typeof setTimeout> | undefined;
+    let fallbackTimeout: ReturnType<typeof setTimeout> | undefined;
+
     let handled = false;
 
     /*
-     * =========================
+     * =======================================================
      * VIDEO
-     * =========================
+     * =======================================================
      */
 
     if (videoSrc) {
@@ -64,7 +84,7 @@ export const PageLoader = ({ videoSrc, imageSources }: PageLoaderProps) => {
       video.muted = true;
       video.playsInline = true;
 
-      const handleReady = () => {
+      const finishLoading = () => {
         if (handled) return;
 
         handled = true;
@@ -74,27 +94,40 @@ export const PageLoader = ({ videoSrc, imageSources }: PageLoaderProps) => {
         }, CLOSE_DELAY);
 
         removeTimeout = setTimeout(() => {
-          /*
-           * Dopiero po zakończeniu loadera zapisujemy,
-           * że video zostało przygotowane.
-           */
           sessionStorage.setItem(storageKey, "true");
-
           setLoading(false);
         }, CLOSE_DELAY + FADE_DURATION);
       };
 
+      const handleReady = () => {
+        finishLoading();
+      };
+
+      const handleError = () => {
+        finishLoading();
+      };
+
       video.addEventListener("loadeddata", handleReady);
+
       video.addEventListener("canplay", handleReady);
+
+      video.addEventListener("error", handleError);
 
       video.src = videoSrc;
       video.load();
+
+      fallbackTimeout = setTimeout(() => {
+        finishLoading();
+      }, MAX_WAIT_TIME);
 
       return () => {
         handled = true;
 
         video.removeEventListener("loadeddata", handleReady);
+
         video.removeEventListener("canplay", handleReady);
+
+        video.removeEventListener("error", handleError);
 
         video.src = "";
 
@@ -105,22 +138,22 @@ export const PageLoader = ({ videoSrc, imageSources }: PageLoaderProps) => {
         if (removeTimeout) {
           clearTimeout(removeTimeout);
         }
+
+        if (fallbackTimeout) {
+          clearTimeout(fallbackTimeout);
+        }
       };
     }
 
     /*
-     * =========================
+     * =======================================================
      * GALLERY
-     * =========================
+     * =======================================================
      */
 
     if (galleryImages.length > 0 && galleryStorageKey) {
       const storageKey = galleryStorageKey;
 
-      /*
-       * Jeżeli galeria była już przygotowana
-       * podczas tej sesji, nic nie pokazujemy.
-       */
       if (sessionStorage.getItem(storageKey) === "true") {
         setLoading(false);
         return;
@@ -137,46 +170,19 @@ export const PageLoader = ({ videoSrc, imageSources }: PageLoaderProps) => {
 
       const loadedIndexes = new Set<number>();
 
-      const handleImageReady = (index: number) => {
+      const finishLoading = () => {
         if (handled) return;
-
-        if (loadedIndexes.has(index)) {
-          return;
-        }
-
-        loadedIndexes.add(index);
-        loadedImages += 1;
-
-        /*
-         * Czekamy na wszystkie 10 zdjęć.
-         */
-        if (loadedImages < images.length) {
-          return;
-        }
 
         handled = true;
 
         const elapsed = performance.now() - startedAt;
 
-        /*
-         * Loader zawsze pozostaje widoczny
-         * przez minimum 1.8 sekundy.
-         */
         const remainingTime = Math.max(0, MIN_IMAGE_LOADER_TIME - elapsed);
 
-        /*
-         * Najpierw spokojna pauza,
-         * później rozpoczynamy fade.
-         */
         closeTimeout = setTimeout(() => {
           setClosing(true);
         }, remainingTime + CLOSE_DELAY);
 
-        /*
-         * Po zakończeniu fade-out:
-         * - zapisujemy galerię
-         * - zdejmujemy loader
-         */
         removeTimeout = setTimeout(
           () => {
             sessionStorage.setItem(storageKey, "true");
@@ -187,47 +193,46 @@ export const PageLoader = ({ videoSrc, imageSources }: PageLoaderProps) => {
         );
       };
 
+      const handleImageReady = (index: number) => {
+        if (handled) return;
+
+        if (loadedIndexes.has(index)) {
+          return;
+        }
+
+        loadedIndexes.add(index);
+        loadedImages += 1;
+
+        if (loadedImages < images.length) {
+          return;
+        }
+
+        finishLoading();
+      };
+
       images.forEach((image, index) => {
         const handleLoad = () => {
           handleImageReady(index);
         };
 
         const handleError = () => {
-          /*
-           * Jeżeli jedno zdjęcie nie może się załadować,
-           * nie blokujemy całego loadera.
-           */
           handleImageReady(index);
         };
 
-        /*
-         * Listenery przed src.
-         */
         image.addEventListener("load", handleLoad);
         image.addEventListener("error", handleError);
-
-        /*
-         * Rozpoczynamy ładowanie.
-         */
         image.src = galleryImages[index];
 
-        /*
-         * Obsługa zdjęć znajdujących się już w cache.
-         */
         if (image.complete) {
           handleImageReady(index);
         }
       });
 
+      fallbackTimeout = setTimeout(() => {
+        finishLoading();
+      }, MAX_WAIT_TIME);
+
       return () => {
-        /*
-         * Bardzo ważne:
-         *
-         * Nie zapisujemy sessionStorage tutaj.
-         *
-         * Dzięki temu React StrictMode może wykonać
-         * effect ponownie bez uznania galerii za gotową.
-         */
         handled = true;
 
         if (closeTimeout) {
@@ -237,8 +242,18 @@ export const PageLoader = ({ videoSrc, imageSources }: PageLoaderProps) => {
         if (removeTimeout) {
           clearTimeout(removeTimeout);
         }
+
+        if (fallbackTimeout) {
+          clearTimeout(fallbackTimeout);
+        }
       };
     }
+
+    /*
+     * =======================================================
+     * BRAK VIDEO / GALERII
+     * =======================================================
+     */
 
     setLoading(false);
 
@@ -252,8 +267,18 @@ export const PageLoader = ({ videoSrc, imageSources }: PageLoaderProps) => {
       if (removeTimeout) {
         clearTimeout(removeTimeout);
       }
+
+      if (fallbackTimeout) {
+        clearTimeout(fallbackTimeout);
+      }
     };
-  }, [videoSrc, imageSources, galleryStorageKey]);
+  }, [videoSrc, gallerySignature, galleryStorageKey]);
+
+  /*
+   * =========================================================
+   * RENDER
+   * =========================================================
+   */
 
   if (!loading) {
     return null;
