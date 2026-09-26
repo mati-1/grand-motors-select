@@ -54,13 +54,15 @@ const App = () => {
                 <CarsComponent />
                 <TrustComponent />
 
-                <div className="my-4 px-[5vw] md:my-8">
+                <div className="my-8 px-[3vw] md:my-12">
                   <SubHeadingComponent>
                     TO NIE TYLKO{" "}
                     <span className="text-[#d2b878]">SPRZEDAŻ</span>
                   </SubHeadingComponent>
 
-                  <MainHeadingComponent>DETAILING I WRAP</MainHeadingComponent>
+                  <MainHeadingComponent className="mt-1! sm:mt-3">
+                    DETAILING I WRAP
+                  </MainHeadingComponent>
                 </div>
 
                 <DetailingSectionComponent />

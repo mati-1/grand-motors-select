@@ -32,7 +32,7 @@ export const DetailingBeforeAfter = () => {
       </div>
 
       {/* HEADER */}
-      <div className="relative px-[5vw] py-18 sm:py-24 lg:py-28">
+      <div className="relative px-[3vw] py-18 sm:py-24 lg:py-28">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
           <div>
             <DetailingSectionLabel number="04">EFEKT</DetailingSectionLabel>

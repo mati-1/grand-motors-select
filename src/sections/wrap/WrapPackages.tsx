@@ -27,7 +27,7 @@ export const WrapPackages = () => {
         scroll-mt-23
         border-b
         border-white/5
-        px-[5vw]
+        px-[3vw]
         py-16
         sm:py-24
         bg-[#b99a5c]/20

@@ -52,11 +52,12 @@ export const CarsFilterField = ({
           pt-3
           text-[9px]
           tracking-[0.25em]
-          text-[#666]
+          text-[#e6e6e6]
           transition-colors
           cursor-pointer
           duration-300
-          group-hover:text-[#888]
+          text-left
+          group-hover:text-[#cccccc]
           group-focus-within:text-[#b99a5c]
         "
       >

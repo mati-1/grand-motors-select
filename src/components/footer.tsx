@@ -5,7 +5,7 @@ export const FooterComponent = () => {
   return (
     <footer className="border-t border-white/10 bg-[#030303] text-white">
       {/* MAIN FOOTER */}
-      <div className="px-[5vw] py-14 sm:py-16 lg:py-20">
+      <div className="px-[3vw] py-14 sm:py-16 lg:py-20">
         <div className="flex flex-col gap-12 lg:flex-row lg:justify-between lg:gap-20">
           {/* BRAND */}
           <div className="max-w-90">

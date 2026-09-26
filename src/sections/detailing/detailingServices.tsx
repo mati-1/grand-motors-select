@@ -26,7 +26,7 @@ export const DetailingServices = () => {
         border-y border-white/5
         py-20
          sm:py-27
-        px-[5vw]
+        px-[3vw]
       "
     >
       <div className="absolute pointer-events-none right-[5%] top-1/2 hidden -translate-y-1/2 text-[18rem] font-extralight leading-none -tracking-widest text-white/1.5 lg:block">
@@ -87,7 +87,7 @@ export const DetailingServices = () => {
               bg-white/2.5
             "
           >
-            <div className="px-5 py-7 sm:px-8 sm:py-8 lg:px-[5vw] lg:py-9">
+            <div className="px-5 py-7 sm:px-8 sm:py-8 lg:px-[3vw] lg:py-9">
               <div
                 className="
                   mx-auto flex w-full max-w-250

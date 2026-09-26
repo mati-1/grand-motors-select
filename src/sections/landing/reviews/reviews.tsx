@@ -218,7 +218,7 @@ export const ReviewsComponent = () => {
         from-black/90
         via-black/80
         to-black/90
-        px-[5vw]
+        px-[3vw]
         py-10
         sm:py-25
       "

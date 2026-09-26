@@ -9,7 +9,7 @@ export const CarsHero = () => {
         flex-col justify-center
         overflow-hidden
         border-b border-white/5
-        px-[5vw]
+        px-[3vw]
         pt-[10vh]
          bg-[#b99a5c]/20
           bg-linear-to-r from-black/90 via-black/75 to-black/90

@@ -58,7 +58,7 @@ export const SafeSectionComponent = () => {
       {/* DESKTOP - jedno wspólne okno pod wszystkimi bloczkami */}
       {activeData && (
         <div className="col-span-full hidden border-t border-white/10 bg-white/2.5 xl:block">
-          <div className="px-8 py-8 lg:px-[5vw] lg:py-9">
+          <div className="px-8 py-8 lg:px-[3vw] lg:py-9">
             <div className="mx-auto flex w-full max-w-250 flex-col gap-5 sm:flex-row sm:items-start sm:gap-10">
               <div className="shrink-0">
                 <span className="text-[12px] tracking-[0.2em] text-[#b99a5c]">

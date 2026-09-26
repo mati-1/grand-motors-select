@@ -22,7 +22,7 @@ export const CarDetailsPage = () => {
 
   if (!car) {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center bg-[#050505] px-[5vw] text-center">
+      <main className="flex min-h-screen flex-col items-center justify-center bg-[#050505] px-[3vw] text-center">
         <span className="text-[9px] tracking-[0.3em] text-[#b99a5c]">
           404 / NIE ZNALEZIONO
         </span>
@@ -64,7 +64,7 @@ export const CarDetailsPage = () => {
 
       <main className="w-full bg-[#050505]">
         {/* TOP */}
-        <section className="px-[5vw] pb-6 pt-32 sm:pb-24">
+        <section className="px-[3vw] pb-6 pt-32 sm:pb-24">
           {/* BACK */}
           <button
             type="button"

@@ -51,7 +51,7 @@ export const CarsPage = () => {
           from-black/90
           via-black/75
           to-black/90
-          px-[5vw]
+          px-[3vw]
           py-10
           sm:py-14
           lg:py-16
@@ -62,10 +62,10 @@ export const CarsPage = () => {
             grid
             grid-cols-1
             gap-6
-            lg:grid-cols-[240px_minmax(0,1fr)]
+            lg:grid-cols-[270px_minmax(0,1fr)]
             lg:items-start
             lg:gap-10
-            xl:grid-cols-[260px_minmax(0,1fr)]
+            xl:grid-cols-[300px_minmax(0,1fr)]
             xl:gap-10
           "
         >
