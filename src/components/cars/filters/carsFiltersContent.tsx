@@ -1,6 +1,7 @@
 import type { SortOption } from "../../../hooks/useCarFilters";
 
 import { ButtonComponent } from "../../button";
+
 import { CarsFilterSelect } from "./carsFilterSelect";
 import type { CarsFilterOption } from "./carsFilterSelect";
 
@@ -41,25 +42,18 @@ type CarsFiltersContentProps = {
 export const CarsFiltersContent = ({
   brand,
   onBrandChange,
-
   minYear,
   onMinYearChange,
-
   maxYear,
   onMaxYearChange,
-
   minPrice,
   onMinPriceChange,
-
   maxPrice,
   onMaxPriceChange,
-
   fuel,
   onFuelChange,
-
   sort,
   onSortChange,
-
   brandOptions,
   minYearOptions,
   maxYearOptions,
@@ -67,95 +61,81 @@ export const CarsFiltersContent = ({
   minPriceOptions,
   maxPriceOptions,
   sortOptions,
-
   hasActiveFilters,
   onClearFilters,
 }: CarsFiltersContentProps) => {
   return (
-    <>
-      {/* FILTRY */}
-
-      <div className="mt-5 px-0">
-        <div
-          className="
-            overflow-visible
-            border-y
-            border-white/15
-            bg-[#050505]
-          "
-        >
-          <div className="border-b border-white/10">
-            <CarsFilterSelect
-              label="MARKA"
-              value={brand}
-              options={brandOptions}
-              onChange={onBrandChange}
-            />
-          </div>
-
-          <div className="border-b border-white/10">
-            <CarsFilterSelect
-              label="ROK OD"
-              value={minYear}
-              options={minYearOptions}
-              onChange={onMinYearChange}
-            />
-          </div>
-
-          <div className="border-b border-white/10">
-            <CarsFilterSelect
-              label="ROK DO"
-              value={maxYear}
-              options={maxYearOptions}
-              onChange={onMaxYearChange}
-            />
-          </div>
-
-          <div className="border-b border-white/10">
-            <CarsFilterSelect
-              label="PALIWO"
-              value={fuel}
-              options={fuelOptions}
-              onChange={onFuelChange}
-            />
-          </div>
-
-          <div className="border-b border-white/10">
-            <CarsFilterSelect
-              label="CENA OD"
-              value={minPrice}
-              options={minPriceOptions}
-              onChange={onMinPriceChange}
-            />
-          </div>
-
-          <div className="border-b border-white/10">
-            <CarsFilterSelect
-              label="CENA DO"
-              value={maxPrice}
-              options={maxPriceOptions}
-              onChange={onMaxPriceChange}
-            />
-          </div>
-
+    <div className="mt-5">
+      <div className="border-y border-white/15 bg-[#050505]">
+        <div className="border-b border-white/10">
           <CarsFilterSelect
-            label="KOLEJNOŚĆ"
-            value={sort}
-            options={sortOptions}
-            onChange={(value) => onSortChange(value as SortOption)}
+            label="MARKA"
+            value={brand}
+            options={brandOptions}
+            onChange={onBrandChange}
           />
         </div>
+
+        <div className="border-b border-white/10">
+          <CarsFilterSelect
+            label="ROK OD"
+            value={minYear}
+            options={minYearOptions}
+            onChange={onMinYearChange}
+          />
+        </div>
+
+        <div className="border-b border-white/10">
+          <CarsFilterSelect
+            label="ROK DO"
+            value={maxYear}
+            options={maxYearOptions}
+            onChange={onMaxYearChange}
+          />
+        </div>
+
+        <div className="border-b border-white/10">
+          <CarsFilterSelect
+            label="PALIWO"
+            value={fuel}
+            options={fuelOptions}
+            onChange={onFuelChange}
+          />
+        </div>
+
+        <div className="border-b border-white/10">
+          <CarsFilterSelect
+            label="CENA OD"
+            value={minPrice}
+            options={minPriceOptions}
+            onChange={onMinPriceChange}
+          />
+        </div>
+
+        <div className="border-b border-white/10">
+          <CarsFilterSelect
+            label="CENA DO"
+            value={maxPrice}
+            options={maxPriceOptions}
+            onChange={onMaxPriceChange}
+          />
+        </div>
+
+        <CarsFilterSelect
+          label="KOLEJNOŚĆ"
+          value={sort}
+          options={sortOptions}
+          onChange={(value) => onSortChange(value as SortOption)}
+        />
       </div>
 
-      {/* WYCZYŚĆ */}
-
       {hasActiveFilters && (
-        <div className="border-t border-white/10 px-5 py-5 xl:px-6">
+        <div className="border-t border-white/10 px-5 py-5">
           <ButtonComponent onClick={onClearFilters} className="min-w-full">
             WYCZYŚĆ WSZYSTKIE
           </ButtonComponent>
         </div>
       )}
-    </>
+    </div>
   );
 };

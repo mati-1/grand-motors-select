@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+
 import { CarsFilterField } from "./carsFilterField";
 
 export type CarsFilterOption = {
@@ -14,6 +15,10 @@ type CarsFilterSelectProps = {
   onChange: (value: string) => void;
 };
 
+type DropdownPlacement = "bottom" | "top";
+
+const DROPDOWN_BOUNDARY = 24;
+
 export const CarsFilterSelect = ({
   label,
   value,
@@ -21,6 +26,7 @@ export const CarsFilterSelect = ({
   onChange,
 }: CarsFilterSelectProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [placement, setPlacement] = useState<DropdownPlacement>("bottom");
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -44,6 +50,70 @@ export const CarsFilterSelect = ({
     };
   }, []);
 
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const updatePlacement = () => {
+      const container = containerRef.current;
+
+      if (!container) return;
+
+      const containerRect = container.getBoundingClientRect();
+
+      /*
+       * Znajdujemy najbliższy scrollowany rodzic.
+       */
+      let scrollParent: HTMLElement | null = container.parentElement;
+
+      while (scrollParent) {
+        const styles = window.getComputedStyle(scrollParent);
+
+        const isScrollable =
+          styles.overflowY === "auto" || styles.overflowY === "scroll";
+
+        if (isScrollable) {
+          break;
+        }
+
+        scrollParent = scrollParent.parentElement;
+      }
+
+      const scrollRect = scrollParent?.getBoundingClientRect();
+
+      const viewportTop = (scrollRect?.top ?? 0) + DROPDOWN_BOUNDARY;
+
+      const viewportBottom =
+        (scrollRect?.bottom ?? window.innerHeight) - DROPDOWN_BOUNDARY;
+
+      const spaceAbove = containerRect.top - viewportTop;
+
+      const spaceBelow = viewportBottom - containerRect.bottom;
+
+      /*
+       * Otwieramy tam, gdzie jest więcej miejsca.
+       *
+       * Dzięki temu trzeci filtr od dołu może również
+       * otworzyć się do góry zamiast wciskać dropdown
+       * na sam dół.
+       */
+      if (spaceAbove > spaceBelow) {
+        setPlacement("top");
+      } else {
+        setPlacement("bottom");
+      }
+    };
+
+    updatePlacement();
+
+    window.addEventListener("resize", updatePlacement);
+    window.addEventListener("scroll", updatePlacement, true);
+
+    return () => {
+      window.removeEventListener("resize", updatePlacement);
+      window.removeEventListener("scroll", updatePlacement, true);
+    };
+  }, [isOpen]);
+
   const handleSelect = (option: CarsFilterOption) => {
     if (option.disabled) return;
 
@@ -55,9 +125,9 @@ export const CarsFilterSelect = ({
     <div ref={containerRef} className="relative">
       <CarsFilterField
         label={label}
-        onClick={() => setIsOpen((current) => !current)}
         type="button"
         aria-expanded={isOpen}
+        onClick={() => setIsOpen((current) => !current)}
       >
         <div
           className="
@@ -98,7 +168,7 @@ export const CarsFilterSelect = ({
               transition-all
               duration-300
               group-hover/select:text-[#b99a5c]
-              ${isOpen ? "rotate-180 text-[#b99a5c]" : ""}
+              ${isOpen ? "text-[#b99a5c]" : ""}
             `}
           >
             ↓
@@ -106,112 +176,121 @@ export const CarsFilterSelect = ({
         </div>
       </CarsFilterField>
 
-      {/* DROPDOWN */}
-      <div
-        className={`
-          absolute
-          left-0
-          right-0
-          top-[calc(100%+1px)]
-          z-50
-          overflow-hidden
-          border
-          border-white/10
-          bg-[#0a0a0a]/98
-          shadow-[0_20px_60px_rgba(0,0,0,0.65)]
-          backdrop-blur-xl
-          transition-all
-          duration-200
+      {isOpen && (
+        <div
+          className={`
+            absolute
+            left-0
+            right-0
+            z-50
+            overflow-hidden
+            border
+            border-white/10
+            bg-[#0a0a0a]/98
+            shadow-[0_20px_60px_rgba(0,0,0,0.65)]
+            backdrop-blur-xl
 
-          ${
-            isOpen
-              ? "visible translate-y-0 opacity-100"
-              : "invisible -translate-y-2 opacity-0"
-          }
-        `}
-      >
-        {/* GOLD LINE */}
-        <div className="h-px w-full bg-linear-to-r from-transparent via-[#b99a5c]/60 to-transparent" />
+            ${
+              placement === "bottom"
+                ? "top-[calc(100%+8px)]"
+                : "bottom-[calc(100%+8px)]"
+            }
+          `}
+        >
+          {/* GOLD LINE */}
+          <div className="h-px w-full shrink-0 bg-linear-to-r from-transparent via-[#b99a5c]/60 to-transparent" />
 
-        <div className="py-1.5">
-          {options.map((option) => {
-            const isSelected = option.value === value;
+          {/* OPTIONS */}
+          <div
+            className="
+              max-h-56
+              overflow-y-auto
+              overscroll-contain
+              py-1.5
+            "
+          >
+            {options.map((option) => {
+              const isSelected = option.value === value;
 
-            return (
-              <button
-                key={option.value}
-                type="button"
-                disabled={option.disabled}
-                onClick={() => handleSelect(option)}
-                className={`
-                  group/option
-                  relative
-                  flex
-                  w-full
-                  items-center
-                  justify-between
-                  px-4
-                  py-3
-                  text-left
-                  transition-all
-                  duration-200
-
-                  ${
-                    option.disabled
-                      ? "cursor-not-allowed text-[#333]"
-                      : "cursor-pointer hover:bg-[#b99a5c]/7"
-                  }
-
-                  ${isSelected ? "bg-[#b99a5c]/5" : ""}
-                `}
-              >
-                {/* LEFT HOVER LINE */}
-                <span
+              return (
+                <button
+                  key={option.value}
+                  type="button"
+                  disabled={option.disabled}
+                  onClick={() => handleSelect(option)}
                   className={`
-                    absolute
-                    bottom-2
-                    left-0
-                    top-2
-                    w-px
-                    bg-[#b99a5c]
-                    transition-all
-                    duration-300
-
-                    ${
-                      isSelected
-                        ? "opacity-70"
-                        : "scale-y-0 opacity-0 group-hover/option:scale-y-100 group-hover/option:opacity-50"
-                    }
-                  `}
-                />
-
-                <span
-                  className={`
-                    text-[10px]
-                    tracking-[0.12em]
+                    group/option
+                    relative
+                    flex
+                    w-full
+                    shrink-0
+                    items-center
+                    justify-between
+                    px-4
+                    py-3
+                    text-left
                     transition-all
                     duration-200
 
                     ${
                       option.disabled
-                        ? "text-[#333]"
-                        : isSelected
-                          ? "translate-x-1 text-[#d2b878]"
-                          : "text-[#888] group-hover/option:translate-x-1 group-hover/option:text-[#ddd]"
+                        ? "cursor-not-allowed text-[#333]"
+                        : "cursor-pointer hover:bg-[#b99a5c]/7"
                     }
+
+                    ${isSelected ? "bg-[#b99a5c]/5" : ""}
                   `}
                 >
-                  {option.label}
-                </span>
+                  {/* LEFT HOVER LINE */}
+                  <span
+                    className={`
+                      absolute
+                      bottom-2
+                      left-0
+                      top-2
+                      w-px
+                      bg-[#b99a5c]
+                      transition-all
+                      duration-300
 
-                {isSelected && (
-                  <span className="text-[8px] text-[#b99a5c]">●</span>
-                )}
-              </button>
-            );
-          })}
+                      ${
+                        isSelected
+                          ? "opacity-70"
+                          : "scale-y-0 opacity-0 group-hover/option:scale-y-100 group-hover/option:opacity-50"
+                      }
+                    `}
+                  />
+
+                  {/* LABEL */}
+                  <span
+                    className={`
+                      text-[10px]
+                      tracking-[0.12em]
+                      transition-all
+                      duration-200
+
+                      ${
+                        option.disabled
+                          ? "text-[#333]"
+                          : isSelected
+                            ? "translate-x-1 text-[#d2b878]"
+                            : "text-[#888] group-hover/option:translate-x-1 group-hover/option:text-[#ddd]"
+                      }
+                    `}
+                  >
+                    {option.label}
+                  </span>
+
+                  {/* SELECTED */}
+                  {isSelected && (
+                    <span className="text-[8px] text-[#b99a5c]">●</span>
+                  )}
+                </button>
+              );
+            })}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

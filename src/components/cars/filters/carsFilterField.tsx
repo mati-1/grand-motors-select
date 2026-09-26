@@ -1,6 +1,8 @@
-type CarsFilterFieldProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+import type { ButtonHTMLAttributes, ReactNode } from "react";
+
+type CarsFilterFieldProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   label: string;
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 export const CarsFilterField = ({
@@ -11,58 +13,57 @@ export const CarsFilterField = ({
 }: CarsFilterFieldProps) => {
   return (
     <button
+      {...buttonProps}
       className={`
         group
-        w-full
         relative
-        bg-[#080808]
+        w-full
+        cursor-pointer
         border-b
         border-l
         border-r
         border-[#0b0b0b]
+        bg-[#080808]
         transition-colors
         duration-300
-        cursor-pointer
         hover:bg-[#0b0b0b]
         ${className}
       `}
-      {...buttonProps}
     >
-      {/* top accent */}
+      {/* TOP ACCENT */}
       <div
         className="
-        absolute
-        top-0
-        h-px
-        left-0
-        w-full
-        opacity-0
-        bg-[#b99a5c]/60
-        transition-opacity
-        duration-300
-        group-focus-opacity-100
-        group-hover:opacity-100
+          pointer-events-none
+          absolute
+          left-0
+          top-0
+          h-px
+          w-full
+          bg-[#b99a5c]/60
+          opacity-0
+          transition-opacity
+          duration-300
+          group-hover:opacity-100
         "
       />
 
-      <label
+      {/* LABEL */}
+      <span
         className="
           block
           px-4
           pt-3
+          text-left
           text-[9px]
           tracking-[0.25em]
           text-[#e6e6e6]
           transition-colors
-          cursor-pointer
           duration-300
-          text-left
           group-hover:text-[#cccccc]
-          group-focus-within:text-[#b99a5c]
         "
       >
         {label}
-      </label>
+      </span>
 
       {children}
     </button>
