@@ -133,8 +133,6 @@ export const useGalleryZoom = ({ isLightboxOpen }: UseGalleryZoomProps) => {
         return;
       }
 
-      event.preventDefault();
-
       if (event.deltaY < 0) {
         zoomIn();
       } else {
