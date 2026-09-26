@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { ButtonComponent } from "../../button";
 import type { CarType } from "../cars";
+
 import { CarShare } from "./carShare";
 
 type CarInfoProps = {
@@ -10,10 +11,15 @@ type CarInfoProps = {
 
 type SpecificationItemProps = {
   label: string;
-  value: string | number;
+  value?: string | number;
+  content?: React.ReactNode;
 };
 
-const SpecificationItem = ({ label, value }: SpecificationItemProps) => {
+export const SpecificationItem = ({
+  label,
+  value,
+  content,
+}: SpecificationItemProps) => {
   return (
     <div
       className="
@@ -21,14 +27,16 @@ const SpecificationItem = ({ label, value }: SpecificationItemProps) => {
         relative
         border-b
         border-white/8
-        px-5
-        py-6
+        px-4
+        py-4
+        sm:py-6
         transition-colors
         duration-300
         hover:bg-white/2
         sm:px-6
       "
     >
+      {/* GOLD ACCENT */}
       <span
         className="
           absolute
@@ -58,9 +66,9 @@ const SpecificationItem = ({ label, value }: SpecificationItemProps) => {
         >
           {label}
         </p>
-
-        <p
-          className="
+        {value ? (
+          <p
+            className="
             mt-2
             text-[13px]
             tracking-[0.04em]
@@ -69,9 +77,12 @@ const SpecificationItem = ({ label, value }: SpecificationItemProps) => {
             duration-300
             group-hover:text-[#d2b878]
           "
-        >
-          {value}
-        </p>
+          >
+            {value}
+          </p>
+        ) : (
+          content
+        )}
       </div>
     </div>
   );
@@ -93,7 +104,7 @@ export const CarInfo = ({ car }: CarInfoProps) => {
   const isReservated = car.status === "reservation";
 
   const statusLabel = isReservated
-    ? "Rezerwacja"
+    ? "REZERWACJA"
     : isAvailable
       ? "DOSTĘPNE"
       : "SPRZEDANE";
@@ -101,20 +112,23 @@ export const CarInfo = ({ car }: CarInfoProps) => {
   const statusDot = isAvailable || isReservated ? "bg-[#b99a5c]" : "bg-[#555]";
 
   return (
-    <div>
+    <div className="w-full">
       {/* BRAND / STATUS */}
-
       <div
         className="
           flex
           items-center
           justify-between
           gap-6
+          border-b
+          border-white/10
           bg-[#b99a5c]/20
           bg-linear-to-r
           from-black/90
           via-black/75
           to-black/90
+          px-0
+          py-4
         "
       >
         <div className="text-[9px] tracking-[0.3em] text-[#b99a5c]">
@@ -136,23 +150,24 @@ export const CarInfo = ({ car }: CarInfoProps) => {
 
           <span
             className="
+              mr-1
               text-[10px]
               tracking-[0.25em]
-              text-[#555] mr-1 md:mr-3
+              text-[#555]
+              md:mr-3
             "
           >
             {statusLabel}
           </span>
-          <CarShare car={car} />
+          {(isAvailable || isReservated) && <CarShare car={car} />}
         </div>
       </div>
 
       {/* TITLE */}
-
       <div className="mt-5">
         <h1
           className="
-            text-[clamp(36px,5vw,64px)]
+            text-[clamp(32px,5vw,48px)]
             font-normal
             leading-[1.02]
             tracking-[-0.02em]
@@ -167,7 +182,6 @@ export const CarInfo = ({ car }: CarInfoProps) => {
       </div>
 
       {/* PRICE */}
-
       <div
         className="
           mt-10
@@ -200,7 +214,8 @@ export const CarInfo = ({ car }: CarInfoProps) => {
             <div
               className={`
                 mt-3
-                text-[30px]
+                text-[25px]
+                sm:text-[28px]
                 leading-none
                 ${
                   isAvailable || isReservated
@@ -242,7 +257,6 @@ export const CarInfo = ({ car }: CarInfoProps) => {
       </div>
 
       {/* SPECIFICATION */}
-
       <div className="mt-10">
         <div className="mb-5 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -285,7 +299,6 @@ export const CarInfo = ({ car }: CarInfoProps) => {
         </div>
 
         {/* CONTACT */}
-
         {car.status !== "sold" && (
           <div
             className="
@@ -312,7 +325,6 @@ export const CarInfo = ({ car }: CarInfoProps) => {
             "
           >
             {/* OTOMOTO */}
-
             <a
               href="https://www.otomoto.pl/"
               target="_blank"
@@ -354,7 +366,6 @@ export const CarInfo = ({ car }: CarInfoProps) => {
             </a>
 
             {/* TELEFON */}
-
             <ButtonComponent
               type="secondary"
               href={isPhoneOpened ? "tel:+48514137133" : undefined}

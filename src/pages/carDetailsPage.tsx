@@ -1,9 +1,9 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { LineComponent } from "../components/line";
 import { PageLoader } from "../components/page-loader";
 
-import { CarGallery } from "../components/cars/car-slug/carGallery";
+import { CarGallery } from "../components/cars/gallery/CarGallery";
 import { CarInfo } from "../components/cars/car-slug/carInfo";
 import { CarDescription } from "../components/cars/car-slug/carDescription";
 import { CarEquipment } from "../components/cars/car-slug/carEquipment";
@@ -36,6 +36,7 @@ export const CarDetailsPage = () => {
         </p>
 
         <button
+          type="button"
           onClick={() => navigate(-1)}
           className="
             mt-8
@@ -63,10 +64,13 @@ export const CarDetailsPage = () => {
 
       <main className="w-full bg-[#050505]">
         {/* TOP */}
-        <section className="px-[5vw] pb-16 pt-32 sm:pb-24">
+        <section className="px-[5vw] pb-6 pt-32 sm:pb-24">
+          {/* BACK */}
           <button
+            type="button"
             onClick={() => navigate(-1)}
             className="
+              group
               inline-flex
               cursor-pointer
               items-center
@@ -78,32 +82,56 @@ export const CarDetailsPage = () => {
               hover:text-[#d2b878]
             "
           >
-            ← WRÓĆ DO OFERTY
+            <span className="transition-transform duration-300 group-hover:-translate-x-1">
+              ←
+            </span>
+
+            <span>WRÓĆ DO OFERTY</span>
           </button>
 
-          <div className="mt-7 grid gap-10 xl:grid-cols-[1.5fr_0.8fr] xl:items-start">
-            <CarGallery
-              car={car}
-              images={car.images}
-              alt={`${car.brand} ${car.model}`}
-            />
+          {/* MAIN PRODUCT LAYOUT */}
+          <div
+            className="
+              mt-7
+              grid
+              items-start
+              gap-10
+              xl:grid-cols-[minmax(0,1.5fr)_minmax(340px,0.8fr)]
+            "
+          >
+            {/* LEFT — GALLERY + ALL CONTENT */}
+            <div className="min-w-0">
+              <CarGallery
+                car={car}
+                images={car.images}
+                alt={`${car.brand} ${car.model}`}
+              />
 
-            <CarInfo car={car} />
+              <aside className="min-w-0 mb-6 block xl:hidden">
+                <CarInfo car={car} />
+              </aside>
+
+              {/* DESCRIPTION */}
+              <CarDescription car={car} />
+
+              {/* EQUIPMENT */}
+              <CarEquipment car={car} />
+
+              {/* HISTORY */}
+              {car.status !== "sold" && <CarHistory car={car} />}
+            </div>
+
+            {/* RIGHT — STICKY CAR INFO */}
+            <aside className="min-w-0 hidden xl:block xl:sticky xl:top-28">
+              <CarInfo car={car} />
+            </aside>
           </div>
         </section>
-
-        {/* DESCRIPTION */}
-        <div className="px-[5vw]">
-          <CarDescription car={car} />
-
-          <CarEquipment car={car} />
-
-          {car.status !== "sold" && <CarHistory car={car} />}
-        </div>
 
         {/* CONTACT */}
         <ContactSectionComponent />
 
+        {/* FOOTER */}
         <FooterComponent />
 
         <LineComponent className="mt-0!" />

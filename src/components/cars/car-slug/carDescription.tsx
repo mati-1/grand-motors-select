@@ -1,100 +1,17 @@
+import { useState } from "react";
+
 import { MainHeadingComponent } from "../../headings";
 import type { CarType } from "../cars";
-import { useState } from "react";
+import { SpecificationItem } from "./carInfo";
 
 type CarDescriptionProps = {
   car: CarType;
 };
 
-type DetailItemProps = {
-  label: string;
-  value: string | React.ReactNode;
-  index: number;
-};
-
-const DetailItem = ({ label, value, index }: DetailItemProps) => {
-  return (
-    <div
-      className="
-        group
-        relative
-        border-b
-        border-white/8
-        px-5
-        py-6
-        transition-colors
-        duration-300
-        hover:bg-white/2
-        sm:px-6
-      "
-    >
-      {/* GOLD ACCENT */}
-      <span
-        className="
-          absolute
-          left-0
-          top-5
-          h-[calc(100%-2.5rem)]
-          w-px
-          origin-top
-          scale-y-0
-          bg-[#b99a5c]
-          transition-transform
-          duration-500
-          group-hover:scale-y-100
-        "
-      />
-
-      <div className="flex items-start justify-between gap-4">
-        <div className="min-w-0">
-          <p
-            className="
-              text-[10px]
-              tracking-[0.25em]
-              text-[#555]
-              transition-colors
-              duration-300
-              group-hover:text-[#777]
-            "
-          >
-            {label}
-          </p>
-
-          {/* VALUE */}
-          <div
-            className="
-              mt-2
-              text-[13px]
-              tracking-[0.04em]
-              text-[#ccc]
-              transition-colors
-              duration-300
-              group-hover:text-[#d2b878]
-            "
-          >
-            {value}
-          </div>
-        </div>
-
-        <span
-          className="
-            pt-0.5
-            font-normal
-            text-[10px]
-            text-[#333]
-            transition-colors
-            duration-300
-            group-hover:text-[#b99a5c]/50
-          "
-        >
-          {String(index + 1).padStart(2, "0")}
-        </span>
-      </div>
-    </div>
-  );
-};
-
 export const CarDescription = ({ car }: CarDescriptionProps) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [copied, setCopied] = useState(false);
+
   const details = [
     ["NADWOZIE", car.details.body],
     ["KOLOR", car.details.color],
@@ -107,11 +24,10 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
     ["CARVERTICAL", car.carvertical ? "Dostępny" : "Brak"],
   ];
 
-  const [copied, setCopied] = useState(false);
-
   const copyVin = async () => {
     try {
       await navigator.clipboard.writeText(car.vin);
+
       setCopied(true);
 
       setTimeout(() => {
@@ -122,25 +38,39 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
     }
   };
 
+  const firstDetails = details.slice(0, 4);
+  const hiddenDetails = details.slice(4);
+
+  const hasMoreDetails = hiddenDetails.length > 0;
+
   return (
     <section
-      className="border-t border-white/5 py-12 sm:py-16 bg-[#b99a5c]/20
-          bg-linear-to-r from-black/90 via-black/75 to-black/90"
+      className="
+        border-t
+        border-white/5
+        bg-[#b99a5c]/20
+        bg-linear-to-r
+        from-black/90
+        via-black/75
+        to-black/90
+        py-6
+        sm:py-16
+      "
     >
       <div>
         {/* HEADER */}
-        <div className="grid gap-10 lg:grid-cols-[0.7fr_1.3fr]">
+        <div className="grid gap-10 lg:grid-cols-[0.5fr_1.3fr]">
           <div>
             <MainHeadingComponent
               className="
-                text-[12px]!
                 mt-0!
+                text-[12px]!
                 tracking-[0.3em]
                 text-[#b99a5c]
                 md:text-[14px]!
               "
             >
-              01 / OPIS SAMOCHODU
+              OPIS SAMOCHODU
             </MainHeadingComponent>
           </div>
 
@@ -176,6 +106,7 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
 
         {/* DETAILS */}
         <div className="mt-14">
+          {/* SECTION LABEL */}
           <div className="mb-5 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <span className="h-px w-5 bg-[#b99a5c]/50" />
@@ -192,6 +123,7 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
             </div>
           </div>
 
+          {/* SPECIFICATION GRID */}
           <div
             className="
               grid
@@ -202,50 +134,114 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
               lg:grid-cols-3
             "
           >
-            {details.map(([label, value], index) => (
-              <DetailItem
-                key={label}
-                label={label}
-                value={value}
-                index={index}
-              />
+            {/* FIRST 6 — ALWAYS VISIBLE */}
+            {firstDetails.map(([label, value]) => (
+              <SpecificationItem key={label} label={label} value={value} />
             ))}
+
+            {/* REMAINING DETAILS */}
+            {hiddenDetails.map(([label, value]) => (
+              <div
+                key={label}
+                className={`
+                  ${isExpanded ? "block" : "hidden"}
+
+                  lg:block
+                `}
+              >
+                <SpecificationItem label={label} value={value} />
+              </div>
+            ))}
+
+            {/* VIN */}
+            <div
+              className={`
+                ${isExpanded ? "block" : "hidden"}
+
+                lg:block
+              `}
+            >
+              <SpecificationItem
+                label="NR VIN"
+                content={
+                  <div className="flex flex-row items-center gap-6">
+                    <span className="min-w-0 break-all">{car.vin}</span>
+
+                    <button
+                      type="button"
+                      onClick={copyVin}
+                      className="
+                        flex
+                        shrink-0
+                        cursor-pointer
+                        items-center
+                        gap-2
+                        border
+                        border-white/10
+                        px-3
+                        py-2
+                        text-[8px]
+                        tracking-[0.2em]
+                        text-[#666]
+                        transition-all
+                        duration-300
+                        hover:border-[#b99a5c]/40
+                        hover:text-[#d2b878]
+                      "
+                    >
+                      <span>{copied ? "✓ SKOPIOWANO" : "SKOPIUJ"}</span>
+                    </button>
+                  </div>
+                }
+              />
+            </div>
           </div>
 
-          <DetailItem
-            key="vin"
-            label={"NR VIN"}
-            value={
-              <div className="flex flex-row gap-6 items-center">
-                {car.vin}
-                <button
-                  type="button"
-                  onClick={copyVin}
-                  className="
-            flex
-            shrink-0
-            cursor-pointer
-            items-center
-            gap-2
-            border
-            border-white/10
-            px-3
-            py-2
-            text-[8px]
-            tracking-[0.2em]
-            text-[#666]
-            transition-all
-            duration-300
-            hover:border-[#b99a5c]/40
-            hover:text-[#d2b878]
-            "
+          {/* MOBILE TOGGLE */}
+          {hasMoreDetails && (
+            <div className="mt-5 flex justify-center lg:hidden">
+              <button
+                type="button"
+                onClick={() => setIsExpanded((prev) => !prev)}
+                className="
+                  group
+                  inline-flex
+                  cursor-pointer
+                  items-center
+                  gap-4
+                  border
+                  border-white/10
+                  px-5
+                  py-3
+                  text-[9px]
+                  tracking-[0.22em]
+                  text-[#777]
+                  transition-all
+                  duration-300
+                  hover:border-[#b99a5c]/40
+                  hover:bg-[#b99a5c]/5
+                  hover:text-[#d2b878]
+                "
+              >
+                <span>
+                  {isExpanded
+                    ? "POKAŻ MNIEJ"
+                    : `POKAŻ WIĘCEJ (${hiddenDetails.length + 1})`}
+                </span>
+
+                <span
+                  className={`
+                    text-[#b99a5c]
+                    transition-transform
+                    duration-300
+                    ${isExpanded ? "rotate-180" : "rotate-0"}
+                  `}
                 >
-                  <span>{copied ? "✓ SKOPIOWANO" : "SKOPIUJ"}</span>
-                </button>
-              </div>
-            }
-            index={6}
-          />
+                  ↓
+                </span>
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>
