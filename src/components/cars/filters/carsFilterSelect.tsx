@@ -60,9 +60,6 @@ export const CarsFilterSelect = ({
 
       const containerRect = container.getBoundingClientRect();
 
-      /*
-       * Znajdujemy najbliższy scrollowany rodzic.
-       */
       let scrollParent: HTMLElement | null = container.parentElement;
 
       while (scrollParent) {
@@ -89,13 +86,6 @@ export const CarsFilterSelect = ({
 
       const spaceBelow = viewportBottom - containerRect.bottom;
 
-      /*
-       * Otwieramy tam, gdzie jest więcej miejsca.
-       *
-       * Dzięki temu trzeci filtr od dołu może również
-       * otworzyć się do góry zamiast wciskać dropdown
-       * na sam dół.
-       */
       if (spaceAbove > spaceBelow) {
         setPlacement("top");
       } else {
