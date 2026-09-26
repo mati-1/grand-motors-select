@@ -1,14 +1,13 @@
+import { useEffect } from "react";
+
 import type { CarType } from "../cars";
 
 type CarGalleryThumbnailsProps = {
   images: string[];
   activeIndex: number;
   car: CarType;
-
   thumbnailsRef: React.RefObject<HTMLDivElement | null>;
-
   showControls: boolean;
-
   onSelect: (index: number) => void;
   onScroll: (direction: "left" | "right") => void;
 };
@@ -22,6 +21,67 @@ export const CarGalleryThumbnails = ({
   onSelect,
   onScroll,
 }: CarGalleryThumbnailsProps) => {
+  useEffect(() => {
+    const container = thumbnailsRef.current;
+
+    if (!container) return;
+
+    const thumbnails = Array.from(
+      container.querySelectorAll<HTMLButtonElement>("[data-gallery-thumbnail]"),
+    );
+
+    const activeThumbnail = thumbnails[activeIndex];
+
+    if (!activeThumbnail) return;
+
+    const containerRect = container.getBoundingClientRect();
+
+    // Znajdujemy miniatury, które są w pełni widoczne.
+    const fullyVisibleThumbnails = thumbnails.filter((thumbnail) => {
+      const rect = thumbnail.getBoundingClientRect();
+
+      return (
+        rect.left >= containerRect.left && rect.right <= containerRect.right
+      );
+    });
+
+    if (!fullyVisibleThumbnails.length) return;
+
+    const firstVisibleThumbnail = fullyVisibleThumbnails[0];
+
+    const lastVisibleThumbnail =
+      fullyVisibleThumbnails[fullyVisibleThumbnails.length - 1];
+
+    const firstVisibleIndex = thumbnails.indexOf(firstVisibleThumbnail);
+
+    const lastVisibleIndex = thumbnails.indexOf(lastVisibleThumbnail);
+
+    const thumbnailWidth = activeThumbnail.offsetWidth;
+    const gap = 8;
+
+    const scrollAmount = thumbnailWidth + gap;
+
+    if (activeIndex === lastVisibleIndex && activeIndex < images.length - 1) {
+      container.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth",
+      });
+
+      return;
+    }
+
+    /*
+     * Kliknięto pierwszą w pełni widoczną miniaturę.
+     * Przesuwamy kilka kolejnych w LEWO.
+     */
+    if (activeIndex === firstVisibleIndex && activeIndex > 0) {
+      container.scrollBy({
+        left: -scrollAmount,
+        behavior: "smooth",
+      });
+    }
+  }, [activeIndex, images.length, thumbnailsRef]);
+
   return (
     <div
       className="
@@ -31,6 +91,7 @@ export const CarGalleryThumbnails = ({
         min-w-0
       "
     >
+      {/* LEFT ARROW */}
       <button
         type="button"
         onClick={() => onScroll("left")}
@@ -66,6 +127,7 @@ export const CarGalleryThumbnails = ({
         ←
       </button>
 
+      {/* RIGHT ARROW */}
       <button
         type="button"
         onClick={() => onScroll("right")}
@@ -101,6 +163,7 @@ export const CarGalleryThumbnails = ({
         →
       </button>
 
+      {/* THUMBNAILS */}
       <div
         ref={thumbnailsRef}
         className={`
@@ -127,6 +190,7 @@ export const CarGalleryThumbnails = ({
             <button
               key={`${image}-${index}`}
               type="button"
+              data-gallery-thumbnail
               onClick={() => onSelect(index)}
               aria-label={`Wybierz zdjęcie ${index + 1}`}
               aria-current={isActive ? "true" : undefined}

@@ -1,13 +1,11 @@
+import { useEffect } from "react";
+
 type CarGalleryLightboxThumbnailsProps = {
   images: string[];
   activeIndex: number;
-
   thumbnailsRef: React.RefObject<HTMLDivElement | null>;
-
   showControls: boolean;
-
   onSelect: (index: number) => void;
-
   onScroll: (direction: "left" | "right") => void;
 };
 
@@ -19,6 +17,66 @@ export const CarGalleryLightboxThumbnails = ({
   onSelect,
   onScroll,
 }: CarGalleryLightboxThumbnailsProps) => {
+  useEffect(() => {
+    const container = thumbnailsRef.current;
+
+    if (!container) return;
+
+    const thumbnails = container.querySelectorAll<HTMLButtonElement>(
+      "[data-gallery-thumbnail]",
+    );
+
+    const activeThumbnail = thumbnails[activeIndex];
+
+    if (!activeThumbnail) return;
+
+    const containerRect = container.getBoundingClientRect();
+
+    const thumbnailRect = activeThumbnail.getBoundingClientRect();
+
+    const isOutsideLeft = thumbnailRect.left < containerRect.left;
+
+    const isOutsideRight = thumbnailRect.right > containerRect.right;
+
+    const thumbnailWidth = activeThumbnail.offsetWidth;
+
+    const gap = 8;
+
+    const scrollAmount = (thumbnailWidth + gap) * 4;
+
+    if (isOutsideRight) {
+      const isLast = activeIndex === images.length - 1;
+
+      if (isLast) {
+        container.scrollTo({
+          left: container.scrollWidth,
+          behavior: "smooth",
+        });
+      } else {
+        container.scrollBy({
+          left: scrollAmount,
+          behavior: "smooth",
+        });
+      }
+    }
+
+    if (isOutsideLeft) {
+      const isFirst = activeIndex === 0;
+
+      if (isFirst) {
+        container.scrollTo({
+          left: 0,
+          behavior: "smooth",
+        });
+      } else {
+        container.scrollBy({
+          left: -scrollAmount,
+          behavior: "smooth",
+        });
+      }
+    }
+  }, [activeIndex, images.length, thumbnailsRef]);
+
   return (
     <div
       className="
@@ -33,12 +91,12 @@ export const CarGalleryLightboxThumbnails = ({
         sm:py-5
       "
     >
+      {/* LEFT */}
       <button
         type="button"
         onPointerDown={(event) => event.stopPropagation()}
         onClick={(event) => {
           event.stopPropagation();
-
           onScroll("left");
         }}
         aria-label="Przewiń zdjęcia w lewo"
@@ -71,12 +129,12 @@ export const CarGalleryLightboxThumbnails = ({
         ←
       </button>
 
+      {/* RIGHT */}
       <button
         type="button"
         onPointerDown={(event) => event.stopPropagation()}
         onClick={(event) => {
           event.stopPropagation();
-
           onScroll("right");
         }}
         aria-label="Przewiń zdjęcia w prawo"
@@ -109,6 +167,7 @@ export const CarGalleryLightboxThumbnails = ({
         →
       </button>
 
+      {/* THUMBNAILS */}
       <div
         ref={thumbnailsRef}
         className={`
@@ -133,13 +192,14 @@ export const CarGalleryLightboxThumbnails = ({
             <button
               key={`${image}-lightbox-${index}`}
               type="button"
+              data-gallery-thumbnail
               onPointerDown={(event) => event.stopPropagation()}
               onClick={(event) => {
                 event.stopPropagation();
-
                 onSelect(index);
               }}
               aria-label={`Wybierz zdjęcie ${index + 1}`}
+              aria-current={isActive ? "true" : undefined}
               className={`
                 shrink-0
                 cursor-pointer
