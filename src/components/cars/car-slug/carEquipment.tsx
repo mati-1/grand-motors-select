@@ -1,28 +1,102 @@
 import { useState } from "react";
 
 import { MainHeadingComponent } from "../../headings";
-
 import type { CarType } from "../cars";
 
 type CarEquipmentProps = {
   car: CarType;
 };
 
+const MOBILE_LIMIT = 6;
+const DESKTOP_LIMIT = 16;
+
 export const CarEquipment = ({ car }: CarEquipmentProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const MOBILE_LIMIT = 6;
-  const DESKTOP_LIMIT = 16;
+  const mobileEquipment = car.equipment.slice(0, MOBILE_LIMIT);
+  const mobileRemaining = car.equipment.slice(MOBILE_LIMIT);
 
-  const mobileVisibleEquipment = car.equipment.slice(0, MOBILE_LIMIT);
-  const desktopVisibleEquipment = car.equipment.slice(0, DESKTOP_LIMIT);
+  const desktopEquipment = car.equipment.slice(0, DESKTOP_LIMIT);
+  const desktopRemaining = car.equipment.slice(DESKTOP_LIMIT);
 
-  const mobileHiddenEquipment = car.equipment.slice(MOBILE_LIMIT);
-  const desktopHiddenEquipment = car.equipment.slice(DESKTOP_LIMIT);
+  const hasMoreMobile = mobileRemaining.length > 0;
+  const hasMoreDesktop = desktopRemaining.length > 0;
 
-  const hasMoreMobileEquipment = mobileHiddenEquipment.length > 0;
+  const renderEquipmentItem = (item: string, index: number, key: string) => (
+    <div
+      key={key}
+      className="
+        group
+        flex
+        items-center
+        gap-4
+        py-3
+        text-[12px]
+        tracking-[0.04em]
+        text-[#999]
+        transition-colors
+        duration-300
+        hover:text-[#ddd]
+      "
+    >
+      <span
+        className="
+          w-7
+          shrink-0
+          text-[10px]
+          font-normal
+          tracking-[0.12em]
+          text-[#b99a5c]/45
+          transition-colors
+          duration-300
+          group-hover:text-[#b99a5c]
+        "
+      >
+        {String(index + 1).padStart(2, "0")}
+      </span>
 
-  const hasMoreDesktopEquipment = desktopHiddenEquipment.length > 0;
+      <span>{item}</span>
+    </div>
+  );
+
+  const renderToggle = (hiddenCount: number, className: string) => (
+    <div className={className}>
+      <button
+        type="button"
+        onClick={() => setIsExpanded((prev) => !prev)}
+        className="
+          group
+          inline-flex
+          cursor-pointer
+          items-center
+          gap-4
+          px-1
+          py-2
+          text-[9px]
+          tracking-[0.22em]
+          text-[#777]
+          transition-colors
+          duration-300
+          hover:text-[#d2b878]
+        "
+      >
+        <span>
+          {isExpanded ? "POKAŻ MNIEJ" : `POKAŻ WIĘCEJ (${hiddenCount})`}
+        </span>
+
+        <span
+          className={`
+            text-[#b99a5c]
+            transition-transform
+            duration-300
+            ${isExpanded ? "rotate-180" : "rotate-0"}
+          `}
+        >
+          ↓
+        </span>
+      </button>
+    </div>
+  );
 
   return (
     <section
@@ -38,283 +112,138 @@ export const CarEquipment = ({ car }: CarEquipmentProps) => {
         sm:py-16
       "
     >
-      <div className="grid gap-6 lg:grid-cols-[0.7fr_1.3fr]">
+      <div
+        className="
+          grid
+          gap-8
+          lg:grid-cols-[0.5fr_1.3fr]
+          lg:gap-10
+        "
+      >
         {/* HEADING */}
-        <MainHeadingComponent
-          className="
-            mt-0!
-            text-[12px]!
-            tracking-[0.3em]
-            text-[#b99a5c]
-            md:text-[14px]!
-          "
-        >
-          WYPOSAŻENIE
-        </MainHeadingComponent>
-
-        {/* EQUIPMENT */}
         <div>
-          <div
+          <MainHeadingComponent
             className="
-              grid
-              grid-cols-1
-              border-y
-              border-white/10
-              sm:grid-cols-2
+              mt-0!
+              text-[12px]!
+              tracking-[0.3em]
+              text-[#b99a5c]
+              md:text-[14px]!
             "
           >
-            {/* ========================= */}
-            {/* MOBILE — FIRST 6 */}
-            {/* ========================= */}
+            WYPOSAŻENIE
+          </MainHeadingComponent>
+        </div>
 
-            {mobileVisibleEquipment.map((item, index) => (
+        {/* EQUIPMENT */}
+        <div className="relative">
+          {/* GOLD ACCENT */}
+          <div
+            className="
+              absolute
+              -left-5
+              top-0
+              h-10
+              w-px
+              bg-linear-to-b
+              from-[#b99a5c]/70
+              to-transparent
+              lg:-left-7
+            "
+          />
+
+          {/* ================================================== */}
+          {/* MOBILE + TABLET — < lg */}
+          {/* ================================================== */}
+
+          <div className="lg:hidden">
+            {mobileEquipment.map((item, index) =>
+              renderEquipmentItem(item, index, `mobile-${item}-${index}`),
+            )}
+
+            {mobileRemaining.map((item, index) => (
               <div
-                key={item}
-                className="
-                  flex
-                  items-center
-                  gap-4
-                  border-b
-                  border-white/10
-                  p-4
-                  text-[12px]
-                  tracking-[0.04em]
-                  text-[#aaa]
-                  transition
-                  hover:bg-white/2
-                  hover:text-[#ddd]
-                  sm:nth-last-[n+2]:border-r
-                  lg:hidden
-                "
+                key={`mobile-hidden-${item}-${index}`}
+                className={isExpanded ? "block" : "hidden"}
               >
-                <span
-                  className="
-                    font-normal
-                    text-[13px]
-                    text-[#b99a5c]/70
-                  "
-                >
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-
-                {item}
+                {renderEquipmentItem(
+                  item,
+                  index + MOBILE_LIMIT,
+                  `mobile-extra-${item}-${index}`,
+                )}
               </div>
             ))}
 
-            {/* ========================= */}
-            {/* MOBILE — REMAINING */}
-            {/* ========================= */}
-
-            {mobileHiddenEquipment.map((item, index) => (
-              <div
-                key={`mobile-${item}`}
-                className={`
-                  ${isExpanded ? "flex" : "hidden"}
-
-                  lg:hidden
-
-                  items-center
-                  gap-4
-                  border-b
-                  border-white/10
-                  p-4
-                  text-[12px]
-                  tracking-[0.04em]
-                  text-[#aaa]
-                  transition
-                  hover:bg-white/2
-                  hover:text-[#ddd]
-                  sm:nth-last-[n+2]:border-r
-                `}
-              >
-                <span
-                  className="
-                    font-normal
-                    text-[13px]
-                    text-[#b99a5c]/70
-                  "
-                >
-                  {String(index + MOBILE_LIMIT + 1).padStart(2, "0")}
-                </span>
-
-                {item}
-              </div>
-            ))}
-
-            {/* ========================= */}
-            {/* DESKTOP — FIRST 16 */}
-            {/* ========================= */}
-
-            {desktopVisibleEquipment.map((item, index) => (
-              <div
-                key={`desktop-${item}`}
-                className="
-                  hidden
-                  items-center
-                  gap-4
-                  border-b
-                  border-white/10
-                  p-4
-                  text-[12px]
-                  tracking-[0.04em]
-                  text-[#aaa]
-                  transition
-                  hover:bg-white/2
-                  hover:text-[#ddd]
-                  sm:nth-last-[n+2]:border-r
-                  lg:flex
-                "
-              >
-                <span
-                  className="
-                    font-normal
-                    text-[13px]
-                    text-[#b99a5c]/70
-                  "
-                >
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-
-                {item}
-              </div>
-            ))}
-
-            {/* ========================= */}
-            {/* DESKTOP — REMAINING */}
-            {/* ========================= */}
-
-            {desktopHiddenEquipment.map((item, index) => (
-              <div
-                key={`desktop-hidden-${item}`}
-                className={`
-                  ${isExpanded ? "lg:flex" : "hidden"}
-
-                  items-center
-                  gap-4
-                  border-b
-                  border-white/10
-                  p-4
-                  text-[12px]
-                  tracking-[0.04em]
-                  text-[#aaa]
-                  transition
-                  hover:bg-white/2
-                  hover:text-[#ddd]
-                  sm:nth-last-[n+2]:border-r
-                `}
-              >
-                <span
-                  className="
-                    font-normal
-                    text-[13px]
-                    text-[#b99a5c]/70
-                  "
-                >
-                  {String(index + DESKTOP_LIMIT + 1).padStart(2, "0")}
-                </span>
-
-                {item}
-              </div>
-            ))}
+            {hasMoreMobile &&
+              renderToggle(mobileRemaining.length, "mt-5 flex justify-center")}
           </div>
 
-          {/* ========================= */}
-          {/* MOBILE TOGGLE */}
-          {/* ========================= */}
+          {/* ================================================== */}
+          {/* DESKTOP — lg+ */}
+          {/* ================================================== */}
 
-          {hasMoreMobileEquipment && (
-            <div className="mt-5 flex justify-center lg:hidden">
-              <button
-                type="button"
-                onClick={() => setIsExpanded((prev) => !prev)}
-                className="
-                  group
-                  inline-flex
-                  cursor-pointer
-                  items-center
-                  gap-4
-                  border
-                  border-white/10
-                  px-5
-                  py-3
-                  text-[9px]
-                  tracking-[0.22em]
-                  text-[#777]
-                  transition-all
-                  duration-300
-                  hover:border-[#b99a5c]/40
-                  hover:bg-[#b99a5c]/5
-                  hover:text-[#d2b878]
-                "
-              >
-                <span>
-                  {isExpanded
-                    ? "POKAŻ MNIEJ"
-                    : `POKAŻ WIĘCEJ (${mobileHiddenEquipment.length})`}
-                </span>
+          <div className="hidden lg:block">
+            <div className="grid grid-cols-2">
+              {/* LEFT COLUMN */}
+              <div className="pr-6">
+                {desktopEquipment
+                  .filter((_, index) => index % 2 === 0)
+                  .map((item, index) =>
+                    renderEquipmentItem(
+                      item,
+                      index * 2,
+                      `desktop-left-${item}-${index}`,
+                    ),
+                  )}
 
-                <span
-                  className={`
-                    text-[#b99a5c]
-                    transition-transform
-                    duration-300
-                    ${isExpanded ? "rotate-180" : "rotate-0"}
-                  `}
-                >
-                  ↓
-                </span>
-              </button>
+                {desktopRemaining
+                  .filter((_, index) => index % 2 === 0)
+                  .map((item, index) => (
+                    <div
+                      key={`desktop-extra-left-${item}-${index}`}
+                      className={isExpanded ? "block" : "hidden"}
+                    >
+                      {renderEquipmentItem(
+                        item,
+                        DESKTOP_LIMIT + index * 2,
+                        `desktop-hidden-left-${item}-${index}`,
+                      )}
+                    </div>
+                  ))}
+              </div>
+
+              {/* RIGHT COLUMN */}
+              <div className="border-l border-white/5 pl-6">
+                {desktopEquipment
+                  .filter((_, index) => index % 2 === 1)
+                  .map((item, index) =>
+                    renderEquipmentItem(
+                      item,
+                      index * 2 + 1,
+                      `desktop-right-${item}-${index}`,
+                    ),
+                  )}
+
+                {desktopRemaining
+                  .filter((_, index) => index % 2 === 1)
+                  .map((item, index) => (
+                    <div
+                      key={`desktop-extra-right-${item}-${index}`}
+                      className={isExpanded ? "block" : "hidden"}
+                    >
+                      {renderEquipmentItem(
+                        item,
+                        DESKTOP_LIMIT + index * 2 + 1,
+                        `desktop-hidden-right-${item}-${index}`,
+                      )}
+                    </div>
+                  ))}
+              </div>
             </div>
-          )}
 
-          {/* ========================= */}
-          {/* DESKTOP TOGGLE */}
-          {/* ========================= */}
-
-          {hasMoreDesktopEquipment && (
-            <div className="mt-5 hidden justify-center lg:flex">
-              <button
-                type="button"
-                onClick={() => setIsExpanded((prev) => !prev)}
-                className="
-                  group
-                  inline-flex
-                  cursor-pointer
-                  items-center
-                  gap-4
-                  border
-                  border-white/10
-                  px-5
-                  py-3
-                  text-[9px]
-                  tracking-[0.22em]
-                  text-[#777]
-                  transition-all
-                  duration-300
-                  hover:border-[#b99a5c]/40
-                  hover:bg-[#b99a5c]/5
-                  hover:text-[#d2b878]
-                "
-              >
-                <span>
-                  {isExpanded
-                    ? "POKAŻ MNIEJ"
-                    : `POKAŻ WIĘCEJ (${desktopHiddenEquipment.length})`}
-                </span>
-
-                <span
-                  className={`
-                    text-[#b99a5c]
-                    transition-transform
-                    duration-300
-                    ${isExpanded ? "rotate-180" : "rotate-0"}
-                  `}
-                >
-                  ↓
-                </span>
-              </button>
-            </div>
-          )}
+            {hasMoreDesktop &&
+              renderToggle(desktopRemaining.length, "mt-6 flex justify-center")}
+          </div>
         </div>
       </div>
     </section>
