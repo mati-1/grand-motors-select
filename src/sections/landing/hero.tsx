@@ -176,7 +176,7 @@ export const HeroComponentSection = () => {
               sm:gap-4
             "
           >
-            <ButtonComponent type="main" href="#cars" size="big">
+            <ButtonComponent type="main" href="/cars" size="big">
               ZOBACZ SAMOCHODY <span>→</span>
             </ButtonComponent>
 
