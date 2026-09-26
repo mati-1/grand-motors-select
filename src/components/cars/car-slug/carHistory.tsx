@@ -16,7 +16,7 @@ export const CarHistory = ({ car }: CarHistoryProps) => {
             04 / HISTORIA SAMOCHODU
           </MainHeadingComponent>
 
-          <h2 className="mt-8 max-w-100 font-serif text-[34px] leading-[1.05] text-[#ddd] sm:text-[42px]">
+          <h2 className="mt-8 max-w-100 font-normal text-[34px] leading-[1.05] text-[#ddd] sm:text-[42px]">
             HISTORIA
             <br />
             <span className="text-[#666]">ZWERYFIKOWANA.</span>

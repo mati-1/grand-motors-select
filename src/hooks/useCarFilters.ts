@@ -33,7 +33,15 @@ export const useCarFilters = () => {
   const [sort, setSort] = useState<SortOption>("default");
 
   const brands = useMemo(() => {
-    return [...new Set(carsList.map((car) => car.brand))].sort();
+    return [
+      ...new Set(
+        carsList
+          .filter(
+            (car) => car.status === "available" || car.status === "reservation",
+          )
+          .map((car) => car.brand),
+      ),
+    ].sort();
   }, []);
 
   const filteredCars = useMemo(() => {

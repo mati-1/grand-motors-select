@@ -121,7 +121,7 @@ export const DetailingPackages = () => {
             <div className="flex items-center justify-between">
               <span
                 className="
-                  font-serif
+                  font-normal
                   text-[13px]
                   text-[#b99a5c]
                 "

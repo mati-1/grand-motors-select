@@ -29,7 +29,7 @@ export const InfoCardItem = ({
             flex h-8 w-8
             items-center justify-center
             border border-[#b99a5c]/30
-            font-serif text-[12px]
+            font-normal text-[12px]
             text-[#d2b878]
             transition-all duration-300
             group-hover:border-[#b99a5c]/60

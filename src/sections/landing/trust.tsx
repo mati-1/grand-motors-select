@@ -24,7 +24,7 @@ export const ProcessItem = ({
       `}
     >
       <div className="flex shrink-0 flex-col items-center">
-        <div className="flex h-8 w-8 items-center justify-center border border-[#b99a5c]/30 font-serif text-[12px] text-[#d2b878]">
+        <div className="flex h-8 w-8 items-center justify-center border border-[#b99a5c]/30 font-normal text-[12px] text-[#d2b878]">
           {number}
         </div>
 

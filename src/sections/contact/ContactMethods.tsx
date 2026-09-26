@@ -96,7 +96,7 @@ export const ContactMethods = () => {
                 }
               `}
             >
-              <span className="font-serif text-[11px] text-[#b99a5c]">
+              <span className="font-normal text-[11px] text-[#b99a5c]">
                 {method.number}
               </span>
 

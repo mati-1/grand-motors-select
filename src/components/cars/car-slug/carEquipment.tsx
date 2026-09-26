@@ -36,7 +36,7 @@ export const CarEquipment = ({ car }: CarEquipmentProps) => {
                 sm:nth-last-[n+2]:border-r
               "
             >
-              <span className="font-serif text-[13px] text-[#b99a5c]/70">
+              <span className="font-normal text-[13px] text-[#b99a5c]/70">
                 {String(index + 1).padStart(2, "0")}
               </span>
 

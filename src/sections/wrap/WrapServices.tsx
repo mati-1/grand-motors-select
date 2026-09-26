@@ -137,7 +137,7 @@ export const WrapServices = () => {
                 "
               >
                 <div className="flex items-start gap-5">
-                  <span className="font-serif text-[12px] text-[#b99a5c]">
+                  <span className="font-normal text-[12px] text-[#b99a5c]">
                     {activeData.number}
                   </span>
 

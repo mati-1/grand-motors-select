@@ -278,7 +278,7 @@ export const CarShare = ({ car }: CarShareProps) => {
                   hover:text-[#d2b878]
                 "
               >
-                <span className="font-serif text-[20px]">f</span>
+                <span className="font-normal text-[20px]">f</span>
 
                 <span className="text-[8px] tracking-[0.2em]">FACEBOOK</span>
               </a>

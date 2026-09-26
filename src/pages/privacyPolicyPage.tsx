@@ -14,7 +14,7 @@ const PrivacySection = ({
     <section className="border-b border-white/10 py-9 first:pt-0 last:border-b-0 sm:py-11">
       <div className="flex flex-col gap-5 sm:flex-row sm:gap-10">
         <div className="shrink-0">
-          <span className="font-serif text-[14px] text-[#b99a5c]">
+          <span className="font-normal text-[14px] text-[#b99a5c]">
             {number}
           </span>
         </div>
@@ -68,7 +68,7 @@ export const PrivacyPolicyPage = () => {
               GRAND MOTORS SELECT
             </span>
 
-            <h1 className="mt-5 max-w-190 font-serif text-[38px] font-normal leading-[1.05] text-[#ddd] sm:text-[50px] lg:text-[62px]">
+            <h1 className="mt-5 max-w-190 font-normal text-[38px] font-normal leading-[1.05] text-[#ddd] sm:text-[50px] lg:text-[62px]">
               POLITYKA
               <br />
               <span className="text-[#b99a5c]">PRYWATNOŚCI.</span>
@@ -340,7 +340,7 @@ export const PrivacyPolicyPage = () => {
                     ADMINISTRATOR DANYCH
                   </span>
 
-                  <h3 className="mt-3 font-serif text-[22px] font-normal text-[#ddd]">
+                  <h3 className="mt-3 font-normal text-[22px] font-normal text-[#ddd]">
                     GRAND MOTORS SELECT
                   </h3>
 

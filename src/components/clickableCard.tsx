@@ -53,7 +53,7 @@ export const ClickableCard = (props: ClickableCardProps) => {
           className={`
             flex shrink-0 items-center justify-center
             border
-            font-serif
+            font-normal
             transition-all duration-300
             ${isSmall ? "h-9 w-9 text-[15px]" : "h-11 w-11 text-[17px]"}
             ${

@@ -59,7 +59,7 @@ export const CarReportCard = ({
       <div className="px-5 py-7 sm:px-7 sm:py-8">
         <p className="text-[9px] tracking-[0.3em] text-[#555]">CARVERTICAL</p>
 
-        <h3 className="mt-3 font-serif text-[22px] tracking-[0.02em] text-[#ddd] sm:text-[26px]">
+        <h3 className="mt-3 font-normal text-[22px] tracking-[0.02em] text-[#ddd] sm:text-[26px]">
           {title}
         </h3>
 

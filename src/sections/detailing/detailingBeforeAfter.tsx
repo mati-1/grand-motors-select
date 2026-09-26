@@ -21,7 +21,7 @@ export const DetailingBeforeAfter = () => {
           pointer-events-none absolute
           right-[-2%] top-[7%]
           select-none
-          font-serif text-[18rem]
+          font-normal text-[18rem]
           leading-none
           text-white/[0.018]
           sm:text-[24rem]
@@ -92,7 +92,9 @@ export const DetailingBeforeAfter = () => {
               <div className="flex items-center gap-3">
                 <span className="h-px w-8 bg-white/40" />
 
-                <span className="font-serif text-[12px] text-white/70">01</span>
+                <span className="font-normal text-[12px] text-white/70">
+                  01
+                </span>
               </div>
 
               <p className="mt-3 text-[9px] tracking-[0.3em] text-white/65">
@@ -131,7 +133,7 @@ export const DetailingBeforeAfter = () => {
             {/* LABEL */}
             <div className="absolute right-6 top-6 text-right sm:right-10 sm:top-10">
               <div className="flex items-center justify-end gap-3">
-                <span className="font-serif text-[12px] text-[#d2b878]">
+                <span className="font-normal text-[12px] text-[#d2b878]">
                   02
                 </span>
 

@@ -7,22 +7,22 @@ type CarsGridProps = {
 
 export const CarsGrid = ({ cars }: CarsGridProps) => {
   return (
-    <section
-      id="cars"
-      className="
-        scroll-mt-23
-        px-[5vw]
-        py-14
-        sm:py-20
-        bg-[#b99a5c]/20
-        bg-linear-to-r from-black/90 via-black/75 to-black/90
-      "
-    >
+    <div className="min-w-0">
+      {/* HEADER */}
+
+      <div className="mb-6 flex items-end justify-between">
+        <span className="text-[9px] tracking-[0.2em] text-[#444]">
+          {String(cars.length).padStart(2, "0")} POZYCJI
+        </span>
+      </div>
+
+      {/* GRID */}
+
       <div
         className="
           grid
           grid-cols-1
-          gap-5.5
+          gap-5
           md:grid-cols-2
           xl:grid-cols-3
         "
@@ -31,6 +31,6 @@ export const CarsGrid = ({ cars }: CarsGridProps) => {
           <CarCard key={`${car.brand}-${car.model}-${car.year}`} car={car} />
         ))}
       </div>
-    </section>
+    </div>
   );
 };

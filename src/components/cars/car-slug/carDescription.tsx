@@ -79,7 +79,7 @@ const DetailItem = ({ label, value, index }: DetailItemProps) => {
         <span
           className="
             pt-0.5
-            font-serif
+            font-normal
             text-[10px]
             text-[#333]
             transition-colors

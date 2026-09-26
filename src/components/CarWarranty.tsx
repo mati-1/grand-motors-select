@@ -51,7 +51,7 @@ export const CarWarranty = () => {
               items-center
               justify-center
               border
-              font-serif
+              font-normal
               text-[17px]
               transition-all
               duration-300

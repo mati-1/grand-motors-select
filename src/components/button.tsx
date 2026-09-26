@@ -26,6 +26,7 @@ export const ButtonComponent = ({
     items-center
     justify-center
     text-center
+    cursor-pointer
     transition
     h-auto
     ${
