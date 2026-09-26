@@ -51,8 +51,8 @@ const App = () => {
             <>
               <main>
                 <HeroComponentSection />
-                <TrustComponent />
                 <CarsComponent />
+                <TrustComponent />
 
                 <div className="my-4 px-[5vw] md:my-8">
                   <SubHeadingComponent>
