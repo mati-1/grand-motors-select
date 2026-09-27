@@ -49,7 +49,6 @@ export const WrapHero = () => {
         "
       />
 
-      {/* SUBTELNE PRZYCIEMNIENIE DOŁU */}
       <div
         className="
           absolute inset-x-0 bottom-0 z-1 h-40

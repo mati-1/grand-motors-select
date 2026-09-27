@@ -134,7 +134,6 @@ export const CarWarranty = () => {
         </button>
       </article>
 
-      {/* SHARED INFORMATION WINDOW */}
       <div
         id={contentId}
         aria-hidden={!isOpen}

@@ -365,7 +365,6 @@ export const CarInfo = ({ car }: CarInfoProps) => {
               </span>
             </a>
 
-            {/* TELEFON */}
             <ButtonComponent
               type="secondary"
               href={isPhoneOpened ? "tel:+48514137133" : undefined}

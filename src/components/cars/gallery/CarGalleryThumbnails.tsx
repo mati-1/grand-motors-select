@@ -36,7 +36,6 @@ export const CarGalleryThumbnails = ({
 
     const containerRect = container.getBoundingClientRect();
 
-    // Znajdujemy miniatury, które są w pełni widoczne.
     const fullyVisibleThumbnails = thumbnails.filter((thumbnail) => {
       const rect = thumbnail.getBoundingClientRect();
 
@@ -70,10 +69,6 @@ export const CarGalleryThumbnails = ({
       return;
     }
 
-    /*
-     * Kliknięto pierwszą w pełni widoczną miniaturę.
-     * Przesuwamy kilka kolejnych w LEWO.
-     */
     if (activeIndex === firstVisibleIndex && activeIndex > 0) {
       container.scrollBy({
         left: -scrollAmount,

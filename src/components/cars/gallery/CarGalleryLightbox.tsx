@@ -152,10 +152,8 @@ export const CarGalleryLightbox = ({
           items-center
           justify-center
           overflow-hidden
-          px-4
           pb-4
           select-none
-          sm:px-14
           sm:pb-6
 
           ${

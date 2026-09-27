@@ -52,9 +52,7 @@ export const CarShare = ({ car }: CarShareProps) => {
           text: shareText,
           url: shareUrl,
         });
-      } catch {
-        // Użytkownik zamknął natywne menu.
-      }
+      } catch {}
 
       return;
     }

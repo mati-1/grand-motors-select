@@ -68,7 +68,7 @@ export const RegulationPage = () => {
               GRAND MOTORS SELECT
             </span>
 
-            <h1 className="mt-5 max-w-180 font-normal text-[38px] font-normal leading-[1.05] text-[#ddd] sm:text-[50px] lg:text-[62px]">
+            <h1 className="mt-5 max-w-180 text-[38px] font-normal leading-[1.05] text-[#ddd] sm:text-[50px] lg:text-[62px]">
               REGULAMIN
               <br />
               <span className="text-[#b99a5c]">SPRZEDAŻY.</span>
@@ -334,7 +334,7 @@ export const RegulationPage = () => {
                     INFORMACJE O SPRZEDAWCY
                   </span>
 
-                  <h3 className="mt-3 font-normal text-[22px] font-normal text-[#ddd]">
+                  <h3 className="mt-3 text-[22px] font-normal text-[#ddd]">
                     GRAND MOTORS SELECT
                   </h3>
 

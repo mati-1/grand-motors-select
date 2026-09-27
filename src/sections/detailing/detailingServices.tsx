@@ -77,8 +77,6 @@ export const DetailingServices = () => {
           />
         ))}
 
-        {/* WSPÓLNE OKNO */}
-
         {activeData && (
           <div
             className="

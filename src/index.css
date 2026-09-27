@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Grand Motors Select scrollbar */
 ::-webkit-scrollbar {
   height: 8px;
   width: 8px;

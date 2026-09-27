@@ -55,7 +55,7 @@ export const SafeSectionComponent = () => {
         />
       ))}
 
-      {/* DESKTOP - jedno wspólne okno pod wszystkimi bloczkami */}
+      {/* DESKTOP */}
       {activeData && (
         <div className="col-span-full hidden border-t border-white/10 bg-white/2.5 xl:block">
           <div className="px-8 py-8 lg:px-[3vw] lg:py-9">
@@ -76,7 +76,7 @@ export const SafeSectionComponent = () => {
         </div>
       )}
 
-      {/* MOBILE / TABLET - opis pod wybranym bloczkiem */}
+      {/* MOBILE / TABLET  */}
       {activeData && (
         <div className="col-span-full border-t border-white/10 bg-white/2.5 xl:hidden">
           <div className="px-5 py-7 sm:px-8 sm:py-8">
