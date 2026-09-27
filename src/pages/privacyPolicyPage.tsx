@@ -37,7 +37,7 @@ export const PrivacyPolicyPage = () => {
   return (
     <div className="min-h-screen bg-[#050505] text-[#f4f4f2]">
       {/* HEADER */}
-      <header className="border-b border-white/10 bg-[#030303] px-[3vw]">
+      <header className="border-b border-white/10 bg-[#030303] px-[4vw] lg:px-[13vw]">
         <div className="mx-auto flex h-23 max-w-350 items-center justify-between">
           <LogoComponent showText />
 
@@ -60,7 +60,7 @@ export const PrivacyPolicyPage = () => {
 
       <main>
         {/* HERO */}
-        <section className="relative overflow-hidden px-[3vw] pb-14 pt-16 sm:pb-18 sm:pt-20 lg:pb-22 lg:pt-24">
+        <section className="relative overflow-hidden px-[4vw] lg:px-[13vw] pb-14 pt-16 sm:pb-18 sm:pt-20 lg:pb-22 lg:pt-24">
           <div className="absolute right-[-10%] top-[-20%] h-100 w-100 rounded-full bg-[#b99a5c]/5 blur-3xl" />
 
           <div className="relative mx-auto max-w-350">
@@ -89,7 +89,7 @@ export const PrivacyPolicyPage = () => {
         </section>
 
         {/* CONTENT */}
-        <section className="px-[3vw] pb-20 lg:pb-28">
+        <section className="px-[4vw] lg:px-[13vw] pb-20 lg:pb-28">
           <div className="mx-auto max-w-300">
             <PrivacySection number="01" title="ADMINISTRATOR DANYCH OSOBOWYCH">
               <p>
@@ -393,7 +393,7 @@ export const PrivacyPolicyPage = () => {
       </main>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/10 bg-[#030303] px-[3vw] py-8">
+      <footer className="border-t border-white/10 bg-[#030303] px-[4vw] lg:px-[13vw] py-8">
         <div className="mx-auto flex max-w-350 flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <span className="text-[8px] tracking-[0.12em] text-[#444]">
             © {new Date().getFullYear()} GRAND MOTORS SELECT

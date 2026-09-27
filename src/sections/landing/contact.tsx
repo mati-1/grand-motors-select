@@ -18,7 +18,7 @@ export const ContactSectionComponent = ({
       className="
         scroll-mt-22
         bg-[#050505]
-        px-[3vw]
+        px-[4vw] lg:px-[13vw]
         pb-12
       "
     >

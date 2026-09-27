@@ -43,7 +43,7 @@ export const HeaderComponent = () => {
         <div
           className={`
             mx-auto flex items-center justify-between
-            px-[3vw]
+            px-[4vw] lg:px-[13vw]
             transition-all duration-500
             ${!scrolled || menuOpen ? "h-25" : "h-21"}
           `}

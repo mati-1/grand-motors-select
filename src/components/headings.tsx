@@ -22,9 +22,7 @@ export const SubHeadingComponent = ({
   className?: string;
 }) => {
   return (
-    <h3
-      className={`text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-[#999] ${className || ""}`}
-    >
+    <h3 className={`text-[12px] md:text-[14px] text-[#999] ${className || ""}`}>
       {children}
     </h3>
   );

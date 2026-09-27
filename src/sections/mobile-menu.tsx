@@ -33,7 +33,7 @@ export const MobileMenuComponent = ({
         }
       `}
     >
-      <nav className="flex min-h-[calc(100vh-92px)] flex-col gap-5 overflow-y-auto px-[3vw] py-7">
+      <nav className="flex min-h-[calc(100vh-92px)] flex-col gap-5 overflow-y-auto px-[4vw] lg:px-[13vw] py-7">
         {pageHeaderNavigation.map((n) => {
           const isActive = n.href === activeSection;
           const isContactPage = activeSection === "/contact";

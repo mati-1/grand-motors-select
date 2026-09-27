@@ -17,7 +17,7 @@ export const WrapHero = () => {
     border-b
     border-white/5
     bg-[#050505]
-    px-[3vw]
+    px-[4vw] lg:px-[13vw]
     h-screen
   "
     >

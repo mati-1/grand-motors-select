@@ -29,8 +29,8 @@ export const CarCard = ({ car }: { car: CarType }) => {
           bg-[#080808]
           transition
           duration-500
-          hover:-translate-y-1.5
-          hover:border-[#b99a5c]/40
+          hover:-translate-y-0.5
+          hover:border-[#b99a5c]/30
         "
       >
         {/* IMAGE */}
@@ -42,12 +42,10 @@ export const CarCard = ({ car }: { car: CarType }) => {
               h-full
               w-full
               object-cover
-              brightness-[0.62]
-              contrast-105
+              will-change-transform
               transition
               duration-700
-              group-hover:scale-[1.04]
-              group-hover:brightness-[0.72]
+              group-hover:brightness-[1.10]
             "
           />
 

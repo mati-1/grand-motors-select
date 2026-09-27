@@ -2,12 +2,12 @@ import type { SortOption } from "../../../hooks/useCarFilters";
 
 export const priceOptions = [
   { value: "all", label: "DOWOLNA" },
-  { value: "50000", label: "50 000 ZŁ" },
-  { value: "100000", label: "100 000 ZŁ" },
-  { value: "150000", label: "150 000 ZŁ" },
-  { value: "200000", label: "200 000 ZŁ" },
-  { value: "250000", label: "250 000 ZŁ" },
-  { value: "300000", label: "300 000 ZŁ" },
+  { value: "50000", label: "50 000 PLN" },
+  { value: "100000", label: "100 000 PLN" },
+  { value: "150000", label: "150 000 PLN" },
+  { value: "200000", label: "200 000 PLN" },
+  { value: "250000", label: "250 000 PLN" },
+  { value: "300000", label: "300 000 PLN" },
 ];
 
 export const sortOptions: {

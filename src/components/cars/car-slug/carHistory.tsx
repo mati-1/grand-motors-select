@@ -8,19 +8,20 @@ type CarHistoryProps = {
 
 export const CarHistory = ({ car }: CarHistoryProps) => {
   return (
-    <section className="border-b border-white/5 py-6 sm:py-16">
-      <div className="grid gap-12 lg:grid-cols-[0.7fr_1.3fr]">
-        {/* LEFT */}
-        <div>
-          <MainHeadingComponent className="text-[12px]! mt-0! tracking-[0.3em] text-[#b99a5c] md:text-[14px]!">
-            HISTORIA SAMOCHODU
-          </MainHeadingComponent>
-
-          <p className="mt-6 max-w-95 text-[12px] leading-[1.9] tracking-[0.04em] text-[#666]">
-            Informacje dotyczące historii pojazdu oraz dostępna dokumentacja są
-            udostępniane przez GMS w ramach prezentacji samochodu.
-          </p>
-        </div>
+    <section>
+      <div className="flex flex-col gap-6">
+        <MainHeadingComponent
+          className="
+                mt-0!
+                font-normal!
+                
+                text-[#b99a5c]
+                text-[16px]!
+                md:text-[20px]!
+              "
+        >
+          Historia Samochodu
+        </MainHeadingComponent>
 
         <CarReportCard
           title={`${car.brand} ${car.model}`}

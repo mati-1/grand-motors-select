@@ -44,7 +44,7 @@ export const PageSectionComponent = ({
 
         {/* CONTENT */}
         <div
-          className={`flex w-full min-w-0 flex-col ${type === "left" ? "lg:items-end lg:text-right" : "justify-center"} px-6 py-10 sm:px-10 sm:py-15 lg:w-1/2 lg:px-[3vw] lg:py-23.5`}
+          className={`flex w-full min-w-0 flex-col ${type === "left" ? "lg:items-end lg:text-right" : "justify-center"} py-10 sm:px-10 sm:py-15 lg:w-1/2 px-[4vw] lg:py-23.5`}
         >
           {children}
         </div>

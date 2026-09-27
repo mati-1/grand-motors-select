@@ -4,6 +4,7 @@ export type CarType = {
 
   brand: string;
   model: string;
+  condition: "Nowy" | "Używany";
   vin: string;
   year: number;
   mileage: string;
@@ -14,7 +15,8 @@ export type CarType = {
   fuel: string;
   carvertical: boolean;
   price: string;
-
+  location: string;
+  voivodeship: string;
   image: string;
   images: string[];
   negotiation: boolean;
@@ -53,6 +55,7 @@ export const carsList: CarType[] = [
     invoice: "VAT 23%",
     brand: "BMW",
     model: "F30 340I",
+    condition: "Używany",
     carvertical: true,
     year: 2018,
     mileage: "77 000 km",
@@ -62,10 +65,11 @@ export const carsList: CarType[] = [
     drive: "xDrive",
     fuel: "Benzyna",
     status: "available",
-    price: "105 000 zł",
+    price: "105 000 PLN",
     vin: "WBA8B9C50HK123456",
     image: "/cars/bmwf30/1.png",
-
+    location: "Stanisławice, Polska",
+    voivodeship: "Małopolskie",
     images: [
       "/cars/bmwf30/1.png",
       "/cars/bmwf30/2.png",
@@ -75,7 +79,7 @@ export const carsList: CarType[] = [
     ],
 
     description:
-      "Samochód posiada oryginalny, udokumentowany przebieg 77 000 km, który znajduje potwierdzenie w dostępnej historii pojazdu. Auto jest zadbane zarówno pod względem wizualnym, jak i technicznym. Nie wymaga dodatkowego wkładu finansowego i jest przygotowane do dalszej eksploatacji. To egzemplarz dla osoby, która szuka dobrze skonfigurowanego BMW z mocnym silnikiem R6, napędem xDrive i sportowym charakterem, ale jednocześnie oczekuje komfortu oraz odpowiedniego poziomu wyposażenia. Samochód gotowy do oględzin i jazdy próbnej.",
+      "BMW F30 340i to sportowy sedan, który łączy charakter sześciocylindrowego silnika z codzienną użytecznością i komfortem. Jednostka 3.0 R6 o mocy 344 KM w połączeniu z automatyczną skrzynią biegów i napędem xDrive zapewnia bardzo dobre osiągi oraz pewne prowadzenie.\n\nPrezentowany egzemplarz ma przebieg 77 000 km, potwierdzony w dostępnej historii pojazdu. Samochód wyróżnia się atrakcyjną konfiguracją obejmującą m.in. pakiet M Sport, sportowy układ wydechowy, zawieszenie Adaptive M, reflektory Adaptive LED oraz system Harman Kardon.\n\nTo propozycja dla osoby, która szuka dynamicznego BMW z mocnym silnikiem R6, napędem xDrive i odpowiednim poziomem wyposażenia, bez rezygnowania z komfortu podczas codziennej jazdy. Samochód jest przygotowany do oględzin i jazdy próbnej.",
     negotiation: true,
     equipment: [
       "M Sport Package",
@@ -120,12 +124,14 @@ export const carsList: CarType[] = [
 
     featured: true,
   },
+
   {
     id: "bmw-g11-2022",
     slug: "bmw-g11-2022",
     invoice: "VAT 23%",
     brand: "BMW",
     model: "G11 740D",
+    condition: "Używany",
     carvertical: true,
     year: 2022,
     mileage: "131 000 km",
@@ -135,20 +141,30 @@ export const carsList: CarType[] = [
     drive: "xDrive",
     fuel: "Diesel",
     status: "available",
-    price: "240 000 zł",
+    price: "240 000 PLN",
     vin: "WBA8B9C50HK123456",
     image: "/cars/bmwg11/1.jpg",
-
+    location: "Stanisławice, Polska",
+    voivodeship: "Małopolskie",
     images: [
       "/cars/bmwg11/1.jpg",
       "/cars/bmwg11/2.jpg",
       "/cars/bmwg11/3.jpg",
       "/cars/bmwg11/4.jpg",
       "/cars/bmwg11/5.jpg",
+      "/cars/bmwg11/4.jpg",
+      "/cars/bmwg11/3.jpg",
+      "/cars/bmwg11/5.jpg",
+      "/cars/bmwg11/4.jpg",
+      "/cars/bmwg11/5.jpg",
+      "/cars/bmwg11/3.jpg",
+      "/cars/bmwg11/4.jpg",
+      "/cars/bmwg11/3.jpg",
+      "/cars/bmwg11/5.jpg",
     ],
 
     description:
-      "BMW 740d xDrive G11 to reprezentacyjna limuzyna, która łączy wysoki poziom komfortu z osiągami i kulturą pracy sześciocylindrowego silnika wysokoprężnego. Jednostka 3.0 R6 współpracująca z automatyczną skrzynią biegów oraz napędem xDrive zapewnia płynne przyspieszenie, wysoki moment obrotowy i komfortową jazdę zarówno w mieście, jak i podczas długich tras. Prezentowany egzemplarz wyróżnia się elegancką konfiguracją, bogatym wyposażeniem oraz charakterystycznym dla serii 7 poziomem wykończenia. G11 oferuje wyjątkową przestrzeń, doskonałe wyciszenie i komfort, dzięki którym nawet długie podróże stają się niezwykle przyjemne. To samochód dla osoby, która oczekuje od swojej limuzyny połączenia prestiżu, nowoczesnych technologii, komfortu oraz odpowiednich osiągów.",
+      "BMW 740d xDrive G11 to reprezentacyjna limuzyna stworzona z myślą o komforcie, długich trasach i wysokim poziomie wyposażenia. Sześciocylindrowy silnik 3.0 R6 o mocy 340 KM współpracuje z automatyczną skrzynią biegów oraz napędem xDrive, zapewniając płynne przyspieszenie i wysoki moment obrotowy.\n\nTen egzemplarz wyróżnia się rozbudowaną konfiguracją obejmującą m.in. zawieszenie Adaptive 2-axle Air Suspension, Executive Drive Pro, Integral Active Steering, pakiet M Sport, komfortowe fotele z pamięcią, wentylację i masaż oraz skórzaną tapicerkę Nappa.\n\nNa pokładzie znalazły się również technologie podnoszące komfort i bezpieczeństwo, takie jak BMW Live Cockpit Professional, Head-Up Display, Surround View, Parking Assistant Plus, Active Cruise Control oraz Driving Assistant Professional.\n\nG11 to samochód dla osoby, która oczekuje od limuzyny połączenia wysokiego komfortu, nowoczesnych technologii, przestronnego wnętrza i odpowiednich osiągów. Przebieg 131 000 km.",
     negotiation: true,
     equipment: [
       "xDrive",
@@ -223,12 +239,14 @@ export const carsList: CarType[] = [
 
     featured: true,
   },
+
   {
     id: "bmw-f86x6m-2017",
     slug: "bmw-f86x6m-2017",
     invoice: "VAT MARŻA",
     brand: "BMW",
     model: "F86 X6M",
+    condition: "Używany",
     carvertical: true,
     year: 2017,
     mileage: "51 000 km",
@@ -238,10 +256,11 @@ export const carsList: CarType[] = [
     drive: "xDrive",
     fuel: "Benzyna",
     status: "reservation",
-    price: "140 000 zł",
+    price: "140 000 PLN",
     vin: "WBA8B9C50HK123456",
     image: "/cars/bmwx6m/1.png",
-
+    location: "Stanisławice, Polska",
+    voivodeship: "Małopolskie",
     images: [
       "/cars/bmwx6m/1.png",
       "/cars/bmwx6m/2.png",
@@ -251,7 +270,7 @@ export const carsList: CarType[] = [
     ],
 
     description:
-      "BMW X6 M F86 xDrive to połączenie bezkompromisowych osiągów silnika 4.4 V8 o mocy 575 KM z komfortem i funkcjonalnością luksusowego SUV-a. Napęd xDrive, automatyczna skrzynia biegów oraz charakterystyka opracowana przez BMW M tworzą samochód, który oferuje wyjątkowe osiągi, a jednocześnie pozostaje komfortowy w codziennym użytkowaniu. Prezentowany egzemplarz wyróżnia się atrakcyjną konfiguracją, wysokim poziomem wyposażenia oraz charakterystycznym dla modeli M sportowym wykończeniem. Dynamiczna sylwetka X6, szeroka bryła nadwozia i rasowy dźwięk jednostki V8 nadają mu wyrazisty charakter, którego trudno pomylić z innym samochodem. To propozycja dla osoby, która szuka samochodu łączącego osiągi samochodu sportowego, prestiż oraz praktyczność SUV-a — bez rezygnowania z emocji za kierownicą.",
+      "BMW X6 M F86 to połączenie osiągów samochodu sportowego z charakterem luksusowego SUV-a. Silnik 4.4 V8 o mocy 575 KM, automatyczna skrzynia biegów i napęd xDrive tworzą układ nastawiony na dynamiczną jazdę, jednocześnie zachowując komfort potrzebny na co dzień.\n\nPrezentowany egzemplarz ma przebieg zaledwie 51 000 km i wyróżnia się sportową konfiguracją. Na wyposażeniu znajdują się m.in. pakiet M Sport, sportowy układ wydechowy, zawieszenie Adaptive M, reflektory Adaptive LED, Head-Up Display oraz system Harman Kardon.\n\nCharakterystyczna sylwetka X6 M, szeroka bryła nadwozia i jednostka V8 nadają temu modelowi wyrazisty charakter. To propozycja dla osoby, która szuka mocnego SUV-a łączącego osiągi, prestiż i praktyczność, bez rezygnowania z emocji za kierownicą.",
     negotiation: true,
     equipment: [
       "M Sport Package",
@@ -296,12 +315,14 @@ export const carsList: CarType[] = [
 
     featured: true,
   },
+
   {
     id: "bmw-f10530d-2013",
     slug: "bmw-f10530d-2013",
     invoice: "VAT 23%",
     brand: "BMW",
     model: "F10 530D",
+    condition: "Używany",
     carvertical: true,
     year: 2013,
     mileage: "190 000 km",
@@ -311,10 +332,11 @@ export const carsList: CarType[] = [
     drive: "Napęd na tył",
     fuel: "Diesel",
     status: "sold",
-    price: "60 000 zł",
+    price: "60 000 PLN",
     vin: "WBA8B9C50HK123456",
     image: "/cars/bmwf10/1.jpg",
-
+    location: "Nowy Targ, Polska",
+    voivodeship: "Małopolskie",
     images: [
       "/cars/bmwf10/1.jpg",
       "/cars/bmwf10/2.jpg",
@@ -323,7 +345,7 @@ export const carsList: CarType[] = [
     ],
 
     description:
-      "BMW 530d F10 to połączenie mocnego, sześciocylindrowego silnika wysokoprężnego z komfortem i elegancją charakterystyczną dla serii 5. Jednostka 3.0 R6 o mocy 258 KM, współpracująca z automatyczną skrzynią biegów, zapewnia bardzo dobre osiągi, wysoką kulturę pracy oraz odpowiedni zapas mocy podczas codziennej jazdy i dłuższych tras. Prezentowany egzemplarz posiada przebieg 190 000 km i wyróżnia się klasyczną, ponadczasową stylistyką F10, komfortowym wnętrzem oraz bogatym wyposażeniem. To samochód, który dobrze sprawdza się zarówno podczas dynamicznej jazdy, jak i wielogodzinnych podróży, oferując komfort, przestrzeń i charakter typowy dla klasy premium. BMW 530d F10 to propozycja dla osoby szukającej mocnego i komfortowego samochodu do codziennej jazdy oraz dłuższych tras.",
+      "BMW 530d F10 to klasyczne połączenie komfortu serii 5 z mocnym, sześciocylindrowym silnikiem wysokoprężnym. Jednostka 3.0 R6 o mocy 258 KM współpracuje z automatyczną skrzynią biegów i napędem na tył, zapewniając dobre osiągi, wysoką kulturę pracy oraz komfort podczas dłuższych tras.\n\nPrezentowany egzemplarz ma przebieg 190 000 km i wyróżnia się ponadczasową stylistyką F10 oraz bogatym wyposażeniem. Na pokładzie znajdują się m.in. pakiet M Sport, komfortowe fotele, Head-Up Display, system Harman Kardon, Professional Navigation oraz kamera cofania.\n\nTo samochód dla osoby, która szuka mocnego i komfortowego BMW do codziennej jazdy, ale jednocześnie oczekuje odpowiedniego poziomu wyposażenia i charakteru typowego dla serii 5.",
     negotiation: true,
     equipment: [
       "Pakiet M Sport",
@@ -360,6 +382,7 @@ export const carsList: CarType[] = [
       doors: "4",
       country: "Polska",
     },
+
     history: [
       {
         title: "Weryfikacja samochodu",
@@ -377,12 +400,14 @@ export const carsList: CarType[] = [
       },
     ],
   },
+
   {
     id: "audi-s5-2016",
     slug: "audi-s5-2016",
     invoice: "VAT MARŻA",
     brand: "AUDI",
     model: "S5 Premium Plus",
+    condition: "Używany",
     carvertical: true,
     year: 2016,
     mileage: "175 000 km",
@@ -392,14 +417,15 @@ export const carsList: CarType[] = [
     drive: "quattro",
     fuel: "Benzyna",
     status: "sold",
-    price: "72 000 zł",
+    price: "72 000 PLN",
     vin: "WBA8B9C50HK123456",
     image: "/cars/audis5/1.jpg",
-
+    location: "Nowy Targ, Polska",
+    voivodeship: "Małopolskie",
     images: ["/cars/audis5/1.jpg"],
 
     description:
-      "Audi S5 to połączenie sportowego charakteru, osiągów i komfortu samochodu klasy premium. Jednostka 3.0 V6 TFSI zapewnia bardzo dobre osiągi, a napęd quattro oraz automatyczna skrzynia biegów pozwalają w pełni wykorzystać potencjał samochodu zarówno podczas dynamicznej jazdy, jak i na co dzień. Prezentowany egzemplarz wyróżnia się sportową konfiguracją, wysokim poziomem wyposażenia oraz charakterystyczną dla modelu S5 stylistyką. Samochód oferuje odpowiedni balans pomiędzy osiągami a komfortem, dzięki czemu sprawdza się zarówno na dłuższych trasach, jak i podczas bardziej dynamicznej jazdy. Audi S5 to propozycja dla osoby szukającej samochodu, który nie rezygnuje z komfortu i elegancji, ale jednocześnie oferuje wyraźnie sportowy charakter i osiągi.",
+      "Audi S5 to sportowe coupe łączące osiągi, komfort i elegancką stylistykę samochodu klasy premium. Silnik 3.0 V6 TFSI o mocy 420 KM współpracuje z automatyczną skrzynią biegów oraz napędem quattro, zapewniając dynamiczną jazdę i pewne prowadzenie.\n\nPrezentowany egzemplarz wyróżnia się sportową konfiguracją oraz bogatym wyposażeniem. Na pokładzie znajdują się m.in. pakiet S line, Audi Virtual Cockpit, MMI Navigation Plus, system Bang & Olufsen, sportowe fotele S, reflektory LED oraz kamera cofania.\n\nS5 zachowuje odpowiedni balans pomiędzy sportowym charakterem a komfortem codziennego użytkowania. To propozycja dla osoby, która szuka coupe oferującego wyraźne osiągi, napęd quattro i charakterystyczną stylistykę modelu S5.",
     negotiation: true,
     equipment: [
       "Pakiet S line",
@@ -430,6 +456,7 @@ export const carsList: CarType[] = [
       doors: "2",
       country: "Stany Zjednoczone",
     },
+
     history: [
       {
         title: "Weryfikacja samochodu",
@@ -447,12 +474,14 @@ export const carsList: CarType[] = [
       },
     ],
   },
+
   {
     id: "bmw-f06650i-2015",
     slug: "bmw-f06650i-2015",
     invoice: "VAT MARŻA",
     brand: "BMW",
     model: "F06 650I",
+    condition: "Używany",
     carvertical: true,
     year: 2015,
     mileage: "110 000 km",
@@ -462,10 +491,11 @@ export const carsList: CarType[] = [
     drive: "xDrive",
     fuel: "Benzyna",
     status: "sold",
-    price: "105 000 zł",
+    price: "105 000 PLN",
     vin: "WBA8B9C50HK123456",
     image: "/cars/bmwf06/1.jpg",
-
+    location: "Nowy Targ, Polska",
+    voivodeship: "Małopolskie",
     images: [
       "/cars/bmwf06/1.jpg",
       "/cars/bmwf06/2.jpg",
@@ -475,7 +505,7 @@ export const carsList: CarType[] = [
     ],
 
     description:
-      "BMW 650i xDrive F06 to wyjątkowe połączenie osiągów, komfortu i elegancji w wydaniu luksusowego Gran Turismo. Pod maską pracuje jednostka 4.4 V8 o mocy 475 KM, współpracująca z automatyczną skrzynią biegów oraz napędem xDrive. Takie połączenie zapewnia imponującą dynamikę, płynność jazdy i pewne prowadzenie niezależnie od warunków. Prezentowany egzemplarz posiada oryginalny, udokumentowany przebieg 110 000 km. Samochód wyróżnia się atrakcyjną konfiguracją, wysokim poziomem wyposażenia oraz pakietem M Sport, który podkreśla jego sportowy charakter. Auto jest zadbane pod względem wizualnym i technicznym oraz nie wymaga dodatkowego wkładu finansowego. To propozycja dla osoby szukającej luksusowego Gran Turismo z charakterem, które zapewnia zarówno komfort podczas dłuższych podróży, jak i emocje płynące z jednostki V8.",
+      "BMW 650i xDrive F06 to luksusowe Gran Turismo, w którym komfort i elegancja spotykają się z charakterem jednostki V8. Silnik 4.4 V8 o mocy 475 KM współpracuje z automatyczną skrzynią biegów oraz napędem xDrive, zapewniając bardzo dobre osiągi i płynność jazdy.\n\nPrezentowany egzemplarz ma przebieg 110 000 km i wyróżnia się bogatą konfiguracją z pakietem M Sport. Na wyposażeniu znajdują się m.in. Adaptive Drive, Integral Active Steering, system Bang & Olufsen High End, Head-Up Display, Night Vision, Surround View, komfortowe fotele z wentylacją i masażem oraz skórzana tapicerka Nappa.\n\nTo samochód dla osoby, która oczekuje od Gran Turismo wysokiego komfortu podczas długich podróży, ale jednocześnie chce korzystać z potencjału mocnego silnika V8 i napędu xDrive. Egzemplarz jest przygotowany do dalszej eksploatacji.",
     negotiation: true,
     equipment: [
       "M Sport Package",
@@ -530,6 +560,7 @@ export const carsList: CarType[] = [
       doors: "4",
       country: "Stany Zjednoczone",
     },
+
     history: [
       {
         title: "Weryfikacja samochodu",
@@ -547,12 +578,14 @@ export const carsList: CarType[] = [
       },
     ],
   },
+
   {
     id: "opel-insignia-2012",
     slug: "opel-insignia-2012",
     invoice: "VAT MARŻA",
     brand: "OPEL",
     model: "INSIGNIA 2.0 BITURBO CDTI",
+    condition: "Używany",
     carvertical: true,
     year: 2012,
     mileage: "128 000 km",
@@ -562,9 +595,10 @@ export const carsList: CarType[] = [
     drive: "4x4",
     fuel: "Diesel",
     status: "sold",
-    price: "27 000 zł",
+    price: "27 000 PLN",
     vin: "WBA8B9C50HK123456",
-
+    location: "Nowy Targ, Polska",
+    voivodeship: "Małopolskie",
     image: "/cars/opelinsignia/1.jpg",
 
     images: [
@@ -577,7 +611,7 @@ export const carsList: CarType[] = [
     ],
 
     description:
-      "Opel Insignia 2.0 BiTurbo CDTI z 2012 roku to mocna i komfortowa odmiana modelu, łącząca dynamiczny charakter z bardzo dobrymi właściwościami podczas codziennej jazdy oraz dłuższych podróży. Pod maską pracuje wysokoprężna jednostka 2.0 BiTurbo o mocy 195 KM, współpracująca z automatyczną skrzynią biegów oraz napędem 4x4. Zastosowanie dwóch turbosprężarek zapewnia dobrą elastyczność i płynne rozwijanie mocy, a napęd na cztery koła poprawia trakcję i pewność prowadzenia. Prezentowany egzemplarz posiada udokumentowany przebieg 128 000 km oraz atrakcyjną konfigurację wyposażenia. To propozycja dla osoby szukającej komfortowego, dobrze wyposażonego samochodu z mocnym silnikiem wysokoprężnym, automatyczną skrzynią biegów i napędem 4x4.",
+      "Opel Insignia 2.0 BiTurbo CDTI to komfortowy sedan łączący dynamiczny charakter z praktycznością samochodu do codziennej jazdy. Silnik wysokoprężny 2.0 BiTurbo o mocy 195 KM współpracuje z automatyczną skrzynią biegów oraz napędem 4x4.\n\nZastosowanie dwóch turbosprężarek zapewnia dobrą elastyczność i płynne rozwijanie mocy, a napęd na cztery koła poprawia trakcję i pewność prowadzenia. Prezentowany egzemplarz ma udokumentowany przebieg 128 000 km.\n\nSamochód posiada bogate wyposażenie obejmujące m.in. skórzaną tapicerkę, sportowe fotele, kamerę cofania, nawigację, tempomat, reflektory Bi-Xenon oraz system FlexRide.\n\nTo propozycja dla osoby szukającej komfortowego i dobrze wyposażonego samochodu z automatyczną skrzynią biegów, mocnym silnikiem Diesla i napędem 4x4.",
 
     negotiation: true,
 
@@ -642,12 +676,14 @@ export const carsList: CarType[] = [
       },
     ],
   },
+
   {
     id: "bmw-e92335i-2012",
     slug: "bmw-e92335i-2012",
     invoice: "VAT MARŻA",
     brand: "BMW",
     model: "E92 335I",
+    condition: "Używany",
     carvertical: true,
     year: 2012,
     mileage: "156 000 km",
@@ -657,10 +693,11 @@ export const carsList: CarType[] = [
     drive: "xDrive",
     fuel: "Benzyna",
     status: "sold",
-    price: "49 000 zł",
+    price: "49 000 PLN",
     vin: "WBA8B9C50HK123456",
     image: "/cars/bmwe92/1.jpg",
-
+    location: "Nowy Targ, Polska",
+    voivodeship: "Małopolskie",
     images: [
       "/cars/bmwe92/1.jpg",
       "/cars/bmwe92/2.jpg",
@@ -671,7 +708,7 @@ export const carsList: CarType[] = [
     ],
 
     description:
-      "BMW E92 335i z 2012 roku to sportowe coupe, które łączy klasyczną stylistykę BMW z charakterem sześciocylindrowej jednostki turbo. Pod maską pracuje silnik 3.0 o mocy 306 KM, współpracujący z automatyczną skrzynią biegów oraz napędem xDrive. Takie połączenie zapewnia bardzo dobrą dynamikę, bezpośrednie prowadzenie i charakterystyczne dla BMW wrażenia z jazdy. Prezentowany egzemplarz wyróżnia się atrakcyjną konfiguracją, sportowym charakterem oraz ponadczasową sylwetką E92. Samochód zachowuje odpowiedni balans pomiędzy osiągami a komfortem codziennego użytkowania, będąc jednocześnie ciekawą propozycją dla osoby szukającej klasycznego, mocnego coupe z napędem xDrive.",
+      "BMW E92 335i to sportowe coupe o ponadczasowej sylwetce i charakterze typowym dla sześciocylindrowych modeli BMW. Silnik 3.0 R6 o mocy 306 KM współpracuje z automatyczną skrzynią biegów oraz napędem xDrive, zapewniając bardzo dobrą dynamikę i pewne prowadzenie.\n\nPrezentowany egzemplarz ma przebieg 156 000 km i wyróżnia się sportową konfiguracją obejmującą m.in. pakiet M Sport, sportowe zawieszenie i hamulce, sportowe fotele, automatyczną klimatyzację oraz system Professional Navigation.\n\nKlasyczna linia E92, napęd xDrive i mocny silnik tworzą połączenie, które nadal zapewnia charakterystyczne dla BMW wrażenia z jazdy. To propozycja dla osoby szukającej mocnego coupe o bardziej klasycznym charakterze.",
     negotiation: true,
     equipment: [
       "M Sport Package",
@@ -714,6 +751,7 @@ export const carsList: CarType[] = [
       doors: "2",
       country: "Stany Zjednoczone",
     },
+
     history: [
       {
         title: "Weryfikacja samochodu",
@@ -731,12 +769,14 @@ export const carsList: CarType[] = [
       },
     ],
   },
+
   {
     id: "bmw-f10-535i-2014",
     slug: "bmw-f10-535i-2014",
     invoice: "VAT MARŻA",
     brand: "BMW",
     model: "F10 535I",
+    condition: "Używany",
     carvertical: true,
     year: 2014,
     mileage: "183 000 km",
@@ -746,10 +786,11 @@ export const carsList: CarType[] = [
     drive: "Na tył",
     fuel: "Benzyna",
     status: "sold",
-    price: "74 000 zł",
+    price: "74 000 PLN",
     vin: "WBA8B9C50HK123456",
     image: "/cars/bmwf10_2/1.jpeg",
-
+    location: "Nowy Targ, Polska",
+    voivodeship: "Małopolskie",
     images: [
       "/cars/bmwf10_2/1.jpeg",
       "/cars/bmwf10_2/2.jpeg",
@@ -758,7 +799,7 @@ export const carsList: CarType[] = [
     ],
 
     description:
-      "BMW F10 535i z 2014 roku to sportowy sedan klasy premium, który łączy osiągi charakterystyczne dla mocnych modeli BMW z komfortem i elegancją serii 5. Pod maską pracuje sześciocylindrowa jednostka 3.0 TwinPower Turbo o mocy 306 KM, współpracująca z automatyczną skrzynią biegów oraz napędem na tył. Takie połączenie zapewnia bardzo dobrą dynamikę, płynne przyspieszenie oraz pewne prowadzenie niezależnie od warunków. F10 oferuje jednocześnie wysoki poziom komfortu podczas codziennej jazdy i dłuższych podróży. Prezentowany egzemplarz wyróżnia się atrakcyjną konfiguracją, mocnym silnikiem oraz charakterystyczną dla BMW równowagą pomiędzy sportowym charakterem a komfortem klasy premium.",
+      "BMW F10 535i to sportowy sedan klasy premium, który łączy osiągi mocnego BMW z komfortem i elegancją serii 5. Sześciocylindrowy silnik 3.0 TwinPower Turbo o mocy 306 KM współpracuje z automatyczną skrzynią biegów oraz napędem na tył.\n\nPrezentowany egzemplarz ma przebieg 183 000 km i wyróżnia się atrakcyjną konfiguracją z pakietem M Sport. Na wyposażeniu znajdują się m.in. Adaptive Drive, Integral Active Steering, Comfort Access, Soft-Close, sportowe fotele, Head-Up Display, Surround View oraz systemy wspomagające kierowcę.\n\nF10 oferuje jednocześnie odpowiednią dynamikę i wysoki poziom komfortu podczas codziennej jazdy oraz dłuższych podróży. To propozycja dla osoby, która szuka mocnego sedana z charakterem BMW i wyposażeniem klasy premium.",
 
     negotiation: true,
 

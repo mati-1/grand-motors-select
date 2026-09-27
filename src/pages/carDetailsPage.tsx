@@ -8,11 +8,13 @@ import { CarInfo } from "../components/cars/car-slug/carInfo";
 import { CarDescription } from "../components/cars/car-slug/carDescription";
 import { CarEquipment } from "../components/cars/car-slug/carEquipment";
 import { CarHistory } from "../components/cars/car-slug/carHistory";
-
+import { CarInShort } from "../components/cars/car-slug/carInShort";
 import { carsList } from "../components/cars/cars";
-
+import { CarShare } from "../components/cars/car-slug/carShare";
+import ArrowIcon from "../assets/icons/strzalka.svg?react";
 import { FooterComponent } from "../components/footer";
 import { ContactSectionComponent } from "../sections/landing/contact";
+import { CarLocation } from "../components/cars/carLocation";
 
 export const CarDetailsPage = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -22,7 +24,7 @@ export const CarDetailsPage = () => {
 
   if (!car) {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center bg-[#050505] px-[3vw] text-center">
+      <main className="flex min-h-screen flex-col items-center justify-center bg-[#050505] px-[4vw] lg:px-[13vw] text-center">
         <span className="text-[9px] tracking-[0.3em] text-[#b99a5c]">
           404 / NIE ZNALEZIONO
         </span>
@@ -63,43 +65,46 @@ export const CarDetailsPage = () => {
       <PageLoader imageSources={car.images} />
 
       <main className="w-full bg-[#050505]">
-        {/* TOP */}
-        <section className="px-[3vw] pb-6 pt-32 sm:pb-24">
-          {/* BACK */}
-          <button
-            type="button"
-            onClick={() => navigate(-1)}
-            className="
-              group
-              inline-flex
-              cursor-pointer
-              items-center
-              gap-3
-              text-[10px]
-              tracking-[0.22em]
-              text-[#666]
-              transition
-              hover:text-[#d2b878]
-            "
-          >
-            <span className="transition-transform duration-300 group-hover:-translate-x-1">
-              ←
-            </span>
+        <section className="px-[4vw] lg:px-[13vw] pb-6 pt-32 sm:pb-24">
+          <div className="flex items-center justify-between w-full max-h-3 lg:max-h-5">
+            <button
+              type="button"
+              onClick={() => navigate(-1)}
+              aria-label="Udostępnij ofertę"
+              className="
+          group
+          flex
+          h-9
+          w-9
+          cursor-pointer
+          items-center
+          justify-center
+          border
+          border-white/10
+          bg-white/2
+          text-[#777]
+          transition-all
+          duration-300
+          hover:border-[#b99a5c]/40
+          hover:bg-[#b99a5c]/5
+          hover:text-[#d2b878]
+        "
+            >
+              <ArrowIcon className="w-5 h-5" />
+            </button>
 
-            <span>WRÓĆ DO OFERTY</span>
-          </button>
+            <CarShare car={car} key={car.id} />
+          </div>
 
-          {/* MAIN PRODUCT LAYOUT */}
           <div
             className="
               mt-7
               grid
               items-start
-              gap-10
-              xl:grid-cols-[minmax(0,1.5fr)_minmax(340px,0.8fr)]
+              gap-8
+              xl:grid-cols-[minmax(0,1.7fr)_minmax(340px,0.8fr)]
             "
           >
-            {/* LEFT — GALLERY + ALL CONTENT */}
             <div className="min-w-0">
               <CarGallery
                 car={car}
@@ -107,31 +112,27 @@ export const CarDetailsPage = () => {
                 alt={`${car.brand} ${car.model}`}
               />
 
-              <aside className="min-w-0 mb-6 block xl:hidden">
+              <aside className="min-w-0 my-6 block xl:hidden">
                 <CarInfo car={car} />
               </aside>
 
-              {/* DESCRIPTION */}
+              <CarInShort car={car} />
+
               <CarDescription car={car} />
 
-              {/* EQUIPMENT */}
               <CarEquipment car={car} />
-
-              {/* HISTORY */}
+              <CarLocation location={car.location} car={car} />
               {car.status !== "sold" && <CarHistory car={car} />}
             </div>
 
-            {/* RIGHT — STICKY CAR INFO */}
             <aside className="min-w-0 hidden xl:block xl:sticky xl:top-28">
               <CarInfo car={car} />
             </aside>
           </div>
         </section>
 
-        {/* CONTACT */}
         <ContactSectionComponent />
 
-        {/* FOOTER */}
         <FooterComponent />
 
         <LineComponent className="mt-0!" />

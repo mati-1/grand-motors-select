@@ -88,7 +88,7 @@ export const HeroComponentSection = () => {
           z-10
           w-full
           px-6
-          lg:px-[3vw]
+          lg:px-[5vw]
         "
       >
         <div

@@ -9,7 +9,6 @@ import { DetailingSectionComponent } from "./sections/landing/detailing";
 import { FooterComponent } from "./components/footer";
 import { HeaderComponent } from "./components/header/header";
 import { HeroComponentSection } from "./sections/landing/hero";
-// import { ReviewsComponent } from "./sections/landing/reviews/reviews";
 import { TrustComponent } from "./sections/landing/trust";
 import { WrapSectionComponent } from "./sections/landing/wrap";
 
@@ -23,7 +22,6 @@ import CarDetailsPage from "./pages/carDetailsPage";
 import ContactPage from "./pages/contactPage";
 import { PageLoader } from "./components/page-loader";
 import { CookieBanner } from "./components/CookieBanner";
-// import { SafeSectionComponent } from "./sections/landing/safe";
 
 const pageVideos: Record<string, string> = {
   "/": "/hero.mp4",
@@ -54,7 +52,7 @@ const App = () => {
                 <CarsComponent />
                 <TrustComponent />
 
-                <div className="my-8 px-[3vw] md:my-12">
+                <div className="my-8 px-[4vw] lg:px-[13vw]! md:my-12">
                   <SubHeadingComponent>
                     TO NIE TYLKO{" "}
                     <span className="text-[#d2b878]">SPRZEDAŻ</span>
@@ -67,8 +65,6 @@ const App = () => {
 
                 <DetailingSectionComponent />
                 <WrapSectionComponent />
-                {/* <SafeSectionComponent /> */}
-                {/* <ReviewsComponent /> */}
                 <ContactSectionComponent />
               </main>
 

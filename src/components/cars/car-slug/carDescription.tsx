@@ -1,28 +1,121 @@
 import { useState } from "react";
 
 import { MainHeadingComponent } from "../../headings";
+
 import type { CarType } from "../cars";
+
 import { SpecificationItem } from "./carInfo";
+
+import BodyIcon from "../../../assets/icons/nadwozie.svg?react";
+import ColorIcon from "../../../assets/icons/kolor.svg?react";
+import InteriorIcon from "../../../assets/icons/wnetrze.svg?react";
+import SeatsIcon from "../../../assets/icons/miejsca.svg?react";
+import DoorsIcon from "../../../assets/icons/drzwi.svg?react";
+import CountryIcon from "../../../assets/icons/lokalizacja.svg?react";
+import FuelIcon from "../../../assets/icons/paliwo.svg?react";
+import InvoiceIcon from "../../../assets/icons/faktura.svg?react";
+import CarVerticalIcon from "../../../assets/icons/trasa.svg?react";
+import VinIcon from "../../../assets/icons/vin.svg?react";
 
 type CarDescriptionProps = {
   car: CarType;
 };
 
+type Detail = {
+  label: string;
+  value: string | number;
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+};
+
+const MOBILE_DESCRIPTION_LIMIT = 280;
+const DESKTOP_DESCRIPTION_LIMIT = 420;
+
+const truncateAtWord = (text: string, limit: number) => {
+  if (text.length <= limit) {
+    return text;
+  }
+
+  const shortenedText = text.slice(0, limit);
+  const lastSpace = shortenedText.lastIndexOf(" ");
+
+  if (lastSpace === -1) {
+    return shortenedText.trim() + "...";
+  }
+
+  return shortenedText.slice(0, lastSpace).trim() + "...";
+};
+
 export const CarDescription = ({ car }: CarDescriptionProps) => {
+  const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
+
   const [isExpanded, setIsExpanded] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const details = [
-    ["NADWOZIE", car.details.body],
-    ["KOLOR", car.details.color],
-    ["WNĘTRZE", car.details.interior],
-    ["LICZBA MIEJSC", car.details.seats],
-    ["LICZBA DRZWI", car.details.doors],
-    ["KRAJ POCHODZENIA", car.details.country],
-    ["PALIWO", car.fuel],
-    ["FAKTURA", car.invoice],
-    ["CARVERTICAL", car.carvertical ? "Dostępny" : "Brak"],
+  const details: Detail[] = [
+    {
+      label: "NADWOZIE",
+      value: car.details.body,
+      icon: BodyIcon,
+    },
+    {
+      label: "KOLOR",
+      value: car.details.color,
+      icon: ColorIcon,
+    },
+    {
+      label: "WNĘTRZE",
+      value: car.details.interior,
+      icon: InteriorIcon,
+    },
+    {
+      label: "LICZBA MIEJSC",
+      value: car.details.seats,
+      icon: SeatsIcon,
+    },
+    {
+      label: "LICZBA DRZWI",
+      value: car.details.doors,
+      icon: DoorsIcon,
+    },
+    {
+      label: "KRAJ POCHODZENIA",
+      value: car.details.country,
+      icon: CountryIcon,
+    },
+    {
+      label: "PALIWO",
+      value: car.fuel,
+      icon: FuelIcon,
+    },
+    {
+      label: "FAKTURA",
+      value: car.invoice,
+      icon: InvoiceIcon,
+    },
+    {
+      label: "CARVERTICAL",
+      value: car.carvertical ? "Dostępny" : "Brak",
+      icon: CarVerticalIcon,
+    },
   ];
+
+  const visibleDetails = details.slice(0, 6);
+  const hiddenDetails = details.slice(6);
+  const hasMoreDetails = hiddenDetails.length > 0;
+
+  const mobileDescription = truncateAtWord(
+    car.description,
+    MOBILE_DESCRIPTION_LIMIT,
+  );
+
+  const desktopDescription = truncateAtWord(
+    car.description,
+    DESKTOP_DESCRIPTION_LIMIT,
+  );
+
+  const needsDescriptionExpansion =
+    car.description.length > MOBILE_DESCRIPTION_LIMIT ||
+    car.description.length > DESKTOP_DESCRIPTION_LIMIT;
 
   const copyVin = async () => {
     try {
@@ -38,92 +131,150 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
     }
   };
 
-  const firstDetails = details.slice(0, 4);
-  const hiddenDetails = details.slice(4);
-
-  const hasMoreDetails = hiddenDetails.length > 0;
-
   return (
     <section
       className="
-        border-t
-        border-white/5
-        bg-[#b99a5c]/20
-        bg-linear-to-r
-        from-black/90
-        via-black/75
-        to-black/90
-        py-6
-        sm:py-16
+        bg-[#050505]
+        pt-4
+        pb-5
+        sm:pt-9
+        lg:pt-12
       "
     >
       <div>
+        {/* ================================================= */}
         {/* HEADER */}
-        <div className="grid gap-10 lg:grid-cols-[0.5fr_1.3fr]">
-          <div>
-            <MainHeadingComponent
-              className="
-                mt-0!
-                text-[12px]!
-                tracking-[0.3em]
-                text-[#b99a5c]
-                md:text-[14px]!
-              "
-            >
-              OPIS SAMOCHODU
-            </MainHeadingComponent>
-          </div>
+        {/* ================================================= */}
+
+        <div className="flex flex-col gap-4">
+          {/* SECTION TITLE */}
+
+          <MainHeadingComponent
+            className="
+              mt-0!
+              font-normal!
+              
+              text-[#b99a5c]
+              text-[16px]!
+              md:text-[20px]!
+            "
+          >
+            Opis
+          </MainHeadingComponent>
+
+          {/* DESCRIPTION */}
 
           <div className="relative max-w-180">
-            {/* SMALL GOLD LINE */}
+            {/* MOBILE DESCRIPTION */}
             <div
               className="
-                absolute
-                -left-5
-                top-1
-                h-10
-                w-px
-                bg-linear-to-b
-                from-[#b99a5c]/70
-                to-transparent
-                lg:-left-7
-              "
-            />
-
-            <p
-              className="
-                text-[14px]
-                leading-[1.9]
-                tracking-[0.015em]
-                text-[#888]
-                sm:text-[15px]
-              "
+      space-y-5
+      text-[14px]
+      font-normal
+      leading-[1.8]
+      tracking-[0.01em]
+      text-white/70
+      sm:hidden
+    "
             >
-              {car.description}
-            </p>
+              {(isDescriptionExpanded ? car.description : mobileDescription)
+                .split("\n\n")
+                .map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+            </div>
+
+            {/* DESKTOP DESCRIPTION */}
+            <div
+              className="
+      hidden
+      space-y-5
+      text-[15px]
+      font-normal
+      leading-[1.85]
+      tracking-[0.01em]
+      text-white/70
+      sm:block
+    "
+            >
+              {(isDescriptionExpanded ? car.description : desktopDescription)
+                .split("\n\n")
+                .map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+            </div>
+
+            {/* DESCRIPTION BUTTON */}
+            {needsDescriptionExpansion && (
+              <button
+                type="button"
+                onClick={() =>
+                  setIsDescriptionExpanded((previous) => !previous)
+                }
+                className="
+        group
+        mt-5
+        inline-flex
+        min-h-9
+        cursor-pointer
+        items-center
+        gap-2.5
+        border
+        border-white/10
+        px-3.5
+        text-[9px]
+        font-normal
+        tracking-[0.18em]
+        text-[#777]
+        transition-all
+        duration-300
+        hover:border-[#b99a5c]/40
+        hover:bg-white/2
+        hover:text-[#d2b878]
+      "
+              >
+                <span>
+                  {isDescriptionExpanded ? "Pokaż mniej" : "Pokaż więcej"}
+                </span>
+
+                <span
+                  className={`
+          text-[#b99a5c]
+          transition-transform
+          duration-300
+          ${isDescriptionExpanded ? "rotate-180" : ""}
+        `}
+                >
+                  ↓
+                </span>
+              </button>
+            )}
           </div>
         </div>
 
-        {/* DETAILS */}
-        <div className="mt-14">
-          {/* SECTION LABEL */}
-          <div className="mb-5 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <span className="h-px w-5 bg-[#b99a5c]/50" />
+        {/* ================================================= */}
+        {/* SPECIFICATION */}
+        {/* ================================================= */}
 
-              <span
-                className="
-                  text-[10px]
-                  tracking-[0.3em]
-                  text-[#555]
-                "
-              >
-                SPECYFIKACJA
-              </span>
-            </div>
-          </div>
+        <div className="mt-10 sm:mt-12 lg:mt-14">
+          {/* SECTION TITLE */}
+
+          <MainHeadingComponent
+            className="
+              mt-0!
+              mb-6
+              font-normal!
+              
+              text-[#b99a5c]
+              text-[16px]!
+              md:text-[20px]!
+            "
+          >
+            Szczegóły
+          </MainHeadingComponent>
 
           {/* SPECIFICATION GRID */}
+
           <div
             className="
               grid
@@ -131,95 +282,109 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
               border-y
               border-white/10
               sm:grid-cols-2
-              lg:grid-cols-3
             "
           >
-            {/* FIRST 6 — ALWAYS VISIBLE */}
-            {firstDetails.map(([label, value]) => (
-              <SpecificationItem key={label} label={label} value={value} />
-            ))}
+            {/* ================================================= */}
+            {/* FIRST 6 / 4 DETAILS */}
+            {/* ================================================= */}
 
-            {/* REMAINING DETAILS */}
-            {hiddenDetails.map(([label, value]) => (
+            {visibleDetails.map((detail, index) => (
               <div
-                key={label}
+                key={detail.label}
                 className={`
-                  ${isExpanded ? "block" : "hidden"}
-
-                  lg:block
+                  ${index >= 4 ? "hidden sm:block" : "block"}
                 `}
               >
-                <SpecificationItem label={label} value={value} />
+                <SpecificationItem
+                  label={detail.label}
+                  value={detail.value}
+                  icon={detail.icon}
+                />
               </div>
             ))}
 
-            {/* VIN */}
-            <div
-              className={`
-                ${isExpanded ? "block" : "hidden"}
+            {/* ================================================= */}
+            {/* HIDDEN DETAILS */}
+            {/* ================================================= */}
 
-                lg:block
-              `}
-            >
+            {hiddenDetails.map((detail) => (
+              <div
+                key={detail.label}
+                className={isExpanded ? "block" : "hidden"}
+              >
+                <SpecificationItem
+                  label={detail.label}
+                  value={detail.value}
+                  icon={detail.icon}
+                />
+              </div>
+            ))}
+
+            {/* ================================================= */}
+            {/* VIN */}
+            {/* ================================================= */}
+
+            <div className={isExpanded ? "flex items-center gap-3" : "hidden"}>
               <SpecificationItem
                 label="NR VIN"
-                content={
-                  <div className="flex flex-row items-center gap-6">
-                    <span className="min-w-0 break-all">{car.vin}</span>
-
-                    <button
-                      type="button"
-                      onClick={copyVin}
-                      className="
-                        flex
-                        shrink-0
-                        cursor-pointer
-                        items-center
-                        gap-2
-                        border
-                        border-white/10
-                        px-3
-                        py-2
-                        text-[8px]
-                        tracking-[0.2em]
-                        text-[#666]
-                        transition-all
-                        duration-300
-                        hover:border-[#b99a5c]/40
-                        hover:text-[#d2b878]
-                      "
-                    >
-                      <span>{copied ? "✓ SKOPIOWANO" : "SKOPIUJ"}</span>
-                    </button>
-                  </div>
-                }
+                icon={VinIcon}
+                content={car.vin}
               />
+
+              <button
+                type="button"
+                onClick={copyVin}
+                className="
+                  flex
+                  h-9
+                  shrink-0
+                  cursor-pointer
+                  items-center
+                  justify-center
+                  border
+                  border-white/10
+                  px-3
+                  text-[8px]
+                  tracking-[0.16em]
+                  text-[#666]
+                  transition-all
+                  duration-300
+                  hover:border-[#b99a5c]/40
+                  hover:text-[#d2b878]
+                "
+              >
+                {copied ? "✓ SKOPIOWANO" : "SKOPIUJ"}
+              </button>
             </div>
           </div>
 
-          {/* MOBILE TOGGLE */}
+          {/* ================================================= */}
+          {/* SHOW MORE / SHOW LESS */}
+          {/* ================================================= */}
+
           {hasMoreDetails && (
-            <div className="mt-5 flex justify-center lg:hidden">
+            <div className="mt-5 flex justify-center">
               <button
                 type="button"
-                onClick={() => setIsExpanded((prev) => !prev)}
+                onClick={() => setIsExpanded((previous) => !previous)}
                 className="
                   group
                   inline-flex
+                  min-h-10
                   cursor-pointer
                   items-center
-                  gap-4
+                  gap-3
                   border
                   border-white/10
-                  px-5
-                  py-3
+                  px-4
                   text-[9px]
-                  tracking-[0.22em]
+                  font-normal
+                  tracking-[0.18em]
                   text-[#777]
                   transition-all
                   duration-300
                   hover:border-[#b99a5c]/40
-                  hover:bg-[#b99a5c]/5
+                  hover:bg-white/1.5
                   hover:text-[#d2b878]
                 "
               >
@@ -234,7 +399,7 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
                     text-[#b99a5c]
                     transition-transform
                     duration-300
-                    ${isExpanded ? "rotate-180" : "rotate-0"}
+                    ${isExpanded ? "rotate-180" : ""}
                   `}
                 >
                   ↓

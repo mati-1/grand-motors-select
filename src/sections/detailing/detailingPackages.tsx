@@ -27,7 +27,7 @@ export const DetailingPackages = () => {
         scroll-mt-23
         overflow-hidden
         border-y border-white/5
-        px-[3vw]
+        px-[4vw] lg:px-[13vw]
         py-20
         sm:py-27
         bg-[#b99a5c]/20
@@ -46,7 +46,7 @@ export const DetailingPackages = () => {
           font-extralight
           text-[18rem]
           leading-none
-          -tracking-widest
+          -
           text-white/1.5
           lg:block
         "

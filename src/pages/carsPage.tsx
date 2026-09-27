@@ -51,7 +51,7 @@ export const CarsPage = () => {
           from-black/90
           via-black/75
           to-black/90
-          px-[3vw]
+          px-[4vw] lg:px-[13vw]
           py-10
           sm:py-14
           lg:py-16

@@ -11,7 +11,7 @@ export const WrapSectionComponent = () => {
       image="/wrap/wrap.jpg"
       className="scale-x-[-1]"
     >
-      <div className="text-[9px] tracking-[0.3em] text-[#999] sm:text-[10px] sm:tracking-[0.4em]">
+      <div className="text-[11px] text-[#999] sm:text-[14px]">
         PROFESJONALNY <span className="text-[#d2b878]">WRAP</span>
       </div>
 
@@ -26,9 +26,8 @@ export const WrapSectionComponent = () => {
       <LineComponent type="right" className="my-6 hidden lg:block w-[30%]" />
 
       <p className="mb-6 max-w-117.5 text-[12px] leading-[1.8] text-[#888] sm:text-[13px] sm:leading-[1.9]">
-        Oklejanie samochodu pozwala całkowicie odmienić jego wygląd,
-        jednocześnie zachowując charakter i wartość auta. Dobieramy wysokiej
-        jakości folie do konkretnego samochodu i oczekiwanego efektu.
+        Oklejanie samochodu pozwala całkowicie odmienić jego wygląd. Dobieramy
+        wysokiej jakości folie do konkretnego samochodu i oczekiwanego efektu.
         <br />
         <br />
         Ty wybierasz kolor. My dbamy o każdy szczegół.

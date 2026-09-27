@@ -41,7 +41,7 @@ export const DetailingProcess = () => {
         bg-linear-to-r from-black/90 via-black/75 to-black/90
         py-15
         sm:py-27
-        px-[3vw]
+        px-[4vw] lg:px-[13vw]
       "
     >
       {/* BACKGROUND NUMBER */}

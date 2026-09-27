@@ -18,7 +18,7 @@ export const ContactHero = () => {
         px-6
         pt-24
         sm:px-8
-        lg:px-[3vw]
+        lg:px-[4vw] lg:px-[13vw]
       "
     >
       {/* ================================================= */}

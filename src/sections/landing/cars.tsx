@@ -14,7 +14,7 @@ export const CarsComponent = () => {
       className="flex scroll-mt-23 flex-col justify-center gap-4.5 w-full"
     >
       <div
-        className="px-[3vw] py-10 sm:py-20 flex flex-col bg-[#b99a5c]/20
+        className="px-[4vw] lg:px-[13vw] py-10 sm:py-20 flex flex-col bg-[#b99a5c]/20
           bg-linear-to-r from-black/90 via-black/75 to-black/90 gap-8 md:gap-11"
       >
         <div className="flex flex-col gap-6 md:flex-row justify-between">

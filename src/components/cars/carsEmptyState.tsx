@@ -8,7 +8,7 @@ export const CarsEmptyState = ({ onClearFilters }: CarsEmptyStateProps) => {
       id="cars"
       className="
         scroll-mt-23
-        px-[3vw]
+        px-[4vw] lg:px-[13vw]
         py-16
         sm:py-24
       "

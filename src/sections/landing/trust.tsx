@@ -62,7 +62,7 @@ export const TrustComponent = () => {
       >
         {/* PROCES ZAKUPU */}
         <div className="col-span-full border-t border-[#b99a5c]/20 bg-black/20">
-          <div className="px-5 py-7 sm:px-8 sm:py-9 lg:px-[3vw]">
+          <div className="px-5 py-7 sm:px-8 sm:py-9 lg:px-[4vw] lg:px-[13vw]">
             <div className="my-4 md:my-8">
               <MainHeadingComponent>
                 JAK WYGLĄDA <span className="text-[#d2b878]">ZAKUP?</span>{" "}

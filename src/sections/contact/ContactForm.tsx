@@ -134,7 +134,7 @@ export const ContactForm = () => {
           scroll-mt-23
           border-b
           border-white/5
-          px-[3vw]
+          px-[4vw] lg:px-[13vw]
         py-16
         sm:py-24
         "
@@ -151,7 +151,7 @@ export const ContactForm = () => {
         scroll-mt-23
         border-b
         border-white/5
-        px-[3vw]
+        px-[4vw] lg:px-[13vw]
         py-20
         sm:py-27
       "
@@ -393,9 +393,7 @@ export const ContactForm = () => {
                 <span />
               )}
 
-              <span className="text-[9px] tracking-widest text-[#444]">
-                MAKS. 1000 ZNAKÓW
-              </span>
+              <span className="text-[9px]  text-[#444]">MAKS. 1000 ZNAKÓW</span>
             </div>
           </div>
 

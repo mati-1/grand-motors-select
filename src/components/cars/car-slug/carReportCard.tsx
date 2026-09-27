@@ -19,10 +19,10 @@ export const CarReportCard = ({
         overflow-hidden
         border
         border-white/10
-        bg-[#090909]
+        bg-[#080808]
         transition-all
         duration-500
-        hover:border-[#b99a5c]/35
+        hover:border-[#b99a5c]/30
       "
     >
       {/* GOLD ACCENT */}
@@ -43,32 +43,99 @@ export const CarReportCard = ({
       />
 
       {/* TOP */}
-      <div className="flex items-start justify-between border-b border-white/5 px-5 py-4 sm:px-7">
-        <div className="flex items-center gap-3">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#b99a5c]" />
+      <div
+        className="
+          flex
+          items-center
+          justify-between
+          border-b
+          border-white/6
+          px-5
+          py-4
+          sm:px-6
+        "
+      >
+        <div className="flex items-center gap-2.5">
+          <span
+            className="
+              h-1.5
+              w-1.5
+              rounded-full
+              bg-[#b99a5c]
+            "
+          />
 
-          <span className="text-[8px] tracking-[0.28em] text-[#777]">
+          <span
+            className="
+              text-[8px]
+              font-normal
+              tracking-[0.2em]
+              text-[#555]
+            "
+          >
             GMS / RAPORT HISTORII POJAZDU
           </span>
         </div>
 
-        <span className="text-[10px] tracking-[0.2em] text-[#444]">PDF</span>
+        <span
+          className="
+            text-[8px]
+            tracking-[0.16em]
+            text-[#444]
+          "
+        >
+          PDF
+        </span>
       </div>
 
       {/* CONTENT */}
-      <div className="px-5 py-7 sm:px-7 sm:py-8">
-        <p className="text-[9px] tracking-[0.3em] text-[#555]">CARVERTICAL</p>
+      <div
+        className="
+          px-5
+          py-6
+          sm:px-6
+          sm:py-7
+        "
+      >
+        <p
+          className="
+            text-[9px]
+            font-normal
+            tracking-[0.18em]
+            text-[#555]
+          "
+        >
+          CARVERTICAL
+        </p>
 
-        <h3 className="mt-3 font-normal text-[22px] tracking-[0.02em] text-[#ddd] sm:text-[26px]">
+        <h3
+          className="
+            mt-2.5
+            text-[20px]
+            font-normal
+            leading-[1.2]
+            tracking-[-0.01em]
+            text-[#c8c8c8]
+            sm:text-[22px]
+          "
+        >
           {title}
         </h3>
 
-        <p className="mt-2 text-[10px] tracking-[0.12em] text-[#666]">
+        <p
+          className="
+            mt-2
+            text-[10px]
+            font-normal
+            leading-normal
+            tracking-[0.08em]
+            text-[#666]
+          "
+        >
           {subtitle}
         </p>
 
-        {/* DIVIDER */}
-        <div className="my-7 h-px w-full bg-white/5" />
+        <div className="my-6 h-px w-full bg-white/6" />
 
         {/* DOWNLOAD */}
         <a
@@ -77,11 +144,13 @@ export const CarReportCard = ({
           className="
             group/download
             inline-flex
+            min-h-10
             items-center
-            gap-4
+            gap-3
             text-[9px]
-            tracking-[0.22em]
-            text-[#aaa]
+            font-normal
+            tracking-[0.18em]
+            text-[#888]
             transition-colors
             duration-300
             hover:text-[#d2b878]
@@ -97,10 +166,10 @@ export const CarReportCard = ({
               border
               border-white/10
               text-[12px]
-              text-[#777]
+              text-[#666]
               transition-all
               duration-300
-              group-hover/download:border-[#b99a5c]/50
+              group-hover/download:border-[#b99a5c]/40
               group-hover/download:text-[#b99a5c]
             "
           >
@@ -108,12 +177,39 @@ export const CarReportCard = ({
           </span>
 
           <span>POBIERZ RAPORT</span>
+
+          <span
+            className="
+              text-[11px]
+              text-[#555]
+              transition-transform
+              duration-300
+              group-hover/download:translate-x-0.5
+            "
+          >
+            →
+          </span>
         </a>
       </div>
 
       {/* BOTTOM META */}
-      <div className="border-t border-white/5 px-5 py-3 sm:px-7">
-        <span className="text-[10px] tracking-[0.18em] text-[#444]">
+      <div
+        className="
+          border-t
+          border-white/6
+          px-5
+          py-3
+          sm:px-6
+        "
+      >
+        <span
+          className="
+            text-[8px]
+            font-normal
+            tracking-[0.16em]
+            text-[#444]
+          "
+        >
           BEZPIECZNE POBIERANIE ✓
         </span>
       </div>
