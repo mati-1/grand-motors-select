@@ -7,6 +7,8 @@ import { CarsFiltersDesktop } from "./carsFiltersDesktop";
 import { CarsFiltersMobile } from "./carsFiltersMobile";
 import { getCarsFilterOptions } from "./carsFiltersOptions";
 
+import ArrowIcon from "../../../assets/icons/strzalka.svg?react";
+
 type CarsFiltersProps = {
   view: CarView;
   onViewChange: (value: CarView) => void;
@@ -73,12 +75,6 @@ export const CarsFilters = ({
   onClearFilters,
 }: CarsFiltersProps) => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-
-  /*
-   * ============================================================
-   * OPTIONS
-   * ============================================================
-   */
 
   const {
     brandOptions,
@@ -148,15 +144,16 @@ export const CarsFilters = ({
             px-5
             transition-all
             duration-300
+            rounded-[10px]
             hover:border-[#b99a5c]/30
             hover:bg-[#b99a5c]/5
           "
         >
           <div className="flex items-center gap-4">
-            <span className="text-[10px] text-[#b99a5c]">☰</span>
+            <span className="text-[14px] text-[#b99a5c]">☰</span>
 
-            <span className="text-[10px] tracking-[0.25em] text-[#999] transition-colors duration-300 group-hover:text-[#d2b878]">
-              POKAŻ FILTRY
+            <span className="text-[14px]  text-white transition-colors duration-300 group-hover:text-[#d2b878]">
+              Pokaż filtry
             </span>
           </div>
 
@@ -165,9 +162,7 @@ export const CarsFilters = ({
               <span className="text-[13px] text-[#b99a5c]">●</span>
             )}
 
-            <span className="text-[14px] text-[#555] transition-all duration-300 group-hover:translate-x-1 group-hover:text-[#b99a5c]">
-              →
-            </span>
+            <ArrowIcon className="w-5 h-5 rotate-180" />
           </div>
         </button>
       </div>

@@ -25,9 +25,7 @@ export const CarDetailsPage = () => {
   if (!car) {
     return (
       <main className="flex min-h-screen flex-col items-center justify-center bg-[#050505] px-[4vw] lg:px-[13vw] text-center">
-        <span className="text-[9px] tracking-[0.3em] text-[#b99a5c]">
-          404 / NIE ZNALEZIONO
-        </span>
+        <span className="text-[9px]  text-[#b99a5c]">404 / NIE ZNALEZIONO</span>
 
         <h1 className="mt-5 text-[32px] text-[#ddd]">
           SAMOCHÓD NIE JEST DOSTĘPNY.
@@ -47,7 +45,7 @@ export const CarDetailsPage = () => {
             px-6
             py-3
             text-[8px]
-            tracking-[0.2em]
+            
             text-[#d2b878]
             transition
             hover:border-[#b99a5c]/60
@@ -88,6 +86,7 @@ export const CarDetailsPage = () => {
           hover:border-[#b99a5c]/40
           hover:bg-[#b99a5c]/5
           hover:text-[#d2b878]
+          rounded-[10px]
         "
             >
               <ArrowIcon className="w-5 h-5" />

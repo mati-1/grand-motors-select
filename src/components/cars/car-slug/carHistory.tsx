@@ -1,4 +1,4 @@
-import { MainHeadingComponent } from "../../headings";
+import { MainHeadingComponent, SubHeadingComponent } from "../../headings";
 import type { CarType } from "../cars";
 import { CarReportCard } from "./carReportCard";
 
@@ -10,18 +10,20 @@ export const CarHistory = ({ car }: CarHistoryProps) => {
   return (
     <section>
       <div className="flex flex-col gap-6">
-        <MainHeadingComponent
-          className="
-                mt-0!
-                font-normal!
-                
-                text-[#b99a5c]
-                text-[16px]!
-                md:text-[20px]!
-              "
-        >
-          Historia Samochodu
-        </MainHeadingComponent>
+        <div>
+          <MainHeadingComponent
+            className="
+          mt-0!
+          text-[16px]!
+          md:text-[20px]!
+          "
+          >
+            Historia samochodu
+          </MainHeadingComponent>
+          <SubHeadingComponent className="mt-2">
+            Szczegółowy raport historii pojazdu
+          </SubHeadingComponent>
+        </div>
 
         <CarReportCard
           title={`${car.brand} ${car.model}`}

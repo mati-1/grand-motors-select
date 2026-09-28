@@ -2,10 +2,10 @@ import {
   MainHeadingComponent,
   SubHeadingComponent,
 } from "../../components/headings";
-import { LineComponent } from "../../components/line";
 import { ButtonComponent } from "../../components/button";
 import { carsList } from "../../components/cars/cars";
 import { CarCard } from "../../components/cars/carCard";
+import ArrowIcon from "../../assets/icons/strzalka.svg?react";
 
 export const CarsComponent = () => {
   return (
@@ -14,20 +14,25 @@ export const CarsComponent = () => {
       className="flex scroll-mt-23 flex-col justify-center gap-4.5 w-full"
     >
       <div
-        className="px-[4vw] lg:px-[13vw] py-10 sm:py-20 flex flex-col bg-[#b99a5c]/20
-          bg-linear-to-r from-black/90 via-black/75 to-black/90 gap-8 md:gap-11"
+        className="px-[4vw] lg:px-[13vw] py-7 sm:py-13 flex flex-col
+           gap-8 md:gap-11"
       >
         <div className="flex flex-col gap-6 md:flex-row justify-between">
           <div>
-            <SubHeadingComponent>
-              NASZA AKTUALNA <span className="text-[#d2b878]">OFERTA</span>
+            <MainHeadingComponent className="mt-0!">
+              Zobacz nasze samochody
+            </MainHeadingComponent>
+            <SubHeadingComponent className="mt-2!">
+              Nasza aktualna oferta
             </SubHeadingComponent>
-
-            <MainHeadingComponent>ZOBACZ NASZE SAMOCHODY</MainHeadingComponent>
           </div>
 
-          <ButtonComponent href="/cars" size="big">
-            SPRAWDŹ OFERTĘ →
+          <ButtonComponent
+            href="/cars"
+            size="big"
+            className="flex items-center gap-1"
+          >
+            Sprawdź ofertę <ArrowIcon className="w-4 h-4 rotate-180" />
           </ButtonComponent>
         </div>
 
@@ -38,7 +43,6 @@ export const CarsComponent = () => {
           })}
         </div>
       </div>
-      <LineComponent className="mt-0!" />
     </section>
   );
 };

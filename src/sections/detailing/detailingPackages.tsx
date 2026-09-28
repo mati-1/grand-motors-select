@@ -148,7 +148,7 @@ export const DetailingPackages = () => {
               <h3
                 className="
                   text-[clamp(15px,1.5vw,18px)]
-                  tracking-[0.08em]
+                  
                   text-[#ddd]
                   transition-colors
                   duration-300
@@ -164,7 +164,7 @@ export const DetailingPackages = () => {
                   max-w-95
                   text-[11px]
                   leading-[1.9]
-                  tracking-[0.03em]
+                  
                   text-[#666]
                   sm:text-[12px]
                 "

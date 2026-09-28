@@ -36,7 +36,7 @@ const ContactInput = ({
           mb-2
           block
           text-[10px]
-          tracking-[0.18em]
+          
           text-[#777]
         "
       >
@@ -55,7 +55,7 @@ const ContactInput = ({
           bg-black/30
           px-4
           text-[12px]
-          tracking-wider
+          
           text-white
           outline-none
           transition-colors
@@ -64,9 +64,7 @@ const ContactInput = ({
         "
       />
 
-      {error && (
-        <p className="mt-2 text-[8px] tracking-wider text-[#9c7a3c]">{error}</p>
-      )}
+      {error && <p className="mt-2 text-[8px]  text-[#9c7a3c]">{error}</p>}
     </div>
   );
 };
@@ -74,11 +72,9 @@ const ContactInput = ({
 const ContactSuccess = () => {
   return (
     <div className="mx-auto max-w-180 py-10 text-center">
-      <span className="text-[9px] tracking-[0.25em] text-[#b99a5c]">
-        DZIĘKUJEMY
-      </span>
+      <span className="text-[9px]  text-[#b99a5c]">DZIĘKUJEMY</span>
 
-      <h3 className="mt-4 text-2xl tracking-[-0.02em] text-[#ddd]">
+      <h3 className="mt-4 text-2xl  text-[#ddd]">
         WIADOMOŚĆ ZOSTAŁA PRZESŁANA.
       </h3>
 
@@ -89,7 +85,7 @@ const ContactSuccess = () => {
           max-w-130
           text-[10px]
           leading-[1.8]
-          tracking-[0.04em]
+          
           text-[#777]
         "
       >
@@ -190,11 +186,9 @@ export const ContactForm = () => {
               pt-5
             "
           >
-            <span className="text-[8px] tracking-[0.25em] text-[#444]">
-              ODPOWIEMY
-            </span>
+            <span className="text-[8px]  text-[#444]">ODPOWIEMY</span>
 
-            <p className="mt-2 text-[10px] tracking-wider text-[#777]">
+            <p className="mt-2 text-[10px]  text-[#777]">
               NAJSZYBCIEJ, JAK TO MOŻLIWE.
             </p>
           </div>
@@ -272,7 +266,7 @@ export const ContactForm = () => {
                 mb-2
                 block
                 text-[10px]
-                tracking-[0.18em]
+                
                 text-[#777]
               "
             >
@@ -294,7 +288,7 @@ export const ContactForm = () => {
                 bg-[#080808]
                 px-4
                 text-[10px]
-                tracking-wider
+                
                 text-[#ccc]
                 outline-none
                 transition-colors
@@ -327,7 +321,7 @@ export const ContactForm = () => {
             </select>
 
             {errors.subject && (
-              <p className="mt-2 text-[10px] tracking-wider text-[#9c7a3c]">
+              <p className="mt-2 text-[10px]  text-[#9c7a3c]">
                 {errors.subject.message}
               </p>
             )}
@@ -342,7 +336,7 @@ export const ContactForm = () => {
                 mb-2
                 block
                 text-[10px]
-                tracking-[0.18em]
+                
                 text-[#777]
               "
             >
@@ -364,7 +358,7 @@ export const ContactForm = () => {
                 py-4
                 text-[12px]
                 leading-[1.8]
-                tracking-[0.04em]
+                
                 text-white
                 outline-none
                 transition-colors
@@ -386,7 +380,7 @@ export const ContactForm = () => {
 
             <div className="mt-2 flex justify-between">
               {errors.message ? (
-                <span className="text-[10px] tracking-wider text-[#9c7a3c]">
+                <span className="text-[10px]  text-[#9c7a3c]">
                   {errors.message.message}
                 </span>
               ) : (
@@ -429,7 +423,7 @@ export const ContactForm = () => {
               className="
                 text-[10px]
                 leading-[1.7]
-                tracking-[0.03em]
+                
                 text-[#666]
               "
             >
@@ -439,7 +433,7 @@ export const ContactForm = () => {
           </label>
 
           {errors.consent && (
-            <p className="mt-2 text-[10px] tracking-wider text-[#9c7a3c]">
+            <p className="mt-2 text-[10px]  text-[#9c7a3c]">
               {errors.consent.message}
             </p>
           )}
@@ -464,7 +458,7 @@ export const ContactForm = () => {
               className="
                 text-[10px]
                 leading-[1.6]
-                tracking-[0.08em]
+                
                 text-[#444]
                 sm:max-w-65
               "

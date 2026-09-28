@@ -54,12 +54,11 @@ const App = () => {
 
                 <div className="my-8 px-[4vw] lg:px-[13vw]! md:my-12">
                   <SubHeadingComponent>
-                    TO NIE TYLKO{" "}
-                    <span className="text-[#d2b878]">SPRZEDAŻ</span>
+                    To nie tylko sprzedaż
                   </SubHeadingComponent>
 
                   <MainHeadingComponent className="mt-1! sm:mt-3">
-                    DETAILING I WRAP
+                    Detailing i wrap
                   </MainHeadingComponent>
                 </div>
 

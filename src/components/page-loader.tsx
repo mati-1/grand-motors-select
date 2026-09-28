@@ -337,7 +337,7 @@ export const PageLoader = ({ videoSrc, imageSources }: PageLoaderProps) => {
         <span
           className={`
             text-[8px]
-            tracking-[0.35em]
+            
             text-[#666]
             transition-all duration-700
             ${closing ? "translate-y-1 opacity-0" : "translate-y-0 opacity-100"}

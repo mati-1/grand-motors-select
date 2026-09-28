@@ -38,7 +38,7 @@ export const CarInShort = ({ car }: { car: CarType }) => {
       icon: PowerIcon,
     },
     {
-      label: "SKRZYNIA",
+      label: "SKRZYNIA BIEGÓW",
       value: car.transmission,
       icon: TransmissionIcon,
     },
@@ -54,12 +54,9 @@ export const CarInShort = ({ car }: { car: CarType }) => {
       <MainHeadingComponent
         className="
                 mt-0!
-                font-normal!
-                
-                text-[#b99a5c]
                 text-[16px]!
                 md:text-[20px]!
-              "
+            "
       >
         W skrócie
       </MainHeadingComponent>

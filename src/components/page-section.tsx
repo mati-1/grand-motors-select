@@ -33,7 +33,7 @@ export const PageSectionComponent = ({
             }}
           />
 
-          <div className="absolute bottom-5 right-5 text-right text-[9px] tracking-[0.3em] sm:bottom-8 sm:right-8 sm:text-[10px] lg:bottom-12 lg:right-12 lg:text-[11px] lg:tracking-[0.4em]">
+          <div className="absolute bottom-5 right-5 text-right text-[9px]  sm:bottom-8 sm:right-8 sm:text-[10px] lg:bottom-12 lg:right-12 lg:text-[11px] lg:">
             <LogoComponent
               type="emblem"
               className="w-9! pointer-events-none grayscale opacity-20 lg:w-12!"

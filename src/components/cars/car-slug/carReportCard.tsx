@@ -16,6 +16,7 @@ export const CarReportCard = ({
       className="
         group
         relative
+        rounded-[10px]
         overflow-hidden
         border
         border-white/10
@@ -69,7 +70,7 @@ export const CarReportCard = ({
             className="
               text-[8px]
               font-normal
-              tracking-[0.2em]
+              
               text-[#555]
             "
           >
@@ -80,7 +81,7 @@ export const CarReportCard = ({
         <span
           className="
             text-[8px]
-            tracking-[0.16em]
+            
             text-[#444]
           "
         >
@@ -101,7 +102,7 @@ export const CarReportCard = ({
           className="
             text-[9px]
             font-normal
-            tracking-[0.18em]
+            
             text-[#555]
           "
         >
@@ -114,7 +115,7 @@ export const CarReportCard = ({
             text-[20px]
             font-normal
             leading-[1.2]
-            tracking-[-0.01em]
+            
             text-[#c8c8c8]
             sm:text-[22px]
           "
@@ -128,7 +129,7 @@ export const CarReportCard = ({
             text-[10px]
             font-normal
             leading-normal
-            tracking-[0.08em]
+            
             text-[#666]
           "
         >
@@ -149,7 +150,7 @@ export const CarReportCard = ({
             gap-3
             text-[9px]
             font-normal
-            tracking-[0.18em]
+            
             text-[#888]
             transition-colors
             duration-300
@@ -206,7 +207,7 @@ export const CarReportCard = ({
           className="
             text-[8px]
             font-normal
-            tracking-[0.16em]
+            
             text-[#444]
           "
         >

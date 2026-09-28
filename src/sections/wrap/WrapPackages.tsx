@@ -88,7 +88,7 @@ export const WrapPackages = () => {
                 className="
                   mt-8
                   text-[11px]
-                  tracking-[0.2em]
+                  
                   text-[#ddd]
                   transition-colors
                   duration-300

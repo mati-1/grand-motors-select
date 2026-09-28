@@ -1,7 +1,7 @@
 import type { SortOption } from "../../../hooks/useCarFilters";
 
 export const priceOptions = [
-  { value: "all", label: "DOWOLNA" },
+  { value: "all", label: "Dowolna" },
   { value: "50000", label: "50 000 PLN" },
   { value: "100000", label: "100 000 PLN" },
   { value: "150000", label: "150 000 PLN" },
@@ -16,41 +16,41 @@ export const sortOptions: {
 }[] = [
   {
     value: "default",
-    label: "DOMYŚLNE",
+    label: "Domyślne",
   },
   {
     value: "priceAsc",
-    label: "CENA — ROSNĄCO",
+    label: "Cena — Rosnąco",
   },
   {
     value: "priceDesc",
-    label: "CENA — MALEJĄCO",
+    label: "Cena — Malejąco",
   },
   {
     value: "yearDesc",
-    label: "NAJNOWSZE",
+    label: "Najnowsze",
   },
   {
     value: "mileageAsc",
-    label: "PRZEBIEG — ROSNĄCO",
+    label: "Przebieg — Rosnąco",
   },
 ];
 
 export const fuelOptions = [
   {
     value: "all",
-    label: "DOWOLNE",
+    label: "Dowolne",
   },
   {
     value: "Benzyna",
-    label: "BENZYNA",
+    label: "Benzyna",
   },
   {
     value: "Diesel",
-    label: "DIESEL",
+    label: "Diesel",
   },
   {
     value: "Elektryczne",
-    label: "ELEKTRYCZNE",
+    label: "Eelektryczne",
   },
 ];

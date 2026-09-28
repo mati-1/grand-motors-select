@@ -1,26 +1,11 @@
 import { useEffect, useState } from "react";
 
 import type { CarType } from "../cars";
+import ShareIcon from "../../../assets/icons/udostepnij.svg?react";
 
 type CarShareProps = {
   car: CarType;
 };
-
-const ShareIcon = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    className="h-4 w-4"
-  >
-    <path d="M12 16V3" strokeLinecap="round" />
-
-    <path d="M7 8l5-5 5 5" strokeLinecap="round" strokeLinejoin="round" />
-
-    <path d="M5 13v5a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-5" strokeLinecap="round" />
-  </svg>
-);
 
 const MailIcon = () => (
   <svg
@@ -103,6 +88,7 @@ export const CarShare = ({ car }: CarShareProps) => {
           flex
           h-9
           w-9
+          rounded-[10px]
           cursor-pointer
           items-center
           justify-center
@@ -118,7 +104,7 @@ export const CarShare = ({ car }: CarShareProps) => {
         "
       >
         <span className="transition-transform duration-300 group-hover:-translate-y-0.5">
-          <ShareIcon />
+          <ShareIcon className="w-5 h-5" />
         </span>
       </button>
 
@@ -168,7 +154,7 @@ export const CarShare = ({ car }: CarShareProps) => {
                 <p
                   className="
                     text-[9px]
-                    tracking-[0.3em]
+                    
                     text-[#b99a5c]
                   "
                 >
@@ -180,7 +166,7 @@ export const CarShare = ({ car }: CarShareProps) => {
                     mt-2
                     text-[18px]
                     font-normal
-                    tracking-[0.02em]
+                    
                     text-white
                   "
                 >
@@ -223,7 +209,7 @@ export const CarShare = ({ car }: CarShareProps) => {
               <p
                 className="
                   text-[9px]
-                  tracking-[0.25em]
+                  
                   text-[#555]
                 "
               >
@@ -234,7 +220,7 @@ export const CarShare = ({ car }: CarShareProps) => {
                 className="
                   mt-2
                   text-[14px]
-                  tracking-[0.04em]
+                  
                   text-[#ccc]
                 "
               >
@@ -278,7 +264,7 @@ export const CarShare = ({ car }: CarShareProps) => {
               >
                 <span className="font-normal text-[20px]">f</span>
 
-                <span className="text-[8px] tracking-[0.2em]">FACEBOOK</span>
+                <span className="text-[8px] ">FACEBOOK</span>
               </a>
 
               {/* EMAIL */}
@@ -305,7 +291,7 @@ export const CarShare = ({ car }: CarShareProps) => {
               >
                 <MailIcon />
 
-                <span className="text-[8px] tracking-[0.2em]">E-MAIL</span>
+                <span className="text-[8px] ">E-MAIL</span>
               </a>
             </div>
 
@@ -340,7 +326,7 @@ export const CarShare = ({ car }: CarShareProps) => {
                     className="
                       block
                       text-[9px]
-                      tracking-[0.25em]
+                      
                       text-[#555]
                     "
                   >
@@ -364,7 +350,7 @@ export const CarShare = ({ car }: CarShareProps) => {
                   className="
                     shrink-0
                     text-[9px]
-                    tracking-[0.2em]
+                    
                     text-[#b99a5c]
                   "
                 >
@@ -392,7 +378,7 @@ export const CarShare = ({ car }: CarShareProps) => {
                   px-5
                   py-4
                   text-[9px]
-                  tracking-[0.25em]
+                  
                   text-[#d2b878]
                   transition-all
                   duration-300

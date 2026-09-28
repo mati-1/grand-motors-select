@@ -27,14 +27,11 @@ export const ContactSectionComponent = ({
       {/* HEADER */}
       <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
         <div className="max-w-175 mt-14">
-          <SubHeadingComponent>
-            GRAND MOTORS <span className="text-[#d2b878]">SELECT</span>
-          </SubHeadingComponent>
           <MainHeadingComponent
             className="                mt-4
                 text-[42px]
                 sm:mt-5 sm:text-[52px]
-                lg:text-[62px]"
+                lg:text-[48px]"
           >
             {children ? (
               children
@@ -48,11 +45,11 @@ export const ContactSectionComponent = ({
             )}
           </MainHeadingComponent>
 
-          <p
+          <SubHeadingComponent
             className="
                 mt-6 max-w-140
-                text-[12px] leading-[1.8] text-[#888]
-                sm:mt-7 sm:text-[13px] sm:leading-[1.9]
+                leading-[1.8]
+                sm:mt-7 sm:leading-[1.9]
               "
           >
             {text ? (
@@ -64,16 +61,14 @@ export const ContactSectionComponent = ({
                 auta? Skontaktuj się z nami.
               </>
             )}
-          </p>
+          </SubHeadingComponent>
         </div>
 
         {/* QUICK INFO */}
-        <div className="flex shrink-0 text-right flex-col gap-2 text-[9px] tracking-[0.18em] text-[#666] lg:pb-2">
-          <SubHeadingComponent>UŻYWANE AUTA PREMIUM</SubHeadingComponent>
-          <SubHeadingComponent>DETAILING I OKLEJANIE</SubHeadingComponent>
-          <SubHeadingComponent>
-            <span className="text-[#d2b878]">INDYWIDUALNE PODEJŚCIE</span>
-          </SubHeadingComponent>
+        <div className="flex shrink-0 text-right flex-col gap-2 text-[9px]  text-[#666] lg:pb-2">
+          <SubHeadingComponent>Używane auta premium</SubHeadingComponent>
+          <SubHeadingComponent>Detailing i wrap</SubHeadingComponent>
+          <SubHeadingComponent>Indywidualne podejście</SubHeadingComponent>
         </div>
       </div>
 
@@ -113,7 +108,7 @@ export const ContactSectionComponent = ({
                 text-[14px]
                 transition-colors
                 hover:text-[#d2b878]
-                sm:text-[20px]! hover:underline"
+                sm:text-[18px]! hover:underline"
               >
                 <a
                   href="tel:+48514137133"
@@ -233,7 +228,7 @@ export const ContactSectionComponent = ({
           />
 
           <div className="relative">
-            <SubHeadingComponent>POROZMAWIAJMY</SubHeadingComponent>
+            <SubHeadingComponent>Porozmawiajmy</SubHeadingComponent>
 
             <MainHeadingComponent>
               Masz pytanie?
@@ -254,7 +249,7 @@ export const ContactSectionComponent = ({
             </p>
           </div>
           <ButtonComponent size="big" type="main" href="tel:+48514137133">
-            ZADZWOŃ DO NAS →
+            Zadzwoń do nas
           </ButtonComponent>
         </div>
       </div>

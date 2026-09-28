@@ -6,6 +6,8 @@ import type {
   WheelEvent as ReactWheelEvent,
 } from "react";
 
+import CancelIcon from "../../../assets/icons/zamknij.svg?react";
+import ArrowIcon from "../../../assets/icons/strzalka.svg?react";
 import type { CarType } from "../cars";
 import type { GalleryPosition } from "./carGallery.types";
 
@@ -116,26 +118,26 @@ export const CarGalleryLightbox = ({
           }}
           aria-label="Zamknij galerię"
           className="
-            flex
-            h-10
-            w-10
-            cursor-pointer
-            items-center
-            justify-center
-            border
-            border-white/10
-            bg-black/30
-            text-[20px]
-            font-light
-            text-[#aaa]
-            backdrop-blur-md
-            transition-all
-            duration-300
-            hover:border-[#b99a5c]/50
-            hover:text-[#d2b878]
-          "
+          group
+          flex
+          h-10
+          w-10
+          cursor-pointer
+          items-center
+          justify-center
+          border
+          border-white/10
+          bg-white/2
+          text-[#777]
+          transition-all
+          duration-300
+          hover:border-[#b99a5c]/40
+          hover:bg-[#b99a5c]/5
+          hover:text-[#d2b878]
+          rounded-[10px]
+        "
         >
-          ×
+          <CancelIcon className="w-5 h-5" />
         </button>
       </div>
 
@@ -241,7 +243,8 @@ export const CarGalleryLightbox = ({
           className="
             absolute
             left-3
-            top-1/2
+            md:top-1/2
+            max-md:bottom-10!
             z-30
             flex
             h-12
@@ -253,21 +256,18 @@ export const CarGalleryLightbox = ({
             border
             border-white/10
             bg-black/50
-            text-[20px]
-            font-light
-            text-[#aaa]
             backdrop-blur-md
             transition-all
             duration-300
+            rounded-[10px]
             hover:border-[#b99a5c]/60
             hover:bg-black/70
-            hover:text-[#d2b878]
             sm:left-7
             sm:h-13
             sm:w-13
           "
         >
-          ←
+          <ArrowIcon className="w-5 h-5" />
         </button>
 
         {/* ================================================= */}
@@ -295,7 +295,8 @@ export const CarGalleryLightbox = ({
           className="
             absolute
             right-3
-            top-1/2
+            md:top-1/2
+            max-md:bottom-10!
             z-30
             flex
             h-12
@@ -305,23 +306,20 @@ export const CarGalleryLightbox = ({
             items-center
             justify-center
             border
+            rounded-[10px]
             border-white/10
             bg-black/50
-            text-[20px]
-            font-light
-            text-[#aaa]
             backdrop-blur-md
             transition-all
             duration-300
             hover:border-[#b99a5c]/60
             hover:bg-black/70
-            hover:text-[#d2b878]
             sm:right-7
             sm:h-13
             sm:w-13
           "
         >
-          →
+          <ArrowIcon className="w-5 h-5 rotate-180" />
         </button>
       </div>
 

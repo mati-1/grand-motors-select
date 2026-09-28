@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import type { CarView } from "../../../hooks/useCarFilters";
 
 import { CarsFiltersTabs } from "./carsFiltersTabs";
+import { MainHeadingComponent } from "../../headings";
 
 type CarsFiltersDesktopProps = {
   view: CarView;
@@ -29,6 +30,7 @@ export const CarsFiltersDesktop = ({
         lg:sticky
         lg:top-28
         lg:block
+
       "
     >
       <div
@@ -37,7 +39,7 @@ export const CarsFiltersDesktop = ({
           overflow-visible
           border
           border-white/15
-          bg-[#080808]/90
+                  rounded-[10px]
         "
       >
         {/* HEADER */}
@@ -58,12 +60,12 @@ export const CarsFiltersDesktop = ({
           "
         >
           <div>
-            <span className="block text-[12px] tracking-[0.3em] text-[#b99a5c]">
-              FILTRY
-            </span>
+            <MainHeadingComponent className="text-[22px]!">
+              Filtry
+            </MainHeadingComponent>
 
-            <span className="mt-2 block text-[11px] tracking-[0.2em] text-[#555]">
-              {view === "available" ? "AKTUALNA OFERTA" : "ARCHIWUM"}
+            <span className="mt-2 block text-[13px]  text-[#555]">
+              {view === "available" ? "Aktualna oferta" : "Oferty archiwalne"}
             </span>
           </div>
         </div>

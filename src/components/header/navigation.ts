@@ -1,22 +1,22 @@
 export const pageHeaderNavigation = [
   {
-    label: "STRONA GŁÓWNA",
+    label: "Strona główna",
     href: "/",
   },
   {
-    label: "SAMOCHODY",
+    label: "Samochody",
     href: "/cars",
   },
   {
-    label: "DETAILING",
+    label: "Detailing",
     href: "/detailing",
   },
   {
-    label: "WRAP",
+    label: "Wrap",
     href: "/wrap",
   },
   {
-    label: "UMÓW OGLĘDZINY →",
+    label: "Umów oględziny",
     href: "/contact",
   },
 ];

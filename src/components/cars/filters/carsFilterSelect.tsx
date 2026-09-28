@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-
+import ArrowIcon from "../../../assets/icons/strzalka-w-dol.svg?react";
 import { CarsFilterField } from "./carsFilterField";
 
 export type CarsFilterOption = {
@@ -136,8 +136,8 @@ export const CarsFilterSelect = ({
         >
           <span
             className={`
-              text-[11px]
-              tracking-[0.08em]
+              text-[13px]
+              
               transition-colors
               duration-300
               ${value === "all" ? "text-[#777]" : "text-[#ddd]"}
@@ -146,23 +146,15 @@ export const CarsFilterSelect = ({
             {selectedOption?.label}
           </span>
 
-          <span
+          <ArrowIcon
             className={`
               flex
-              h-5
-              w-5
-              items-center
-              justify-center
-              text-[10px]
-              text-[#555]
-              transition-all
-              duration-300
-              group-hover/select:text-[#b99a5c]
-              ${isOpen ? "text-[#b99a5c]" : ""}
+              h-4
+              w-4
+              transition
+              ${isOpen ? "rotate-180" : ""}
             `}
-          >
-            ↓
-          </span>
+          />
         </div>
       </CarsFilterField>
 
@@ -254,8 +246,7 @@ export const CarsFilterSelect = ({
                   {/* LABEL */}
                   <span
                     className={`
-                      text-[10px]
-                      tracking-[0.12em]
+                      text-[12px]
                       transition-all
                       duration-200
 

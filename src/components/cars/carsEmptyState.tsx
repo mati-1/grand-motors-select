@@ -26,9 +26,7 @@ export const CarsEmptyState = ({ onClearFilters }: CarsEmptyStateProps) => {
           text-center
         "
       >
-        <span className="text-[9px] tracking-[0.3em] text-[#b99a5c]">
-          BRAK WYNIKÓW
-        </span>
+        <span className="text-[9px]  text-[#b99a5c]">BRAK WYNIKÓW</span>
 
         <h3 className="mt-4 text-[20px] text-[#ddd]">
           NIE ZNALEZIONO SAMOCHODÓW.
@@ -46,7 +44,7 @@ export const CarsEmptyState = ({ onClearFilters }: CarsEmptyStateProps) => {
             border border-[#b99a5c]/30
             px-5 py-3
             text-[8px]
-            tracking-[0.2em]
+            
             text-[#d2b878]
             transition
             hover:border-[#b99a5c]/60

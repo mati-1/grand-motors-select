@@ -1,6 +1,8 @@
 import { LinkComponent } from "../components/link";
 import { ButtonComponent } from "../components/button";
 import { pageHeaderNavigation } from "../components/header/navigation";
+import ArrowIcon from "../assets/icons/strzalka.svg?react";
+import PhoneIcon from "../assets/icons/telefon.svg?react";
 
 export const MobileMenuComponent = ({
   isOpen,
@@ -43,10 +45,18 @@ export const MobileMenuComponent = ({
               <ButtonComponent
                 key={n.label}
                 href={isContactPage ? "tel:+48514137133" : "/contact"}
-                type="main"
-                onClick={onClose}
+                type="secondary"
+                className="text-white text-[11px]!"
               >
-                {isContactPage ? "ZADZWOŃ →" : n.label}
+                {isContactPage ? (
+                  <span className="flex items-center gap-1">
+                    Zadzwoń <PhoneIcon className="w-4 h-4" />
+                  </span>
+                ) : (
+                  <span className="flex items-center gap-1">
+                    {n.label} <ArrowIcon className="w-4 h-4 rotate-180" />
+                  </span>
+                )}
               </ButtonComponent>
             );
           }

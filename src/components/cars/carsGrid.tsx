@@ -11,8 +11,8 @@ export const CarsGrid = ({ cars }: CarsGridProps) => {
       {/* HEADER */}
 
       <div className="mb-6 flex items-end justify-between">
-        <span className="text-[9px] tracking-[0.2em] text-[#444]">
-          {String(cars.length).padStart(2, "0")} POZYCJI
+        <span className="text-[14px]  text-[#444]">
+          {String(cars.length).padStart(2, "0")} Pozycji
         </span>
       </div>
 
@@ -23,8 +23,7 @@ export const CarsGrid = ({ cars }: CarsGridProps) => {
           grid
           grid-cols-1
           gap-5
-          md:grid-cols-2
-          xl:grid-cols-3
+          lg:grid-cols-2
         "
       >
         {cars.map((car) => (

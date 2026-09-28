@@ -1,5 +1,8 @@
 import { ButtonComponent } from "../../components/button";
-import { MainHeadingComponent } from "../../components/headings";
+import {
+  MainHeadingComponent,
+  SubHeadingComponent,
+} from "../../components/headings";
 
 export const HeroComponentSection = () => {
   return (
@@ -37,7 +40,7 @@ export const HeroComponentSection = () => {
           w-full
           object-cover
           object-[45%_center]
-          md:object-[60%_center]
+          md:object-[80%_center]
         "
       >
         <source src="/hero.mp4" type="video/mp4" />
@@ -87,8 +90,8 @@ export const HeroComponentSection = () => {
           relative
           z-10
           w-full
-          px-6
-          lg:px-[5vw]
+          px-[4vw]
+          lg:px-[13vw]
         "
       >
         <div
@@ -99,47 +102,20 @@ export const HeroComponentSection = () => {
             lg:translate-y-0
           "
         >
-          {/* ================================================= */}
-          {/* EYEBROW */}
-          {/* ================================================= */}
-
-          <div
-            className="
-              flex
-              items-center
-              gap-3
-              text-[9px]
-              tracking-[0.28em]
-              text-[#888]
-              sm:text-[9px]
-              sm:tracking-[0.35em]
-              lg:text-[10px]
-            "
-          >
-            <span className="h-px w-7 bg-[#b99a5c]/60" />
-
-            <span>ZAPOZNAJ SIĘ Z OFERTĄ</span>
-          </div>
-
-          {/* ================================================= */}
-          {/* HEADING */}
-          {/* ================================================= */}
+          <SubHeadingComponent>Zapoznaj się z ofertą</SubHeadingComponent>
 
           <MainHeadingComponent
             className="
               mt-5
-              text-[clamp(46px,8vw,94px)]!
-              leading-[0.90]!
+              text-[clamp(46px,8vw,80px)]!
+              leading-[0.95]
+              lg:leading-[0.98]
             "
           >
-            WIĘCEJ NIŻ
+            Skupmy się na
             <br />
-            <span className="text-[#d2b878]">SAMOCHODY.</span>
+            <span className="text-[#d2b878]">samochodach.</span>
           </MainHeadingComponent>
-
-          {/* ================================================= */}
-          {/* DESCRIPTION */}
-          {/* ================================================= */}
 
           <p
             className="
@@ -147,7 +123,7 @@ export const HeroComponentSection = () => {
               max-w-110
               text-[11px]
               leading-[1.8]
-              tracking-[0.03em]
+              
               text-[#999]
               sm:mt-7
               sm:text-[12px]
@@ -158,10 +134,6 @@ export const HeroComponentSection = () => {
             Selekcja samochodów premium, profesjonalny detailing i
             zabezpieczenia, które dopełniają całość.
           </p>
-
-          {/* ================================================= */}
-          {/* BUTTONS */}
-          {/* ================================================= */}
 
           <div
             className="
@@ -177,17 +149,13 @@ export const HeroComponentSection = () => {
             "
           >
             <ButtonComponent type="main" href="/cars" size="big">
-              ZOBACZ SAMOCHODY <span>→</span>
+              Zobacz samochody
             </ButtonComponent>
 
             <ButtonComponent type="secondary" href="#cars-trust" size="big">
-              NASZE STANDARDY
+              Nasze standardy
             </ButtonComponent>
           </div>
-
-          {/* ================================================= */}
-          {/* SERVICES */}
-          {/* ================================================= */}
 
           <div
             className="
@@ -205,27 +173,11 @@ export const HeroComponentSection = () => {
             "
           >
             <div className="flex items-center gap-3">
-              <span className="h-px w-5 bg-[#b99a5c]/60" />
-
-              <span className="text-[8px] tracking-[0.25em] text-[#999]">
-                SAMOCHODY
-              </span>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <span className="h-px w-5 bg-[#b99a5c]/60" />
-
-              <span className="text-[8px] tracking-[0.25em] text-[#999]">
-                DETAILING
-              </span>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <span className="h-px w-5 bg-[#b99a5c]/60" />
-
-              <span className="text-[8px] tracking-[0.25em] text-[#999]">
-                WRAP
-              </span>
+              <SubHeadingComponent>Sprzedaż samochodów</SubHeadingComponent>
+              <span>·</span>
+              <SubHeadingComponent>Detailing</SubHeadingComponent>
+              <span>·</span>
+              <SubHeadingComponent>Wrap</SubHeadingComponent>
             </div>
           </div>
         </div>

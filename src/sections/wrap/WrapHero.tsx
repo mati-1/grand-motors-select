@@ -80,7 +80,7 @@ export const WrapHero = () => {
 
         <div className="mb-8 flex items-center gap-4">
           <span className="h-px w-10 bg-[#b99a5c]" />
-          <span className="text-[9px] tracking-[0.3em] text-[#b99a5c]">
+          <span className="text-[9px]  text-[#b99a5c]">
             GRAND MOTORS SELECT
           </span>
           <SubHeadingComponent className="text-[clamp(11px,1vw,14px)]!">
@@ -104,7 +104,7 @@ export const WrapHero = () => {
             max-w-125
             text-[11px]
             leading-[1.9]
-            tracking-[0.03em]
+            
             text-[#777]
             sm:text-[12px]
             lg:text-[13px]
@@ -150,15 +150,11 @@ export const WrapHero = () => {
             sm:gap-10
           "
         >
-          <span className="text-[10px] tracking-[0.3em] text-[#555]">
-            OKLEJANIE SAMOCHODÓW
-          </span>
+          <span className="text-[10px]  text-[#555]">OKLEJANIE SAMOCHODÓW</span>
 
           <span className="hidden h-3 w-px bg-white/10 sm:block" />
 
-          <span className="text-[10px] tracking-[0.25em] text-[#444]">
-            GRAND MOTORS SELECT
-          </span>
+          <span className="text-[10px]  text-[#444]">GRAND MOTORS SELECT</span>
         </div>
       </div>
     </section>

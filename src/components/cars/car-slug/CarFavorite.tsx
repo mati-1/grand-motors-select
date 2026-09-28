@@ -64,6 +64,7 @@ export const CarFavorite = ({ car }: CarFavoriteProps) => {
         border
         transition-all
         duration-300
+        rounded-[10px]
 
         ${
           isFavorite

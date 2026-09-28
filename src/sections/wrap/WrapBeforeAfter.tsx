@@ -82,7 +82,7 @@ export const WrapBeforeAfter = () => {
                 bottom-5
                 left-5
                 text-[10px]
-                tracking-[0.3em]
+                
                 text-[#aaa]
               "
             >
@@ -114,7 +114,7 @@ export const WrapBeforeAfter = () => {
                 bottom-5
                 left-5
                 text-[10px]
-                tracking-[0.3em]
+                
                 text-[#d2b878]
               "
             >

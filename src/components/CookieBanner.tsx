@@ -63,9 +63,7 @@ export const CookieBanner = () => {
         {/* CONTENT */}
         <div className="flex flex-col gap-4">
           <div>
-            <div className="mb-2 text-[9px] tracking-[0.3em] text-[#b99a5c]">
-              PLIKI COOKIES
-            </div>
+            <div className="mb-2 text-[9px]  text-[#b99a5c]">PLIKI COOKIES</div>
 
             <p className="max-w-95 text-[11px] leading-[1.7] text-[#888]">
               Ta strona wykorzystuje pliki cookies, aby zapewnić jej prawidłowe
@@ -86,7 +84,7 @@ export const CookieBanner = () => {
                 px-4
                 text-[9px]
                 font-medium
-                tracking-[0.2em]
+                
                 text-[#050505]
                 transition-all
                 duration-300
@@ -106,7 +104,7 @@ export const CookieBanner = () => {
                 px-4
                 text-[9px]
                 cursor-pointer
-                tracking-[0.2em]
+                
                 text-[#777]
                 transition-all
                 duration-300

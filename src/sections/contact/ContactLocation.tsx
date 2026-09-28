@@ -70,13 +70,11 @@ export const ContactLocation = () => {
             />
 
             <div className="relative z-10 border-t border-white/10 bg-[#050505]/90 px-6 py-5 backdrop-blur-md sm:px-8">
-              <span className="text-[8px] tracking-[0.3em] text-[#555]">
+              <span className="text-[8px]  text-[#555]">
                 GRAND MOTORS SELECT
               </span>
 
-              <p className="mt-2 text-[11px] tracking-[0.08em] text-[#ccc]">
-                MAŁOPOLSKA
-              </p>
+              <p className="mt-2 text-[11px]  text-[#ccc]">MAŁOPOLSKA</p>
 
               <p className="mt-2 text-[9px] leading-[1.7] text-[#666]">
                 Dokładną lokalizację oraz termin oględzin ustalamy

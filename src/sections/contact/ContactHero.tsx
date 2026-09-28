@@ -18,7 +18,7 @@ export const ContactHero = () => {
         px-6
         pt-24
         sm:px-8
-        lg:px-[4vw] lg:px-[13vw]
+        lg:px-[13vw]
       "
     >
       {/* ================================================= */}
@@ -144,7 +144,7 @@ export const ContactHero = () => {
               items-center
               gap-3
               text-[9px]
-              tracking-[0.35em]
+              
               text-[#888]
               sm:text-[10px]
             "
@@ -181,7 +181,7 @@ export const ContactHero = () => {
               max-w-120
               text-[11px]
               leading-[1.8]
-              tracking-[0.03em]
+              
               text-[#999]
               sm:mt-7
               sm:text-[12px]
@@ -247,7 +247,7 @@ export const ContactHero = () => {
             <span
               className="
                 text-[8px]
-                tracking-[0.3em]
+                
                 text-[#777]
                 sm:text-[9px]
               "
@@ -260,7 +260,7 @@ export const ContactHero = () => {
             <span
               className="
                 text-[8px]
-                tracking-[0.28em]
+                
                 text-[#555]
                 sm:text-[9px]
               "
@@ -295,7 +295,7 @@ export const ContactHero = () => {
           className="
             [writing-mode:vertical-rl]
             text-[8px]
-            tracking-[0.35em]
+            
             text-[#555]
           "
         >

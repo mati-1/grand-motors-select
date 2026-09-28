@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { CarType } from "../cars";
-
+import ArrowIcon from "../../../assets/icons/strzalka.svg?react";
 import { CarGalleryLightbox } from "./CarGalleryLightbox";
 import { useCarGallery } from "./hooks/useCarGallery";
 
@@ -115,6 +115,7 @@ const GalleryNavigationButton = ({
         transition-all
         duration-400
         ease-out
+        rounded-[10px]
 
         ${
           visible
@@ -130,7 +131,7 @@ const GalleryNavigationButton = ({
         ${isPrevious ? "left-4" : "right-4"}
       `}
     >
-      {isPrevious ? "←" : "→"}
+      <ArrowIcon className={`w-5 h-5 ${!isPrevious && "rotate-180"}`} />
     </button>
   );
 };
@@ -174,14 +175,15 @@ const GalleryViewAllButton = ({
     duration-300
     hover:border-[#b99a5c]/30
     hover:bg-[#0c0c0c]/95
+    rounded-[10px]
   "
     >
       <span
         className="
       whitespace-nowrap
-      text-[9px]
+      text-[10px]
       font-medium
-      tracking-[0.12em]
+      
       text-[#aaa]
       transition-colors
       duration-300
@@ -191,18 +193,7 @@ const GalleryViewAllButton = ({
         Zobacz {imageCount} zdjęć
       </span>
 
-      <span
-        className="
-      text-[11px]
-      text-[#777]
-      transition-all
-      duration-300
-      group-hover:translate-x-0.5
-      group-hover:text-[#b99a5c]
-    "
-      >
-        →
-      </span>
+      <ArrowIcon className="w-3 h-3 rotate-180" />
     </button>
   );
 };

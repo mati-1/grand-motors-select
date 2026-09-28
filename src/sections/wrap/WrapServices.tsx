@@ -142,7 +142,7 @@ export const WrapServices = () => {
                   </span>
 
                   <div>
-                    <h3 className="text-[11px] tracking-[0.2em] text-[#ddd]">
+                    <h3 className="text-[11px]  text-[#ddd]">
                       {activeData.title}
                     </h3>
 

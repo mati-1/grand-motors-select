@@ -30,11 +30,9 @@ export const CarLocation = ({ location, car }: CarLocationProps) => {
         <div className="mb-6 sm:mb-8">
           <MainHeadingComponent
             className="
-              mt-0!
-              font-normal!
-              text-[#b99a5c]
-              text-[16px]!
-              md:text-[20px]!
+                mt-0!
+                text-[16px]!
+                md:text-[20px]!
             "
           >
             Znajdź na mapie
@@ -58,6 +56,7 @@ export const CarLocation = ({ location, car }: CarLocationProps) => {
             bg-[#0a0a0a]
             sm:h-50
             lg:h-65
+            rounded-[10px]
           "
         >
           <iframe

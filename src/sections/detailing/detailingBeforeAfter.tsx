@@ -44,7 +44,7 @@ export const DetailingBeforeAfter = () => {
           </div>
 
           <div className="max-w-115 lg:pb-2">
-            <p className="text-[clamp(11px,1vw,13px)] leading-[1.9] tracking-[0.03em] text-[#777]">
+            <p className="text-[clamp(11px,1vw,13px)] leading-[1.9]  text-[#777]">
               Detailing nie polega na wykonaniu jak największej liczby
               czynności. Liczy się właściwy zakres prac, dokładność wykonania i
               efekt dopasowany do konkretnego samochodu.
@@ -52,7 +52,7 @@ export const DetailingBeforeAfter = () => {
 
             <div className="mt-7 flex items-center gap-4">
               <span className="h-px w-10 bg-[#b99a5c]/50" />
-              <SubHeadingComponent className="text-[8px]! tracking-[0.3em] text-[#555]">
+              <SubHeadingComponent className="text-[8px]!  text-[#555]">
                 PRZED / PO
               </SubHeadingComponent>
             </div>
@@ -97,16 +97,12 @@ export const DetailingBeforeAfter = () => {
                 </span>
               </div>
 
-              <p className="mt-3 text-[9px] tracking-[0.3em] text-white/65">
-                PRZED
-              </p>
+              <p className="mt-3 text-[9px]  text-white/65">PRZED</p>
             </div>
 
             {/* BOTTOM DESCRIPTION */}
             <div className="absolute bottom-6 left-6 sm:bottom-10 sm:left-10">
-              <span className="text-[8px] tracking-[0.25em] text-white/35">
-                STAN WYJŚCIOWY
-              </span>
+              <span className="text-[8px]  text-white/35">STAN WYJŚCIOWY</span>
             </div>
           </div>
 
@@ -140,14 +136,12 @@ export const DetailingBeforeAfter = () => {
                 <span className="h-px w-8 bg-[#b99a5c]" />
               </div>
 
-              <p className="mt-3 text-[9px] tracking-[0.3em] text-[#d2b878]">
-                PO
-              </p>
+              <p className="mt-3 text-[9px]  text-[#d2b878]">PO</p>
             </div>
 
             {/* BOTTOM DESCRIPTION */}
             <div className="absolute bottom-6 right-6 text-right sm:bottom-10 sm:right-10">
-              <span className="text-[8px] tracking-[0.25em] text-[#b99a5c]/70">
+              <span className="text-[8px]  text-[#b99a5c]/70">
                 EFEKT KOŃCOWY
               </span>
             </div>

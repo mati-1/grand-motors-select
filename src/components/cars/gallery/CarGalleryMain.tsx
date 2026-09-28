@@ -1,4 +1,5 @@
 import type { CarType } from "../cars";
+import ArrowIcon from "../../../assets/icons/strzalka.svg?react";
 
 type CarGalleryMainProps = {
   image: string;
@@ -55,7 +56,7 @@ const GalleryNavigationButton = ({
         [isPrevious ? "left" : "right"]: "1rem",
       }}
     >
-      {isPrevious ? "←" : "→"}
+      <ArrowIcon className={`w-5 h-5 ${isPrevious && "rotate-180"}`} />
     </button>
   );
 };

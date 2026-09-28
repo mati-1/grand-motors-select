@@ -30,7 +30,7 @@ export const getCarsFilterOptions = ({
   const brandOptions: FilterOption[] = [
     {
       value: "all",
-      label: "WSZYSTKIE",
+      label: "Wszystkie",
     },
     ...brands.map((brand) => ({
       value: brand,
@@ -41,7 +41,7 @@ export const getCarsFilterOptions = ({
   const minYearOptions: FilterOption[] = [
     {
       value: "all",
-      label: "DOWOLNY",
+      label: "Dowolny",
     },
     ...years.map((year) => ({
       value: String(year),
@@ -53,7 +53,7 @@ export const getCarsFilterOptions = ({
   const maxYearOptions: FilterOption[] = [
     {
       value: "all",
-      label: "DOWOLNY",
+      label: "Dowolny",
     },
     ...years.map((year) => ({
       value: String(year),
@@ -84,23 +84,23 @@ export const getCarsFilterOptions = ({
   }[] = [
     {
       value: "default",
-      label: "DOMYŚLNIE",
+      label: "Domyślnie",
     },
     {
       value: "priceAsc",
-      label: "CENA: ROSNĄCO",
+      label: "Cena: Rosnąco",
     },
     {
       value: "priceDesc",
-      label: "CENA: MALEJĄCO",
+      label: "Cena: Malejąco",
     },
     {
       value: "yearDesc",
-      label: "NAJNOWSZE",
+      label: "Najnowsze",
     },
     {
       value: "mileageAsc",
-      label: "NAJMNIEJSZY PRZEBIEG",
+      label: "Najmniejszy przebieg",
     },
   ];
 
@@ -110,11 +110,11 @@ export const getCarsFilterOptions = ({
   }[] = [
     {
       value: "available",
-      label: "AKTUALNE",
+      label: "Aktualne",
     },
     {
       value: "sold",
-      label: "ARCHIWALNE",
+      label: "Archiwalne",
     },
   ];
 

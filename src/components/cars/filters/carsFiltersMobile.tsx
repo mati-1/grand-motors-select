@@ -3,6 +3,8 @@ import type { ReactNode } from "react";
 import { CarsFiltersTabs } from "./carsFiltersTabs";
 
 import type { CarView } from "../../../hooks/useCarFilters";
+import { ButtonComponent } from "../../button";
+import { MainHeadingComponent } from "../../headings";
 
 type CarsFiltersMobileProps = {
   isOpen: boolean;
@@ -59,15 +61,7 @@ export const CarsFiltersMobile = ({
         "
         onClick={(event) => event.stopPropagation()}
       >
-        <div>
-          <span className="block text-[9px] tracking-[0.3em] text-[#b99a5c]">
-            GRAND MOTORS SELECT
-          </span>
-
-          <h2 className="mt-2 text-[18px] font-normal tracking-[0.02em] text-white">
-            Filtry
-          </h2>
-        </div>
+        <MainHeadingComponent>Filtry</MainHeadingComponent>
 
         <button
           type="button"
@@ -124,41 +118,14 @@ export const CarsFiltersMobile = ({
         "
         onClick={(event) => event.stopPropagation()}
       >
-        <button
-          type="button"
+        <ButtonComponent
+          type="secondary"
           onClick={onClose}
-          className="
-            group
-            flex
-            min-h-14
-            w-full
-            cursor-pointer
-            items-center
-            justify-between
-            border
-            border-[#b99a5c]/30
-            bg-[#b99a5c]/5
-            px-5
-            transition-all
-            duration-300
-            hover:bg-[#b99a5c]/10
-          "
+          className="min-w-full"
+          arrowIcon
         >
-          <span className="text-[9px] tracking-[0.25em] text-[#d2b878]">
-            POKAŻ {resultCount} {resultCount === 1 ? "SAMOCHÓD" : "SAMOCHODÓW"}
-          </span>
-
-          <span
-            className="
-              text-[#b99a5c]
-              transition-transform
-              duration-300
-              group-hover:translate-x-1
-            "
-          >
-            →
-          </span>
-        </button>
+          Pokaż {resultCount} {resultCount === 1 ? "samochód" : "samochodów"}
+        </ButtonComponent>
       </footer>
     </div>
   );

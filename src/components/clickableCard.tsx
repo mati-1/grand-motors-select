@@ -72,7 +72,7 @@ export const ClickableCard = (props: ClickableCardProps) => {
           <strong
             className={`
               block
-              tracking-[0.15em]
+              
               transition-colors duration-300
               ${
                 isSmall
@@ -92,7 +92,7 @@ export const ClickableCard = (props: ClickableCardProps) => {
                 block
                 text-[8px]
                 leading-relaxed
-                tracking-[0.08em]
+                
                 text-[#777]
                 sm:text-[9px]
               "
@@ -106,7 +106,7 @@ export const ClickableCard = (props: ClickableCardProps) => {
                 block
                 text-[10px]
                 leading-[1.8]
-                tracking-[0.04em]
+                
                 text-[#777]
                 sm:text-[11px]
               "

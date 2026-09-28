@@ -100,15 +100,13 @@ export const ContactMethods = () => {
                 {method.number}
               </span>
 
-              <p className="mt-8 text-[8px] tracking-[0.3em] text-[#555]">
-                {method.label}
-              </p>
+              <p className="mt-8 text-[8px]  text-[#555]">{method.label}</p>
 
               <p
                 className="
                   mt-3
                   text-[12px]
-                  tracking-[0.04em]
+                  
                   text-[#ccc]
                   transition-colors
                   duration-300

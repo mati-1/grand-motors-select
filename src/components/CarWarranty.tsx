@@ -1,4 +1,5 @@
 import { useId, useState } from "react";
+import { SubHeadingComponent } from "./headings";
 
 export const CarWarranty = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +14,7 @@ export const CarWarranty = () => {
           border
           border-white/10
           bg-[#080808]
+          rounded-[10px]
           transition-all
           duration-300
           ${
@@ -67,24 +69,13 @@ export const CarWarranty = () => {
 
           {/* CONTENT */}
           <div className="min-w-0 flex-1">
-            <span
-              className="
-                block
-                text-[9px]
-                tracking-[0.25em]
-                text-[#b99a5c]
-              "
-            >
-              DODATKOWA OCHRONA
-            </span>
-
             <strong
               className={`
                 mt-2
                 block
                 text-[clamp(18px,2vw,24px)]
                 font-medium
-                tracking-[0.08em]
+                
                 transition-colors
                 duration-300
                 ${isOpen ? "text-[#d2b878]" : "text-[#ddd]"}
@@ -93,19 +84,9 @@ export const CarWarranty = () => {
               GWARANCJA
             </strong>
 
-            <span
-              className="
-                mt-1.5
-                block
-                text-[10px]
-                leading-relaxed
-                tracking-[0.06em]
-                text-[#777]
-                sm:text-[12px]
-              "
-            >
+            <SubHeadingComponent className="text-white/70">
               Dodatkowa ochrona dostępna dla wybranych samochodów.
-            </span>
+            </SubHeadingComponent>
           </div>
 
           {/* PLUS */}
@@ -148,12 +129,9 @@ export const CarWarranty = () => {
           }
         `}
       >
-        <div className="min-h-0 overflow-hidden">
+        <div className="min-h-0 overflow-hidden rounded-[10px]">
           <div
             className="
-              border-x
-              border-b
-              border-white/10
               bg-white/2.5
             "
           >
@@ -175,8 +153,7 @@ export const CarWarranty = () => {
                 <div className="shrink-0">
                   <span
                     className="
-                      text-[11px]
-                      tracking-[0.2em]
+                      text-[13px]
                       text-[#b99a5c]
                     "
                   >
@@ -188,9 +165,8 @@ export const CarWarranty = () => {
                 <div className="max-w-190">
                   <p
                     className="
-                      text-[11px]
+                      text-[12px]
                       leading-[1.9]
-                      tracking-[0.04em]
                       text-[#999]
                       sm:text-[12px]
                     "
@@ -225,8 +201,7 @@ export const CarWarranty = () => {
                       <span
                         className="
                           block
-                          text-[10px]
-                          tracking-[0.2em]
+                          text-[12px]
                           text-[#b99a5c]
                         "
                       >
@@ -237,7 +212,7 @@ export const CarWarranty = () => {
                         className="
                           mt-2
                           block
-                          text-[12px]
+                          text-[13px]
                           text-[#888]
                         "
                       >
@@ -260,8 +235,7 @@ export const CarWarranty = () => {
                       <span
                         className="
                           block
-                          text-[10px]
-                          tracking-[0.2em]
+                          text-[12px]
                           text-[#b99a5c]
                         "
                       >
@@ -272,7 +246,7 @@ export const CarWarranty = () => {
                         className="
                           mt-2
                           block
-                          text-[12px]
+                          text-[13px]
                           text-[#888]
                         "
                       >
@@ -294,8 +268,8 @@ export const CarWarranty = () => {
                       <span
                         className="
                           block
-                          text-[10px]
-                          tracking-[0.2em]
+                          text-[12px]
+                          
                           text-[#b99a5c]
                         "
                       >
@@ -306,7 +280,7 @@ export const CarWarranty = () => {
                         className="
                           mt-2
                           block
-                          text-[12px]
+                          text-[13px]
                           text-[#888]
                         "
                       >
@@ -344,9 +318,8 @@ export const CarWarranty = () => {
 
                 <span
                   className="
-                    text-[9px]
+                    text-[11px]
                     leading-relaxed
-                    tracking-[0.15em]
                     text-[#666]
                   "
                 >

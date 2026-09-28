@@ -1,4 +1,4 @@
-import logo from "../../public/logohd.png";
+import logo from "../../public/nowe-logo.png";
 import emblemLogo from "../../public/logohd emblem.png";
 
 export const LogoComponent = ({
@@ -29,27 +29,8 @@ export const LogoComponent = ({
       <img
         src={type === "full" ? logo : emblemLogo}
         alt="Grand Motors Select"
-        className={`transition-all duration-500 ${resize && !showText ? "w-27" : "w-32"} ${className}`}
+        className={`transition-all duration-500 ${resize && !showText ? "w-38 md:w-41" : "w-42 md:w-48"} ${className}`}
       />
-      {type === "full" && (
-        <span
-          className={`
-                      ml-4 hidden overflow-hidden whitespace-nowrap
-                      border-l transition-all border-[#b99a5c]/40 opacity-0 pl-4
-                      text-[9px] tracking-[0.25em] text-[#888]
-                      ${
-                        !showText
-                          ? `-translate-x-2.5
-                       duration-500
-                       opacity-0`
-                          : `opacity-100`
-                      }
-                      xl:block
-                    `}
-        >
-          SELECTED PREMIUM CARS
-        </span>
-      )}
     </a>
   );
 };

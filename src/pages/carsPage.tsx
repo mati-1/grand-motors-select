@@ -1,5 +1,3 @@
-import { LineComponent } from "../components/line";
-
 import { ContactSectionComponent } from "../sections/landing/contact";
 
 import { CarsEmptyState } from "../components/cars/carsEmptyState";
@@ -44,13 +42,6 @@ export const CarsPage = () => {
         id="cars"
         className="
           scroll-mt-23
-          border-t
-          border-white/5
-          bg-[#b99a5c]/20
-          bg-linear-to-r
-          from-black/90
-          via-black/75
-          to-black/90
           px-[4vw] lg:px-[13vw]
           py-10
           sm:py-14
@@ -106,8 +97,6 @@ export const CarsPage = () => {
       </section>
 
       <ContactSectionComponent />
-
-      <LineComponent className="mt-0!" />
 
       <FooterComponent />
     </main>

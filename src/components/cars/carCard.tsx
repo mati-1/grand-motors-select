@@ -1,20 +1,6 @@
 import type { CarType } from "./cars";
 
 export const CarCard = ({ car }: { car: CarType }) => {
-  const statusLabel =
-    car.status === "available"
-      ? "● DOSTĘPNY"
-      : car.status === "reservation"
-        ? "● REZERWACJA"
-        : "— SPRZEDANY";
-
-  const statusClass =
-    car.status === "available"
-      ? "border-[#b99a5c]/40 bg-[#0a0a0a]/90 text-[#d2b878]"
-      : car.status === "reservation"
-        ? "border-[#b99a5c]/30 bg-[#0a0a0a]/90 text-[#aaa]"
-        : "border-white/15 bg-[#080808]/90 text-[#666]";
-
   return (
     <a
       href={`/cars/${car.slug}`}
@@ -23,13 +9,13 @@ export const CarCard = ({ car }: { car: CarType }) => {
       <article
         className="
           group
+          rounded-[10px]
           overflow-hidden
           border
           border-[#b99a5c]/20
           bg-[#080808]
           transition
           duration-500
-          hover:-translate-y-0.5
           hover:border-[#b99a5c]/30
         "
       >
@@ -61,60 +47,12 @@ export const CarCard = ({ car }: { car: CarType }) => {
               to-black/10
             "
           />
-
-          {/* STATUS */}
-          <div
-            className="
-              absolute
-              -right-2
-              top-4
-              rotate-3
-            "
-          >
-            <div
-              className={`
-                relative
-                border
-                px-4
-                py-2
-                shadow-[0_8px_25px_rgba(0,0,0,0.35)]
-                backdrop-blur-md
-                transition-transform
-                duration-500
-                group-hover:-rotate-1
-                ${statusClass}
-              `}
-            >
-              <span
-                className="
-                  text-[9px]
-                  font-medium
-                  tracking-[0.2em]
-                  whitespace-nowrap
-                "
-              >
-                {statusLabel}
-              </span>
-
-              {/* SMALL GOLD LINE */}
-              <span
-                className="
-                  absolute
-                  bottom-0
-                  left-0
-                  h-px
-                  w-1/2
-                  bg-[#b99a5c]/70
-                "
-              />
-            </div>
-          </div>
         </div>
 
         {/* CONTENT */}
         <div className="p-6">
           <h3 className="text-base font-normal">
-            {car.brand} <span className="text-[#888]">{car.model}</span>
+            {car.brand} {car.model}
           </h3>
 
           <div
@@ -122,8 +60,7 @@ export const CarCard = ({ car }: { car: CarType }) => {
               mt-3
               flex
               gap-4.5
-              text-[9px]
-              tracking-[0.08em]
+              text-[11px]
               text-[#777]
             "
           >
@@ -138,11 +75,12 @@ export const CarCard = ({ car }: { car: CarType }) => {
               className={`
                 text-[21px]
                 font-normal
-                text-[#d2b878]
+                text-white
                 ${car.status === "sold" ? "line-through" : ""}
               `}
             >
-              {car.price}
+              {car.price.replace(" PLN", "")}
+              <span className="text-[14px] font-normal  text-[#bbb]"> PLN</span>
             </strong>
           </div>
         </div>

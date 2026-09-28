@@ -57,9 +57,8 @@ export const SpecificationItem = ({
         <div className="min-w-0">
           <p
             className="
-              text-[9px]
+              text-[11px]
               font-normal
-              tracking-[0.18em]
               text-[#555]
               uppercase
               transition-colors
@@ -77,7 +76,7 @@ export const SpecificationItem = ({
                 text-[13px]
                 font-normal
                 leading-none
-                tracking-[0.02em]
+                
                 text-[#c8c8c8]
                 transition-colors
                 duration-300
@@ -93,7 +92,7 @@ export const SpecificationItem = ({
                 text-[13px]
                 font-normal
                 leading-none
-                tracking-[0.02em]
+                
                 text-[#c8c8c8]
                 transition-colors
                 duration-300
@@ -124,7 +123,7 @@ export const CarInfo = ({ car }: CarInfoProps) => {
         text-[24px]
         font-normal
         leading-[1.04]
-        tracking-tight
+        
         text-white
       "
           >
@@ -176,7 +175,7 @@ export const CarInfo = ({ car }: CarInfoProps) => {
                 text-[32px]
                 font-normal
                 leading-none
-                tracking-[-0.02em]
+                
                 sm:text-[28px]
 
                 ${
@@ -190,10 +189,7 @@ export const CarInfo = ({ car }: CarInfoProps) => {
                 {car.price.replace(" PLN", "")}
               </span>
 
-              <span className="text-[16px] font-normal tracking-[0.12em] text-[#bbb]">
-                {" "}
-                PLN
-              </span>
+              <span className="text-[16px] font-normal  text-[#bbb]"> PLN</span>
             </div>
           </div>
 
@@ -203,7 +199,7 @@ export const CarInfo = ({ car }: CarInfoProps) => {
                 className="
                   text-[9px]
                   font-normal
-                  tracking-[0.16em]
+                  
                   text-[#555]
                 "
               >
@@ -263,9 +259,9 @@ export const CarInfo = ({ car }: CarInfoProps) => {
                 border-white/10
                 bg-white/1.5
                 px-4
-                text-[9px]
+                text-[11px]
                 font-normal
-                tracking-[0.16em]
+                rounded-[10px]
                 text-white/70
                 transition-colors
                 duration-300

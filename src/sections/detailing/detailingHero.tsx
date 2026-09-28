@@ -57,7 +57,7 @@ export const DetailingHero = () => {
       <div className="relative z-10 w-full lg:pt-15 pb-14 sm:pb-10 px-[4vw] lg:px-[13vw] lg:pb-12">
         <div className="mb-8 flex items-center gap-4">
           <span className="h-px w-10 bg-[#b99a5c]" />
-          <span className="text-[9px] tracking-[0.3em] text-[#b99a5c]">
+          <span className="text-[9px]  text-[#b99a5c]">
             GRAND MOTORS SELECT
           </span>
           <SubHeadingComponent className="text-[clamp(11px,1vw,14px)]!">
@@ -74,7 +74,7 @@ export const DetailingHero = () => {
         </MainHeadingComponent>
 
         <div className="mt-10 flex flex-col gap-8">
-          <p className="max-w-125 text-[11px] leading-[1.9] tracking-[0.04em] text-[#999] sm:text-xs">
+          <p className="max-w-125 text-[11px] leading-[1.9]  text-[#999] sm:text-xs">
             Profesjonalna pielęgnacja samochodu, w której liczy się nie tylko
             efekt końcowy, ale również sposób, w jaki do niego dochodzimy.
           </p>

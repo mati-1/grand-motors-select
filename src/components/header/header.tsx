@@ -4,7 +4,8 @@ import { LinkComponent } from "../link";
 import { ButtonComponent } from "../button";
 import { LogoComponent } from "../logo";
 import { MobileMenuComponent } from "../../sections/mobile-menu";
-
+import ArrowIcon from "../../assets/icons/strzalka.svg?react";
+import PhoneIcon from "../../assets/icons/telefon.svg?react";
 import { pageHeaderNavigation } from "./navigation";
 
 export const HeaderComponent = () => {
@@ -64,9 +65,18 @@ export const HeaderComponent = () => {
                   <ButtonComponent
                     key={n.label}
                     href={isContactPage ? "tel:+48514137133" : "/contact"}
-                    type="main"
+                    type="secondary"
+                    className="text-white text-[11px]!"
                   >
-                    {isContactPage ? "ZADZWOŃ →" : n.label}
+                    {isContactPage ? (
+                      <span className="flex items-center gap-1">
+                        Zadzwoń <PhoneIcon className="w-4 h-4" />
+                      </span>
+                    ) : (
+                      <span className="flex items-center gap-1">
+                        {n.label} <ArrowIcon className="w-4 h-4 rotate-180" />
+                      </span>
+                    )}
                   </ButtonComponent>
                 );
               }
@@ -83,35 +93,60 @@ export const HeaderComponent = () => {
           </nav>
 
           {/* BURGER */}
-
           <button
             type="button"
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Menu"
-            className="relative flex h-10 w-10 cursor-pointer flex-col items-end justify-center gap-1.5 lg:hidden"
+            aria-label={menuOpen ? "Zamknij menu" : "Otwórz menu"}
+            aria-expanded={menuOpen}
+            className="
+    group
+    relative
+    flex
+    h-10
+    w-10
+    cursor-pointer
+    items-center
+    justify-center
+    lg:hidden
+  "
           >
             <span
               className={`
-                h-px bg-[#d2b878]
-                transition-all duration-300
-                ${menuOpen ? "w-6 translate-y-2 rotate-45" : "w-6"}
-              `}
+      absolute
+      h-px
+      w-6
+      bg-[#c2ad7a]
+      transition-all
+      duration-300
+      ease-[cubic-bezier(0.76,0,0.24,1)]
+      ${menuOpen ? "rotate-45" : "-translate-y-1.25"}
+    `}
             />
 
             <span
               className={`
-                h-px bg-[#d2b878]
-                transition-all duration-300
-                ${menuOpen ? "w-0 opacity-0" : "w-4"}
-              `}
+      absolute
+      h-px
+      w-4
+      bg-[#c2ad7a]
+      transition-all
+      duration-200
+      ease-out
+      ${menuOpen ? "scale-x-0 opacity-0" : "translate-x-1 opacity-100"}
+    `}
             />
 
             <span
               className={`
-                h-px bg-[#d2b878]
-                transition-all duration-300
-                ${menuOpen ? "w-6 -translate-y-2 -rotate-45" : "w-5"}
-              `}
+      absolute
+      h-px
+      w-6
+      bg-[#c2ad7a]
+      transition-all
+      duration-300
+      ease-[cubic-bezier(0.76,0,0.24,1)]
+      ${menuOpen ? "-rotate-45" : "translate-y-1.25"}
+    `}
             />
           </button>
         </div>

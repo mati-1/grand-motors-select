@@ -3,6 +3,7 @@ import { useState } from "react";
 import { MainHeadingComponent } from "../../headings";
 
 import type { CarType } from "../cars";
+import { ButtonExpand } from "../../button";
 
 type CarEquipmentProps = {
   car: CarType;
@@ -45,7 +46,6 @@ export const CarEquipment = ({ car }: CarEquipmentProps) => {
         shrink-0
         text-[9px]
         font-normal
-        tracking-[0.12em]
         text-[#b99a5c]/50
         transition-colors
         duration-300
@@ -57,10 +57,10 @@ export const CarEquipment = ({ car }: CarEquipmentProps) => {
 
       <span
         className="
-        text-[12px]
+        text-[13px]
         font-normal
         leading-normal
-        tracking-[0.02em]
+        
         text-[#888]
         transition-colors
         duration-300
@@ -74,45 +74,11 @@ export const CarEquipment = ({ car }: CarEquipmentProps) => {
 
   const renderToggle = (hiddenCount: number, className: string) => (
     <div className={className}>
-      <button
-        type="button"
-        onClick={() => setIsExpanded((prev) => !prev)}
-        className="
-          group
-          inline-flex
-          min-h-10
-          cursor-pointer
-          items-center
-          gap-3
-          border
-          border-white/10
-          px-4
-          text-[9px]
-          font-normal
-          tracking-[0.18em]
-          text-[#777]
-          transition-all
-          duration-300
-          hover:border-[#b99a5c]/40
-          hover:bg-white/1.5
-          hover:text-[#d2b878]
-        "
-      >
-        <span>
-          {isExpanded ? "POKAŻ MNIEJ" : `POKAŻ WIĘCEJ (${hiddenCount})`}
-        </span>
-
-        <span
-          className={`
-            text-[#b99a5c]
-            transition-transform
-            duration-300
-            ${isExpanded ? "rotate-180" : ""}
-          `}
-        >
-          ↓
-        </span>
-      </button>
+      <ButtonExpand
+        onClick={() => setIsExpanded((previous) => !previous)}
+        isExpanded={isExpanded}
+        hiddenCount={hiddenCount}
+      />
     </div>
   );
 
@@ -127,16 +93,13 @@ export const CarEquipment = ({ car }: CarEquipmentProps) => {
     >
       <div
         className="
-flex flex-col gap-6
+flex flex-col gap-3 md:gap-6
         "
       >
         {/* HEADING */}
         <MainHeadingComponent
           className="
                 mt-0!
-                font-normal!
-                
-                text-[#b99a5c]
                 text-[16px]!
                 md:text-[20px]!
               "
@@ -146,20 +109,6 @@ flex flex-col gap-6
 
         {/* CONTENT */}
         <div className="relative">
-          <div
-            className="
-              absolute
-              -left-4
-              top-0
-              h-10
-              w-px
-              bg-linear-to-b
-              from-[#b99a5c]/60
-              to-transparent
-              lg:-left-6
-            "
-          />
-
           {/* MOBILE + TABLET */}
           <div className="lg:hidden">
             {mobileEquipment.map((item, index) =>

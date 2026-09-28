@@ -16,6 +16,7 @@ import FuelIcon from "../../../assets/icons/paliwo.svg?react";
 import InvoiceIcon from "../../../assets/icons/faktura.svg?react";
 import CarVerticalIcon from "../../../assets/icons/trasa.svg?react";
 import VinIcon from "../../../assets/icons/vin.svg?react";
+import { ButtonExpand } from "../../button";
 
 type CarDescriptionProps = {
   car: CarType;
@@ -151,12 +152,9 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
 
           <MainHeadingComponent
             className="
-              mt-0!
-              font-normal!
-              
-              text-[#b99a5c]
-              text-[16px]!
-              md:text-[20px]!
+                mt-0!
+                text-[16px]!
+                md:text-[20px]!
             "
           >
             Opis
@@ -172,7 +170,6 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
       text-[14px]
       font-normal
       leading-[1.8]
-      tracking-[0.01em]
       text-white/70
       sm:hidden
     "
@@ -192,7 +189,6 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
       text-[15px]
       font-normal
       leading-[1.85]
-      tracking-[0.01em]
       text-white/70
       sm:block
     "
@@ -206,48 +202,14 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
 
             {/* DESCRIPTION BUTTON */}
             {needsDescriptionExpansion && (
-              <button
-                type="button"
-                onClick={() =>
-                  setIsDescriptionExpanded((previous) => !previous)
-                }
-                className="
-        group
-        mt-5
-        inline-flex
-        min-h-9
-        cursor-pointer
-        items-center
-        gap-2.5
-        border
-        border-white/10
-        px-3.5
-        text-[9px]
-        font-normal
-        tracking-[0.18em]
-        text-[#777]
-        transition-all
-        duration-300
-        hover:border-[#b99a5c]/40
-        hover:bg-white/2
-        hover:text-[#d2b878]
-      "
-              >
-                <span>
-                  {isDescriptionExpanded ? "Pokaż mniej" : "Pokaż więcej"}
-                </span>
-
-                <span
-                  className={`
-          text-[#b99a5c]
-          transition-transform
-          duration-300
-          ${isDescriptionExpanded ? "rotate-180" : ""}
-        `}
-                >
-                  ↓
-                </span>
-              </button>
+              <div className="mt-5">
+                <ButtonExpand
+                  onClick={() =>
+                    setIsDescriptionExpanded((previous) => !previous)
+                  }
+                  isExpanded={isDescriptionExpanded}
+                />
+              </div>
             )}
           </div>
         </div>
@@ -257,17 +219,13 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
         {/* ================================================= */}
 
         <div className="mt-10 sm:mt-12 lg:mt-14">
-          {/* SECTION TITLE */}
-
           <MainHeadingComponent
             className="
-              mt-0!
-              mb-6
-              font-normal!
-              
-              text-[#b99a5c]
-              text-[16px]!
-              md:text-[20px]!
+                mt-0!
+                mb-4
+                lg:mb-6
+                text-[16px]!
+                md:text-[20px]!
             "
           >
             Szczegóły
@@ -344,16 +302,17 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
                   border
                   border-white/10
                   px-3
-                  text-[8px]
-                  tracking-[0.16em]
+                  text-[10px]
+                  
                   text-[#666]
                   transition-all
+                  rounded-[10px]
                   duration-300
                   hover:border-[#b99a5c]/40
                   hover:text-[#d2b878]
                 "
               >
-                {copied ? "✓ SKOPIOWANO" : "SKOPIUJ"}
+                {copied ? "✓ Skopiowano" : "Skopiuj"}
               </button>
             </div>
           </div>
@@ -364,47 +323,11 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
 
           {hasMoreDetails && (
             <div className="mt-5 flex justify-center">
-              <button
-                type="button"
+              <ButtonExpand
                 onClick={() => setIsExpanded((previous) => !previous)}
-                className="
-                  group
-                  inline-flex
-                  min-h-10
-                  cursor-pointer
-                  items-center
-                  gap-3
-                  border
-                  border-white/10
-                  px-4
-                  text-[9px]
-                  font-normal
-                  tracking-[0.18em]
-                  text-[#777]
-                  transition-all
-                  duration-300
-                  hover:border-[#b99a5c]/40
-                  hover:bg-white/1.5
-                  hover:text-[#d2b878]
-                "
-              >
-                <span>
-                  {isExpanded
-                    ? "POKAŻ MNIEJ"
-                    : `POKAŻ WIĘCEJ (${hiddenDetails.length + 1})`}
-                </span>
-
-                <span
-                  className={`
-                    text-[#b99a5c]
-                    transition-transform
-                    duration-300
-                    ${isExpanded ? "rotate-180" : ""}
-                  `}
-                >
-                  ↓
-                </span>
-              </button>
+                isExpanded={isExpanded}
+                hiddenCount={hiddenDetails.length + 1}
+              />
             </div>
           )}
         </div>

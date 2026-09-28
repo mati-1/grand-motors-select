@@ -20,11 +20,9 @@ const PrivacySection = ({
         </div>
 
         <div className="max-w-190">
-          <h2 className="text-[11px] tracking-[0.16em] text-[#ddd] sm:text-[12px]">
-            {title}
-          </h2>
+          <h2 className="text-[11px]  text-[#ddd] sm:text-[12px]">{title}</h2>
 
-          <div className="mt-5 flex flex-col gap-4 text-[10px] leading-[1.9] tracking-[0.03em] text-[#777] sm:text-[11px]">
+          <div className="mt-5 flex flex-col gap-4 text-[10px] leading-[1.9]  text-[#777] sm:text-[11px]">
             {children}
           </div>
         </div>
@@ -47,7 +45,7 @@ export const PrivacyPolicyPage = () => {
               border border-[#b99a5c]/40
               px-4 py-2.5
               text-[8px]
-              tracking-[0.15em]
+              
               text-[#b99a5c]
               transition-colors
               hover:bg-[#b99a5c]/10
@@ -64,7 +62,7 @@ export const PrivacyPolicyPage = () => {
           <div className="absolute right-[-10%] top-[-20%] h-100 w-100 rounded-full bg-[#b99a5c]/5 blur-3xl" />
 
           <div className="relative mx-auto max-w-350">
-            <span className="text-[8px] tracking-[0.3em] text-[#b99a5c] sm:text-[9px]">
+            <span className="text-[8px]  text-[#b99a5c] sm:text-[9px]">
               GRAND MOTORS SELECT
             </span>
 
@@ -76,13 +74,13 @@ export const PrivacyPolicyPage = () => {
 
             <LineComponent className="my-7 w-30 sm:my-9" />
 
-            <p className="max-w-165 text-[10px] leading-[1.9] tracking-[0.04em] text-[#777] sm:text-[11px]">
+            <p className="max-w-165 text-[10px] leading-[1.9]  text-[#777] sm:text-[11px]">
               Informacje dotyczące przetwarzania danych osobowych osób
               korzystających ze strony internetowej GRAND MOTORS SELECT oraz
               kontaktujących się z nami.
             </p>
 
-            <div className="mt-8 text-[8px] tracking-[0.15em] text-[#444]">
+            <div className="mt-8 text-[8px]  text-[#444]">
               WERSJA OBOWIĄZUJĄCA OD: 15.09.2026
             </div>
           </div>
@@ -336,7 +334,7 @@ export const PrivacyPolicyPage = () => {
             <div className="mt-12 border border-[#b99a5c]/25 bg-[#b99a5c]/5 p-6 sm:mt-16 sm:p-8 lg:p-10">
               <div className="flex flex-col gap-7 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <span className="text-[8px] tracking-[0.25em] text-[#b99a5c]">
+                  <span className="text-[8px]  text-[#b99a5c]">
                     ADMINISTRATOR DANYCH
                   </span>
 
@@ -344,12 +342,12 @@ export const PrivacyPolicyPage = () => {
                     GRAND MOTORS SELECT
                   </h3>
 
-                  <p className="mt-2 text-[9px] tracking-[0.08em] text-[#777]">
+                  <p className="mt-2 text-[9px]  text-[#777]">
                     Mateusz Michalik
                   </p>
                 </div>
 
-                <div className="flex flex-col gap-2 text-[9px] tracking-[0.08em] text-[#666] sm:text-right">
+                <div className="flex flex-col gap-2 text-[9px]  text-[#666] sm:text-right">
                   <span>NIP&nbsp;&nbsp;736 175 51 08</span>
 
                   <span>REGON&nbsp;&nbsp;543 067 707</span>
@@ -379,7 +377,7 @@ export const PrivacyPolicyPage = () => {
                   border border-[#b99a5c]/50
                   px-6 py-3
                   text-[8px]
-                  tracking-[0.18em]
+                  
                   text-[#b99a5c]
                   transition-all
                   hover:bg-[#b99a5c]/10
@@ -395,11 +393,11 @@ export const PrivacyPolicyPage = () => {
       {/* FOOTER */}
       <footer className="border-t border-white/10 bg-[#030303] px-[4vw] lg:px-[13vw] py-8">
         <div className="mx-auto flex max-w-350 flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <span className="text-[8px] tracking-[0.12em] text-[#444]">
+          <span className="text-[8px]  text-[#444]">
             © {new Date().getFullYear()} GRAND MOTORS SELECT
           </span>
 
-          <div className="flex flex-wrap gap-5 text-[8px] tracking-[0.12em] text-[#444]">
+          <div className="flex flex-wrap gap-5 text-[8px]  text-[#444]">
             <a
               href="/regulamin"
               className="transition-colors hover:text-[#b99a5c]"

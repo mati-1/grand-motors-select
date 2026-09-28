@@ -54,8 +54,7 @@ export const CarsFilterField = ({
           px-4
           pt-3
           text-left
-          text-[9px]
-          tracking-[0.25em]
+          text-[12px]
           text-[#e6e6e6]
           transition-colors
           duration-300

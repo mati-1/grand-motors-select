@@ -31,8 +31,8 @@ export const CarsFiltersTabs = ({
                 pb-4
                 pr-5
                 text-left
-                text-[9px]
-                tracking-[0.2em]
+                text-[12px]
+                
                 transition-colors
                 duration-300
                 ${active ? "text-[#d2b878]" : "text-[#555] hover:text-[#999]"}

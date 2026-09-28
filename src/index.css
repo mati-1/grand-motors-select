@@ -22,8 +22,14 @@
 html {
   scroll-behavior: smooth;
 }
-body {
-  font-family: "Roboto", sans-serif;
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: "Manrope", sans-serif;
+  font-synthesis: none;
 }
 
 @keyframes loader {

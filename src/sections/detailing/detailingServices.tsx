@@ -85,7 +85,7 @@ export const DetailingServices = () => {
               bg-white/2.5
             "
           >
-            <div className="px-5 py-7 sm:px-8 sm:py-8 lg:px-[4vw] lg:px-[13vw] lg:py-9">
+            <div className="px-5 py-7 sm:px-8 sm:py-8 lg:px-[4vw] lg:py-9">
               <div
                 className="
                   mx-auto flex w-full max-w-250
@@ -98,7 +98,7 @@ export const DetailingServices = () => {
                 {/* TITLE */}
 
                 <div className="shrink-0">
-                  <span className="text-[11px] tracking-[0.2em] text-[#b99a5c] sm:text-[12px]">
+                  <span className="text-[11px]  text-[#b99a5c] sm:text-[12px]">
                     {activeData.number} / {activeData.title}
                   </span>
                 </div>
@@ -106,9 +106,7 @@ export const DetailingServices = () => {
                 {/* DETAILS */}
 
                 <div className="flex-1">
-                  <span className="text-[10px] tracking-[0.25em] text-[#555]">
-                    W ZAKRESIE
-                  </span>
+                  <span className="text-[10px]  text-[#555]">W ZAKRESIE</span>
 
                   <ul className="mt-4 space-y-3">
                     {activeData.details.map((detail) => (
@@ -118,7 +116,7 @@ export const DetailingServices = () => {
                           flex gap-3
                           text-[11px]
                           leading-[1.7]
-                          tracking-[0.04em]
+                          
                           text-[#777]
                           sm:text-[12px]
                         "

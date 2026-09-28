@@ -69,7 +69,7 @@ export const CarsFiltersContent = ({
       <div className="border-y border-white/15 bg-[#050505]">
         <div className="border-b border-white/10">
           <CarsFilterSelect
-            label="MARKA"
+            label="Marka"
             value={brand}
             options={brandOptions}
             onChange={onBrandChange}
@@ -78,7 +78,7 @@ export const CarsFiltersContent = ({
 
         <div className="border-b border-white/10">
           <CarsFilterSelect
-            label="ROK OD"
+            label="Rok od"
             value={minYear}
             options={minYearOptions}
             onChange={onMinYearChange}
@@ -87,7 +87,7 @@ export const CarsFiltersContent = ({
 
         <div className="border-b border-white/10">
           <CarsFilterSelect
-            label="ROK DO"
+            label="Rok do"
             value={maxYear}
             options={maxYearOptions}
             onChange={onMaxYearChange}
@@ -96,7 +96,7 @@ export const CarsFiltersContent = ({
 
         <div className="border-b border-white/10">
           <CarsFilterSelect
-            label="PALIWO"
+            label="Paliwo"
             value={fuel}
             options={fuelOptions}
             onChange={onFuelChange}
@@ -105,7 +105,7 @@ export const CarsFiltersContent = ({
 
         <div className="border-b border-white/10">
           <CarsFilterSelect
-            label="CENA OD"
+            label="Cena od"
             value={minPrice}
             options={minPriceOptions}
             onChange={onMinPriceChange}
@@ -114,7 +114,7 @@ export const CarsFiltersContent = ({
 
         <div className="border-b border-white/10">
           <CarsFilterSelect
-            label="CENA DO"
+            label="Cena do"
             value={maxPrice}
             options={maxPriceOptions}
             onChange={onMaxPriceChange}
@@ -122,7 +122,7 @@ export const CarsFiltersContent = ({
         </div>
 
         <CarsFilterSelect
-          label="KOLEJNOŚĆ"
+          label="Kolejność"
           value={sort}
           options={sortOptions}
           onChange={(value) => onSortChange(value as SortOption)}
@@ -132,7 +132,7 @@ export const CarsFiltersContent = ({
       {hasActiveFilters && (
         <div className="border-t border-white/10 px-5 py-5">
           <ButtonComponent onClick={onClearFilters} className="min-w-full">
-            WYCZYŚĆ WSZYSTKIE
+            Wyczyść wszystkie
           </ButtonComponent>
         </div>
       )}

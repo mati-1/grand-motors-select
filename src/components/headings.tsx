@@ -7,7 +7,7 @@ export const MainHeadingComponent = ({
 }) => {
   return (
     <h1
-      className={`mt-3 font-semibold text-2xl md:text-4xl ${className || ""}`}
+      className={`mt-3 font-semibold font-['Montserrat'] text-2xl md:text-4xl ${className || ""}`}
     >
       {children}
     </h1>

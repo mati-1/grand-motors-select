@@ -50,31 +50,21 @@ export const CarsHero = () => {
         "
       />
       <div className="relative z-10">
-        <SubHeadingComponent>
-          GRAND MOTORS <span className="text-[#d2b878]">SELECT</span>
-        </SubHeadingComponent>
-
         <MainHeadingComponent className="text-4xl! sm:text-5xl!">
-          NASZA
-          <br />
-          <span className="text-[#d2b878]">OFERTA.</span>
+          Nasza oferta
         </MainHeadingComponent>
 
-        <p
+        <SubHeadingComponent
           className="
-            mt-7
+            mt-5
             max-w-130
-            text-[12px]
             leading-[1.9]
-            tracking-[0.03em]
-            text-[#666]
-            sm:text-[13px]
           "
         >
           Starannie wybrane samochody, które łączą odpowiednią specyfikację,
           historię i stan. Poznaj aktualnie dostępne egzemplarze GRAND MOTORS
           SELECT.
-        </p>
+        </SubHeadingComponent>
       </div>
     </section>
   );

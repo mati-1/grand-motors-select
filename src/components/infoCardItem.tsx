@@ -50,7 +50,7 @@ export const InfoCardItem = ({
         <h4
           className="
             text-[11px]
-            tracking-[0.15em]
+            
             text-[#ddd]
             transition-colors duration-300
             group-hover:text-[#d2b878]
@@ -66,7 +66,7 @@ export const InfoCardItem = ({
             max-w-180
             text-[10px]
             leading-[1.8]
-            tracking-[0.04em]
+            
             text-[#777]
             sm:text-[12px]
           "
