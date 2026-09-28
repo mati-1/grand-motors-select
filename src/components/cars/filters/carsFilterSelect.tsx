@@ -123,7 +123,7 @@ export const CarsFilterSelect = ({
           className="
             group/select
             flex
-            h-12
+            h-9
             w-full
             cursor-pointer
             items-center
@@ -164,6 +164,7 @@ export const CarsFilterSelect = ({
             absolute
             left-0
             right-0
+                        rounded-[10px]
             z-50
             overflow-hidden
             border

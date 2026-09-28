@@ -26,7 +26,7 @@ export const DetailingServices = () => {
         border-y border-white/5
         py-20
          sm:py-27
-        px-[4vw] lg:px-[13vw]
+        px-[4vw] min-[1200px]:px-[13vw]
       "
     >
       <div className="absolute pointer-events-none right-[5%] top-1/2 hidden -translate-y-1/2 text-[18rem] font-extralight leading-none - text-white/1.5 lg:block">

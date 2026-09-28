@@ -91,7 +91,7 @@ export const HeroComponentSection = () => {
           z-10
           w-full
           px-[4vw]
-          lg:px-[13vw]
+          min-[1200px]:px-[13vw]
         "
       >
         <div

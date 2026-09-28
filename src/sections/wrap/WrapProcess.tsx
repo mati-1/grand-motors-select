@@ -43,7 +43,7 @@ export const WrapProcess = () => {
         scroll-mt-23
         border-b
         border-white/5
-        px-[4vw] lg:px-[13vw]
+        px-[4vw] min-[1200px]:px-[13vw]
         py-16
         sm:py-24
       "

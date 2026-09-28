@@ -24,7 +24,7 @@ export const CarDetailsPage = () => {
 
   if (!car) {
     return (
-      <main className="flex min-h-screen flex-col items-center justify-center bg-[#050505] px-[4vw] lg:px-[13vw] text-center">
+      <main className="flex min-h-screen flex-col items-center justify-center bg-[#050505] px-[4vw] min-[1200px]:px-[13vw] text-center">
         <span className="text-[9px]  text-[#b99a5c]">404 / NIE ZNALEZIONO</span>
 
         <h1 className="mt-5 text-[32px] text-[#ddd]">
@@ -63,7 +63,7 @@ export const CarDetailsPage = () => {
       <PageLoader imageSources={car.images} />
 
       <main className="w-full bg-[#050505]">
-        <section className="px-[4vw] lg:px-[13vw] pb-6 pt-32 sm:pb-24">
+        <section className="px-[4vw] min-[1200px]:px-[13vw] pb-6 pt-32 sm:pb-24">
           <div className="flex items-center justify-between w-full max-h-3 lg:max-h-5">
             <button
               type="button"

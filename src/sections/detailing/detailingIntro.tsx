@@ -7,7 +7,7 @@ export const DetailingIntro = () => {
       id="detailing-intro"
       className="relative bg-[#b99a5c]/20
           bg-linear-to-r from-black/90 via-black/75 to-black/90 overflow-hidden py-20 
-          sm:py-27 px-[4vw] lg:px-[13vw]"
+          sm:py-27 px-[4vw] min-[1200px]:px-[13vw]"
     >
       <div className="absolute right-[5%] top-1/2 hidden -translate-y-1/2 text-[18rem] font-light leading-none - text-white/1.5 lg:block">
         01

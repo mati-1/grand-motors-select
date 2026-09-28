@@ -45,7 +45,7 @@ export const TrustComponent = () => {
   return (
     <section
       id="cars-trust"
-      className="flex w-full scroll-mt-17 flex-col items-stretch justify-center"
+      className="flex w-full scroll-mt-17 flex-col items-stretch justify-center px-[4vw] min-[1200px]:px-[13vw]"
     >
       <div
         className="
@@ -57,7 +57,7 @@ export const TrustComponent = () => {
       >
         {/* PROCES ZAKUPU */}
         <div className="col-span-full bg-black/20">
-          <div className="px-5 py-7 sm:px-8 sm:py-9 lg:px-[13vw]">
+          <div className="py-7 sm:py-9">
             <div className="mb-4 md:mb-8">
               <MainHeadingComponent className="mt-0!">
                 Jak wygląda zakup?

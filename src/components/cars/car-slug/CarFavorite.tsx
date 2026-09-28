@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import type { CarType } from "../cars";
 
 type CarFavoriteProps = {
@@ -6,6 +7,8 @@ type CarFavoriteProps = {
 };
 
 const getStorageKey = (car: CarType) => `gms-favorite:${car.id}`;
+
+const FAVORITES_CHANGED_EVENT = "gms-favorites-changed";
 
 const HeartIcon = ({ filled }: { filled: boolean }) => (
   <svg
@@ -26,12 +29,28 @@ const HeartIcon = ({ filled }: { filled: boolean }) => (
 export const CarFavorite = ({ car }: CarFavoriteProps) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
-  useEffect(() => {
-    const storageKey = getStorageKey(car);
-    const savedFavorite = localStorage.getItem(storageKey) === "true";
+  const loadFavorite = () => {
+    const savedFavorite = localStorage.getItem(getStorageKey(car)) === "true";
 
     setIsFavorite(savedFavorite);
-  }, [car]);
+  };
+
+  useEffect(() => {
+    loadFavorite();
+
+    const handleFavoritesChanged = () => {
+      loadFavorite();
+    };
+
+    window.addEventListener(FAVORITES_CHANGED_EVENT, handleFavoritesChanged);
+
+    return () => {
+      window.removeEventListener(
+        FAVORITES_CHANGED_EVENT,
+        handleFavoritesChanged,
+      );
+    };
+  }, [car.id]);
 
   const handleToggleFavorite = () => {
     const nextValue = !isFavorite;
@@ -39,6 +58,7 @@ export const CarFavorite = ({ car }: CarFavoriteProps) => {
     setIsFavorite(nextValue);
 
     localStorage.setItem(getStorageKey(car), String(nextValue));
+    window.dispatchEvent(new Event(FAVORITES_CHANGED_EVENT));
   };
 
   return (

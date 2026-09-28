@@ -19,34 +19,15 @@ export const CarsFilterField = ({
         relative
         w-full
         cursor-pointer
-        border-b
-        border-l
-        border-r
-        border-[#0b0b0b]
-        bg-[#080808]
+        border
+        rounded-[10px]
+        border-white/10
         transition-colors
         duration-300
         hover:bg-[#0b0b0b]
         ${className}
       `}
     >
-      {/* TOP ACCENT */}
-      <div
-        className="
-          pointer-events-none
-          absolute
-          left-0
-          top-0
-          h-px
-          w-full
-          bg-[#b99a5c]/60
-          opacity-0
-          transition-opacity
-          duration-300
-          group-hover:opacity-100
-        "
-      />
-
       {/* LABEL */}
       <span
         className="

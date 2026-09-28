@@ -43,6 +43,7 @@ export const ButtonComponent = ({
           from-[#b6944e]
           to-[#d6bb7c]
           text-black
+          font-medium
           transition duration-300 hover:brightness-125
         `
         : `

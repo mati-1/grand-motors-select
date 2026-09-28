@@ -54,7 +54,7 @@ export const DetailingHero = () => {
       {/* GOLD GLOW */}
       <div className="absolute bottom-[-20%] left-[45%] h-100 w-100 rounded-full bg-[#b99a5c]/8 blur-[120px]" />
 
-      <div className="relative z-10 w-full lg:pt-15 pb-14 sm:pb-10 px-[4vw] lg:px-[13vw] lg:pb-12">
+      <div className="relative z-10 w-full lg:pt-15 pb-14 sm:pb-10 px-[4vw] min-[1200px]:px-[13vw] lg:pb-12">
         <div className="mb-8 flex items-center gap-4">
           <span className="h-px w-10 bg-[#b99a5c]" />
           <span className="text-[9px]  text-[#b99a5c]">

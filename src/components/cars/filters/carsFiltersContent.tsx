@@ -66,60 +66,48 @@ export const CarsFiltersContent = ({
 }: CarsFiltersContentProps) => {
   return (
     <div className="mt-5">
-      <div className="border-y border-white/15 bg-[#050505]">
-        <div className="border-b border-white/10">
-          <CarsFilterSelect
-            label="Marka"
-            value={brand}
-            options={brandOptions}
-            onChange={onBrandChange}
-          />
-        </div>
+      <div className=" bg-[#050505] p-2 flex flex-col gap-2">
+        <CarsFilterSelect
+          label="Marka"
+          value={brand}
+          options={brandOptions}
+          onChange={onBrandChange}
+        />
 
-        <div className="border-b border-white/10">
-          <CarsFilterSelect
-            label="Rok od"
-            value={minYear}
-            options={minYearOptions}
-            onChange={onMinYearChange}
-          />
-        </div>
+        <CarsFilterSelect
+          label="Rok od"
+          value={minYear}
+          options={minYearOptions}
+          onChange={onMinYearChange}
+        />
 
-        <div className="border-b border-white/10">
-          <CarsFilterSelect
-            label="Rok do"
-            value={maxYear}
-            options={maxYearOptions}
-            onChange={onMaxYearChange}
-          />
-        </div>
+        <CarsFilterSelect
+          label="Rok do"
+          value={maxYear}
+          options={maxYearOptions}
+          onChange={onMaxYearChange}
+        />
 
-        <div className="border-b border-white/10">
-          <CarsFilterSelect
-            label="Paliwo"
-            value={fuel}
-            options={fuelOptions}
-            onChange={onFuelChange}
-          />
-        </div>
+        <CarsFilterSelect
+          label="Paliwo"
+          value={fuel}
+          options={fuelOptions}
+          onChange={onFuelChange}
+        />
 
-        <div className="border-b border-white/10">
-          <CarsFilterSelect
-            label="Cena od"
-            value={minPrice}
-            options={minPriceOptions}
-            onChange={onMinPriceChange}
-          />
-        </div>
+        <CarsFilterSelect
+          label="Cena od"
+          value={minPrice}
+          options={minPriceOptions}
+          onChange={onMinPriceChange}
+        />
 
-        <div className="border-b border-white/10">
-          <CarsFilterSelect
-            label="Cena do"
-            value={maxPrice}
-            options={maxPriceOptions}
-            onChange={onMaxPriceChange}
-          />
-        </div>
+        <CarsFilterSelect
+          label="Cena do"
+          value={maxPrice}
+          options={maxPriceOptions}
+          onChange={onMaxPriceChange}
+        />
 
         <CarsFilterSelect
           label="Kolejność"
