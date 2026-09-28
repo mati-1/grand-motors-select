@@ -42,10 +42,11 @@ export const CarsPage = () => {
         id="cars"
         className="
           scroll-mt-23
-          px-[4vw] lg:px-[13vw]
+          px-[4vw]
           py-10
           sm:py-14
-          lg:py-16
+          min-[1200px]:px-[13vw]
+          min-[1200px]:py-16
         "
       >
         <div
@@ -53,14 +54,12 @@ export const CarsPage = () => {
             grid
             grid-cols-1
             gap-6
-            lg:grid-cols-[270px_minmax(0,1fr)]
-            lg:items-start
-            lg:gap-10
-            xl:grid-cols-[300px_minmax(0,1fr)]
-            xl:gap-10
+            min-[1200px]:grid-cols-[270px_minmax(0,1fr)]
+            min-[1200px]:items-start
           "
         >
           {/* FILTRY */}
+
           <CarsFilters
             view={view}
             onViewChange={setView}
@@ -86,6 +85,7 @@ export const CarsPage = () => {
           />
 
           {/* SAMOCHODY */}
+
           <div className="min-w-0">
             {filteredCars.length > 0 ? (
               <CarsGrid cars={filteredCars} />

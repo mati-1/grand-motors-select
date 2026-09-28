@@ -4,7 +4,7 @@ import {
 } from "../../components/headings";
 import { ButtonComponent } from "../../components/button";
 import { carsList } from "../../components/cars/cars";
-import { CarCard } from "../../components/cars/carCard";
+import { CarCard } from "../../components/cars/cards/carCard";
 import ArrowIcon from "../../assets/icons/strzalka.svg?react";
 
 export const CarsComponent = () => {

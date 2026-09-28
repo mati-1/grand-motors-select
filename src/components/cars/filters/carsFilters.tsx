@@ -38,6 +38,7 @@ type CarsFiltersProps = {
   years: number[];
 
   resultCount: number;
+
   hasActiveFilters: boolean;
   onClearFilters: () => void;
 };
@@ -71,6 +72,7 @@ export const CarsFilters = ({
   years,
 
   resultCount,
+
   hasActiveFilters,
   onClearFilters,
 }: CarsFiltersProps) => {
@@ -96,7 +98,7 @@ export const CarsFilters = ({
 
   /*
    * ============================================================
-   * MOBILE
+   * MOBILE FILTERS
    * ============================================================
    */
 
@@ -110,6 +112,7 @@ export const CarsFilters = ({
     };
 
     document.body.style.overflow = "hidden";
+
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
@@ -124,9 +127,11 @@ export const CarsFilters = ({
 
   return (
     <>
-      {/* MOBILE */}
+      {/* ======================================================== */}
+      {/* MOBILE / TABLET / LAPTOP < 1200PX */}
+      {/* ======================================================== */}
 
-      <div className="lg:hidden">
+      <div className="min-[1200px]:hidden">
         <button
           type="button"
           onClick={() => setIsMobileOpen(true)}
@@ -138,66 +143,104 @@ export const CarsFilters = ({
             cursor-pointer
             items-center
             justify-between
+            rounded-[10px]
             border
             border-white/15
             bg-[#080808]
             px-5
             transition-all
             duration-300
-            rounded-[10px]
             hover:border-[#b99a5c]/30
             hover:bg-[#b99a5c]/5
           "
         >
           <div className="flex items-center gap-4">
-            <span className="text-[14px] text-[#b99a5c]">☰</span>
+            <span
+              className="
+                text-[14px]
+                text-[#b99a5c]
+              "
+            >
+              ☰
+            </span>
 
-            <span className="text-[14px]  text-white transition-colors duration-300 group-hover:text-[#d2b878]">
+            <span
+              className="
+                text-[14px]
+                text-white
+                transition-colors
+                duration-300
+                group-hover:text-[#d2b878]
+              "
+            >
               Pokaż filtry
             </span>
           </div>
 
           <div className="flex items-center gap-3">
             {hasActiveFilters && (
-              <span className="text-[13px] text-[#b99a5c]">●</span>
+              <span
+                className="
+                  text-[13px]
+                  text-[#b99a5c]
+                "
+              >
+                ●
+              </span>
             )}
 
-            <ArrowIcon className="w-5 h-5 rotate-180" />
+            <ArrowIcon
+              className="
+                h-5
+                w-5
+                rotate-180
+              "
+            />
           </div>
         </button>
       </div>
 
-      <CarsFiltersDesktop
-        view={view}
-        onViewChange={onViewChange}
-        viewOptions={viewOptions}
-      >
-        <CarsFiltersContent
-          brand={brand}
-          onBrandChange={onBrandChange}
-          minYear={minYear}
-          onMinYearChange={onMinYearChange}
-          maxYear={maxYear}
-          onMaxYearChange={onMaxYearChange}
-          minPrice={minPrice}
-          onMinPriceChange={onMinPriceChange}
-          maxPrice={maxPrice}
-          onMaxPriceChange={onMaxPriceChange}
-          fuel={fuel}
-          onFuelChange={onFuelChange}
-          sort={sort}
-          onSortChange={onSortChange}
-          brandOptions={brandOptions}
-          minYearOptions={minYearOptions}
-          maxYearOptions={maxYearOptions}
-          fuelOptions={fuelOptions}
-          minPriceOptions={minPriceOptions}
-          maxPriceOptions={maxPriceOptions}
-          sortOptions={sortOptions}
-          hasActiveFilters={hasActiveFilters}
-          onClearFilters={onClearFilters}
-        />
-      </CarsFiltersDesktop>
+      {/* ======================================================== */}
+      {/* DESKTOP ≥ 1200PX */}
+      {/* ======================================================== */}
+
+      <div className="hidden min-[1200px]:block">
+        <CarsFiltersDesktop
+          view={view}
+          onViewChange={onViewChange}
+          viewOptions={viewOptions}
+        >
+          <CarsFiltersContent
+            brand={brand}
+            onBrandChange={onBrandChange}
+            minYear={minYear}
+            onMinYearChange={onMinYearChange}
+            maxYear={maxYear}
+            onMaxYearChange={onMaxYearChange}
+            minPrice={minPrice}
+            onMinPriceChange={onMinPriceChange}
+            maxPrice={maxPrice}
+            onMaxPriceChange={onMaxPriceChange}
+            fuel={fuel}
+            onFuelChange={onFuelChange}
+            sort={sort}
+            onSortChange={onSortChange}
+            brandOptions={brandOptions}
+            minYearOptions={minYearOptions}
+            maxYearOptions={maxYearOptions}
+            fuelOptions={fuelOptions}
+            minPriceOptions={minPriceOptions}
+            maxPriceOptions={maxPriceOptions}
+            sortOptions={sortOptions}
+            hasActiveFilters={hasActiveFilters}
+            onClearFilters={onClearFilters}
+          />
+        </CarsFiltersDesktop>
+      </div>
+
+      {/* ======================================================== */}
+      {/* MOBILE FILTER PANEL < 1200PX */}
+      {/* ======================================================== */}
 
       <CarsFiltersMobile
         isOpen={isMobileOpen}

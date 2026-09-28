@@ -1,5 +1,5 @@
 import type { CarType } from "./cars";
-import { CarCard } from "./carCard";
+import { CarCard } from "./cards/carCard";
 
 type CarsGridProps = {
   cars: CarType[];
@@ -23,11 +23,14 @@ export const CarsGrid = ({ cars }: CarsGridProps) => {
           grid
           grid-cols-1
           gap-5
-          lg:grid-cols-2
         "
       >
         {cars.map((car) => (
-          <CarCard key={`${car.brand}-${car.model}-${car.year}`} car={car} />
+          <CarCard
+            variant="horizontal"
+            key={`${car.brand}-${car.model}-${car.year}`}
+            car={car}
+          />
         ))}
       </div>
     </div>

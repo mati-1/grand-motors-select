@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import ArrowIcon from "../../../assets/icons/strzalka.svg?react";
 
 type CarGalleryLightboxThumbnailsProps = {
   images: string[];
@@ -85,9 +86,11 @@ export const CarGalleryLightboxThumbnails = ({
         border-t
         border-white/8
         bg-black/35
+        max-w-7xl
         px-4
         py-4
-        sm:px-16
+        w-full
+        mx-auto
         sm:py-5
       "
     >
@@ -115,18 +118,16 @@ export const CarGalleryLightboxThumbnails = ({
           border
           border-white/10
           bg-black/80
-          text-[17px]
-          text-[#999]
           backdrop-blur-md
           transition-all
           duration-300
+          rounded-[10px]
           hover:border-[#b99a5c]/50
-          hover:text-[#d2b878]
           sm:flex
           ${showControls ? "opacity-100" : "pointer-events-none opacity-0"}
         `}
       >
-        ←
+        <ArrowIcon className="w-5 h-5" />
       </button>
 
       {/* RIGHT */}
@@ -153,18 +154,16 @@ export const CarGalleryLightboxThumbnails = ({
           border
           border-white/10
           bg-black/80
-          text-[17px]
-          text-[#999]
           backdrop-blur-md
           transition-all
+          rounded-[10px]
           duration-300
           hover:border-[#b99a5c]/50
-          hover:text-[#d2b878]
           sm:flex
           ${showControls ? "opacity-100" : "pointer-events-none opacity-0"}
         `}
       >
-        →
+        <ArrowIcon className="w-5 h-5 rotate-180" />
       </button>
 
       {/* THUMBNAILS */}

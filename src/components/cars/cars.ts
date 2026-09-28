@@ -68,7 +68,7 @@ export const carsList: CarType[] = [
     price: "105 000 PLN",
     vin: "WBA8B9C50HK123456",
     image: "/cars/bmwf30/1.png",
-    location: "Stanisławice, Polska",
+    location: "Stanisławice",
     voivodeship: "Małopolskie",
     images: [
       "/cars/bmwf30/1.png",
@@ -144,7 +144,7 @@ export const carsList: CarType[] = [
     price: "240 000 PLN",
     vin: "WBA8B9C50HK123456",
     image: "/cars/bmwg11/1.jpg",
-    location: "Stanisławice, Polska",
+    location: "Stanisławice",
     voivodeship: "Małopolskie",
     images: [
       "/cars/bmwg11/1.jpg",
@@ -259,7 +259,7 @@ export const carsList: CarType[] = [
     price: "140 000 PLN",
     vin: "WBA8B9C50HK123456",
     image: "/cars/bmwx6m/1.png",
-    location: "Stanisławice, Polska",
+    location: "Stanisławice",
     voivodeship: "Małopolskie",
     images: [
       "/cars/bmwx6m/1.png",
@@ -335,7 +335,7 @@ export const carsList: CarType[] = [
     price: "60 000 PLN",
     vin: "WBA8B9C50HK123456",
     image: "/cars/bmwf10/1.jpg",
-    location: "Nowy Targ, Polska",
+    location: "Nowy Targ",
     voivodeship: "Małopolskie",
     images: [
       "/cars/bmwf10/1.jpg",
@@ -420,7 +420,7 @@ export const carsList: CarType[] = [
     price: "72 000 PLN",
     vin: "WBA8B9C50HK123456",
     image: "/cars/audis5/1.jpg",
-    location: "Nowy Targ, Polska",
+    location: "Nowy Targ",
     voivodeship: "Małopolskie",
     images: ["/cars/audis5/1.jpg"],
 
@@ -494,7 +494,7 @@ export const carsList: CarType[] = [
     price: "105 000 PLN",
     vin: "WBA8B9C50HK123456",
     image: "/cars/bmwf06/1.jpg",
-    location: "Nowy Targ, Polska",
+    location: "Nowy Targ",
     voivodeship: "Małopolskie",
     images: [
       "/cars/bmwf06/1.jpg",
@@ -597,7 +597,7 @@ export const carsList: CarType[] = [
     status: "sold",
     price: "27 000 PLN",
     vin: "WBA8B9C50HK123456",
-    location: "Nowy Targ, Polska",
+    location: "Nowy Targ",
     voivodeship: "Małopolskie",
     image: "/cars/opelinsignia/1.jpg",
 
@@ -696,7 +696,7 @@ export const carsList: CarType[] = [
     price: "49 000 PLN",
     vin: "WBA8B9C50HK123456",
     image: "/cars/bmwe92/1.jpg",
-    location: "Nowy Targ, Polska",
+    location: "Nowy Targ",
     voivodeship: "Małopolskie",
     images: [
       "/cars/bmwe92/1.jpg",
@@ -789,7 +789,7 @@ export const carsList: CarType[] = [
     price: "74 000 PLN",
     vin: "WBA8B9C50HK123456",
     image: "/cars/bmwf10_2/1.jpeg",
-    location: "Nowy Targ, Polska",
+    location: "Nowy Targ",
     voivodeship: "Małopolskie",
     images: [
       "/cars/bmwf10_2/1.jpeg",

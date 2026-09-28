@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import type { CarType } from "../cars";
 
 type CarFavoriteProps = {
@@ -29,7 +28,6 @@ export const CarFavorite = ({ car }: CarFavoriteProps) => {
 
   useEffect(() => {
     const storageKey = getStorageKey(car);
-
     const savedFavorite = localStorage.getItem(storageKey) === "true";
 
     setIsFavorite(savedFavorite);
@@ -54,30 +52,33 @@ export const CarFavorite = ({ car }: CarFavoriteProps) => {
       }
       aria-pressed={isFavorite}
       className={`
-        group
+        group/favorite
+        relative
+        z-20
         flex
         h-9
         w-9
+        shrink-0
         cursor-pointer
         items-center
         justify-center
+        rounded-[10px]
         border
         transition-all
         duration-300
-        rounded-[10px]
 
         ${
           isFavorite
             ? "border-[#b99a5c]/40 text-[#d2b878]"
-            : "border-white/10 text-[#777]"
+            : "border-white/10 text-[#777] hover:border-white/20 hover:text-[#aaa]"
         }
       `}
     >
       <span
         className="
-          transition-all
+          transition-transform
           duration-300
-          group-hover:scale-110
+          group-hover/favorite:scale-110
         "
       >
         <HeartIcon filled={isFavorite} />
