@@ -22,6 +22,7 @@ import CarDetailsPage from "./pages/carDetailsPage";
 import ContactPage from "./pages/contactPage";
 import { PageLoader } from "./components/page-loader";
 import { CookieBanner } from "./components/CookieBanner";
+import { Toaster } from "sonner";
 
 const pageVideos: Record<string, string> = {
   "/": "/hero.mp4",
@@ -38,8 +39,15 @@ const App = () => {
 
   return (
     <div className="min-h-screen bg-[#050505] text-[#f4f4f2]">
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          unstyled: true,
+        }}
+        duration={2000}
+        visibleToasts={1}
+      />
       <HeaderComponent />
-
       <PageLoader videoSrc={videoSrc} />
 
       <Routes>
@@ -52,7 +60,7 @@ const App = () => {
                 <CarsComponent />
                 <TrustComponent />
 
-                <div className="my-8 px-[4vw] lg:px-[13vw]! md:my-12">
+                <div className="my-8 px-[4vw] min-[1200px]:px-[13vw]! md:my-12">
                   <SubHeadingComponent>
                     To nie tylko sprzedaż
                   </SubHeadingComponent>

@@ -16,6 +16,7 @@ import { pageHeaderNavigation } from "./navigation";
 import { carsList } from "../../components/cars/cars";
 
 import type { CarType } from "../../components/cars/cars";
+import { showToast } from "../toast/toast";
 
 type DropdownType = "services" | "favorites" | null;
 
@@ -187,16 +188,9 @@ export const HeaderComponent = () => {
     setOpenDropdown((current) => (current === dropdown ? null : dropdown));
   };
 
-  /*
-   * ============================================================
-   * FAVORITE REMOVE CONFIRMATION
-   * ============================================================
-   */
-
   const removeFavorite = (car: CarType) => {
     const carId = car.id;
 
-    // Jeśli już czekamy na potwierdzenie — usuń samochód.
     if (pendingRemovals.has(carId)) {
       const timer = removalTimers.current[carId];
 
@@ -211,6 +205,13 @@ export const HeaderComponent = () => {
         const next = new Set(current);
         next.delete(carId);
         return next;
+      });
+
+      showToast({
+        type: "success",
+        title: "Usunięto z ulubionych",
+        description: `${car.brand} ${car.model}`,
+        successIcon: "remove",
       });
 
       window.dispatchEvent(new Event(FAVORITES_CHANGED_EVENT));

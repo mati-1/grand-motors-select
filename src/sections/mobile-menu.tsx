@@ -13,6 +13,7 @@ import { pageHeaderNavigation } from "../components/header/navigation";
 import { carsList } from "../components/cars/cars";
 
 import type { CarType } from "../components/cars/cars";
+import { showToast } from "../components/toast/toast";
 
 type MobileMenuComponentProps = {
   isOpen: boolean;
@@ -55,12 +56,6 @@ export const MobileMenuComponent = ({
 
   const isContactPage = activeSection === "/contact";
 
-  /*
-   * ============================================================
-   * LOAD FAVORITES
-   * ============================================================
-   */
-
   const loadFavorites = () => {
     const favorites = carsList.filter((car) => {
       return localStorage.getItem(getFavoriteStorageKey(car)) === "true";
@@ -100,12 +95,6 @@ export const MobileMenuComponent = ({
     };
   }, []);
 
-  /*
-   * ============================================================
-   * CLEANUP TIMERS
-   * ============================================================
-   */
-
   useEffect(() => {
     return () => {
       Object.values(removalTimers.current).forEach((timer) => {
@@ -113,12 +102,6 @@ export const MobileMenuComponent = ({
       });
     };
   }, []);
-
-  /*
-   * ============================================================
-   * BODY SCROLL LOCK
-   * ============================================================
-   */
 
   useEffect(() => {
     if (!isOpen) return;
@@ -129,12 +112,6 @@ export const MobileMenuComponent = ({
       document.body.style.overflow = "";
     };
   }, [isOpen]);
-
-  /*
-   * ============================================================
-   * ESC
-   * ============================================================
-   */
 
   useEffect(() => {
     if (!isOpen) return;
@@ -152,12 +129,6 @@ export const MobileMenuComponent = ({
     };
   }, [isOpen, onClose]);
 
-  /*
-   * ============================================================
-   * DROPDOWN
-   * ============================================================
-   */
-
   const toggleDropdown = (dropdown: MobileDropdown) => {
     if (dropdown === "favorites") {
       loadFavorites();
@@ -170,12 +141,6 @@ export const MobileMenuComponent = ({
     setOpenDropdown(null);
     onClose();
   };
-
-  /*
-   * ============================================================
-   * FAVORITE REMOVE CONFIRMATION
-   * ============================================================
-   */
 
   const removeFavorite = (car: CarType) => {
     const carId = car.id;
@@ -194,6 +159,13 @@ export const MobileMenuComponent = ({
         const next = new Set(current);
         next.delete(carId);
         return next;
+      });
+
+      showToast({
+        type: "success",
+        title: "Usunięto z ulubionych",
+        description: `${car.brand} ${car.model}`,
+        successIcon: "remove",
       });
 
       window.dispatchEvent(new Event(FAVORITES_CHANGED_EVENT));

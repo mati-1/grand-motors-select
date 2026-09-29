@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
+
 import HeartIcon from "../../../assets/icons/serce.svg?react";
+
 import type { CarType } from "../cars";
+
+import { showToast } from "../../toast/toast";
 
 type CarFavoriteProps = {
   car: CarType;
@@ -42,7 +46,15 @@ export const CarFavorite = ({ car }: CarFavoriteProps) => {
     setIsFavorite(nextValue);
 
     localStorage.setItem(getStorageKey(car), String(nextValue));
+
     window.dispatchEvent(new Event(FAVORITES_CHANGED_EVENT));
+
+    showToast({
+      type: "success",
+      title: nextValue ? "Dodano do ulubionych" : "Usunięto z ulubionych",
+      description: `${car.brand} ${car.model}`,
+      successIcon: !isFavorite ? "heart" : "remove",
+    });
   };
 
   return (
@@ -70,10 +82,9 @@ export const CarFavorite = ({ car }: CarFavoriteProps) => {
         border
         transition-all
         duration-300
-
         ${
           isFavorite
-            ? "border-[#b99a5c]/40 text-[#d2b878] bg-[#d2b878]/10"
+            ? "border-[#b99a5c]/40 bg-[#d2b878]/10 text-[#d2b878]"
             : "border-white/10 text-[#777] hover:border-white/20 hover:text-[#aaa]"
         }
       `}
@@ -84,7 +95,7 @@ export const CarFavorite = ({ car }: CarFavoriteProps) => {
           duration-300
         "
       >
-        <HeartIcon className={`w-4 h-4`} />
+        <HeartIcon className="h-4 w-4" />
       </span>
     </button>
   );
