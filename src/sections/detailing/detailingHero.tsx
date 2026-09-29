@@ -65,10 +65,29 @@ export const DetailingHero = () => {
             Profesjonalna pielęgnacja samochodu, w której liczy się nie tylko
             efekt końcowy, ale również sposób, w jaki do niego dochodzimy.
           </p>
+          <div
+            className="
+              flex
+              flex-col
+              items-start
+              gap-3
+              sm:mt-9
+              sm:flex-row
+              sm:items-center
+              sm:gap-4"
+          >
+            <ButtonComponent type="main" href="/contact" size="big">
+              Umów detailing
+            </ButtonComponent>
 
-          <ButtonComponent href="#detailing-services" type="main" size="big">
-            Poznaj zakres →
-          </ButtonComponent>
+            <ButtonComponent
+              type="secondary"
+              href="#detailing-services"
+              size="big"
+            >
+              Zakres usług
+            </ButtonComponent>
+          </div>
         </div>
       </div>
     </section>
