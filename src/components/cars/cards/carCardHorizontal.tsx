@@ -7,7 +7,7 @@ import TransmitionIcon from "../../../assets/icons/skrzynia-biegow.svg?react";
 import FuelIcon from "../../../assets/icons/paliwo.svg?react";
 import YearIcon from "../../../assets/icons/rok.svg?react";
 
-import { CarFavorite } from "../car-slug/CarFavorite";
+import { CarFavorite } from "../../CarFavorite";
 
 type CarCardHorizontalProps = {
   car: CarType;
@@ -37,17 +37,13 @@ export const CarCardHorizontal = ({ car }: CarCardHorizontalProps) => {
         rounded-[10px]
         border
         border-white/10
-        bg-black
+        bg-[#090909]
         transition-colors
         duration-500
         hover:border-[#b99a5c]/30
         ${car.status === "sold" ? "grayscale" : ""}
       `}
     >
-      {/* ========================================================= */}
-      {/* CLICKABLE CARD CONTENT */}
-      {/* ========================================================= */}
-
       <div
         role="link"
         tabIndex={0}

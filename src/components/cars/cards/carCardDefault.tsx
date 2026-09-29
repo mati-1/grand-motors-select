@@ -8,7 +8,7 @@ import TransmitionIcon from "../../../assets/icons/skrzynia-biegow.svg?react";
 import FuelIcon from "../../../assets/icons/paliwo.svg?react";
 import YearIcon from "../../../assets/icons/rok.svg?react";
 
-import { CarFavorite } from "../car-slug/CarFavorite";
+import { CarFavorite } from "../../CarFavorite";
 
 type CarCardDefaultProps = {
   car: CarType;
@@ -38,9 +38,9 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
         rounded-[10px]
         border
         border-white/10
-        bg-black
         transition-colors
         duration-500
+        bg-[#090909]
         hover:border-[#b99a5c]/30
         ${car.status === "sold" ? "grayscale" : ""}
       `}

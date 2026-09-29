@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-import HeartIcon from "../../../assets/icons/serce.svg?react";
+import HeartIcon from "../assets/icons/serce.svg?react";
 
-import type { CarType } from "../cars";
+import type { CarType } from "./cars/cars";
 
-import { showToast } from "../../toast/toast";
+import { showToast } from "./toast/toast";
 
 type CarFavoriteProps = {
   car: CarType;

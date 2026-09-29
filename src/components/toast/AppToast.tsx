@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 
 import HeartIcon from "../../assets/icons/serce.svg?react";
 import RemoveIcon from "../../assets/icons/zamknij.svg?react";
+import MailIcon from "../../assets/icons/mail.svg?react";
 
 const CheckIcon = ({ className = "" }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="none" className={className}>
@@ -15,7 +16,7 @@ const CheckIcon = ({ className = "" }: { className?: string }) => (
   </svg>
 );
 
-export type successIconType = "check" | "heart" | "remove";
+export type successIconType = "check" | "heart" | "remove" | "mail";
 
 type AppToastProps = {
   type?: "success" | "error" | "info";
@@ -74,6 +75,7 @@ export const AppToast = ({
             {successIcon === "remove" && <RemoveIcon className="h-4 w-4" />}
             {successIcon === "check" && <CheckIcon className="h-4 w-4" />}
             {successIcon === "heart" && <HeartIcon className="h-4 w-4" />}
+            {successIcon === "mail" && <MailIcon className="h-4 w-4" />}
           </>
         )}
 

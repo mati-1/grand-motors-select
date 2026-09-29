@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ButtonComponent } from "../../button";
 
 import type { CarType } from "../cars";
-import { CarFavorite } from "./CarFavorite";
+import { CarFavorite } from "../../CarFavorite";
 import LinkIcon from "../../../assets/icons/link.svg?react";
 import { SubHeadingComponent } from "../../headings";
 import LocationIcon from "../../../assets/icons/lokalizacja.svg?react";
