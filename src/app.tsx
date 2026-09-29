@@ -23,6 +23,9 @@ import ContactPage from "./pages/contactPage";
 import { PageLoader } from "./components/page-loader";
 import { CookieBanner } from "./components/CookieBanner";
 import { Toaster } from "sonner";
+import { AdminLoginPage } from "./pages/admin/login/AdminLoginPage";
+import { AdminLayout } from "./components/admin/AdminLayout";
+import { AdminDashboardPage } from "./pages/admin/dashboard/AdminDashboardPage";
 
 const pageVideos: Record<string, string> = {
   "/": "/hero.mp4",
@@ -47,7 +50,9 @@ const App = () => {
         duration={2000}
         visibleToasts={1}
       />
-      <HeaderComponent />
+      {location.pathname !== "/admin/login" &&
+        location.pathname !== "/admin" && <HeaderComponent />}
+
       <PageLoader videoSrc={videoSrc} />
 
       <Routes>
@@ -93,6 +98,17 @@ const App = () => {
         <Route path="/wrap" element={<WrapPage />} />
 
         <Route path="/contact" element={<ContactPage />} />
+
+        <Route path="/admin/login" element={<AdminLoginPage />} />
+
+        <Route
+          path="/admin"
+          element={
+            <AdminLayout>
+              <AdminDashboardPage />
+            </AdminLayout>
+          }
+        />
       </Routes>
 
       <CookieBanner />
