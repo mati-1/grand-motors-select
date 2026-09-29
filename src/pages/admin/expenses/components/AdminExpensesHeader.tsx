@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export const AdminExpensesHeader = () => {
   return (
     <section className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
@@ -14,8 +16,8 @@ export const AdminExpensesHeader = () => {
         </p>
       </div>
 
-      <button
-        type="button"
+      <Link
+        to="/admin/expenses/new"
         className="
           flex
           h-10
@@ -44,7 +46,7 @@ export const AdminExpensesHeader = () => {
           />
         </svg>
         Dodaj wydatek
-      </button>
+      </Link>
     </section>
   );
 };

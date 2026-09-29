@@ -33,6 +33,9 @@ import { AdminExpensesPage } from "./pages/admin/expenses/AdminExpensesPage";
 import { AdminCustomersPage } from "./pages/admin/customers/AdminCustomersPage";
 import { AdminCompanyPage } from "./pages/admin/company/AdminCompanyPage";
 import { AdminSettingsPage } from "./pages/admin/settings/AdminSettingsPage";
+import { AdminCarFormPage } from "./pages/admin/cars/AdminCarFormPage";
+import { AdminExpenseFormPage } from "./pages/admin/expenses/AdminExpenseFormPage";
+import { AdminSaleFormPage } from "./pages/admin/sales/AdminSaleFormPage";
 
 const pageVideos: Record<string, string> = {
   "/": "/hero.mp4",
@@ -176,6 +179,60 @@ const App = () => {
           element={
             <AdminLayout>
               <AdminSettingsPage />
+            </AdminLayout>
+          }
+        />
+
+        <Route
+          path="/admin/cars/new"
+          element={
+            <AdminLayout>
+              <AdminCarFormPage />
+            </AdminLayout>
+          }
+        />
+
+        <Route
+          path="/admin/cars/:id/edit"
+          element={
+            <AdminLayout>
+              <AdminCarFormPage />
+            </AdminLayout>
+          }
+        />
+
+        <Route
+          path="/admin/expenses/new"
+          element={
+            <AdminLayout>
+              <AdminExpenseFormPage />
+            </AdminLayout>
+          }
+        />
+
+        <Route
+          path="/admin/expenses/:id/edit"
+          element={
+            <AdminLayout>
+              <AdminExpenseFormPage />
+            </AdminLayout>
+          }
+        />
+
+        <Route
+          path="/admin/sales/new"
+          element={
+            <AdminLayout>
+              <AdminSaleFormPage />
+            </AdminLayout>
+          }
+        />
+
+        <Route
+          path="/admin/sales/:id/edit"
+          element={
+            <AdminLayout>
+              <AdminSaleFormPage />
             </AdminLayout>
           }
         />
