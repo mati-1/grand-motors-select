@@ -45,18 +45,18 @@ export const AdminRecentTransactions = () => {
         overflow-hidden
         rounded-[10px]
         border
-        border-white/[0.08]
+        border-white/8
         bg-[#090909]
       "
     >
       {/* HEADER */}
       <div className="flex items-center justify-between border-b border-white/[0.07] px-5 py-4">
         <div>
-          <h3 className="text-[11px] font-medium text-white">
+          <h3 className="text-[14px] font-medium text-white">
             Ostatnie transakcje
           </h3>
 
-          <p className="mt-1 text-[8px] text-white/25">
+          <p className="mt-1 text-[11px] text-white/25">
             Ostatnie operacje finansowe.
           </p>
         </div>
@@ -64,7 +64,7 @@ export const AdminRecentTransactions = () => {
         <Link
           to="/admin/finances"
           className="
-            text-[9px]
+            text-[12px]
             text-white/30
             transition-colors
             duration-300
@@ -88,7 +88,7 @@ export const AdminRecentTransactions = () => {
               py-4
               ${
                 index !== transactions.length - 1
-                  ? "border-b border-white/[0.05]"
+                  ? "border-b border-white/5"
                   : ""
               }
             `}
@@ -96,17 +96,17 @@ export const AdminRecentTransactions = () => {
             <div
               className={`
                 flex
-                h-7
-                w-7
+                h-8
+                w-8
                 shrink-0
                 items-center
                 justify-center
                 rounded-full
-                text-[10px]
+                text-[14px]
                 ${
                   transaction.type === "income"
-                    ? "bg-[#b99a5c]/[0.08] text-[#d2b878]"
-                    : "bg-white/[0.04] text-white/30"
+                    ? "bg-[#b99a5c]/8 text-[#d2b878]"
+                    : "bg-white/4 text-white/30"
                 }
               `}
             >
@@ -114,11 +114,11 @@ export const AdminRecentTransactions = () => {
             </div>
 
             <div className="min-w-0 flex-1">
-              <p className="truncate text-[9px] text-white/70">
+              <p className="truncate text-[12px] text-white/70">
                 {transaction.title}
               </p>
 
-              <p className="mt-1 text-[7px] text-white/20">
+              <p className="mt-1 text-[11px] text-white/20">
                 {transaction.date}
               </p>
             </div>
@@ -126,7 +126,7 @@ export const AdminRecentTransactions = () => {
             <p
               className={`
                 shrink-0
-                text-[9px]
+                text-[13px]
                 font-medium
                 ${
                   transaction.type === "income"

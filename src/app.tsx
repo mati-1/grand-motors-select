@@ -50,8 +50,7 @@ const App = () => {
         duration={2000}
         visibleToasts={1}
       />
-      {location.pathname !== "/admin/login" &&
-        location.pathname !== "/admin" && <HeaderComponent />}
+      {!location.pathname.startsWith("/admin") && <HeaderComponent />}
 
       <PageLoader videoSrc={videoSrc} />
 

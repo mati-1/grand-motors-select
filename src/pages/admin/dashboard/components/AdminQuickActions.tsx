@@ -24,7 +24,7 @@ const actions = [
 const ActionIcon = ({ type }: { type: string }) => {
   if (type === "car") {
     return (
-      <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4">
+      <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
         <path
           d="M5 16.5V11.5L7 6.5H17L19 11.5V16.5"
           stroke="currentColor"
@@ -75,9 +75,9 @@ export const AdminQuickActions = () => {
   return (
     <section>
       <div className="mb-3">
-        <h3 className="text-[11px] font-medium text-white">Szybkie akcje</h3>
+        <h3 className="text-[14px] font-medium text-white">Szybkie akcje</h3>
 
-        <p className="mt-1 text-[8px] text-white/25">
+        <p className="mt-1 text-[11px] text-white/25">
           Najczęściej używane funkcje panelu.
         </p>
       </div>
@@ -94,7 +94,7 @@ export const AdminQuickActions = () => {
               gap-4
               rounded-[10px]
               border
-              border-white/[0.08]
+              border-white/8
               bg-[#090909]
               p-4
               transition-all
@@ -111,7 +111,7 @@ export const AdminQuickActions = () => {
                 shrink-0
                 items-center
                 justify-center
-                rounded-[8px]
+                rounded-[10px]
                 border
                 border-white/10
                 text-white/40
@@ -125,11 +125,11 @@ export const AdminQuickActions = () => {
             </div>
 
             <div className="min-w-0">
-              <p className="text-[10px] font-medium text-white">
+              <p className="text-[12px] font-medium text-white">
                 {action.label}
               </p>
 
-              <p className="mt-1 text-[8px] text-white/25">
+              <p className="mt-1 text-[12px] text-white/25">
                 {action.description}
               </p>
             </div>

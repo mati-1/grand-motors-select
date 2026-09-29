@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { LogoComponent } from "../logo";
 
 const navigation = [
   {
@@ -233,7 +234,7 @@ export const AdminSidebar = () => {
         left-0
         z-50
         hidden
-        w-[250px]
+        w-62.5
         flex-col
         border-r
         border-white/[0.07]
@@ -242,16 +243,8 @@ export const AdminSidebar = () => {
       "
     >
       {/* BRAND */}
-      <div className="flex h-[82px] items-center border-b border-white/[0.07] px-7">
-        <div>
-          <div className="text-[13px] font-semibold tracking-[0.08em] text-white">
-            GRAND MOTORS
-          </div>
-
-          <div className="mt-0.5 text-[8px] tracking-[0.28em] text-[#b99a5c]">
-            SELECT
-          </div>
-        </div>
+      <div className="flex h-20.5 items-center border-b border-white/[0.07] px-7">
+        <LogoComponent className="w-42!" clickable={false} />
       </div>
 
       {/* NAVIGATION */}
@@ -272,9 +265,9 @@ export const AdminSidebar = () => {
                 h-10
                 items-center
                 gap-3
-                rounded-[8px]
+                rounded-[10px]
                 px-3
-                text-[11px]
+                text-[12px]
                 transition-all
                 duration-200
                 ${
@@ -313,9 +306,9 @@ export const AdminSidebar = () => {
                 h-10
                 items-center
                 gap-3
-                rounded-[8px]
+                rounded-[10px]
                 px-3
-                text-[11px]
+                text-[12px]
                 transition-all
                 duration-200
                 ${
@@ -334,17 +327,15 @@ export const AdminSidebar = () => {
 
       {/* USER */}
       <div className="border-t border-white/[0.07] p-4">
-        <div className="flex items-center gap-3 rounded-[8px] bg-white/[0.025] px-3 py-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#b99a5c]/10 text-[10px] text-[#d2b878]">
-            GM
-          </div>
+        <div className="flex items-center gap-3 rounded-[10px] bg-white/2.5 px-3 py-3">
+          <LogoComponent clickable={false} className="w-8!" type="emblem" />
 
           <div className="min-w-0">
-            <p className="truncate text-[10px] font-medium text-white">
+            <p className="truncate text-[11px] font-medium text-white">
               Administrator
             </p>
 
-            <p className="mt-0.5 text-[8px] text-white/25">Panel firmy</p>
+            <p className="mt-0.5 text-[9px] text-white/25">Panel firmy</p>
           </div>
         </div>
       </div>

@@ -93,12 +93,12 @@ export const AdminStatCard = ({
         group
         rounded-[10px]
         border
-        border-white/[0.08]
+        border-white/8
         bg-[#090909]
         p-5
         transition-all
         duration-300
-        hover:border-white/[0.13]
+        hover:border-white/13
       "
     >
       <div className="flex items-start justify-between">
@@ -109,7 +109,7 @@ export const AdminStatCard = ({
             w-8
             items-center
             justify-center
-            rounded-[8px]
+            rounded-[10px]
             border
             border-[#b99a5c]/20
             bg-[#b99a5c]/[0.07]
@@ -124,7 +124,7 @@ export const AdminStatCard = ({
             rounded-full
             px-2
             py-1
-            text-[8px]
+            text-[11px]
             ${
               positive
                 ? "bg-[#b99a5c]/[0.07] text-[#b99a5c]"
@@ -137,13 +137,11 @@ export const AdminStatCard = ({
       </div>
 
       <div className="mt-6">
-        <p className="text-[9px] text-white/30">{label}</p>
+        <p className="text-[12px] text-white/30">{label}</p>
 
-        <p className="mt-1.5 text-[21px] font-medium tracking-[-0.02em] text-white">
-          {value}
-        </p>
+        <p className="mt-1.5 text-[21px] font-medium text-white">{value}</p>
 
-        <p className="mt-1 text-[8px] text-white/20">{description}</p>
+        <p className="mt-1 text-[11px] text-white/40">{description}</p>
       </div>
     </div>
   );

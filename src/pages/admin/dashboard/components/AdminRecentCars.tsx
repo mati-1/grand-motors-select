@@ -43,16 +43,16 @@ export const AdminRecentCars = () => {
         overflow-hidden
         rounded-[10px]
         border
-        border-white/[0.08]
+        border-white/8
         bg-[#090909]
       "
     >
       {/* HEADER */}
       <div className="flex items-center justify-between border-b border-white/[0.07] px-5 py-4">
         <div>
-          <h3 className="text-[11px] font-medium text-white">Samochody</h3>
+          <h3 className="text-[14px] font-medium text-white">Samochody</h3>
 
-          <p className="mt-1 text-[8px] text-white/25">
+          <p className="mt-1 text-[11px] text-white/25">
             Ostatnio dodane samochody.
           </p>
         </div>
@@ -60,7 +60,7 @@ export const AdminRecentCars = () => {
         <Link
           to="/admin/cars"
           className="
-            text-[9px]
+            text-[12px]
             text-white/30
             transition-colors
             duration-300
@@ -86,11 +86,11 @@ export const AdminRecentCars = () => {
               py-4
               transition-colors
               duration-300
-              hover:bg-white/[0.02]
-              ${index !== cars.length - 1 ? "border-b border-white/[0.05]" : ""}
+              hover:bg-white/2
+              ${index !== cars.length - 1 ? "border-b border-white/5" : ""}
             `}
           >
-            <div className="h-12 w-[72px] shrink-0 overflow-hidden rounded-[6px] bg-white/5">
+            <div className="h-16 w-24 shrink-0 overflow-hidden rounded-md bg-white/5">
               <img
                 src={car.image}
                 alt={car.name}
@@ -106,17 +106,17 @@ export const AdminRecentCars = () => {
             </div>
 
             <div className="min-w-0 flex-1">
-              <p className="truncate text-[10px] font-medium text-white">
+              <p className="truncate text-[12px] font-medium text-white">
                 {car.name}
               </p>
 
-              <p className="mt-1 text-[8px] text-white/25">{car.details}</p>
+              <p className="mt-1 text-[11px] text-white/25">{car.details}</p>
             </div>
 
             <div className="hidden text-right sm:block">
-              <p className="text-[9px] text-white/25">Inwestycja</p>
+              <p className="text-[13px] text-white/25">Inwestycja</p>
 
-              <p className="mt-1 text-[10px] text-white">{car.investment}</p>
+              <p className="mt-1 text-[14px] text-white">{car.investment}</p>
             </div>
 
             <div
@@ -125,12 +125,13 @@ export const AdminRecentCars = () => {
                 rounded-full
                 px-2
                 py-1
-                text-[7px]
+                text-[10px]
+                ml-4
                 sm:block
                 ${
                   car.statusType === "sale"
                     ? "bg-[#b99a5c]/[0.07] text-[#b99a5c]"
-                    : "bg-white/[0.05] text-white/35"
+                    : "bg-white/5 text-white/35"
                 }
               `}
             >
