@@ -29,7 +29,7 @@ export const LogoComponent = ({
       <img
         src={type === "full" ? logo : emblemLogo}
         alt="Grand Motors Select"
-        className={`transition-all duration-500 ${resize && !showText ? "w-38 md:w-41" : "w-42 md:w-48"} ${className}`}
+        className={`transition-all duration-500 will-change-transform ${resize && !showText ? "w-46 md:w-48" : "w-50 md:w-54"} ${className}`}
       />
     </a>
   );
