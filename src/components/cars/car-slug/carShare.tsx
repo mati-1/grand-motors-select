@@ -103,9 +103,7 @@ export const CarShare = ({ car }: CarShareProps) => {
           hover:text-[#d2b878]
         "
       >
-        <span className="transition-transform duration-300 group-hover:-translate-y-0.5">
-          <ShareIcon className="w-5 h-5" />
-        </span>
+        <ShareIcon className="w-5 h-5" />
       </button>
 
       {/* DESKTOP SHARE MODAL */}

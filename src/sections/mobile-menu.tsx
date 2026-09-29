@@ -7,6 +7,7 @@ import ArrowIcon from "../assets/icons/strzalka.svg?react";
 import RemoveIcon from "../assets/icons/zamknij.svg?react";
 import PhoneIcon from "../assets/icons/telefon.svg?react";
 import CheckIcon from "../assets/icons/ptaszek-podwojny.svg?react";
+import HeartIcon from "../assets/icons/serce.svg?react";
 
 import { pageHeaderNavigation } from "../components/header/navigation";
 import { carsList } from "../components/cars/cars";
@@ -613,15 +614,7 @@ export const MobileMenuComponent = ({
                     text-center
                   "
                 >
-                  <div
-                    className="
-                      text-[25px]
-                      font-light
-                      text-white/15
-                    "
-                  >
-                    ♡
-                  </div>
+                  <HeartIcon className="w-6 h-6 mb-2" />
 
                   <div
                     className="

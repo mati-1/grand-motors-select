@@ -191,6 +191,8 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
             "
           >
             {car.condition} · {car.power} · {car.engine} · {car.drive}
+            {car.negotiation && " · Do negocjacji"}
+            {car.accidentFree && " · Bezwypadkowy"}
           </div>
 
           {/* ===================================================== */}

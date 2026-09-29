@@ -6,6 +6,7 @@ import { ButtonComponent } from "../button";
 import { LogoComponent } from "../logo";
 import { MobileMenuComponent } from "../../sections/mobile-menu";
 
+import HeartIcon from "../../assets/icons/serce.svg?react";
 import ArrowIcon from "../../assets/icons/strzalka.svg?react";
 import RemoveIcon from "../../assets/icons/zamknij.svg?react";
 import PhoneIcon from "../../assets/icons/telefon.svg?react";
@@ -675,15 +676,7 @@ export const HeaderComponent = () => {
                         text-center
                       "
                     >
-                      <div
-                        className="
-                          text-[25px]
-                          font-light
-                          text-white/15
-                        "
-                      >
-                        ♡
-                      </div>
+                      <HeartIcon className="w-6 h-6 mb-2" />
 
                       <div
                         className="

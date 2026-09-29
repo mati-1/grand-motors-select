@@ -1,7 +1,7 @@
 export type CarType = {
   id: string;
   slug: string;
-
+  accidentFree: boolean;
   brand: string;
   model: string;
   condition: "Nowy" | "Używany";
@@ -77,7 +77,7 @@ export const carsList: CarType[] = [
       "/cars/bmwf30/4.png",
       "/cars/bmwf30/5.png",
     ],
-
+    accidentFree: false,
     description:
       "BMW F30 340i to sportowy sedan, który łączy charakter sześciocylindrowego silnika z codzienną użytecznością i komfortem. Jednostka 3.0 R6 o mocy 344 KM w połączeniu z automatyczną skrzynią biegów i napędem xDrive zapewnia bardzo dobre osiągi oraz pewne prowadzenie.\n\nPrezentowany egzemplarz ma przebieg 77 000 km, potwierdzony w dostępnej historii pojazdu. Samochód wyróżnia się atrakcyjną konfiguracją obejmującą m.in. pakiet M Sport, sportowy układ wydechowy, zawieszenie Adaptive M, reflektory Adaptive LED oraz system Harman Kardon.\n\nTo propozycja dla osoby, która szuka dynamicznego BMW z mocnym silnikiem R6, napędem xDrive i odpowiednim poziomem wyposażenia, bez rezygnowania z komfortu podczas codziennej jazdy. Samochód jest przygotowany do oględzin i jazdy próbnej.",
     negotiation: true,
@@ -162,7 +162,7 @@ export const carsList: CarType[] = [
       "/cars/bmwg11/3.jpg",
       "/cars/bmwg11/5.jpg",
     ],
-
+    accidentFree: true,
     description:
       "BMW 740d xDrive G11 to reprezentacyjna limuzyna stworzona z myślą o komforcie, długich trasach i wysokim poziomie wyposażenia. Sześciocylindrowy silnik 3.0 R6 o mocy 340 KM współpracuje z automatyczną skrzynią biegów oraz napędem xDrive, zapewniając płynne przyspieszenie i wysoki moment obrotowy.\n\nTen egzemplarz wyróżnia się rozbudowaną konfiguracją obejmującą m.in. zawieszenie Adaptive 2-axle Air Suspension, Executive Drive Pro, Integral Active Steering, pakiet M Sport, komfortowe fotele z pamięcią, wentylację i masaż oraz skórzaną tapicerkę Nappa.\n\nNa pokładzie znalazły się również technologie podnoszące komfort i bezpieczeństwo, takie jak BMW Live Cockpit Professional, Head-Up Display, Surround View, Parking Assistant Plus, Active Cruise Control oraz Driving Assistant Professional.\n\nG11 to samochód dla osoby, która oczekuje od limuzyny połączenia wysokiego komfortu, nowoczesnych technologii, przestronnego wnętrza i odpowiednich osiągów. Przebieg 131 000 km.",
     negotiation: true,
@@ -268,7 +268,7 @@ export const carsList: CarType[] = [
       "/cars/bmwx6m/4.png",
       "/cars/bmwx6m/5.png",
     ],
-
+    accidentFree: true,
     description:
       "BMW X6 M F86 to połączenie osiągów samochodu sportowego z charakterem luksusowego SUV-a. Silnik 4.4 V8 o mocy 575 KM, automatyczna skrzynia biegów i napęd xDrive tworzą układ nastawiony na dynamiczną jazdę, jednocześnie zachowując komfort potrzebny na co dzień.\n\nPrezentowany egzemplarz ma przebieg zaledwie 51 000 km i wyróżnia się sportową konfiguracją. Na wyposażeniu znajdują się m.in. pakiet M Sport, sportowy układ wydechowy, zawieszenie Adaptive M, reflektory Adaptive LED, Head-Up Display oraz system Harman Kardon.\n\nCharakterystyczna sylwetka X6 M, szeroka bryła nadwozia i jednostka V8 nadają temu modelowi wyrazisty charakter. To propozycja dla osoby, która szuka mocnego SUV-a łączącego osiągi, prestiż i praktyczność, bez rezygnowania z emocji za kierownicą.",
     negotiation: true,
@@ -343,7 +343,7 @@ export const carsList: CarType[] = [
       "/cars/bmwf10/3.jpg",
       "/cars/bmwf10/4.jpg",
     ],
-
+    accidentFree: false,
     description:
       "BMW 530d F10 to klasyczne połączenie komfortu serii 5 z mocnym, sześciocylindrowym silnikiem wysokoprężnym. Jednostka 3.0 R6 o mocy 258 KM współpracuje z automatyczną skrzynią biegów i napędem na tył, zapewniając dobre osiągi, wysoką kulturę pracy oraz komfort podczas dłuższych tras.\n\nPrezentowany egzemplarz ma przebieg 190 000 km i wyróżnia się ponadczasową stylistyką F10 oraz bogatym wyposażeniem. Na pokładzie znajdują się m.in. pakiet M Sport, komfortowe fotele, Head-Up Display, system Harman Kardon, Professional Navigation oraz kamera cofania.\n\nTo samochód dla osoby, która szuka mocnego i komfortowego BMW do codziennej jazdy, ale jednocześnie oczekuje odpowiedniego poziomu wyposażenia i charakteru typowego dla serii 5.",
     negotiation: true,
@@ -423,7 +423,7 @@ export const carsList: CarType[] = [
     location: "Nowy Targ",
     voivodeship: "Małopolskie",
     images: ["/cars/audis5/1.jpg"],
-
+    accidentFree: false,
     description:
       "Audi S5 to sportowe coupe łączące osiągi, komfort i elegancką stylistykę samochodu klasy premium. Silnik 3.0 V6 TFSI o mocy 420 KM współpracuje z automatyczną skrzynią biegów oraz napędem quattro, zapewniając dynamiczną jazdę i pewne prowadzenie.\n\nPrezentowany egzemplarz wyróżnia się sportową konfiguracją oraz bogatym wyposażeniem. Na pokładzie znajdują się m.in. pakiet S line, Audi Virtual Cockpit, MMI Navigation Plus, system Bang & Olufsen, sportowe fotele S, reflektory LED oraz kamera cofania.\n\nS5 zachowuje odpowiedni balans pomiędzy sportowym charakterem a komfortem codziennego użytkowania. To propozycja dla osoby, która szuka coupe oferującego wyraźne osiągi, napęd quattro i charakterystyczną stylistykę modelu S5.",
     negotiation: true,
@@ -503,7 +503,7 @@ export const carsList: CarType[] = [
       "/cars/bmwf06/4.jpg",
       "/cars/bmwf06/5.jpg",
     ],
-
+    accidentFree: true,
     description:
       "BMW 650i xDrive F06 to luksusowe Gran Turismo, w którym komfort i elegancja spotykają się z charakterem jednostki V8. Silnik 4.4 V8 o mocy 475 KM współpracuje z automatyczną skrzynią biegów oraz napędem xDrive, zapewniając bardzo dobre osiągi i płynność jazdy.\n\nPrezentowany egzemplarz ma przebieg 110 000 km i wyróżnia się bogatą konfiguracją z pakietem M Sport. Na wyposażeniu znajdują się m.in. Adaptive Drive, Integral Active Steering, system Bang & Olufsen High End, Head-Up Display, Night Vision, Surround View, komfortowe fotele z wentylacją i masażem oraz skórzana tapicerka Nappa.\n\nTo samochód dla osoby, która oczekuje od Gran Turismo wysokiego komfortu podczas długich podróży, ale jednocześnie chce korzystać z potencjału mocnego silnika V8 i napędu xDrive. Egzemplarz jest przygotowany do dalszej eksploatacji.",
     negotiation: true,
@@ -600,7 +600,7 @@ export const carsList: CarType[] = [
     location: "Nowy Targ",
     voivodeship: "Małopolskie",
     image: "/cars/opelinsignia/1.jpg",
-
+    accidentFree: false,
     images: [
       "/cars/opelinsignia/1.jpg",
       "/cars/opelinsignia/2.jpg",
@@ -706,7 +706,7 @@ export const carsList: CarType[] = [
       "/cars/bmwe92/5.jpg",
       "/cars/bmwe92/6.jpg",
     ],
-
+    accidentFree: false,
     description:
       "BMW E92 335i to sportowe coupe o ponadczasowej sylwetce i charakterze typowym dla sześciocylindrowych modeli BMW. Silnik 3.0 R6 o mocy 306 KM współpracuje z automatyczną skrzynią biegów oraz napędem xDrive, zapewniając bardzo dobrą dynamikę i pewne prowadzenie.\n\nPrezentowany egzemplarz ma przebieg 156 000 km i wyróżnia się sportową konfiguracją obejmującą m.in. pakiet M Sport, sportowe zawieszenie i hamulce, sportowe fotele, automatyczną klimatyzację oraz system Professional Navigation.\n\nKlasyczna linia E92, napęd xDrive i mocny silnik tworzą połączenie, które nadal zapewnia charakterystyczne dla BMW wrażenia z jazdy. To propozycja dla osoby szukającej mocnego coupe o bardziej klasycznym charakterze.",
     negotiation: true,
@@ -800,7 +800,7 @@ export const carsList: CarType[] = [
 
     description:
       "BMW F10 535i to sportowy sedan klasy premium, który łączy osiągi mocnego BMW z komfortem i elegancją serii 5. Sześciocylindrowy silnik 3.0 TwinPower Turbo o mocy 306 KM współpracuje z automatyczną skrzynią biegów oraz napędem na tył.\n\nPrezentowany egzemplarz ma przebieg 183 000 km i wyróżnia się atrakcyjną konfiguracją z pakietem M Sport. Na wyposażeniu znajdują się m.in. Adaptive Drive, Integral Active Steering, Comfort Access, Soft-Close, sportowe fotele, Head-Up Display, Surround View oraz systemy wspomagające kierowcę.\n\nF10 oferuje jednocześnie odpowiednią dynamikę i wysoki poziom komfortu podczas codziennej jazdy oraz dłuższych podróży. To propozycja dla osoby, która szuka mocnego sedana z charakterem BMW i wyposażeniem klasy premium.",
-
+    accidentFree: false,
     negotiation: true,
 
     equipment: [

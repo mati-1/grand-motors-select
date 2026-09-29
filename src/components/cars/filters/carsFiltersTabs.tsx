@@ -15,7 +15,7 @@ export const CarsFiltersTabs = ({
   onChange,
 }: CarsFiltersTabsProps) => {
   return (
-    <div className="border-b border-white/10 px-5 pt-5 xl:px-6">
+    <div className="border-b border-white/10 p-2">
       <div className="flex">
         {options.map((option) => {
           const active = view === option.value;
@@ -28,30 +28,17 @@ export const CarsFiltersTabs = ({
               className={`
                 relative
                 cursor-pointer
-                pb-4
-                pr-5
                 text-left
                 text-[12px]
-                
+                p-4
+                rounded-[10px]
+                flex items-center justify-center
                 transition-colors
                 duration-300
-                ${active ? "text-[#d2b878]" : "text-[#555] hover:text-[#999]"}
+                ${active ? "text-white bg-white/4" : "text-[#555] hover:text-[#999]"}
               `}
             >
               {option.label}
-
-              <span
-                className={`
-                  absolute
-                  bottom-0
-                  left-0
-                  h-px
-                  bg-[#b99a5c]
-                  transition-all
-                  duration-500
-                  ${active ? "w-[calc(100%-1.25rem)]" : "w-0"}
-                `}
-              />
             </button>
           );
         })}

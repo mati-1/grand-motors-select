@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import HeartIcon from "../../../assets/icons/serce.svg?react";
 import type { CarType } from "../cars";
 
 type CarFavoriteProps = {
@@ -9,22 +9,6 @@ type CarFavoriteProps = {
 const getStorageKey = (car: CarType) => `gms-favorite:${car.id}`;
 
 const FAVORITES_CHANGED_EVENT = "gms-favorites-changed";
-
-const HeartIcon = ({ filled }: { filled: boolean }) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill={filled ? "currentColor" : "none"}
-    stroke="currentColor"
-    strokeWidth="1.5"
-    className="h-4 w-4"
-  >
-    <path
-      d="M20.8 8.8c0 5.2-8.8 10.2-8.8 10.2S3.2 14 3.2 8.8C3.2 5.9 5.2 4 7.8 4c1.5 0 2.9.8 4.2 2.1C13.3 4.8 14.7 4 16.2 4c2.6 0 4.6 1.9 4.6 4.8Z"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
 
 export const CarFavorite = ({ car }: CarFavoriteProps) => {
   const [isFavorite, setIsFavorite] = useState(false);
@@ -89,7 +73,7 @@ export const CarFavorite = ({ car }: CarFavoriteProps) => {
 
         ${
           isFavorite
-            ? "border-[#b99a5c]/40 text-[#d2b878]"
+            ? "border-[#b99a5c]/40 text-[#d2b878] bg-[#d2b878]/10"
             : "border-white/10 text-[#777] hover:border-white/20 hover:text-[#aaa]"
         }
       `}
@@ -98,10 +82,9 @@ export const CarFavorite = ({ car }: CarFavoriteProps) => {
         className="
           transition-transform
           duration-300
-          group-hover/favorite:scale-110
         "
       >
-        <HeartIcon filled={isFavorite} />
+        <HeartIcon className={`w-4 h-4`} />
       </span>
     </button>
   );

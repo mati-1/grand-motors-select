@@ -165,8 +165,9 @@ export const CarCardHorizontal = ({ car }: CarCardHorizontalProps) => {
                 text-white/70
               "
             >
-              {car.condition} · {car.power} · {car.engine} · {car.drive} ·{" "}
-              {car.negotiation && "Do negocjacji"}
+              {car.condition} · {car.power} · {car.engine} · {car.drive}
+              {car.negotiation && " · Do negocjacji"}
+              {car.accidentFree && " · Bezwypadkowy"}
             </div>
 
             {/* SPECIFICATIONS */}
