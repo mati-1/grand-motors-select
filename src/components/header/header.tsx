@@ -358,7 +358,7 @@ export const HeaderComponent = () => {
                       w-3.5
                       transition-transform
                       duration-300
-                      ${openDropdown === "services" ? "rotate-90" : "rotate-275"}
+                      ${openDropdown === "services" ? "rotate-90" : "rotate-270"}
                     `}
                   />
                 </button>
@@ -458,7 +458,7 @@ export const HeaderComponent = () => {
                       ${
                         openDropdown === "favorites"
                           ? "rotate-90"
-                          : "rotate-275"
+                          : "rotate-270"
                       }
                     `}
                   />

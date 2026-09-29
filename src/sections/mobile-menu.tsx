@@ -298,7 +298,7 @@ export const MobileMenuComponent = ({
                 w-4
                 transition-transform
                 duration-300
-                ${openDropdown === "services" ? "rotate-90" : "rotate-275"}
+                ${openDropdown === "services" ? "rotate-90" : "rotate-270"}
               `}
             />
           </button>
@@ -403,7 +403,7 @@ export const MobileMenuComponent = ({
                 w-4
                 transition-transform
                 duration-300
-                ${openDropdown === "favorites" ? "rotate-90" : "rotate-275"}
+                ${openDropdown === "favorites" ? "rotate-90" : "rotate-270"}
               `}
             />
           </button>
