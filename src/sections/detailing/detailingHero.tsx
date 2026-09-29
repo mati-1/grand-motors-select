@@ -1,8 +1,5 @@
 import { ButtonComponent } from "../../components/button";
-import {
-  MainHeadingComponent,
-  SubHeadingComponent,
-} from "../../components/headings";
+import { MainHeadingComponent } from "../../components/headings";
 
 export const DetailingHero = () => {
   return (
@@ -55,17 +52,7 @@ export const DetailingHero = () => {
       <div className="absolute bottom-[-20%] left-[45%] h-100 w-100 rounded-full bg-[#b99a5c]/8 blur-[120px]" />
 
       <div className="relative z-10 w-full lg:pt-15 pb-14 sm:pb-10 px-[4vw] min-[1200px]:px-[13vw] lg:pb-12">
-        <div className="mb-8 flex items-center gap-4">
-          <span className="h-px w-10 bg-[#b99a5c]" />
-          <span className="text-[9px]  text-[#b99a5c]">
-            GRAND MOTORS SELECT
-          </span>
-          <SubHeadingComponent className="text-[clamp(11px,1vw,14px)]!">
-            / DETAILING
-          </SubHeadingComponent>
-        </div>
-
-        <MainHeadingComponent className="text-[clamp(46px,8vw,94px)]!">
+        <MainHeadingComponent className="text-[clamp(46px,8vw,80px)]!">
           RÓŻNICA
           <br />
           TKWI W
@@ -80,14 +67,10 @@ export const DetailingHero = () => {
           </p>
 
           <ButtonComponent href="#detailing-services" type="main" size="big">
-            POZNAJ ZAKRES →
+            Poznaj zakres →
           </ButtonComponent>
         </div>
       </div>
-
-      <SubHeadingComponent className="absolute bottom-7 left-23 sm:left-20 opacity-70">
-        WIECEJ INFORMACJI PONIŻEJ ↓
-      </SubHeadingComponent>
     </section>
   );
 };

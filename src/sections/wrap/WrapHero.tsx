@@ -1,9 +1,5 @@
 import { ButtonComponent } from "../../components/button";
-import {
-  MainHeadingComponent,
-  SubHeadingComponent,
-} from "../../components/headings";
-import { LineComponent } from "../../components/line";
+import { MainHeadingComponent } from "../../components/headings";
 
 export const WrapHero = () => {
   return (
@@ -76,27 +72,11 @@ export const WrapHero = () => {
       {/* DECORATIVE NUMBER */}
 
       <div className="relative z-10 w-full">
-        {/* LABEL */}
-
-        <div className="mb-8 flex items-center gap-4">
-          <span className="h-px w-10 bg-[#b99a5c]" />
-          <span className="text-[9px]  text-[#b99a5c]">
-            GRAND MOTORS SELECT
-          </span>
-          <SubHeadingComponent className="text-[clamp(11px,1vw,14px)]!">
-            / WRAP
-          </SubHeadingComponent>
-        </div>
-
-        {/* HEADING */}
-
-        <MainHeadingComponent className="mt-6 max-w-190 text-[clamp(48px,8vw,100px)]!">
+        <MainHeadingComponent className="mt-6 max-w-190 text-[clamp(48px,8vw,80px)]!">
           ZMIEŃ
           <br />
           <span className="text-[#d2b878]">CHARAKTER.</span>
         </MainHeadingComponent>
-
-        {/* DESCRIPTION */}
 
         <p
           className="
@@ -115,8 +95,6 @@ export const WrapHero = () => {
           oczekiwanego efektu.
         </p>
 
-        {/* CTA */}
-
         <div
           className="
             mt-8
@@ -129,32 +107,12 @@ export const WrapHero = () => {
           "
         >
           <ButtonComponent type="main" href="/contact" size="big">
-            UMÓW WRAP <span>→</span>
+            Umów wrap
           </ButtonComponent>
 
           <ButtonComponent type="secondary" href="#wrap-services" size="big">
-            ZAKRES USŁUG
+            Zakres usług
           </ButtonComponent>
-        </div>
-
-        {/* BOTTOM INFO */}
-        <LineComponent type="left" />
-        <div
-          className="
-            mt-10
-            flex
-            flex-col
-            gap-4
-            sm:flex-row
-            sm:items-center
-            sm:gap-10
-          "
-        >
-          <span className="text-[10px]  text-[#555]">OKLEJANIE SAMOCHODÓW</span>
-
-          <span className="hidden h-3 w-px bg-white/10 sm:block" />
-
-          <span className="text-[10px]  text-[#444]">GRAND MOTORS SELECT</span>
         </div>
       </div>
     </section>
