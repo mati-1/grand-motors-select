@@ -9,7 +9,7 @@ export const AdminHeader = () => {
         top-0
         z-40
         flex
-        h-[82px]
+        h-20.5
         items-center
         justify-between
         border-b

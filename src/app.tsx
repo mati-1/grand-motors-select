@@ -26,6 +26,13 @@ import { Toaster } from "sonner";
 import { AdminLoginPage } from "./pages/admin/login/AdminLoginPage";
 import { AdminLayout } from "./components/admin/AdminLayout";
 import { AdminDashboardPage } from "./pages/admin/dashboard/AdminDashboardPage";
+import { AdminCarsPage } from "./pages/admin/cars/AdminCarsPage";
+import { AdminFinancesPage } from "./pages/admin/finances/AdminFinancesPage";
+import { AdminSalesPage } from "./pages/admin/sales/AdminSalesPage";
+import { AdminExpensesPage } from "./pages/admin/expenses/AdminExpensesPage";
+import { AdminCustomersPage } from "./pages/admin/customers/AdminCustomersPage";
+import { AdminCompanyPage } from "./pages/admin/company/AdminCompanyPage";
+import { AdminSettingsPage } from "./pages/admin/settings/AdminSettingsPage";
 
 const pageVideos: Record<string, string> = {
   "/": "/hero.mp4",
@@ -38,6 +45,7 @@ const pageVideos: Record<string, string> = {
 const App = () => {
   const location = useLocation();
 
+  const isAdminRoute = location.pathname.startsWith("/admin");
   const videoSrc = pageVideos[location.pathname];
 
   return (
@@ -50,9 +58,9 @@ const App = () => {
         duration={2000}
         visibleToasts={1}
       />
-      {!location.pathname.startsWith("/admin") && <HeaderComponent />}
+      {!isAdminRoute && <HeaderComponent />}
 
-      <PageLoader videoSrc={videoSrc} />
+      {!isAdminRoute && <PageLoader videoSrc={videoSrc} />}
 
       <Routes>
         <Route
@@ -105,6 +113,69 @@ const App = () => {
           element={
             <AdminLayout>
               <AdminDashboardPage />
+            </AdminLayout>
+          }
+        />
+
+        <Route
+          path="/admin/cars"
+          element={
+            <AdminLayout>
+              <AdminCarsPage />
+            </AdminLayout>
+          }
+        />
+
+        <Route
+          path="/admin/finances"
+          element={
+            <AdminLayout>
+              <AdminFinancesPage />
+            </AdminLayout>
+          }
+        />
+
+        <Route
+          path="/admin/sales"
+          element={
+            <AdminLayout>
+              <AdminSalesPage />
+            </AdminLayout>
+          }
+        />
+
+        <Route
+          path="/admin/expenses"
+          element={
+            <AdminLayout>
+              <AdminExpensesPage />
+            </AdminLayout>
+          }
+        />
+
+        <Route
+          path="/admin/customers"
+          element={
+            <AdminLayout>
+              <AdminCustomersPage />
+            </AdminLayout>
+          }
+        />
+
+        <Route
+          path="/admin/company"
+          element={
+            <AdminLayout>
+              <AdminCompanyPage />
+            </AdminLayout>
+          }
+        />
+
+        <Route
+          path="/admin/settings"
+          element={
+            <AdminLayout>
+              <AdminSettingsPage />
             </AdminLayout>
           }
         />

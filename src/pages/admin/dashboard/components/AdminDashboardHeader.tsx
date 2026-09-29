@@ -1,7 +1,13 @@
 export const AdminDashboardHeader = () => {
+  const currentDate = new Intl.DateTimeFormat("pl-PL", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(new Date());
+
   return (
-    <section className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
-      <div>
+    <section className="flex flex-col justify-between gap-5 lg:flex-row sm:items-end">
+      <div className="flex flex-col items-end lg:items-start">
         <span className="text-[11px] text-[#b99a5c]">Panel zarządzania</span>
 
         <h2
@@ -36,7 +42,7 @@ export const AdminDashboardHeader = () => {
       >
         <span className="h-1.5 w-1.5 rounded-full bg-[#b99a5c]" />
 
-        <span className="text-[9px] text-white/40">Wrzesień 2026</span>
+        <span className="text-[10px] text-white/40">{currentDate}</span>
       </div>
     </section>
   );

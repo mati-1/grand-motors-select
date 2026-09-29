@@ -12,7 +12,7 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
     <div className="min-h-screen bg-[#050505] text-white">
       <AdminSidebar />
 
-      <div className="min-h-screen lg:pl-[250px]">
+      <div className="min-h-screen lg:pl-62.5">
         <AdminHeader />
 
         <main className="px-4 py-6 sm:px-6 lg:px-8 xl:px-10">
