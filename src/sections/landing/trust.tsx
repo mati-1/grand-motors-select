@@ -31,9 +31,9 @@ export const ProcessItem = ({
       </div>
 
       <div className="pt-0.5">
-        <h4 className="text-[13px] text-white sm:text-[16px]">{title}</h4>
+        <h4 className="text-[12px] text-white sm:text-[14px]">{title}</h4>
 
-        <p className="mt-2 max-w-180 text-[11px] leading-[1.8] text-white/70 sm:text-[14px]">
+        <p className="mt-2 max-w-180 text-[11px] leading-[1.8] text-white/70 sm:text-[13px]">
           {description}
         </p>
       </div>

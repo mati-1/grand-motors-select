@@ -68,23 +68,21 @@ export const CarWarranty = () => {
           </div>
 
           {/* CONTENT */}
-          <div className="min-w-0 flex-1">
+          <div className="min-w-0 ml-2 flex-1">
             <strong
               className={`
                 mt-2
                 block
-                text-[clamp(18px,2vw,24px)]
-                font-medium
-                
+                text-[clamp(16px,2vw,22px)]
                 transition-colors
                 duration-300
                 ${isOpen ? "text-[#d2b878]" : "text-[#ddd]"}
               `}
             >
-              GWARANCJA
+              Gwarancja
             </strong>
 
-            <SubHeadingComponent className="text-white/70">
+            <SubHeadingComponent className="text-white/70 text-[13px]! mt-1">
               Dodatkowa ochrona dostępna dla wybranych samochodów.
             </SubHeadingComponent>
           </div>
