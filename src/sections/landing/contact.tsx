@@ -141,12 +141,12 @@ export const ContactSectionComponent = ({
                   sm:text-[13px] text-[#777]"
               >
                 <a
-                  href="mailto:kontakt@grandmotorsselect.pl"
+                  href="mailto:biuro@grandmotorsselect.pl"
                   className="
 
                   "
                 >
-                  kontakt@grandmotorsselect.pl
+                  biuro@grandmotorsselect.pl
                 </a>
               </p>
             </div>

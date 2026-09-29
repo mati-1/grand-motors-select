@@ -1,18 +1,12 @@
-import { ContactForm } from "../sections/contact/ContactForm";
-import { ContactHero } from "../sections/contact/ContactHero";
-import { ContactLocation } from "../sections/contact/ContactLocation";
-// import { ContactMethods } from "../sections/contact/ContactMethods";
-import { ContactSectionComponent } from "../sections/landing/contact";
 import { FooterComponent } from "../components/footer";
+import { ContactHero } from "../sections/contact/ContactHero";
+import { ContactMap } from "../sections/contact/ContactMap";
 
 export const ContactPage = () => {
   return (
-    <main>
+    <main className="min-h-screen bg-[#050505]">
       <ContactHero />
-      {/* <ContactMethods /> */}
-      <ContactForm />
-      <ContactLocation />
-      <ContactSectionComponent />
+      <ContactMap />
       <FooterComponent />
     </main>
   );

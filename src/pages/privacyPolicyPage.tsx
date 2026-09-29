@@ -108,7 +108,7 @@ export const PrivacyPolicyPage = () => {
                 e-mail:
               </p>
 
-              <p className="text-[#aaa]">kontakt@grandmotorsselect.pl</p>
+              <p className="text-[#aaa]">biuro@grandmotorsselect.pl</p>
             </PrivacySection>
 
             <PrivacySection number="02" title="JAKIE DANE MOŻEMY PRZETWARZAĆ">
@@ -353,10 +353,10 @@ export const PrivacyPolicyPage = () => {
                   <span>REGON&nbsp;&nbsp;543 067 707</span>
 
                   <a
-                    href="mailto:kontakt@grandmotorsselect.pl"
+                    href="mailto:biuro@grandmotorsselect.pl"
                     className="transition-colors hover:text-[#d2b878]"
                   >
-                    kontakt@grandmotorsselect.pl
+                    biuro@grandmotorsselect.pl
                   </a>
 
                   <a
