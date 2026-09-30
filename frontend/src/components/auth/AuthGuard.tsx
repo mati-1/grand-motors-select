@@ -1,15 +1,30 @@
-import type { ReactNode } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { Navigate, Outlet, useLocation, useNavigate } from "react-router-dom";
 
+import { AUTH_EXPIRED_EVENT } from "../../api/client";
 import { useMe } from "../../hooks/auth/useMe";
 
-type AuthGuardProps = {
-  children: ReactNode;
-};
-
-export const AuthGuard = ({ children }: AuthGuardProps) => {
+export const AuthGuard = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const meQuery = useMe();
+
+  useEffect(() => {
+    const handleAuthExpired = () => {
+      navigate("/admin/login", {
+        replace: true,
+        state: {
+          from: location.pathname,
+        },
+      });
+    };
+
+    window.addEventListener(AUTH_EXPIRED_EVENT, handleAuthExpired);
+
+    return () => {
+      window.removeEventListener(AUTH_EXPIRED_EVENT, handleAuthExpired);
+    };
+  }, [navigate, location.pathname]);
 
   if (meQuery.isPending) {
     return (
@@ -25,5 +40,5 @@ export const AuthGuard = ({ children }: AuthGuardProps) => {
     );
   }
 
-  return <>{children}</>;
+  return <Outlet />;
 };

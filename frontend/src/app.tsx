@@ -111,163 +111,37 @@ const App = () => {
 
         <Route path="/admin/login" element={<AdminLoginPage />} />
 
-        <Route
-          path="/admin"
-          element={
-            <AdminLayout>
-              <AuthGuard>
-                <AdminDashboardPage />
-              </AuthGuard>
-            </AdminLayout>
-          }
-        />
+        <Route element={<AuthGuard />}>
+          <Route element={<AdminLayout />}>
+            <Route index element={<AdminDashboardPage />} />
 
-        <Route
-          path="/admin/cars"
-          element={
-            <AdminLayout>
-              <AuthGuard>
-                <AdminCarsPage />
-              </AuthGuard>
-            </AdminLayout>
-          }
-        />
+            <Route path="cars" element={<AdminCarsPage />} />
+            <Route path="cars/new" element={<AdminCarFormPage />} />
+            <Route path="cars/:id/edit" element={<AdminCarFormPage />} />
 
-        <Route
-          path="/admin/finances"
-          element={
-            <AdminLayout>
-              <AuthGuard>
-                <AdminFinancesPage />
-              </AuthGuard>
-            </AdminLayout>
-          }
-        />
+            <Route path="finances" element={<AdminFinancesPage />} />
 
-        <Route
-          path="/admin/sales"
-          element={
-            <AdminLayout>
-              <AuthGuard>
-                <AdminSalesPage />
-              </AuthGuard>
-            </AdminLayout>
-          }
-        />
+            <Route path="sales" element={<AdminSalesPage />} />
+            <Route path="sales/new" element={<AdminSaleFormPage />} />
+            <Route path="sales/:id/edit" element={<AdminSaleFormPage />} />
 
-        <Route
-          path="/admin/expenses"
-          element={
-            <AdminLayout>
-              <AuthGuard>
-                <AdminExpensesPage />
-              </AuthGuard>
-            </AdminLayout>
-          }
-        />
+            <Route path="expenses" element={<AdminExpensesPage />} />
+            <Route path="expenses/new" element={<AdminExpenseFormPage />} />
+            <Route
+              path="expenses/:id/edit"
+              element={<AdminExpenseFormPage />}
+            />
 
-        <Route
-          path="/admin/customers"
-          element={
-            <AdminLayout>
-              <AuthGuard>
-                <AdminCustomersPage />
-              </AuthGuard>
-            </AdminLayout>
-          }
-        />
+            <Route path="customers" element={<AdminCustomersPage />} />
 
-        <Route
-          path="/admin/company"
-          element={
-            <AdminLayout>
-              <AuthGuard>
-                <AdminCompanyPage />
-              </AuthGuard>
-            </AdminLayout>
-          }
-        />
+            <Route path="company" element={<AdminCompanyPage />} />
 
-        <Route
-          path="/admin/settings"
-          element={
-            <AdminLayout>
-              <AuthGuard>
-                <AdminSettingsPage />
-              </AuthGuard>
-            </AdminLayout>
-          }
-        />
-
-        <Route
-          path="/admin/cars/new"
-          element={
-            <AdminLayout>
-              <AuthGuard>
-                <AdminCarFormPage />
-              </AuthGuard>
-            </AdminLayout>
-          }
-        />
-
-        <Route
-          path="/admin/cars/:id/edit"
-          element={
-            <AdminLayout>
-              <AuthGuard>
-                <AdminCarFormPage />
-              </AuthGuard>
-            </AdminLayout>
-          }
-        />
-
-        <Route
-          path="/admin/expenses/new"
-          element={
-            <AdminLayout>
-              <AuthGuard>
-                <AdminExpenseFormPage />
-              </AuthGuard>
-            </AdminLayout>
-          }
-        />
-
-        <Route
-          path="/admin/expenses/:id/edit"
-          element={
-            <AdminLayout>
-              <AuthGuard>
-                <AdminExpenseFormPage />
-              </AuthGuard>
-            </AdminLayout>
-          }
-        />
-
-        <Route
-          path="/admin/sales/new"
-          element={
-            <AdminLayout>
-              <AuthGuard>
-                <AdminSaleFormPage />
-              </AuthGuard>
-            </AdminLayout>
-          }
-        />
-
-        <Route
-          path="/admin/sales/:id/edit"
-          element={
-            <AdminLayout>
-              {" "}
-              <AuthGuard>
-                <AdminSaleFormPage />
-              </AuthGuard>
-            </AdminLayout>
-          }
-        />
+            <Route path="settings" element={<AdminSettingsPage />} />
+          </Route>
+        </Route>
       </Routes>
 
-      <CookieBanner />
+      {!isAdminRoute && <CookieBanner />}
     </div>
   );
 };

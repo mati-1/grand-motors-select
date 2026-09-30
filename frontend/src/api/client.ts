@@ -1,4 +1,5 @@
 const API_URL = import.meta.env.VITE_API_URL;
+export const AUTH_EXPIRED_EVENT = "gms-auth-expired";
 
 type ApiRequestOptions = Omit<RequestInit, "body"> & {
   body?: unknown;
@@ -22,7 +23,7 @@ export const apiClient = async <T>(
 
   if (!response.ok) {
     if (response.status === 401) {
-      window.dispatchEvent(new Event("gms-auth-expired"));
+      window.dispatchEvent(new Event(AUTH_EXPIRED_EVENT));
     }
 
     let message = "Wystąpił błąd podczas komunikacji z serwerem.";
@@ -33,9 +34,7 @@ export const apiClient = async <T>(
       if (typeof error?.message === "string") {
         message = error.message;
       }
-    } catch {
-      // Brak poprawnego JSON-a w odpowiedzi.
-    }
+    } catch {}
 
     throw new Error(message);
   }
