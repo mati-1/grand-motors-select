@@ -111,7 +111,7 @@ const App = () => {
 
         <Route path="/admin/login" element={<AdminLoginPage />} />
 
-        <Route element={<AuthGuard />}>
+        <Route path="/admin" element={<AuthGuard />}>
           <Route element={<AdminLayout />}>
             <Route index element={<AdminDashboardPage />} />
 
@@ -133,9 +133,7 @@ const App = () => {
             />
 
             <Route path="customers" element={<AdminCustomersPage />} />
-
             <Route path="company" element={<AdminCompanyPage />} />
-
             <Route path="settings" element={<AdminSettingsPage />} />
           </Route>
         </Route>
