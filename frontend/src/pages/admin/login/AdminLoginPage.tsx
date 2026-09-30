@@ -2,25 +2,30 @@ import { useState, type FormEvent } from "react";
 
 import { FormInput } from "../../../components/form/FormInput";
 import { LogoComponent } from "../../../components/logo";
+import { useNavigate } from "react-router-dom";
+import { useLogin } from "../../../hooks/auth/useLogin";
 
 export const AdminLoginPage = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
+  const loginMutation = useLogin();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    setIsSubmitting(true);
-
-    // =================================================
-    // TODO:
-    // tutaj później podłączymy logowanie do API
-    // =================================================
-
-    await new Promise((resolve) => {
-      setTimeout(resolve, 800);
-    });
-
-    setIsSubmitting(false);
+    loginMutation.mutate(
+      {
+        email,
+        password,
+      },
+      {
+        onSuccess: () => {
+          navigate("/admin", { replace: true });
+        },
+      },
+    );
   };
 
   return (
@@ -37,9 +42,6 @@ export const AdminLoginPage = () => {
         py-12
       "
     >
-      {/* =================================================
-         BACKGROUND ACCENT
-         ================================================= */}
       <div
         className="
           pointer-events-none
@@ -56,18 +58,11 @@ export const AdminLoginPage = () => {
         "
       />
 
-      {/* =================================================
-         CONTENT
-         ================================================= */}
       <div className="relative z-10 flex w-full max-w-105 flex-col items-center">
-        {/* LOGO */}
         <div className="mb-8">
           <LogoComponent />
         </div>
 
-        {/* =================================================
-           LOGIN CARD
-           ================================================= */}
         <div
           className="
             w-full
@@ -79,7 +74,6 @@ export const AdminLoginPage = () => {
             sm:p-8
           "
         >
-          {/* HEADER */}
           <div className="mb-7 text-center">
             <span className="text-[11px] text-[#b99a5c]">Panel firmy</span>
 
@@ -95,9 +89,6 @@ export const AdminLoginPage = () => {
             </h1>
           </div>
 
-          {/* =================================================
-             FORM
-             ================================================= */}
           <form onSubmit={handleSubmit} className="space-y-3.5">
             <FormInput
               id="email"
@@ -107,6 +98,8 @@ export const AdminLoginPage = () => {
               autoComplete="email"
               required
               placeholder="admin@grandmotorsselect.pl"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
             />
 
             <FormInput
@@ -117,13 +110,20 @@ export const AdminLoginPage = () => {
               autoComplete="current-password"
               required
               placeholder="Wprowadź hasło"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
             />
 
-            {/* SUBMIT */}
+            {loginMutation.isError && (
+              <p className="text-[10px] text-red-300">
+                {loginMutation.error.message}
+              </p>
+            )}
+
             <div className="pt-2">
               <button
                 type="submit"
-                disabled={isSubmitting}
+                disabled={loginMutation.isPending}
                 className="
                   flex
                   h-11
@@ -144,13 +144,12 @@ export const AdminLoginPage = () => {
                   disabled:opacity-60
                 "
               >
-                {isSubmitting ? "Logowanie..." : "Zaloguj się"}
+                {loginMutation.isPending ? "Logowanie..." : "Zaloguj się"}
               </button>
             </div>
           </form>
         </div>
 
-        {/* FOOTER */}
         <p
           className="
             mt-6

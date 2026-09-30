@@ -13,7 +13,7 @@ import { TrustComponent } from "./sections/landing/trust";
 import { WrapSectionComponent } from "./sections/landing/wrap";
 
 import { Routes, Route, useLocation } from "react-router-dom";
-
+import { AuthGuard } from "./components/auth/AuthGuard";
 import { RegulationPage } from "./pages/regulationPage";
 import { PrivacyPolicyPage } from "./pages/privacyPolicyPage";
 import { DetailingPage } from "./pages/detailingPage";
@@ -115,7 +115,9 @@ const App = () => {
           path="/admin"
           element={
             <AdminLayout>
-              <AdminDashboardPage />
+              <AuthGuard>
+                <AdminDashboardPage />
+              </AuthGuard>
             </AdminLayout>
           }
         />
@@ -124,7 +126,9 @@ const App = () => {
           path="/admin/cars"
           element={
             <AdminLayout>
-              <AdminCarsPage />
+              <AuthGuard>
+                <AdminCarsPage />
+              </AuthGuard>
             </AdminLayout>
           }
         />
@@ -133,7 +137,9 @@ const App = () => {
           path="/admin/finances"
           element={
             <AdminLayout>
-              <AdminFinancesPage />
+              <AuthGuard>
+                <AdminFinancesPage />
+              </AuthGuard>
             </AdminLayout>
           }
         />
@@ -142,7 +148,9 @@ const App = () => {
           path="/admin/sales"
           element={
             <AdminLayout>
-              <AdminSalesPage />
+              <AuthGuard>
+                <AdminSalesPage />
+              </AuthGuard>
             </AdminLayout>
           }
         />
@@ -151,7 +159,9 @@ const App = () => {
           path="/admin/expenses"
           element={
             <AdminLayout>
-              <AdminExpensesPage />
+              <AuthGuard>
+                <AdminExpensesPage />
+              </AuthGuard>
             </AdminLayout>
           }
         />
@@ -160,7 +170,9 @@ const App = () => {
           path="/admin/customers"
           element={
             <AdminLayout>
-              <AdminCustomersPage />
+              <AuthGuard>
+                <AdminCustomersPage />
+              </AuthGuard>
             </AdminLayout>
           }
         />
@@ -169,7 +181,9 @@ const App = () => {
           path="/admin/company"
           element={
             <AdminLayout>
-              <AdminCompanyPage />
+              <AuthGuard>
+                <AdminCompanyPage />
+              </AuthGuard>
             </AdminLayout>
           }
         />
@@ -178,7 +192,9 @@ const App = () => {
           path="/admin/settings"
           element={
             <AdminLayout>
-              <AdminSettingsPage />
+              <AuthGuard>
+                <AdminSettingsPage />
+              </AuthGuard>
             </AdminLayout>
           }
         />
@@ -187,7 +203,9 @@ const App = () => {
           path="/admin/cars/new"
           element={
             <AdminLayout>
-              <AdminCarFormPage />
+              <AuthGuard>
+                <AdminCarFormPage />
+              </AuthGuard>
             </AdminLayout>
           }
         />
@@ -196,7 +214,9 @@ const App = () => {
           path="/admin/cars/:id/edit"
           element={
             <AdminLayout>
-              <AdminCarFormPage />
+              <AuthGuard>
+                <AdminCarFormPage />
+              </AuthGuard>
             </AdminLayout>
           }
         />
@@ -205,7 +225,9 @@ const App = () => {
           path="/admin/expenses/new"
           element={
             <AdminLayout>
-              <AdminExpenseFormPage />
+              <AuthGuard>
+                <AdminExpenseFormPage />
+              </AuthGuard>
             </AdminLayout>
           }
         />
@@ -214,7 +236,9 @@ const App = () => {
           path="/admin/expenses/:id/edit"
           element={
             <AdminLayout>
-              <AdminExpenseFormPage />
+              <AuthGuard>
+                <AdminExpenseFormPage />
+              </AuthGuard>
             </AdminLayout>
           }
         />
@@ -223,7 +247,9 @@ const App = () => {
           path="/admin/sales/new"
           element={
             <AdminLayout>
-              <AdminSaleFormPage />
+              <AuthGuard>
+                <AdminSaleFormPage />
+              </AuthGuard>
             </AdminLayout>
           }
         />
@@ -232,7 +258,10 @@ const App = () => {
           path="/admin/sales/:id/edit"
           element={
             <AdminLayout>
-              <AdminSaleFormPage />
+              {" "}
+              <AuthGuard>
+                <AdminSaleFormPage />
+              </AuthGuard>
             </AdminLayout>
           }
         />

@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 
-import { carsList, carsYears } from "../components/cars/cars";
+import { carsList, carsYears } from "../../components/cars/cars";
 
 export type SortOption =
   | "default"
