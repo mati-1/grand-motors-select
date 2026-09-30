@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.*
+
+# Build
+dist/
+
+# Prisma generated files
+src/prisma/contract.json
+src/prisma/contract.d.ts
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
