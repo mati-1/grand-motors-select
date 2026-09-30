@@ -1,7 +1,19 @@
 import Fastify from "fastify";
+import { prismaPlugin } from "./plugins/prisma.js";
+import { jwtPlugin } from "./plugins/jwt.js";
+import { authRoutes } from "./modules/auth/routes.js";
 
 const server = Fastify({
   logger: true,
+});
+
+await server.register(prismaPlugin);
+await server.register(jwtPlugin);
+
+await server.register(prismaPlugin);
+
+await server.register(authRoutes, {
+  prefix: "/api/auth",
 });
 
 server.get("/", async () => {
