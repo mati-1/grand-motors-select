@@ -1,4 +1,5 @@
 import Fastify from "fastify";
+import cors from "@fastify/cors";
 import { prismaPlugin } from "./plugins/prisma.js";
 import { jwtPlugin } from "./plugins/jwt.js";
 import { cookiePlugin } from "./modules/plugins/cookie.js";
@@ -6,6 +7,11 @@ import { authRoutes } from "./modules/auth/routes.js";
 
 const server = Fastify({
   logger: true,
+});
+
+await server.register(cors, {
+  origin: process.env.FRONTEND_URL,
+  credentials: true,
 });
 
 await server.register(prismaPlugin);
