@@ -8,7 +8,7 @@ export const AdminCustomersHeader = () => {
           Klienci
         </h2>
 
-        <p className="mt-2 max-w-[600px] text-[10px] leading-[1.7] text-white/30">
+        <p className="mt-2 max-w-150 text-[10px] leading-[1.7] text-white/30">
           Zarządzaj danymi klientów, historią transakcji i kontaktami związanymi
           ze sprzedażą samochodów.
         </p>
