@@ -76,4 +76,19 @@ export const authRoutes: FastifyPluginAsync = async (server) => {
       });
     }
   });
+
+  server.post("/logout", async (_request, reply) => {
+    reply.setCookie("gms_token", "", {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/",
+      expires: new Date(0),
+      maxAge: 0,
+    });
+
+    return {
+      message: "Wylogowano pomyślnie.",
+    };
+  });
 };

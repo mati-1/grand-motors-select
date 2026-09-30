@@ -8,17 +8,23 @@ export const apiClient = async <T>(
   endpoint: string,
   options: ApiRequestOptions = {},
 ): Promise<T> => {
+  const hasBody = options.body !== undefined;
+
   const response = await fetch(`${API_URL}${endpoint}`, {
     ...options,
     credentials: "include",
     headers: {
-      "Content-Type": "application/json",
+      ...(hasBody ? { "Content-Type": "application/json" } : {}),
       ...options.headers,
     },
-    body: options.body !== undefined ? JSON.stringify(options.body) : undefined,
+    body: hasBody ? JSON.stringify(options.body) : undefined,
   });
 
   if (!response.ok) {
+    if (response.status === 401) {
+      window.dispatchEvent(new Event("gms-auth-expired"));
+    }
+
     let message = "Wystąpił błąd podczas komunikacji z serwerem.";
 
     try {
@@ -27,7 +33,9 @@ export const apiClient = async <T>(
       if (typeof error?.message === "string") {
         message = error.message;
       }
-    } catch {}
+    } catch {
+      // Brak poprawnego JSON-a w odpowiedzi.
+    }
 
     throw new Error(message);
   }

@@ -1,7 +1,23 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ButtonComponent } from "../button";
+import { useLogout } from "../../hooks/auth/useLogout";
 
 export const AdminHeader = () => {
+  const navigate = useNavigate();
+  const logoutMutation = useLogout();
+
+  const handleLogout = () => {
+    logoutMutation.mutate(undefined, {
+      onSuccess: () => {
+        console.log("LOGOUT OK");
+        navigate("/admin/login", { replace: true });
+      },
+      onError: (error) => {
+        console.error("LOGOUT ERROR", error);
+      },
+    });
+  };
+
   return (
     <header
       className="
@@ -56,9 +72,10 @@ export const AdminHeader = () => {
           type="secondary"
           size="small"
           className="text-[12px]!"
-          href="/admin/login"
+          onClick={handleLogout}
+          disabled={logoutMutation.isPending}
         >
-          Wyloguj się
+          {logoutMutation.isPending ? "Wylogowywanie..." : "Wyloguj się"}
         </ButtonComponent>
       </div>
     </header>
