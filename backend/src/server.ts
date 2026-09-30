@@ -1,6 +1,7 @@
 import Fastify from "fastify";
 import { prismaPlugin } from "./plugins/prisma.js";
 import { jwtPlugin } from "./plugins/jwt.js";
+import { cookiePlugin } from "./modules/plugins/cookie.js";
 import { authRoutes } from "./modules/auth/routes.js";
 
 const server = Fastify({
@@ -9,8 +10,7 @@ const server = Fastify({
 
 await server.register(prismaPlugin);
 await server.register(jwtPlugin);
-
-await server.register(prismaPlugin);
+await server.register(cookiePlugin);
 
 await server.register(authRoutes, {
   prefix: "/api/auth",
