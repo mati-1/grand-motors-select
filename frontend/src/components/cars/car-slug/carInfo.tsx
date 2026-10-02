@@ -147,9 +147,12 @@ export const CarInfo = ({ car }: CarInfoProps) => {
 
             <span>{car.year}</span>
 
-            <span>·</span>
-
-            <span>{car.negotiation && "Do negocjacji"}</span>
+            {car.negotiation && (
+              <>
+                <span>·</span>
+                <span>Do negocjacji</span>
+              </>
+            )}
           </div>
         </div>
 

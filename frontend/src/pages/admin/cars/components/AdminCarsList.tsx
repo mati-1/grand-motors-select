@@ -1,22 +1,49 @@
-import { carsList } from "../../../../components/cars/cars";
+import { useCars } from "../../../../hooks/cars/useCars";
+
 import { AdminCarRow, type AdminCar } from "./AdminCarRow";
-
-const adminCars: AdminCar[] = carsList
-  .filter((car) => car.status !== "sold")
-  .map((car) => ({
-    ...car,
-
-    purchasePrice: 0,
-    investment: 0,
-    profit: 0,
-    statusType: "sale",
-  }));
 
 const formatPrice = (value: number) => {
   return new Intl.NumberFormat("pl-PL").format(value) + " zł";
 };
 
 export const AdminCarsList = () => {
+  const carsQuery = useCars();
+
+  if (carsQuery.isPending) {
+    return (
+      <section>
+        <div className="mb-4">
+          <h3 className="text-[14px] font-medium text-white">Samochody</h3>
+
+          <p className="mt-1 text-[11px] text-white/25">
+            Pobieranie samochodów...
+          </p>
+        </div>
+      </section>
+    );
+  }
+
+  if (carsQuery.isError) {
+    return (
+      <section>
+        <div className="rounded-[10px] border border-white/8 bg-[#090909] p-5">
+          <p className="text-[11px] text-red-300">
+            Nie udało się pobrać samochodów.
+          </p>
+        </div>
+      </section>
+    );
+  }
+
+  const adminCars: AdminCar[] = carsQuery.data.cars
+    .filter((car) => car.status !== "sold")
+    .map((car) => ({
+      ...car,
+      purchasePrice: 0,
+      investment: 0,
+      profit: 0,
+    }));
+
   const totalInvestment = adminCars.reduce(
     (total, car) => total + (car.investment ?? 0),
     0,
@@ -24,7 +51,6 @@ export const AdminCarsList = () => {
 
   return (
     <section>
-      {/* HEADER */}
       <div className="mb-4 flex items-end justify-between gap-4">
         <div>
           <h3 className="text-[14px] font-medium text-white">Samochody</h3>
@@ -48,7 +74,6 @@ export const AdminCarsList = () => {
         </span>
       </div>
 
-      {/* LIST */}
       <div className="space-y-3">
         {adminCars.map((car) => (
           <AdminCarRow key={car.id} car={car} />

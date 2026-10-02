@@ -10,42 +10,33 @@ type CarFavoriteProps = {
   car: CarType;
 };
 
-const getStorageKey = (car: CarType) => `gms-favorite:${car.id}`;
+const getStorageKey = (carId: string) => `gms-favorite:${carId}`;
 
 const FAVORITES_CHANGED_EVENT = "gms-favorites-changed";
 
 export const CarFavorite = ({ car }: CarFavoriteProps) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
-  const loadFavorite = () => {
-    const savedFavorite = localStorage.getItem(getStorageKey(car)) === "true";
-
-    setIsFavorite(savedFavorite);
-  };
-
   useEffect(() => {
-    loadFavorite();
-
-    const handleFavoritesChanged = () => {
-      loadFavorite();
+    const loadFavorite = () => {
+      setIsFavorite(localStorage.getItem(getStorageKey(car.id)) === "true");
     };
 
-    window.addEventListener(FAVORITES_CHANGED_EVENT, handleFavoritesChanged);
+    loadFavorite();
+
+    window.addEventListener(FAVORITES_CHANGED_EVENT, loadFavorite);
 
     return () => {
-      window.removeEventListener(
-        FAVORITES_CHANGED_EVENT,
-        handleFavoritesChanged,
-      );
+      window.removeEventListener(FAVORITES_CHANGED_EVENT, loadFavorite);
     };
   }, [car.id]);
 
   const handleToggleFavorite = () => {
     const nextValue = !isFavorite;
 
-    setIsFavorite(nextValue);
+    localStorage.setItem(getStorageKey(car.id), String(nextValue));
 
-    localStorage.setItem(getStorageKey(car), String(nextValue));
+    setIsFavorite(nextValue);
 
     window.dispatchEvent(new Event(FAVORITES_CHANGED_EVENT));
 
@@ -53,7 +44,7 @@ export const CarFavorite = ({ car }: CarFavoriteProps) => {
       type: "success",
       title: nextValue ? "Dodano do ulubionych" : "Usunięto z ulubionych",
       description: `${car.brand} ${car.model}`,
-      successIcon: !isFavorite ? "heart" : "remove",
+      successIcon: nextValue ? "heart" : "remove",
     });
   };
 
@@ -89,12 +80,7 @@ export const CarFavorite = ({ car }: CarFavoriteProps) => {
         }
       `}
     >
-      <span
-        className="
-          transition-transform
-          duration-300
-        "
-      >
+      <span className="transition-transform duration-300">
         <HeartIcon className="h-4 w-4" />
       </span>
     </button>

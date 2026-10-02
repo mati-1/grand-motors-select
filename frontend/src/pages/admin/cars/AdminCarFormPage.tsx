@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { AdminCarForm } from "./components/AdminCarForm/AdminCarForm";
-import { carsList } from "../../../components/cars/cars";
+import { useCar } from "../../../hooks/cars/useCar";
 
 import ArrowIcon from "../../../assets/icons/strzalka.svg?react";
 
@@ -9,8 +9,26 @@ export const AdminCarFormPage = () => {
   const navigate = useNavigate();
 
   const isEditMode = Boolean(id);
+  const carQuery = useCar(id);
+  const car = carQuery.data?.car;
 
-  const car = isEditMode ? carsList.find((item) => item.id === id) : undefined;
+  if (isEditMode && carQuery.isPending) {
+    return (
+      <div className="rounded-[10px] border border-white/8 bg-[#090909] p-5">
+        <p className="text-[11px] text-white/40">Pobieranie samochodu...</p>
+      </div>
+    );
+  }
+
+  if (isEditMode && carQuery.isError) {
+    return (
+      <div className="rounded-[10px] border border-white/8 bg-[#090909] p-5">
+        <p className="text-[11px] text-red-300">
+          Nie udało się pobrać samochodu.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-8">

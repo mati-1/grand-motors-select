@@ -1,8 +1,8 @@
-import type { SortOption } from "../../../hooks/useCarFilters";
+import type { SortOption } from "../../../hooks/cars/useCarFilters";
 
 import { ButtonComponent } from "../../button";
-
 import { CarsFilterSelect } from "./carsFilterSelect";
+
 import type { CarsFilterOption } from "./carsFilterSelect";
 
 type CarsFiltersContentProps = {
@@ -66,7 +66,7 @@ export const CarsFiltersContent = ({
 }: CarsFiltersContentProps) => {
   return (
     <div className="mt-5">
-      <div className=" bg-[#050505] p-2 flex flex-col gap-2">
+      <div className="flex flex-col gap-2 bg-[#050505] p-2">
         <CarsFilterSelect
           label="Marka"
           value={brand}

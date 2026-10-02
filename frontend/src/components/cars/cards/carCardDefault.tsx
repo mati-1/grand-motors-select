@@ -16,7 +16,7 @@ type CarCardDefaultProps = {
 
 export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
   const handleCardClick = () => {
-    window.location.href = `/cars/${car.slug}`;
+    window.location.href = `/cars/${car.id}`;
   };
 
   const handleCardKeyDown = (event: KeyboardEvent<HTMLElement>) => {
@@ -45,10 +45,6 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
         ${car.status === "sold" ? "grayscale" : ""}
       `}
     >
-      {/* ========================================================= */}
-      {/* CLICKABLE CONTENT */}
-      {/* ========================================================= */}
-
       <div
         role="link"
         tabIndex={0}
@@ -62,10 +58,6 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
           outline-none
         "
       >
-        {/* ======================================================= */}
-        {/* IMAGE */}
-        {/* ======================================================= */}
-
         <div
           className="
             relative
@@ -91,8 +83,6 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
             "
           />
 
-          {/* IMAGE OVERLAY */}
-
           <div
             className="
               pointer-events-none
@@ -106,10 +96,6 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
           />
         </div>
 
-        {/* ======================================================= */}
-        {/* CONTENT */}
-        {/* ======================================================= */}
-
         <div
           className="
             flex
@@ -121,10 +107,6 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
             sm:py-6
           "
         >
-          {/* ===================================================== */}
-          {/* TITLE + PRICE */}
-          {/* ===================================================== */}
-
           <div
             className="
               flex
@@ -145,8 +127,6 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
             >
               {car.brand} {car.model}
             </h3>
-
-            {/* PRICE */}
 
             <div className="shrink-0 text-right">
               <strong
@@ -177,10 +157,6 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
             </div>
           </div>
 
-          {/* ===================================================== */}
-          {/* SUBTITLE */}
-          {/* ===================================================== */}
-
           <div
             className="
               mt-2
@@ -194,10 +170,6 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
             {car.negotiation && " · Do negocjacji"}
             {car.accidentFree && " · Bezwypadkowy"}
           </div>
-
-          {/* ===================================================== */}
-          {/* SPECIFICATIONS */}
-          {/* ===================================================== */}
 
           <div
             className="
@@ -217,8 +189,6 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
               sm:text-[12px]
             "
           >
-            {/* MILEAGE */}
-
             <span
               className="
                 flex
@@ -231,8 +201,6 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
 
               <span className="truncate">{car.mileage}</span>
             </span>
-
-            {/* FUEL */}
 
             <span
               className="
@@ -247,8 +215,6 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
               <span className="truncate">{car.fuel}</span>
             </span>
 
-            {/* TRANSMISSION */}
-
             <span
               className="
                 flex
@@ -261,8 +227,6 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
 
               <span className="truncate">{car.transmission}</span>
             </span>
-
-            {/* YEAR */}
 
             <span
               className="
@@ -277,10 +241,6 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
               <span>{car.year}</span>
             </span>
           </div>
-
-          {/* ===================================================== */}
-          {/* LOCATION */}
-          {/* ===================================================== */}
 
           <div
             className="

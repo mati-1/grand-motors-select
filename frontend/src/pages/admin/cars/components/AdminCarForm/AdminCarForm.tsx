@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-import type { CarType } from "../../../../../components/cars/cars";
-
+import { uploadCarImage } from "../../../../../api/cars";
+import type { ApiCar } from "../../../../../api/cars";
+import type { PendingCarImage } from "./AdminCarImages";
 import { defaultCarFormValues } from "./defaultValues";
 import type { AdminCarFormValues } from "./types";
 
+import { useUpdateCar } from "../../../../../hooks/cars/useUpdateCar";
 import { AdminCarBasicInfo } from "./AdminCarBasicInfo";
 import { AdminCarTechnicalInfo } from "./AdminCarTechnicalInfo";
 import { AdminCarCommercialInfo } from "./AdminCarCommercialInfo";
@@ -13,45 +14,65 @@ import { AdminCarDetails } from "./AdminCarDetails";
 import { AdminCarDescription } from "./AdminCarDescription";
 import { AdminCarEquipment } from "./AdminCarEquipment";
 import { AdminCarImages } from "./AdminCarImages";
+import { useCreateCar } from "../../../../../hooks/cars/useCreateCar";
 
 type AdminCarFormProps = {
-  car?: CarType;
+  car?: ApiCar;
 };
 
 export const AdminCarForm = ({ car }: AdminCarFormProps) => {
   const navigate = useNavigate();
 
-  const isEditMode = Boolean(car);
+  const updateCarMutation = useUpdateCar();
+  const createCarMutation = useCreateCar();
 
+  const isEditMode = Boolean(car);
+  const isSaving = createCarMutation.isPending || updateCarMutation.isPending;
+
+  const [pendingImages, setPendingImages] = useState<PendingCarImage[]>([]);
   const [form, setForm] = useState<AdminCarFormValues>(
     car
       ? {
-          accidentFree: car.accidentFree,
           brand: car.brand,
           model: car.model,
           condition: car.condition,
+
           vin: car.vin,
           year: car.year,
           mileage: car.mileage,
+
           engine: car.engine,
           power: car.power,
           transmission: car.transmission,
           drive: car.drive,
           fuel: car.fuel,
+
           carvertical: car.carvertical,
+
           price: car.price,
           location: car.location,
           voivodeship: car.voivodeship,
-          image: car.image,
-          images: car.images,
+
           negotiation: car.negotiation,
+          accidentFree: car.accidentFree,
+
           description: car.description,
+
           status: car.status,
           invoice: car.invoice,
-          equipment: car.equipment,
-          details: car.details,
-          history: car.history,
+
           featured: car.featured,
+
+          equipment: car.equipment,
+
+          details: {
+            body: car.body,
+            color: car.color,
+            interior: car.interior,
+            seats: car.seats,
+            doors: car.doors,
+            country: car.country,
+          },
         }
       : defaultCarFormValues,
   );
@@ -82,22 +103,49 @@ export const AdminCarForm = ({ car }: AdminCarFormProps) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    console.log(
-      isEditMode ? "Aktualizacja samochodu:" : "Nowy samochód:",
-      form,
-    );
+    const data = {
+      ...form,
+      statusType: isEditMode ? car?.statusType : "sale",
+    };
 
-    if (isEditMode) {
-      navigate(`/admin/cars/${car!.id}`);
+    if (isEditMode && car) {
+      updateCarMutation.mutate(
+        {
+          carId: car.id,
+          data,
+        },
+        {
+          onSuccess: () => {
+            navigate("/admin/cars");
+          },
+        },
+      );
+
       return;
     }
 
-    navigate(-1);
+    createCarMutation.mutate(data, {
+      onSuccess: async (response) => {
+        const carId = response.car.id;
+
+        try {
+          for (const image of pendingImages) {
+            await uploadCarImage(carId, image.file);
+          }
+
+          navigate(`/admin/cars/${carId}/edit`, {
+            replace: true,
+          });
+        } catch (error) {
+          console.error(error);
+        }
+      },
+    });
   };
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <AdminCarBasicInfo values={form} onChange={updateField} />
 
         <AdminCarTechnicalInfo values={form} onChange={updateField} />
@@ -117,10 +165,8 @@ export const AdminCarForm = ({ car }: AdminCarFormProps) => {
         />
 
         <AdminCarImages
-          image={form.image}
-          images={form.images}
-          onImageChange={(value) => updateField("image", value)}
-          onImagesChange={(value) => updateField("images", value)}
+          carId={car?.id}
+          onPendingImagesChange={setPendingImages}
         />
       </div>
 
@@ -135,9 +181,14 @@ export const AdminCarForm = ({ car }: AdminCarFormProps) => {
 
         <button
           type="submit"
+          disabled={isSaving}
           className="h-11 cursor-pointer rounded-[10px] bg-[#d2b878] px-6 text-[11px] font-medium text-black transition-all duration-300 hover:bg-[#e0c98b]"
         >
-          {isEditMode ? "Zapisz zmiany" : "Dodaj samochód"}
+          {isSaving
+            ? "Zapisywanie..."
+            : isEditMode
+              ? "Zapisz zmiany"
+              : "Dodaj samochód"}
         </button>
       </div>
     </form>

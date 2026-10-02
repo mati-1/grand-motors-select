@@ -1,28 +1,12 @@
 import type { ReactNode } from "react";
 
-import type { CarView } from "../../../hooks/useCarFilters";
-
-import { CarsFiltersTabs } from "./carsFiltersTabs";
 import { MainHeadingComponent } from "../../headings";
 
 type CarsFiltersDesktopProps = {
-  view: CarView;
-  onViewChange: (value: CarView) => void;
-
-  viewOptions: {
-    value: CarView;
-    label: string;
-  }[];
-
   children: ReactNode;
 };
 
-export const CarsFiltersDesktop = ({
-  view,
-  onViewChange,
-  viewOptions,
-  children,
-}: CarsFiltersDesktopProps) => {
+export const CarsFiltersDesktop = ({ children }: CarsFiltersDesktopProps) => {
   return (
     <aside
       className="
@@ -59,22 +43,10 @@ export const CarsFiltersDesktop = ({
             xl:pt-6
           "
         >
-          <div>
-            <MainHeadingComponent className="text-[22px]!">
-              Filtry
-            </MainHeadingComponent>
-
-            <span className="mt-2 block text-[13px]  text-[#555]">
-              {view === "available" ? "Aktualna oferta" : "Oferty archiwalne"}
-            </span>
-          </div>
+          <MainHeadingComponent className="text-[22px]!">
+            Filtry
+          </MainHeadingComponent>
         </div>
-
-        <CarsFiltersTabs
-          view={view}
-          options={viewOptions}
-          onChange={onViewChange}
-        />
 
         {children}
       </div>

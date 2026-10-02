@@ -7,32 +7,48 @@ import { CarsHero } from "../components/cars/carsHero";
 
 import { useCarFilters } from "../hooks/cars/useCarFilters";
 
+import { mapApiCarToCarType } from "../components/cars/mapApiCarToCarType";
+
 import { FooterComponent } from "../components/footer";
 
 export const CarsPage = () => {
   const {
-    view,
-    setView,
     brand,
     setBrand,
+
     minYear,
     setMinYear,
+
     maxYear,
     setMaxYear,
+
     minPrice,
     setMinPrice,
+
     maxPrice,
     setMaxPrice,
+
     fuel,
     setFuel,
+
     sort,
     setSort,
+
     brands,
     years,
-    filteredCars,
+
+    carsQuery,
+
     hasActiveFilters,
     clearFilters,
   } = useCarFilters();
+
+  const apiCars = carsQuery.data?.cars ?? [];
+
+  const cars = apiCars.map(mapApiCarToCarType);
+
+  const isLoading = carsQuery.isPending;
+  const isError = carsQuery.isError;
 
   return (
     <main className="w-full bg-[#050505]">
@@ -58,11 +74,7 @@ export const CarsPage = () => {
             min-[1200px]:items-start
           "
         >
-          {/* FILTRY */}
-
           <CarsFilters
-            view={view}
-            onViewChange={setView}
             brand={brand}
             onBrandChange={setBrand}
             minYear={minYear}
@@ -79,17 +91,57 @@ export const CarsPage = () => {
             onSortChange={setSort}
             brands={brands}
             years={years}
-            resultCount={filteredCars.length}
+            resultCount={cars.length}
             hasActiveFilters={hasActiveFilters}
             onClearFilters={clearFilters}
           />
 
-          {/* SAMOCHODY */}
-
           <div className="min-w-0">
-            {filteredCars.length > 0 ? (
-              <CarsGrid cars={filteredCars} />
-            ) : (
+            {isLoading && (
+              <div className="flex min-h-80 items-center justify-center">
+                <span className="text-[11px] text-white/30">
+                  Pobieranie samochodów...
+                </span>
+              </div>
+            )}
+
+            {isError && !isLoading && (
+              <div className="flex min-h-80 flex-col items-center justify-center text-center">
+                <span className="text-[10px] text-[#b99a5c]">
+                  Wystąpił problem
+                </span>
+
+                <p className="mt-3 text-[12px] text-white/40">
+                  Nie udało się pobrać aktualnej oferty samochodów.
+                </p>
+
+                <button
+                  type="button"
+                  onClick={() => carsQuery.refetch()}
+                  className="
+                    mt-5
+                    cursor-pointer
+                    border
+                    border-white/10
+                    px-5
+                    py-3
+                    text-[10px]
+                    text-white/60
+                    transition-colors
+                    hover:border-[#b99a5c]/40
+                    hover:text-[#d2b878]
+                  "
+                >
+                  Spróbuj ponownie
+                </button>
+              </div>
+            )}
+
+            {!isLoading && !isError && cars.length > 0 && (
+              <CarsGrid cars={cars} />
+            )}
+
+            {!isLoading && !isError && cars.length === 0 && (
               <CarsEmptyState onClearFilters={clearFilters} />
             )}
           </div>

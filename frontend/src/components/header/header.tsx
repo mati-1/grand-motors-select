@@ -13,23 +13,36 @@ import PhoneIcon from "../../assets/icons/telefon.svg?react";
 import CheckIcon from "../../assets/icons/ptaszek-podwojny.svg?react";
 
 import { pageHeaderNavigation } from "./navigation";
-import { carsList } from "../../components/cars/cars";
-
 import type { CarType } from "../../components/cars/cars";
 import { showToast } from "../toast/toast";
 
 type DropdownType = "services" | "favorites" | null;
 
-const getFavoriteStorageKey = (car: CarType) => `gms-favorite:${car.id}`;
-
 const FAVORITES_CHANGED_EVENT = "gms-favorites-changed";
+
+const getFavoriteStorageKey = (carId: string) => `gms-favorite:${carId}`;
+
+const getFavoriteIds = () => {
+  const favoriteIds: string[] = [];
+
+  for (let index = 0; index < localStorage.length; index++) {
+    const key = localStorage.key(index);
+
+    if (!key?.startsWith("gms-favorite:")) continue;
+
+    if (localStorage.getItem(key) !== "true") continue;
+
+    favoriteIds.push(key.replace("gms-favorite:", ""));
+  }
+
+  return favoriteIds;
+};
 
 export const HeaderComponent = () => {
   const location = useLocation();
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
   const [openDropdown, setOpenDropdown] = useState<DropdownType>(null);
 
   const [favoriteCars, setFavoriteCars] = useState<CarType[]>([]);
@@ -45,12 +58,6 @@ export const HeaderComponent = () => {
   );
 
   const closeMenu = () => setMenuOpen(false);
-
-  /*
-   * ============================================================
-   * SCROLL
-   * ============================================================
-   */
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,12 +75,6 @@ export const HeaderComponent = () => {
     };
   }, []);
 
-  /*
-   * ============================================================
-   * MOBILE MENU SCROLL LOCK
-   * ============================================================
-   */
-
   useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
 
@@ -81,12 +82,6 @@ export const HeaderComponent = () => {
       document.body.style.overflow = "";
     };
   }, [menuOpen]);
-
-  /*
-   * ============================================================
-   * CLEANUP TIMERS
-   * ============================================================
-   */
 
   useEffect(() => {
     return () => {
@@ -96,32 +91,110 @@ export const HeaderComponent = () => {
     };
   }, []);
 
-  /*
-   * ============================================================
-   * LOAD FAVORITES
-   * ============================================================
-   */
+  const loadFavorites = async () => {
+    const favoriteIds = getFavoriteIds();
 
-  const loadFavorites = () => {
-    const favorites = carsList.filter((car) => {
-      return localStorage.getItem(getFavoriteStorageKey(car)) === "true";
-    });
+    if (favoriteIds.length === 0) {
+      setFavoriteCars([]);
+      return;
+    }
 
-    setFavoriteCars(favorites);
+    try {
+      const API_URL = import.meta.env.VITE_API_URL;
 
-    setPendingRemovals((current) => {
-      const next = new Set(current);
-
-      current.forEach((carId) => {
-        const stillFavorite = favorites.some((car) => car.id === carId);
-
-        if (!stillFavorite) {
-          next.delete(carId);
-        }
+      const response = await fetch(`${API_URL}/api/cars`, {
+        credentials: "include",
       });
 
-      return next;
-    });
+      if (!response.ok) {
+        setFavoriteCars([]);
+        return;
+      }
+
+      const data: { cars: any[] } = await response.json();
+
+      const availableCars = data.cars;
+
+      const availableCarIds = new Set(availableCars.map((car) => car.id));
+
+      const validFavoriteIds = favoriteIds.filter((id) =>
+        availableCarIds.has(id),
+      );
+
+      const invalidFavoriteIds = favoriteIds.filter(
+        (id) => !availableCarIds.has(id),
+      );
+
+      invalidFavoriteIds.forEach((id) => {
+        localStorage.removeItem(getFavoriteStorageKey(id));
+      });
+
+      const favorites = availableCars.filter((car) =>
+        validFavoriteIds.includes(car.id),
+      );
+
+      const mappedFavorites: CarType[] = favorites.map((car) => {
+        const sortedImages = [...car.images].sort(
+          (a: any, b: any) => a.position - b.position,
+        );
+
+        const imageUrls = sortedImages.map((image: any) => image.url);
+
+        return {
+          id: car.id,
+          slug: car.slug,
+          brand: car.brand,
+          model: car.model,
+          condition: car.condition,
+          vin: car.vin,
+          year: car.year,
+          mileage: car.mileage,
+          engine: car.engine,
+          power: car.power,
+          transmission: car.transmission,
+          drive: car.drive,
+          fuel: car.fuel,
+          carvertical: car.carvertical,
+          price: car.price,
+          image: imageUrls[0] ?? "/logohd emblem.png",
+          images: imageUrls,
+          location: car.location,
+          voivodeship: car.voivodeship,
+          negotiation: car.negotiation,
+          accidentFree: car.accidentFree,
+          description: car.description,
+          status: car.status,
+          invoice: car.invoice,
+          equipment: car.equipment,
+          details: {
+            body: car.body,
+            color: car.color,
+            interior: car.interior,
+            seats: car.seats,
+            doors: car.doors,
+            country: car.country,
+          },
+          history: [],
+          featured: car.featured,
+        };
+      });
+
+      setFavoriteCars(mappedFavorites);
+
+      setPendingRemovals((current) => {
+        const next = new Set(current);
+
+        current.forEach((carId) => {
+          if (!validFavoriteIds.includes(carId)) {
+            next.delete(carId);
+          }
+        });
+
+        return next;
+      });
+    } catch {
+      setFavoriteCars([]);
+    }
   };
 
   useEffect(() => {
@@ -140,12 +213,6 @@ export const HeaderComponent = () => {
       );
     };
   }, []);
-
-  /*
-   * ============================================================
-   * OUTSIDE CLICK + ESC
-   * ============================================================
-   */
 
   useEffect(() => {
     if (!openDropdown) return;
@@ -174,12 +241,6 @@ export const HeaderComponent = () => {
     };
   }, [openDropdown]);
 
-  /*
-   * ============================================================
-   * DROPDOWN
-   * ============================================================
-   */
-
   const toggleDropdown = (dropdown: DropdownType) => {
     if (dropdown === "favorites") {
       loadFavorites();
@@ -199,7 +260,7 @@ export const HeaderComponent = () => {
         delete removalTimers.current[carId];
       }
 
-      localStorage.removeItem(getFavoriteStorageKey(car));
+      localStorage.removeItem(getFavoriteStorageKey(carId));
 
       setPendingRemovals((current) => {
         const next = new Set(current);
@@ -235,12 +296,6 @@ export const HeaderComponent = () => {
       delete removalTimers.current[carId];
     }, 3000);
   };
-
-  /*
-   * ============================================================
-   * NAVIGATION
-   * ============================================================
-   */
 
   const isContactPage = location.pathname === "/contact";
 
@@ -288,10 +343,6 @@ export const HeaderComponent = () => {
         >
           <LogoComponent onClick={closeMenu} resize={scrolled} />
 
-          {/* ================================================== */}
-          {/* DESKTOP NAV */}
-          {/* ================================================== */}
-
           <div
             ref={dropdownRef}
             className="
@@ -322,10 +373,6 @@ export const HeaderComponent = () => {
                   active={location.pathname === carsNavigation.href}
                 />
               )}
-
-              {/* ================================================== */}
-              {/* USŁUGI */}
-              {/* ================================================== */}
 
               <div className="relative">
                 <button
@@ -358,26 +405,28 @@ export const HeaderComponent = () => {
                       w-3.5
                       transition-transform
                       duration-300
-                      ${openDropdown === "services" ? "rotate-90" : "rotate-270"}
+                      ${
+                        openDropdown === "services" ? "rotate-90" : "rotate-270"
+                      }
                     `}
                   />
                 </button>
-
-                {/* SERVICES DROPDOWN */}
 
                 <div
                   className={`
                     absolute
                     right-0
                     top-[calc(100%+18px)]
+                    flex
                     w-52
                     origin-top-right
+                    flex-col
+                    gap-2
+                    rounded-[10px]
                     border
                     border-white/10
                     bg-[#080808]/95
                     p-4
-                    flex flex-col gap-2
-                    rounded-[10px]
                     shadow-2xl
                     backdrop-blur-xl
                     transition-all
@@ -402,10 +451,6 @@ export const HeaderComponent = () => {
                   />
                 </div>
               </div>
-
-              {/* ================================================== */}
-              {/* ULUBIONE */}
-              {/* ================================================== */}
 
               <div className="relative">
                 <button
@@ -464,8 +509,6 @@ export const HeaderComponent = () => {
                   />
                 </button>
 
-                {/* FAVORITES DROPDOWN */}
-
                 <div
                   className={`
                     absolute
@@ -473,11 +516,11 @@ export const HeaderComponent = () => {
                     top-[calc(100%+18px)]
                     w-97.5
                     origin-top-right
+                    rounded-[10px]
                     border
                     border-white/10
                     bg-[#080808]/97
                     shadow-2xl
-                    rounded-[10px]
                     backdrop-blur-xl
                     transition-all
                     duration-300
@@ -488,8 +531,6 @@ export const HeaderComponent = () => {
                     }
                   `}
                 >
-                  {/* HEADER */}
-
                   <div
                     className="
                       flex
@@ -501,27 +542,13 @@ export const HeaderComponent = () => {
                       py-4
                     "
                   >
-                    <div
-                      className="
-                        mt-1
-                        text-[14px]
-                        font-normal
-                        text-white
-                      "
-                    >
+                    <div className="mt-1 text-[14px] font-normal text-white">
                       Polubione samochody
                     </div>
                   </div>
 
-                  {/* FAVORITES LIST */}
-
                   {favoriteCars.length > 0 ? (
-                    <div
-                      className="
-                        max-h-90
-                        overflow-y-auto
-                      "
-                    >
+                    <div className="max-h-90 overflow-y-auto">
                       {favoriteCars.map((car) => {
                         const isPendingRemoval = pendingRemovals.has(car.id);
 
@@ -543,12 +570,10 @@ export const HeaderComponent = () => {
                               hover:bg-white/2.5
                             "
                           >
-                            {/* IMAGE */}
-
                             <button
                               type="button"
                               onClick={() => {
-                                window.location.href = `/cars/${car.slug}`;
+                                window.location.href = `/cars/${car.id}`;
                               }}
                               className="
                                 h-14
@@ -573,12 +598,10 @@ export const HeaderComponent = () => {
                               />
                             </button>
 
-                            {/* INFO */}
-
                             <button
                               type="button"
                               onClick={() => {
-                                window.location.href = `/cars/${car.slug}`;
+                                window.location.href = `/cars/${car.id}`;
                               }}
                               className="
                                 min-w-0
@@ -613,18 +636,10 @@ export const HeaderComponent = () => {
                                 <span>{car.power}</span>
                               </div>
 
-                              <div
-                                className="
-                                  mt-1.5
-                                  text-[12px]
-                                  text-white
-                                "
-                              >
+                              <div className="mt-1.5 text-[12px] text-white">
                                 {car.price}
                               </div>
                             </button>
-
-                            {/* REMOVE / CONFIRM */}
 
                             <button
                               type="button"
@@ -677,14 +692,9 @@ export const HeaderComponent = () => {
                         text-center
                       "
                     >
-                      <HeartIcon className="w-6 h-6 mb-2" />
+                      <HeartIcon className="mb-2 h-6 w-6" />
 
-                      <div
-                        className="
-                          text-[11px]
-                          text-white/50
-                        "
-                      >
+                      <div className="text-[11px] text-white/50">
                         Nie masz jeszcze
                         <br />
                         ulubionych samochodów.
@@ -694,17 +704,13 @@ export const HeaderComponent = () => {
                 </div>
               </div>
 
-              {/* ================================================== */}
-              {/* KONTAKT */}
-              {/* ================================================== */}
-
               {contactNavigation && (
                 <ButtonComponent
                   href={
                     isContactPage ? "tel:+48514137133" : contactNavigation.href
                   }
                   type="secondary"
-                  className="text-white text-[11px]!"
+                  className="text-[11px]! text-white"
                 >
                   {isContactPage ? (
                     <span className="flex items-center gap-1">
@@ -721,10 +727,6 @@ export const HeaderComponent = () => {
               )}
             </nav>
           </div>
-
-          {/* ================================================== */}
-          {/* BURGER */}
-          {/* ================================================== */}
 
           <button
             type="button"
@@ -786,10 +788,6 @@ export const HeaderComponent = () => {
           </button>
         </div>
       </header>
-
-      {/* ====================================================== */}
-      {/* MOBILE MENU */}
-      {/* ====================================================== */}
 
       <MobileMenuComponent
         isOpen={menuOpen}

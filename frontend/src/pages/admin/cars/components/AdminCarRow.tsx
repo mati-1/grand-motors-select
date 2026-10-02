@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
-import type { CarType } from "../../../../components/cars/cars";
+import type { ApiCar } from "../../../../api/cars";
 
-export type AdminCar = CarType & {
+export type AdminCar = ApiCar & {
   purchasePrice: number;
   investment: number;
   profit: number;
-  statusType: "sale" | "preparing" | "sold";
 };
 
 type AdminCarRowProps = {
@@ -29,15 +28,23 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
     >
       <div className="flex flex-col lg:flex-row">
         <img
-          src={car.image}
-          alt={car.brand}
+          src={
+            car.images.find((image) => image.isPrimary)?.url
+              ? `${import.meta.env.VITE_API_URL}${
+                  car.images.find((image) => image.isPrimary)?.url
+                }`
+              : car.images[0]?.url
+                ? `${import.meta.env.VITE_API_URL}${car.images[0].url}`
+                : "/logohd emblem.png"
+          }
+          alt={`${car.brand} ${car.model}`}
           className="
-              h-52.5
-              lg:h-60
-              object-cover
-                          lg:w-65
-            xl:w-72.5
-            "
+    h-52.5
+    object-cover
+    lg:h-60
+    lg:w-65
+    xl:w-72.5
+  "
         />
 
         {/* CONTENT */}

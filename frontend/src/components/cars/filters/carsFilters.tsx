@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import type { CarView, SortOption } from "../../../hooks/useCarFilters";
+import type { SortOption } from "../../../hooks/cars/useCarFilters";
 
 import { CarsFiltersContent } from "./carsFiltersContent";
 import { CarsFiltersDesktop } from "./carsFiltersDesktop";
@@ -10,9 +10,6 @@ import { getCarsFilterOptions } from "./carsFiltersOptions";
 import ArrowIcon from "../../../assets/icons/strzalka.svg?react";
 
 type CarsFiltersProps = {
-  view: CarView;
-  onViewChange: (value: CarView) => void;
-
   brand: string;
   onBrandChange: (value: string) => void;
 
@@ -38,41 +35,28 @@ type CarsFiltersProps = {
   years: number[];
 
   resultCount: number;
-
   hasActiveFilters: boolean;
   onClearFilters: () => void;
 };
 
 export const CarsFilters = ({
-  view,
-  onViewChange,
-
   brand,
   onBrandChange,
-
   minYear,
   onMinYearChange,
-
   maxYear,
   onMaxYearChange,
-
   minPrice,
   onMinPriceChange,
-
   maxPrice,
   onMaxPriceChange,
-
   sort,
   onSortChange,
-
   fuel,
   onFuelChange,
-
   brands,
   years,
-
   resultCount,
-
   hasActiveFilters,
   onClearFilters,
 }: CarsFiltersProps) => {
@@ -86,7 +70,6 @@ export const CarsFilters = ({
     minPriceOptions,
     maxPriceOptions,
     sortOptions,
-    viewOptions,
   } = getCarsFilterOptions({
     brands,
     years,
@@ -95,12 +78,6 @@ export const CarsFilters = ({
     minPrice,
     maxPrice,
   });
-
-  /*
-   * ============================================================
-   * MOBILE FILTERS
-   * ============================================================
-   */
 
   useEffect(() => {
     if (!isMobileOpen) return;
@@ -127,10 +104,6 @@ export const CarsFilters = ({
 
   return (
     <>
-      {/* ======================================================== */}
-      {/* MOBILE / TABLET / LAPTOP < 1200PX */}
-      {/* ======================================================== */}
-
       <div className="min-[1200px]:hidden">
         <button
           type="button"
@@ -155,14 +128,7 @@ export const CarsFilters = ({
           "
         >
           <div className="flex items-center gap-4">
-            <span
-              className="
-                text-[14px]
-                text-[#b99a5c]
-              "
-            >
-              ☰
-            </span>
+            <span className="text-[14px] text-[#b99a5c]">☰</span>
 
             <span
               className="
@@ -179,37 +145,16 @@ export const CarsFilters = ({
 
           <div className="flex items-center gap-3">
             {hasActiveFilters && (
-              <span
-                className="
-                  text-[13px]
-                  text-[#b99a5c]
-                "
-              >
-                ●
-              </span>
+              <span className="text-[13px] text-[#b99a5c]">●</span>
             )}
 
-            <ArrowIcon
-              className="
-                h-5
-                w-5
-                rotate-180
-              "
-            />
+            <ArrowIcon className="h-5 w-5 rotate-180" />
           </div>
         </button>
       </div>
 
-      {/* ======================================================== */}
-      {/* DESKTOP ≥ 1200PX */}
-      {/* ======================================================== */}
-
       <div className="hidden min-[1200px]:block">
-        <CarsFiltersDesktop
-          view={view}
-          onViewChange={onViewChange}
-          viewOptions={viewOptions}
-        >
+        <CarsFiltersDesktop>
           <CarsFiltersContent
             brand={brand}
             onBrandChange={onBrandChange}
@@ -238,17 +183,10 @@ export const CarsFilters = ({
         </CarsFiltersDesktop>
       </div>
 
-      {/* ======================================================== */}
-      {/* MOBILE FILTER PANEL < 1200PX */}
-      {/* ======================================================== */}
-
       <CarsFiltersMobile
         isOpen={isMobileOpen}
         resultCount={resultCount}
         onClose={closeMobileFilters}
-        view={view}
-        onViewChange={onViewChange}
-        viewOptions={viewOptions}
       >
         <CarsFiltersContent
           brand={brand}

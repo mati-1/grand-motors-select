@@ -103,7 +103,7 @@ const App = () => {
 
         <Route path="/cars" element={<CarsPage />} />
 
-        <Route path="/cars/:slug" element={<CarDetailsPage />} />
+        <Route path="/cars/:id" element={<CarDetailsPage />} />
 
         <Route path="/wrap" element={<WrapPage />} />
 

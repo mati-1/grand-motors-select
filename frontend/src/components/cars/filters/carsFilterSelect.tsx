@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+
 import ArrowIcon from "../../../assets/icons/strzalka-w-dol.svg?react";
 import { CarsFilterField } from "./carsFilterField";
 
@@ -86,11 +87,7 @@ export const CarsFilterSelect = ({
 
       const spaceBelow = viewportBottom - containerRect.bottom;
 
-      if (spaceAbove > spaceBelow) {
-        setPlacement("top");
-      } else {
-        setPlacement("bottom");
-      }
+      setPlacement(spaceAbove > spaceBelow ? "top" : "bottom");
     };
 
     updatePlacement();
@@ -100,6 +97,7 @@ export const CarsFilterSelect = ({
 
     return () => {
       window.removeEventListener("resize", updatePlacement);
+
       window.removeEventListener("scroll", updatePlacement, true);
     };
   }, [isOpen]);
@@ -137,7 +135,6 @@ export const CarsFilterSelect = ({
           <span
             className={`
               text-[13px]
-              
               transition-colors
               duration-300
               ${value === "all" ? "text-[#777]" : "text-[#ddd]"}
@@ -164,15 +161,14 @@ export const CarsFilterSelect = ({
             absolute
             left-0
             right-0
-                        rounded-[10px]
             z-50
             overflow-hidden
+            rounded-[10px]
             border
             border-white/10
             bg-[#0a0a0a]/98
             shadow-[0_20px_60px_rgba(0,0,0,0.65)]
             backdrop-blur-xl
-
             ${
               placement === "bottom"
                 ? "top-[calc(100%+8px)]"
@@ -180,10 +176,8 @@ export const CarsFilterSelect = ({
             }
           `}
         >
-          {/* GOLD LINE */}
           <div className="h-px w-full shrink-0 bg-linear-to-r from-transparent via-[#b99a5c]/60 to-transparent" />
 
-          {/* OPTIONS */}
           <div
             className="
               max-h-56
@@ -214,17 +208,14 @@ export const CarsFilterSelect = ({
                     text-left
                     transition-all
                     duration-200
-
                     ${
                       option.disabled
                         ? "cursor-not-allowed text-[#333]"
                         : "cursor-pointer hover:bg-[#b99a5c]/7"
                     }
-
                     ${isSelected ? "bg-[#b99a5c]/5" : ""}
                   `}
                 >
-                  {/* LEFT HOVER LINE */}
                   <span
                     className={`
                       absolute
@@ -235,7 +226,6 @@ export const CarsFilterSelect = ({
                       bg-[#b99a5c]
                       transition-all
                       duration-300
-
                       ${
                         isSelected
                           ? "opacity-70"
@@ -244,13 +234,11 @@ export const CarsFilterSelect = ({
                     `}
                   />
 
-                  {/* LABEL */}
                   <span
                     className={`
                       text-[12px]
                       transition-all
                       duration-200
-
                       ${
                         option.disabled
                           ? "text-[#333]"
@@ -263,7 +251,6 @@ export const CarsFilterSelect = ({
                     {option.label}
                   </span>
 
-                  {/* SELECTED */}
                   {isSelected && (
                     <span className="text-[8px] text-[#b99a5c]">●</span>
                   )}

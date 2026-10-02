@@ -1,14 +1,11 @@
 import type { AdminCarFormValues } from "./types";
 
 export const defaultCarFormValues: AdminCarFormValues = {
-  accidentFree: true,
-
   brand: "",
   model: "",
   condition: "Używany",
 
   vin: "",
-
   year: new Date().getFullYear(),
   mileage: "",
 
@@ -24,16 +21,15 @@ export const defaultCarFormValues: AdminCarFormValues = {
   location: "",
   voivodeship: "",
 
-  image: "",
-  images: [],
-
   negotiation: false,
+  accidentFree: false,
 
   description: "",
 
   status: "available",
-
   invoice: "VAT MARŻA",
+
+  featured: false,
 
   equipment: [],
 
@@ -45,8 +41,4 @@ export const defaultCarFormValues: AdminCarFormValues = {
     doors: "",
     country: "",
   },
-
-  history: [],
-
-  featured: false,
 };

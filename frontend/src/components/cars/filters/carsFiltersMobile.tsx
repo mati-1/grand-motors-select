@@ -1,8 +1,5 @@
 import type { ReactNode } from "react";
 
-import { CarsFiltersTabs } from "./carsFiltersTabs";
-
-import type { CarView } from "../../../hooks/useCarFilters";
 import { ButtonComponent } from "../../button";
 import { MainHeadingComponent } from "../../headings";
 
@@ -11,12 +8,6 @@ type CarsFiltersMobileProps = {
   resultCount: number;
   onClose: () => void;
   children: ReactNode;
-  view: CarView;
-  onViewChange: (value: CarView) => void;
-  viewOptions: {
-    value: CarView;
-    label: string;
-  }[];
 };
 
 export const CarsFiltersMobile = ({
@@ -24,9 +15,6 @@ export const CarsFiltersMobile = ({
   resultCount,
   onClose,
   children,
-  view,
-  onViewChange,
-  viewOptions,
 }: CarsFiltersMobileProps) => {
   if (!isOpen) return null;
 
@@ -96,12 +84,6 @@ export const CarsFiltersMobile = ({
         "
         onClick={(event) => event.stopPropagation()}
       >
-        <CarsFiltersTabs
-          view={view}
-          options={viewOptions}
-          onChange={onViewChange}
-        />
-
         {children}
       </main>
 

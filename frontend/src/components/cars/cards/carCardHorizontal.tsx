@@ -15,7 +15,7 @@ type CarCardHorizontalProps = {
 
 export const CarCardHorizontal = ({ car }: CarCardHorizontalProps) => {
   const handleCardClick = () => {
-    window.location.href = `/cars/${car.slug}`;
+    window.location.href = `/cars/${car.id}`;
   };
 
   const handleCardKeyDown = (event: KeyboardEvent<HTMLElement>) => {
@@ -57,7 +57,6 @@ export const CarCardHorizontal = ({ car }: CarCardHorizontalProps) => {
           outline-none
         "
       >
-        {/* IMAGE */}
         <div
           className="
             relative
@@ -81,7 +80,6 @@ export const CarCardHorizontal = ({ car }: CarCardHorizontalProps) => {
             "
           />
 
-          {/* IMAGE OVERLAY */}
           <div
             className="
               pointer-events-none
@@ -95,10 +93,6 @@ export const CarCardHorizontal = ({ car }: CarCardHorizontalProps) => {
           />
         </div>
 
-        {/* ======================================================= */}
-        {/* INFORMATION */}
-        {/* ======================================================= */}
-
         <div
           className="
             flex
@@ -111,7 +105,6 @@ export const CarCardHorizontal = ({ car }: CarCardHorizontalProps) => {
           "
         >
           <div>
-            {/* TITLE + PRICE */}
             <div className="flex items-start justify-between gap-6">
               <h3
                 className="
@@ -152,7 +145,6 @@ export const CarCardHorizontal = ({ car }: CarCardHorizontalProps) => {
               </div>
             </div>
 
-            {/* SUBTITLE */}
             <div
               className="
                 mt-2
@@ -166,7 +158,6 @@ export const CarCardHorizontal = ({ car }: CarCardHorizontalProps) => {
               {car.accidentFree && " · Bezwypadkowy"}
             </div>
 
-            {/* SPECIFICATIONS */}
             <div
               className="
                 mt-6
@@ -201,7 +192,6 @@ export const CarCardHorizontal = ({ car }: CarCardHorizontalProps) => {
             </div>
           </div>
 
-          {/* LOCATION */}
           <div
             className="
               flex

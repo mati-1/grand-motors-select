@@ -1,4 +1,4 @@
-import type { SortOption } from "../../../hooks/useCarFilters";
+import type { SortOption } from "../../../hooks/cars/useCarFilters";
 
 export const priceOptions = [
   { value: "all", label: "Dowolna" },

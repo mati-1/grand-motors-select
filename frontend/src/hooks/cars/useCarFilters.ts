@@ -1,6 +1,8 @@
 import { useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
-import { carsList, carsYears } from "../../components/cars/cars";
+import type { CarFilters } from "../../api/cars";
+import { useCars } from "./useCars";
 
 export type SortOption =
   | "default"
@@ -9,135 +11,127 @@ export type SortOption =
   | "yearDesc"
   | "mileageAsc";
 
-export type CarView = "available" | "sold" | "reservation";
-
-const parseNumber = (value: string) => {
-  return Number(value.replace(/[^\d]/g, ""));
-};
+const carsYears = Array.from(
+  { length: new Date().getFullYear() - 2011 },
+  (_, index) => new Date().getFullYear() - index,
+).sort((a, b) => a - b);
 
 export const useCarFilters = () => {
-  const [view, setView] = useState<CarView>("available");
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(searchParams.get("search") ?? "");
 
-  const [brand, setBrand] = useState("all");
+  const [brand, setBrand] = useState(searchParams.get("brand") ?? "all");
 
-  const [minYear, setMinYear] = useState("all");
-  const [maxYear, setMaxYear] = useState("all");
+  const [minYear, setMinYear] = useState(searchParams.get("minYear") ?? "all");
 
-  const [minPrice, setMinPrice] = useState("all");
-  const [maxPrice, setMaxPrice] = useState("all");
+  const [maxYear, setMaxYear] = useState(searchParams.get("maxYear") ?? "all");
 
-  const [fuel, setFuel] = useState("all");
+  const [minPrice, setMinPrice] = useState(
+    searchParams.get("minPrice") ?? "all",
+  );
 
-  const [sort, setSort] = useState<SortOption>("default");
+  const [maxPrice, setMaxPrice] = useState(
+    searchParams.get("maxPrice") ?? "all",
+  );
+
+  const [fuel, setFuel] = useState(searchParams.get("fuel") ?? "all");
+
+  const [sort, setSort] = useState<SortOption>(
+    (searchParams.get("sort") as SortOption) ?? "default",
+  );
+
+  const updateUrl = (updates: Record<string, string | undefined>) => {
+    const params = new URLSearchParams(searchParams);
+
+    Object.entries(updates).forEach(([key, value]) => {
+      if (!value || value === "all" || value === "default") {
+        params.delete(key);
+      } else {
+        params.set(key, value);
+      }
+    });
+
+    setSearchParams(params);
+  };
+
+  const handleSearchChange = (value: string) => {
+    setSearch(value);
+    updateUrl({
+      search: value,
+    });
+  };
+
+  const handleBrandChange = (value: string) => {
+    setBrand(value);
+    updateUrl({
+      brand: value,
+    });
+  };
+
+  const handleMinYearChange = (value: string) => {
+    setMinYear(value);
+    updateUrl({
+      minYear: value,
+    });
+  };
+
+  const handleMaxYearChange = (value: string) => {
+    setMaxYear(value);
+    updateUrl({
+      maxYear: value,
+    });
+  };
+
+  const handleMinPriceChange = (value: string) => {
+    setMinPrice(value);
+    updateUrl({
+      minPrice: value,
+    });
+  };
+
+  const handleMaxPriceChange = (value: string) => {
+    setMaxPrice(value);
+    updateUrl({
+      maxPrice: value,
+    });
+  };
+
+  const handleFuelChange = (value: string) => {
+    setFuel(value);
+    updateUrl({
+      fuel: value,
+    });
+  };
+
+  const handleSortChange = (value: SortOption) => {
+    setSort(value);
+    updateUrl({
+      sort: value,
+    });
+  };
+
+  const filters = useMemo<CarFilters>(
+    () => ({
+      search,
+      brand,
+      minYear: minYear === "all" ? undefined : Number(minYear),
+      maxYear: maxYear === "all" ? undefined : Number(maxYear),
+      minPrice: minPrice === "all" ? undefined : Number(minPrice),
+      maxPrice: maxPrice === "all" ? undefined : Number(maxPrice),
+      fuel,
+      sort,
+    }),
+    [search, brand, minYear, maxYear, minPrice, maxPrice, fuel, sort],
+  );
+
+  const carsQuery = useCars(filters);
 
   const brands = useMemo(() => {
-    return [
-      ...new Set(
-        carsList
-          .filter(
-            (car) => car.status === "available" || car.status === "reservation",
-          )
-          .map((car) => car.brand),
-      ),
-    ].sort();
-  }, []);
+    const cars = carsQuery.data?.cars ?? [];
 
-  const filteredCars = useMemo(() => {
-    let result = [...carsList];
-
-    // STATUS
-
-    if (view === "available" || view === "reservation") {
-      result = result.filter(
-        (car) => car.status === "available" || car.status === "reservation",
-      );
-    }
-
-    if (view === "sold") {
-      result = result.filter((car) => car.status === "sold");
-    }
-
-    // SEARCH
-
-    if (search.trim()) {
-      const query = search.toLowerCase().trim();
-
-      result = result.filter((car) =>
-        `${car.brand} ${car.model} ${car.engine} ${car.year} ${car.fuel}`
-          .toLowerCase()
-          .includes(query),
-      );
-    }
-
-    // BRAND
-
-    if (brand !== "all") {
-      result = result.filter((car) => car.brand === brand);
-    }
-
-    // MIN YEAR
-
-    if (minYear !== "all") {
-      result = result.filter((car) => Number(car.year) >= Number(minYear));
-    }
-
-    // MAX YEAR
-
-    if (maxYear !== "all") {
-      result = result.filter((car) => Number(car.year) <= Number(maxYear));
-    }
-
-    // MIN PRICE
-
-    if (minPrice !== "all") {
-      result = result.filter(
-        (car) => parseNumber(car.price) >= Number(minPrice),
-      );
-    }
-
-    // MAX PRICE
-
-    if (maxPrice !== "all") {
-      result = result.filter(
-        (car) => parseNumber(car.price) <= Number(maxPrice),
-      );
-    }
-
-    // FUEL
-
-    if (fuel !== "all") {
-      result = result.filter(
-        (car) => car.fuel.toLowerCase() === fuel.toLowerCase(),
-      );
-    }
-
-    // SORT
-
-    switch (sort) {
-      case "priceAsc":
-        result.sort((a, b) => parseNumber(a.price) - parseNumber(b.price));
-        break;
-
-      case "priceDesc":
-        result.sort((a, b) => parseNumber(b.price) - parseNumber(a.price));
-        break;
-
-      case "yearDesc":
-        result.sort((a, b) => Number(b.year) - Number(a.year));
-        break;
-
-      case "mileageAsc":
-        result.sort((a, b) => parseNumber(a.mileage) - parseNumber(b.mileage));
-        break;
-
-      default:
-        break;
-    }
-
-    return result;
-  }, [view, search, brand, minYear, maxYear, minPrice, maxPrice, fuel, sort]);
+    return [...new Set(cars.map((car) => car.brand))].sort();
+  }, [carsQuery.data?.cars]);
 
   const hasActiveFilters =
     brand !== "all" ||
@@ -146,56 +140,51 @@ export const useCarFilters = () => {
     minPrice !== "all" ||
     maxPrice !== "all" ||
     fuel !== "all" ||
-    sort !== "default";
+    sort !== "default" ||
+    search.trim() !== "";
 
   const clearFilters = () => {
+    setSearch("");
     setBrand("all");
-
     setMinYear("all");
     setMaxYear("all");
-
     setMinPrice("all");
     setMaxPrice("all");
-
     setFuel("all");
-
     setSort("default");
 
-    setSearch("");
+    setSearchParams({});
   };
 
   return {
-    view,
-    setView,
-
     search,
-    setSearch,
+    setSearch: handleSearchChange,
 
     brand,
-    setBrand,
+    setBrand: handleBrandChange,
 
     minYear,
-    setMinYear,
+    setMinYear: handleMinYearChange,
 
     maxYear,
-    setMaxYear,
+    setMaxYear: handleMaxYearChange,
 
     minPrice,
-    setMinPrice,
+    setMinPrice: handleMinPriceChange,
 
     maxPrice,
-    setMaxPrice,
+    setMaxPrice: handleMaxPriceChange,
 
     fuel,
-    setFuel,
+    setFuel: handleFuelChange,
 
     sort,
-    setSort,
+    setSort: handleSortChange,
 
     brands,
     years: carsYears,
 
-    filteredCars,
+    carsQuery,
 
     hasActiveFilters,
     clearFilters,
