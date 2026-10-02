@@ -1,9 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { AdminCarForm } from "./components/AdminCarForm/AdminCarForm";
 import { carsList } from "../../../components/cars/cars";
 
+import ArrowIcon from "../../../assets/icons/strzalka.svg?react";
+
 export const AdminCarFormPage = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const isEditMode = Boolean(id);
 
@@ -12,9 +15,32 @@ export const AdminCarFormPage = () => {
   return (
     <div className="space-y-8">
       <div>
-        <span className="text-[11px] text-[#b99a5c]">
-          {isEditMode ? "Edycja samochodu" : "Nowy samochód"}
-        </span>
+        <button
+          type="button"
+          onClick={() => navigate(-1)}
+          aria-label="Udostępnij ofertę"
+          className="
+          group
+          flex
+          h-9
+          w-9
+          cursor-pointer
+          items-center
+          justify-center
+          border
+          border-white/10
+          bg-white/2
+          text-[#777]
+          transition-all
+          duration-300
+          hover:border-[#b99a5c]/40
+          hover:bg-[#b99a5c]/5
+          hover:text-[#d2b878]
+          rounded-[10px]
+        "
+        >
+          <ArrowIcon className="w-5 h-5" />
+        </button>
 
         <h2 className="mt-1 text-[24px] font-medium tracking-tight text-white sm:text-[28px]">
           {isEditMode ? "Edytuj samochód" : "Dodaj samochód"}

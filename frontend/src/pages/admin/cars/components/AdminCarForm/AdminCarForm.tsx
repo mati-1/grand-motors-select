@@ -12,7 +12,6 @@ import { AdminCarCommercialInfo } from "./AdminCarCommercialInfo";
 import { AdminCarDetails } from "./AdminCarDetails";
 import { AdminCarDescription } from "./AdminCarDescription";
 import { AdminCarEquipment } from "./AdminCarEquipment";
-import { AdminCarHistory } from "./AdminCarHistory";
 import { AdminCarImages } from "./AdminCarImages";
 
 type AdminCarFormProps = {
@@ -115,11 +114,6 @@ export const AdminCarForm = ({ car }: AdminCarFormProps) => {
         <AdminCarEquipment
           value={form.equipment}
           onChange={(value) => updateField("equipment", value)}
-        />
-
-        <AdminCarHistory
-          value={form.history}
-          onChange={(value) => updateField("history", value)}
         />
 
         <AdminCarImages

@@ -132,31 +132,9 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
               Ostatnia aktualizacja: dzisiaj
             </span>
 
-            <div className="flex items-center gap-2">
-              <Link
-                to={`/admin/cars/${car.id}`}
-                className="
-                  flex
-                  h-8
-                  items-center
-                  rounded-[10px]
-                  border
-                  border-white/8
-                  px-3
-                  text-[12px]
-                  text-white/40
-                  transition-all
-                  duration-300
-                  hover:border-white/15
-                  hover:text-white
-                "
-              >
-                Szczegóły
-              </Link>
-
-              <Link
-                to={`/admin/cars/${car.id}/edit`}
-                className="
+            <Link
+              to={`/admin/cars/${car.id}/edit`}
+              className="
                   flex
                   h-8
                   items-center
@@ -173,10 +151,9 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
                   hover:bg-[#b99a5c]/10
                   hover:text-[#d2b878]
                 "
-              >
-                Edytuj
-              </Link>
-            </div>
+            >
+              Edytuj
+            </Link>
           </div>
         </div>
       </div>

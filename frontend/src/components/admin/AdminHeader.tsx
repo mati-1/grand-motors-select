@@ -36,10 +36,11 @@ export const AdminHeader = () => {
         sm:px-6
         lg:px-8
         xl:px-10
+        max-lg:justify-end
       "
     >
       {/* LEFT */}
-      <div>
+      <div className="max-lg:hidden">
         <p className="text-[9px] text-white/25">Grand Motors Select</p>
 
         <h1 className="mt-1 text-[13px] font-medium text-white">Panel firmy</h1>

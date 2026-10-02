@@ -305,7 +305,7 @@ export const AdminSidebar = () => {
         aria-controls="admin-sidebar"
         className={`
           fixed
-          top-24
+          top-5
           z-60
           flex
           h-11
@@ -398,9 +398,7 @@ export const AdminSidebar = () => {
 
         {/* NAVIGATION */}
         <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-3 py-5">
-          <div className="mb-3 px-3 text-[8px] tracking-[0.12em] text-white/20">
-            Zarządzanie
-          </div>
+          <div className="mb-3 px-3 text-[11px] text-white/20">Zarządzanie</div>
 
           <nav className="space-y-1" aria-label="Zarządzanie">
             {navigation.map((item) => (
@@ -442,7 +440,7 @@ export const AdminSidebar = () => {
             ))}
           </nav>
 
-          <div className="mb-3 mt-8 px-3 text-[8px] tracking-[0.12em] text-white/20">
+          <div className="mb-3 mt-8 px-3 text-[11px] tracking-[0.12em] text-white/20">
             Firma
           </div>
 

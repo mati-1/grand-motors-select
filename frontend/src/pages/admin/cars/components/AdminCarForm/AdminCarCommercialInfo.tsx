@@ -74,7 +74,7 @@ export const AdminCarCommercialInfo = ({ values, onChange }: Props) => {
         />
 
         <div className="flex items-end">
-          <label className="flex h-11 w-full cursor-pointer items-center gap-3 rounded-[8px] border border-white/10 bg-white/[0.025] px-4">
+          <label className="flex h-11 w-full cursor-pointer items-center gap-3 rounded-[10px] border border-white/10 bg-white/2.5 px-4">
             <input
               type="checkbox"
               checked={values.negotiation}
@@ -91,22 +91,7 @@ export const AdminCarCommercialInfo = ({ values, onChange }: Props) => {
         </div>
 
         <div className="flex items-end">
-          <label className="flex h-11 w-full cursor-pointer items-center gap-3 rounded-[8px] border border-white/10 bg-white/[0.025] px-4">
-            <input
-              type="checkbox"
-              checked={values.featured}
-              onChange={(event) => onChange("featured", event.target.checked)}
-              className="h-3.5 w-3.5 accent-[#d2b878]"
-            />
-
-            <span className="text-[11px] text-white/55">
-              Wyróżniony samochód
-            </span>
-          </label>
-        </div>
-
-        <div className="flex items-end">
-          <label className="flex h-11 w-full cursor-pointer items-center gap-3 rounded-[8px] border border-white/10 bg-white/[0.025] px-4">
+          <label className="flex h-11 w-full cursor-pointer items-center gap-3 rounded-[10px] border border-white/10 bg-white/2.5 px-4">
             <input
               type="checkbox"
               checked={values.accidentFree}
@@ -121,7 +106,7 @@ export const AdminCarCommercialInfo = ({ values, onChange }: Props) => {
         </div>
 
         <div className="flex items-end">
-          <label className="flex h-11 w-full cursor-pointer items-center gap-3 rounded-[8px] border border-white/10 bg-white/[0.025] px-4">
+          <label className="flex h-11 w-full cursor-pointer items-center gap-3 rounded-[10px] border border-white/10 bg-white/2.5 px-4">
             <input
               type="checkbox"
               checked={values.carvertical}
