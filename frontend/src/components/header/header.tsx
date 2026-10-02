@@ -316,7 +316,7 @@ export const HeaderComponent = () => {
           fixed
           left-0
           top-0
-          z-50
+          z-10000
           w-full
           border-b
           border-white/10

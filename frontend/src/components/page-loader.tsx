@@ -1,78 +1,83 @@
 import { useEffect, useState } from "react";
-
 import { LogoComponent } from "./logo";
 
 type PageLoaderProps = {
   videoSrc?: string;
   imageSources?: string[];
+  ready?: boolean;
 };
 
-const MIN_IMAGE_LOADER_TIME = 1000;
-const CLOSE_DELAY = 300;
-const FADE_DURATION = 900;
+const MIN_IMAGE_LOADER_TIME = 300;
+const CLOSE_DELAY = 200;
+const FADE_DURATION = 700;
 const MAX_WAIT_TIME = 6000;
 
 const getVideoStorageKey = (videoSrc: string) => `gms-video-loaded:${videoSrc}`;
 
-const getGalleryStorageKey = (signature: string) =>
-  `gms-gallery-loaded:${signature}`;
-
-export const PageLoader = ({ videoSrc, imageSources }: PageLoaderProps) => {
-  const gallerySignature = imageSources?.slice(0, 10).join("|") ?? "";
-
-  const galleryImages =
-    gallerySignature.length > 0 ? gallerySignature.split("|") : [];
-
-  const galleryStorageKey =
-    gallerySignature.length > 0
-      ? getGalleryStorageKey(gallerySignature)
-      : undefined;
-
-  /*
-   * =========================================================
-   * INITIAL STATE
-   * =========================================================
-   */
+export const PageLoader = ({
+  videoSrc,
+  imageSources,
+  ready = true,
+}: PageLoaderProps) => {
+  const galleryImages = imageSources?.filter(Boolean) ?? [];
+  const hasVideo = Boolean(videoSrc);
+  const hasGallery = galleryImages.length > 0;
 
   const [loading, setLoading] = useState(() => {
-    if (videoSrc) {
-      return sessionStorage.getItem(getVideoStorageKey(videoSrc)) !== "true";
+    if (hasVideo) {
+      return sessionStorage.getItem(getVideoStorageKey(videoSrc!)) !== "true";
     }
 
-    if (galleryStorageKey) {
-      return sessionStorage.getItem(galleryStorageKey) !== "true";
-    }
-
-    return false;
+    return hasGallery;
   });
 
   const [closing, setClosing] = useState(false);
-
-  /*
-   * =========================================================
-   * EFFECT
-   * =========================================================
-   */
 
   useEffect(() => {
     let closeTimeout: ReturnType<typeof setTimeout> | undefined;
     let removeTimeout: ReturnType<typeof setTimeout> | undefined;
     let fallbackTimeout: ReturnType<typeof setTimeout> | undefined;
+    let cancelled = false;
+    let finished = false;
 
-    let handled = false;
+    const finishLoading = (storageKey?: string) => {
+      if (cancelled || finished) {
+        return;
+      }
 
-    /*
-     * =======================================================
-     * VIDEO
-     * =======================================================
-     */
+      finished = true;
 
-    if (videoSrc) {
+      closeTimeout = setTimeout(() => {
+        if (!cancelled) {
+          setClosing(true);
+        }
+      }, CLOSE_DELAY);
+
+      removeTimeout = setTimeout(() => {
+        if (cancelled) {
+          return;
+        }
+
+        if (storageKey) {
+          sessionStorage.setItem(storageKey, "true");
+        }
+
+        setLoading(false);
+      }, CLOSE_DELAY + FADE_DURATION);
+    };
+
+    if (hasVideo && videoSrc) {
       const storageKey = getVideoStorageKey(videoSrc);
 
       if (sessionStorage.getItem(storageKey) === "true") {
         setLoading(false);
-        return;
+        setClosing(false);
+
+        return () => {
+          if (closeTimeout) clearTimeout(closeTimeout);
+          if (removeTimeout) clearTimeout(removeTimeout);
+          if (fallbackTimeout) clearTimeout(fallbackTimeout);
+        };
       }
 
       setLoading(true);
@@ -83,80 +88,53 @@ export const PageLoader = ({ videoSrc, imageSources }: PageLoaderProps) => {
       video.preload = "auto";
       video.muted = true;
       video.playsInline = true;
-
-      const finishLoading = () => {
-        if (handled) return;
-
-        handled = true;
-
-        closeTimeout = setTimeout(() => {
-          setClosing(true);
-        }, CLOSE_DELAY);
-
-        removeTimeout = setTimeout(() => {
-          sessionStorage.setItem(storageKey, "true");
-          setLoading(false);
-        }, CLOSE_DELAY + FADE_DURATION);
-      };
+      video.src = videoSrc;
 
       const handleReady = () => {
-        finishLoading();
+        finishLoading(storageKey);
       };
 
       const handleError = () => {
-        finishLoading();
+        finishLoading(storageKey);
       };
 
       video.addEventListener("loadeddata", handleReady);
-
       video.addEventListener("canplay", handleReady);
-
       video.addEventListener("error", handleError);
 
-      video.src = videoSrc;
       video.load();
 
       fallbackTimeout = setTimeout(() => {
-        finishLoading();
+        finishLoading(storageKey);
       }, MAX_WAIT_TIME);
 
       return () => {
-        handled = true;
+        cancelled = true;
 
         video.removeEventListener("loadeddata", handleReady);
-
         video.removeEventListener("canplay", handleReady);
-
         video.removeEventListener("error", handleError);
 
         video.src = "";
 
-        if (closeTimeout) {
-          clearTimeout(closeTimeout);
-        }
-
-        if (removeTimeout) {
-          clearTimeout(removeTimeout);
-        }
-
-        if (fallbackTimeout) {
-          clearTimeout(fallbackTimeout);
-        }
+        if (closeTimeout) clearTimeout(closeTimeout);
+        if (removeTimeout) clearTimeout(removeTimeout);
+        if (fallbackTimeout) clearTimeout(fallbackTimeout);
       };
     }
 
-    /*
-     * =======================================================
-     * GALLERY
-     * =======================================================
-     */
+    if (hasGallery) {
+      if (!ready) {
+        setLoading(true);
+        setClosing(false);
 
-    if (galleryImages.length > 0 && galleryStorageKey) {
-      const storageKey = galleryStorageKey;
+        return () => {
+          cancelled = true;
 
-      if (sessionStorage.getItem(storageKey) === "true") {
-        setLoading(false);
-        return;
+          if (closeTimeout) clearTimeout(closeTimeout);
+          if (removeTimeout) clearTimeout(removeTimeout);
+          if (fallbackTimeout) clearTimeout(fallbackTimeout);
+        };
       }
 
       setLoading(true);
@@ -164,37 +142,19 @@ export const PageLoader = ({ videoSrc, imageSources }: PageLoaderProps) => {
 
       const startedAt = performance.now();
 
-      const images = galleryImages.map(() => new Image());
+      const images = galleryImages.map((src) => {
+        const image = new Image();
+        image.src = src;
+        return image;
+      });
 
       let loadedImages = 0;
-
       const loadedIndexes = new Set<number>();
 
-      const finishLoading = () => {
-        if (handled) return;
-
-        handled = true;
-
-        const elapsed = performance.now() - startedAt;
-
-        const remainingTime = Math.max(0, MIN_IMAGE_LOADER_TIME - elapsed);
-
-        closeTimeout = setTimeout(() => {
-          setClosing(true);
-        }, remainingTime + CLOSE_DELAY);
-
-        removeTimeout = setTimeout(
-          () => {
-            sessionStorage.setItem(storageKey, "true");
-
-            setLoading(false);
-          },
-          remainingTime + CLOSE_DELAY + FADE_DURATION,
-        );
-      };
-
       const handleImageReady = (index: number) => {
-        if (handled) return;
+        if (cancelled || finished) {
+          return;
+        }
 
         if (loadedIndexes.has(index)) {
           return;
@@ -203,11 +163,14 @@ export const PageLoader = ({ videoSrc, imageSources }: PageLoaderProps) => {
         loadedIndexes.add(index);
         loadedImages += 1;
 
-        if (loadedImages < images.length) {
-          return;
-        }
+        if (loadedImages >= images.length) {
+          const elapsed = performance.now() - startedAt;
+          const remainingTime = Math.max(0, MIN_IMAGE_LOADER_TIME - elapsed);
 
-        finishLoading();
+          setTimeout(() => {
+            finishLoading();
+          }, remainingTime);
+        }
       };
 
       images.forEach((image, index) => {
@@ -221,7 +184,6 @@ export const PageLoader = ({ videoSrc, imageSources }: PageLoaderProps) => {
 
         image.addEventListener("load", handleLoad);
         image.addEventListener("error", handleError);
-        image.src = galleryImages[index];
 
         if (image.complete) {
           handleImageReady(index);
@@ -233,52 +195,29 @@ export const PageLoader = ({ videoSrc, imageSources }: PageLoaderProps) => {
       }, MAX_WAIT_TIME);
 
       return () => {
-        handled = true;
+        cancelled = true;
 
-        if (closeTimeout) {
-          clearTimeout(closeTimeout);
-        }
+        images.forEach((image, index) => {
+          image.removeEventListener("load", () => handleImageReady(index));
+          image.removeEventListener("error", () => handleImageReady(index));
+        });
 
-        if (removeTimeout) {
-          clearTimeout(removeTimeout);
-        }
-
-        if (fallbackTimeout) {
-          clearTimeout(fallbackTimeout);
-        }
+        if (closeTimeout) clearTimeout(closeTimeout);
+        if (removeTimeout) clearTimeout(removeTimeout);
+        if (fallbackTimeout) clearTimeout(fallbackTimeout);
       };
     }
-
-    /*
-     * =======================================================
-     * BRAK VIDEO / GALERII
-     * =======================================================
-     */
 
     setLoading(false);
 
     return () => {
-      handled = true;
+      cancelled = true;
 
-      if (closeTimeout) {
-        clearTimeout(closeTimeout);
-      }
-
-      if (removeTimeout) {
-        clearTimeout(removeTimeout);
-      }
-
-      if (fallbackTimeout) {
-        clearTimeout(fallbackTimeout);
-      }
+      if (closeTimeout) clearTimeout(closeTimeout);
+      if (removeTimeout) clearTimeout(removeTimeout);
+      if (fallbackTimeout) clearTimeout(fallbackTimeout);
     };
-  }, [videoSrc, gallerySignature, galleryStorageKey]);
-
-  /*
-   * =========================================================
-   * RENDER
-   * =========================================================
-   */
+  }, [videoSrc, galleryImages.join("|"), ready]);
 
   if (!loading) {
     return null;
@@ -337,7 +276,6 @@ export const PageLoader = ({ videoSrc, imageSources }: PageLoaderProps) => {
         <span
           className={`
             text-[8px]
-            
             text-[#666]
             transition-all duration-700
             ${closing ? "translate-y-1 opacity-0" : "translate-y-0 opacity-100"}
