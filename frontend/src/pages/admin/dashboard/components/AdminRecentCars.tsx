@@ -74,70 +74,76 @@ export const AdminRecentCars = () => {
       {/* LIST */}
       <div>
         {cars.map((car, index) => (
-          <Link
+          <div
             key={car.id}
-            to={`/admin/cars/${car.id}`}
             className={`
               group
               flex
-              items-center
+              lg:items-center
               gap-3
               px-5
               py-4
+              lg:flex-row
+              flex-col
+              items-start
               transition-colors
               duration-300
               hover:bg-white/2
               ${index !== cars.length - 1 ? "border-b border-white/5" : ""}
             `}
           >
-            <div className="h-16 w-24 shrink-0 overflow-hidden rounded-md bg-white/5">
-              <img
-                src={car.image}
-                alt={car.name}
-                className="
-                  h-full
-                  w-full
-                  object-cover
-                  transition-transform
-                  duration-500
-                  group-hover:scale-105
+            <div className="flex items-center gap-3 lg:flex-1">
+              <div className="h-16 w-24 shrink-0 overflow-hidden rounded-md bg-white/5">
+                <img
+                  src={car.image}
+                  alt={car.name}
+                  className="
+                h-full
+                w-full
+                object-cover
                 "
-              />
+                />
+              </div>
+
+              <div className="min-w-0 flex-1">
+                <p className="truncate text-[12px] font-medium text-white">
+                  {car.name}
+                </p>
+
+                <p className="mt-1 text-[11px] text-white/25">{car.details}</p>
+              </div>
             </div>
 
-            <div className="min-w-0 flex-1">
-              <p className="truncate text-[12px] font-medium text-white">
-                {car.name}
-              </p>
+            <div className="mt-3 flex items-center gap-6 lg:mt-0">
+              <div className="text-right">
+                <p className="text-[12px] text-white/25">Inwestycja</p>
 
-              <p className="mt-1 text-[11px] text-white/25">{car.details}</p>
-            </div>
+                <p className="mt-1 text-[13px] text-white">{car.investment}</p>
+              </div>
 
-            <div className="hidden text-right sm:block">
-              <p className="text-[13px] text-white/25">Inwestycja</p>
+              <div className="text-right">
+                <p className="text-[12px] text-white/25">Cena w ogłoszeniu</p>
 
-              <p className="mt-1 text-[14px] text-white">{car.investment}</p>
-            </div>
-
-            <div
-              className={`
-                hidden
+                <p className="mt-1 text-[13px] text-white">{car.investment}</p>
+              </div>
+              <div
+                className={`
                 rounded-full
                 px-2
                 py-1
                 text-[10px]
                 ml-4
-                sm:block
                 ${
                   car.statusType === "sale"
                     ? "bg-[#b99a5c]/[0.07] text-[#b99a5c]"
                     : "bg-white/5 text-white/35"
                 }
               `}
-            >
-              {car.status}
+              >
+                {car.status}
+              </div>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </section>
