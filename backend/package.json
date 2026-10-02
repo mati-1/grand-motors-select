@@ -17,12 +17,15 @@
     "@fastify/cookie": "^11.1.2",
     "@fastify/cors": "^11.3.0",
     "@fastify/jwt": "^10.2.2",
+    "@fastify/multipart": "^10.1.2",
+    "@fastify/static": "^10.1.5",
     "@prisma/orm-postgres": "^8.0.0-rc.13",
     "argon2": "^0.45.1",
     "dotenv": "^18.0.4",
     "fastify": "^5.12.5",
     "pg": "^8.23.0",
-    "temporal-polyfill": "^1.0.5"
+    "temporal-polyfill": "^1.0.5",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@types/node": "^26.6.3",
