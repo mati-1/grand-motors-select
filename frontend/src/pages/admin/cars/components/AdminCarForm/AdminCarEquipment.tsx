@@ -53,7 +53,7 @@ export const AdminCarEquipment = ({ value, onChange }: Props) => {
           <button
             type="button"
             onClick={addItem}
-            className="h-11 shrink-0 cursor-pointer self-end rounded-[8px] border border-white/10 px-4 text-[10px] text-white/50 transition-all duration-300 hover:border-[#b99a5c]/30 hover:text-[#d2b878]"
+            className="h-11 shrink-0 cursor-pointer self-end rounded-[10px] border border-white/10 px-4 text-[10px] text-white/50 transition-all duration-300 hover:border-[#b99a5c]/30 hover:text-[#d2b878]"
           >
             Dodaj
           </button>
@@ -64,7 +64,7 @@ export const AdminCarEquipment = ({ value, onChange }: Props) => {
             {value.map((item, index) => (
               <div
                 key={`${item}-${index}`}
-                className="flex items-center justify-between rounded-[8px] border border-white/8 bg-white/[0.02] px-3 py-2.5"
+                className="flex items-center justify-between rounded-[10px] border border-white/8 bg-white/2 px-3 py-2.5"
               >
                 <span className="text-[11px] text-white/55">{item}</span>
 

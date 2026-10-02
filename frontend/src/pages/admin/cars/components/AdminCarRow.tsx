@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import type { ApiCar } from "../../../../api/cars";
 
 export type AdminCar = ApiCar & {
@@ -12,6 +13,11 @@ type AdminCarRowProps = {
 };
 
 export const AdminCarRow = ({ car }: AdminCarRowProps) => {
+  const primaryImage =
+    car.images.find((image) => image.isPrimary)?.url ??
+    car.images[0]?.url ??
+    "/logohd emblem.png";
+
   return (
     <div
       className="
@@ -28,29 +34,19 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
     >
       <div className="flex flex-col lg:flex-row">
         <img
-          src={
-            car.images.find((image) => image.isPrimary)?.url
-              ? `${import.meta.env.VITE_API_URL}${
-                  car.images.find((image) => image.isPrimary)?.url
-                }`
-              : car.images[0]?.url
-                ? `${import.meta.env.VITE_API_URL}${car.images[0].url}`
-                : "/logohd emblem.png"
-          }
+          src={primaryImage}
           alt={`${car.brand} ${car.model}`}
           className="
-    h-52.5
-    object-cover
-    lg:h-60
-    lg:w-65
-    xl:w-72.5
-  "
+            h-52.5
+            object-cover
+            lg:h-60
+            lg:w-65
+            xl:w-72.5
+          "
         />
 
-        {/* CONTENT */}
         <div className="flex min-w-0 flex-1 flex-col">
           <div className="flex min-w-0 flex-1 flex-col p-5">
-            {/* TOP */}
             <div className="flex flex-col justify-between gap-4 sm:flex-row">
               <div className="min-w-0">
                 <h2
@@ -79,7 +75,6 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
               </div>
             </div>
 
-            {/* FINANCIAL DATA */}
             <div
               className="
                 mt-5
@@ -123,7 +118,6 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
             </div>
           </div>
 
-          {/* ACTIONS */}
           <div
             className="
               flex
@@ -142,22 +136,22 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
             <Link
               to={`/admin/cars/${car.id}/edit`}
               className="
-                  flex
-                  h-8
-                  items-center
-                  rounded-[10px]
-                  border
-                  border-[#b99a5c]/20
-                  bg-[#b99a5c]/5
-                  px-3
-                  text-[12px]
-                  text-[#b99a5c]
-                  transition-all
-                  duration-300
-                  hover:border-[#b99a5c]/35
-                  hover:bg-[#b99a5c]/10
-                  hover:text-[#d2b878]
-                "
+                flex
+                h-8
+                items-center
+                rounded-[10px]
+                border
+                border-[#b99a5c]/20
+                bg-[#b99a5c]/5
+                px-3
+                text-[12px]
+                text-[#b99a5c]
+                transition-all
+                duration-300
+                hover:border-[#b99a5c]/35
+                hover:bg-[#b99a5c]/10
+                hover:text-[#d2b878]
+              "
             >
               Edytuj
             </Link>

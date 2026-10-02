@@ -664,13 +664,13 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                   {/* IMAGE */}
                   <div className="relative">
                     <img
-                      src={`${import.meta.env.VITE_API_URL}${image.url}`}
+                      src={image.url}
                       alt={image.fileName}
                       className="
-                            aspect-16/10
-                            w-full
-                            object-cover
-                          "
+    aspect-16/10
+    w-full
+    object-cover
+  "
                     />
 
                     {image.isPrimary && (
