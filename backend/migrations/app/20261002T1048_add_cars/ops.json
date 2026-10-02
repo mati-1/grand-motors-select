@@ -1,0 +1,245 @@
+[
+  {
+    "id": "table.Car",
+    "label": "Create table \"Car\"",
+    "summary": "Creates table \"Car\"",
+    "operationClass": "additive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "table",
+        "name": "Car"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure table \"Car\" does not exist",
+        "sql": "SELECT (to_regclass($1)) IS NULL AS \"result\"",
+        "params": [
+          "\"public\".\"Car\""
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "create table \"Car\"",
+        "sql": "CREATE TABLE \"public\".\"Car\" (\n  \"accidentFree\" bool DEFAULT false NOT NULL,\n  \"body\" text NOT NULL,\n  \"brand\" text NOT NULL,\n  \"carvertical\" bool DEFAULT false NOT NULL,\n  \"color\" text NOT NULL,\n  \"condition\" text NOT NULL,\n  \"country\" text NOT NULL,\n  \"createdAt\" timestamptz DEFAULT (now()) NOT NULL,\n  \"description\" text NOT NULL,\n  \"doors\" text NOT NULL,\n  \"drive\" text NOT NULL,\n  \"engine\" text NOT NULL,\n  \"equipment\" text[] NOT NULL,\n  \"featured\" bool DEFAULT false NOT NULL,\n  \"fuel\" text NOT NULL,\n  \"id\" text NOT NULL,\n  \"interior\" text NOT NULL,\n  \"invoice\" text DEFAULT 'VAT MARŻA' NOT NULL,\n  \"location\" text NOT NULL,\n  \"mileage\" text NOT NULL,\n  \"model\" text NOT NULL,\n  \"negotiation\" bool DEFAULT false NOT NULL,\n  \"power\" text NOT NULL,\n  \"price\" text NOT NULL,\n  \"seats\" text NOT NULL,\n  \"slug\" text NOT NULL,\n  \"status\" text DEFAULT 'available' NOT NULL,\n  \"statusType\" text DEFAULT 'sale' NOT NULL,\n  \"transmission\" text NOT NULL,\n  \"updatedAt\" timestamptz NOT NULL,\n  \"vin\" text NOT NULL,\n  \"voivodeship\" text NOT NULL,\n  \"year\" int4 NOT NULL,\n  PRIMARY KEY (\"id\"),\n  CONSTRAINT \"Car_equipment_elem_not_null_a3f3a8f5\" CHECK (array_position(\"equipment\", NULL) IS NULL)\n)",
+        "params": []
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify table \"Car\" exists",
+        "sql": "SELECT (to_regclass($1)) IS NOT NULL AS \"result\"",
+        "params": [
+          "\"public\".\"Car\""
+        ]
+      }
+    ]
+  },
+  {
+    "id": "table.CarImage",
+    "label": "Create table \"CarImage\"",
+    "summary": "Creates table \"CarImage\"",
+    "operationClass": "additive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "table",
+        "name": "CarImage"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure table \"CarImage\" does not exist",
+        "sql": "SELECT (to_regclass($1)) IS NULL AS \"result\"",
+        "params": [
+          "\"public\".\"CarImage\""
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "create table \"CarImage\"",
+        "sql": "CREATE TABLE \"public\".\"CarImage\" (\n  \"carId\" text NOT NULL,\n  \"createdAt\" timestamptz DEFAULT (now()) NOT NULL,\n  \"fileName\" text NOT NULL,\n  \"id\" text NOT NULL,\n  \"isPrimary\" bool DEFAULT false NOT NULL,\n  \"mimeType\" text NOT NULL,\n  \"position\" int4 DEFAULT 0 NOT NULL,\n  \"size\" int4 NOT NULL,\n  \"storageKey\" text NOT NULL,\n  PRIMARY KEY (\"id\")\n)",
+        "params": []
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify table \"CarImage\" exists",
+        "sql": "SELECT (to_regclass($1)) IS NOT NULL AS \"result\"",
+        "params": [
+          "\"public\".\"CarImage\""
+        ]
+      }
+    ]
+  },
+  {
+    "id": "unique.Car.Car_vin_key",
+    "label": "Add unique constraint on \"Car\" (vin)",
+    "operationClass": "additive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "unique",
+        "name": "Car_vin_key",
+        "table": "Car"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure constraint \"Car_vin_key\" does not exist",
+        "sql": "SELECT NOT EXISTS (SELECT 1 AS \"one\" FROM \"pg_constraint\" AS \"c\" INNER JOIN \"pg_namespace\" AS \"n\" ON \"n\".\"oid\" = \"c\".\"connamespace\" WHERE (\"c\".\"conname\" = $1 AND \"n\".\"nspname\" = $2 AND \"c\".\"conrelid\" = to_regclass($3))) AS \"result\"",
+        "params": [
+          "Car_vin_key",
+          "public",
+          "\"public\".\"Car\""
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "add unique constraint \"Car_vin_key\"",
+        "sql": "ALTER TABLE \"public\".\"Car\" ADD CONSTRAINT \"Car_vin_key\" UNIQUE (\"vin\")"
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify constraint \"Car_vin_key\" exists",
+        "sql": "SELECT EXISTS (SELECT 1 AS \"one\" FROM \"pg_constraint\" AS \"c\" INNER JOIN \"pg_namespace\" AS \"n\" ON \"n\".\"oid\" = \"c\".\"connamespace\" WHERE (\"c\".\"conname\" = $1 AND \"n\".\"nspname\" = $2 AND \"c\".\"conrelid\" = to_regclass($3))) AS \"result\"",
+        "params": [
+          "Car_vin_key",
+          "public",
+          "\"public\".\"Car\""
+        ]
+      }
+    ]
+  },
+  {
+    "id": "unique.Car.Car_slug_key",
+    "label": "Add unique constraint on \"Car\" (slug)",
+    "operationClass": "additive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "unique",
+        "name": "Car_slug_key",
+        "table": "Car"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure constraint \"Car_slug_key\" does not exist",
+        "sql": "SELECT NOT EXISTS (SELECT 1 AS \"one\" FROM \"pg_constraint\" AS \"c\" INNER JOIN \"pg_namespace\" AS \"n\" ON \"n\".\"oid\" = \"c\".\"connamespace\" WHERE (\"c\".\"conname\" = $1 AND \"n\".\"nspname\" = $2 AND \"c\".\"conrelid\" = to_regclass($3))) AS \"result\"",
+        "params": [
+          "Car_slug_key",
+          "public",
+          "\"public\".\"Car\""
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "add unique constraint \"Car_slug_key\"",
+        "sql": "ALTER TABLE \"public\".\"Car\" ADD CONSTRAINT \"Car_slug_key\" UNIQUE (\"slug\")"
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify constraint \"Car_slug_key\" exists",
+        "sql": "SELECT EXISTS (SELECT 1 AS \"one\" FROM \"pg_constraint\" AS \"c\" INNER JOIN \"pg_namespace\" AS \"n\" ON \"n\".\"oid\" = \"c\".\"connamespace\" WHERE (\"c\".\"conname\" = $1 AND \"n\".\"nspname\" = $2 AND \"c\".\"conrelid\" = to_regclass($3))) AS \"result\"",
+        "params": [
+          "Car_slug_key",
+          "public",
+          "\"public\".\"Car\""
+        ]
+      }
+    ]
+  },
+  {
+    "id": "index.CarImage.CarImage_carId_idx_a6cb4be7",
+    "label": "Create index \"CarImage_carId_idx_a6cb4be7\" on \"CarImage\"",
+    "operationClass": "additive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "index",
+        "name": "CarImage_carId_idx_a6cb4be7",
+        "table": "CarImage"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure index \"CarImage_carId_idx_a6cb4be7\" does not exist",
+        "sql": "SELECT (to_regclass($1)) IS NULL AS \"result\"",
+        "params": [
+          "\"public\".\"CarImage_carId_idx_a6cb4be7\""
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "create index \"CarImage_carId_idx_a6cb4be7\"",
+        "sql": "CREATE INDEX \"CarImage_carId_idx_a6cb4be7\" ON \"public\".\"CarImage\" (\"carId\")",
+        "params": []
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify index \"CarImage_carId_idx_a6cb4be7\" exists",
+        "sql": "SELECT (to_regclass($1)) IS NOT NULL AS \"result\"",
+        "params": [
+          "\"public\".\"CarImage_carId_idx_a6cb4be7\""
+        ]
+      }
+    ]
+  },
+  {
+    "id": "foreignKey.CarImage.CarImage_carId_fkey",
+    "label": "Add foreign key \"CarImage_carId_fkey\" on \"CarImage\"",
+    "operationClass": "additive",
+    "target": {
+      "id": "postgres",
+      "details": {
+        "schema": "public",
+        "objectType": "foreignKey",
+        "name": "CarImage_carId_fkey",
+        "table": "CarImage"
+      }
+    },
+    "precheck": [
+      {
+        "description": "ensure FK \"CarImage_carId_fkey\" does not exist",
+        "sql": "SELECT NOT EXISTS (SELECT 1 AS \"one\" FROM \"pg_constraint\" AS \"c\" INNER JOIN \"pg_namespace\" AS \"n\" ON \"n\".\"oid\" = \"c\".\"connamespace\" WHERE (\"c\".\"conname\" = $1 AND \"n\".\"nspname\" = $2 AND \"c\".\"conrelid\" = to_regclass($3))) AS \"result\"",
+        "params": [
+          "CarImage_carId_fkey",
+          "public",
+          "\"public\".\"CarImage\""
+        ]
+      }
+    ],
+    "execute": [
+      {
+        "description": "add FK \"CarImage_carId_fkey\"",
+        "sql": "ALTER TABLE \"public\".\"CarImage\"\nADD CONSTRAINT \"CarImage_carId_fkey\"\nFOREIGN KEY (\"carId\")\nREFERENCES \"public\".\"Car\" (\"id\")\nON DELETE CASCADE"
+      }
+    ],
+    "postcheck": [
+      {
+        "description": "verify FK \"CarImage_carId_fkey\" exists",
+        "sql": "SELECT EXISTS (SELECT 1 AS \"one\" FROM \"pg_constraint\" AS \"c\" INNER JOIN \"pg_namespace\" AS \"n\" ON \"n\".\"oid\" = \"c\".\"connamespace\" WHERE (\"c\".\"conname\" = $1 AND \"n\".\"nspname\" = $2 AND \"c\".\"conrelid\" = to_regclass($3))) AS \"result\"",
+        "params": [
+          "CarImage_carId_fkey",
+          "public",
+          "\"public\".\"CarImage\""
+        ]
+      }
+    ]
+  }
+]

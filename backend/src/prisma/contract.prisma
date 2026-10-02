@@ -8,3 +8,73 @@ model User {
   createdAt DateTime @default(now())
   updatedAt temporal.updatedAt()
 }
+
+model Car {
+  id            String   @id @default(cuid(2))
+
+  brand         String
+  model         String
+  condition     String
+
+  vin           String   @unique
+  year          Int
+  mileage       String
+
+  engine        String
+  power         String
+  transmission  String
+  drive         String
+  fuel          String
+
+  carvertical   Boolean  @default(false)
+
+  price         String
+  location      String
+  voivodeship   String
+
+  negotiation   Boolean  @default(false)
+  accidentFree  Boolean  @default(false)
+
+  description   String
+
+  status        String   @default("available")
+  statusType    String   @default("sale")
+
+  invoice       String   @default("VAT MARŻA")
+
+  featured      Boolean  @default(false)
+
+  equipment    String[]
+
+  body          String
+  color         String
+  interior      String
+  seats         String
+  doors         String
+  country       String
+
+  slug          String   @unique
+
+  createdAt     DateTime @default(now())
+  updatedAt     temporal.updatedAt()
+
+  images        CarImage[]
+}
+
+model CarImage {
+  id          String   @id @default(cuid(2))
+
+  carId       String
+
+  fileName    String
+  storageKey  String
+  mimeType    String
+  size        Int
+
+  position    Int      @default(0)
+  isPrimary   Boolean  @default(false)
+
+  createdAt   DateTime @default(now())
+
+  car         Car      @relation(fields: [carId], references: [id], onDelete: Cascade)
+}
