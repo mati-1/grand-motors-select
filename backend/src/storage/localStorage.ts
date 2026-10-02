@@ -45,7 +45,7 @@ export class LocalStorage implements Storage {
     } catch {}
   }
 
-  getUrl(storageKey: string): string {
-    return `/uploads/${storageKey}`;
+  getUrl(storageKey: string) {
+    return `${process.env.API_URL}/uploads/${storageKey}`;
   }
 }

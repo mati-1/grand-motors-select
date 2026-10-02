@@ -17,6 +17,7 @@ const server = Fastify({
 await server.register(cors, {
   origin: process.env.FRONTEND_URL,
   credentials: true,
+  methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
 });
 
 await server.register(prismaPlugin);

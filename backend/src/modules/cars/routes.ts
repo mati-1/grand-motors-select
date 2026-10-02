@@ -12,14 +12,123 @@ import {
 } from "./schemas.js";
 import { createSlug } from "./utils.js";
 
+type CarsQuery = {
+  view?: "available" | "sold" | "reservation";
+  search?: string;
+  brand?: string;
+  minYear?: string;
+  maxYear?: string;
+  minPrice?: string;
+  maxPrice?: string;
+  fuel?: string;
+  sort?: "priceAsc" | "priceDesc" | "yearDesc" | "mileageAsc";
+};
+
+const parseNumber = (value: string) => {
+  return Number(value.replace(/[^\d]/g, ""));
+};
+
 const storage = new LocalStorage();
 
 export const carsRoutes: FastifyPluginAsync = async (server) => {
-  server.get("/", async () => {
-    const cars = await server.db.orm.public.Car.all();
+  server.get<{
+    Querystring: CarsQuery;
+  }>("/", async (request) => {
+    const {
+      search = "",
+      brand,
+      minYear,
+      maxYear,
+      minPrice,
+      maxPrice,
+      fuel,
+      sort,
+    } = request.query;
+
+    const allCars = await server.db.orm.public.Car.all();
+
+    let cars = allCars.filter(
+      (car) => car.status === "available" || car.status === "reservation",
+    );
+
+    if (search.trim()) {
+      const query = search.toLowerCase().trim();
+
+      cars = cars.filter((car) =>
+        `${car.brand} ${car.model} ${car.engine} ${car.year} ${car.fuel}`
+          .toLowerCase()
+          .includes(query),
+      );
+    }
+
+    if (brand) {
+      cars = cars.filter(
+        (car) => car.brand.toLowerCase() === brand.toLowerCase(),
+      );
+    }
+
+    if (minYear) {
+      cars = cars.filter((car) => car.year >= Number(minYear));
+    }
+
+    if (maxYear) {
+      cars = cars.filter((car) => car.year <= Number(maxYear));
+    }
+
+    if (minPrice) {
+      cars = cars.filter((car) => parseNumber(car.price) >= Number(minPrice));
+    }
+
+    if (maxPrice) {
+      cars = cars.filter((car) => parseNumber(car.price) <= Number(maxPrice));
+    }
+
+    if (fuel) {
+      cars = cars.filter(
+        (car) => car.fuel.toLowerCase() === fuel.toLowerCase(),
+      );
+    }
+
+    switch (sort) {
+      case "priceAsc":
+        cars.sort((a, b) => parseNumber(a.price) - parseNumber(b.price));
+        break;
+
+      case "priceDesc":
+        cars.sort((a, b) => parseNumber(b.price) - parseNumber(a.price));
+        break;
+
+      case "yearDesc":
+        cars.sort((a, b) => b.year - a.year);
+        break;
+
+      case "mileageAsc":
+        cars.sort((a, b) => parseNumber(a.mileage) - parseNumber(b.mileage));
+        break;
+    }
+
+    const carsWithImages = await Promise.all(
+      cars.map(async (car) => {
+        const images = await server.db.orm.public.CarImage.where({
+          carId: car.id,
+        }).all();
+
+        const sortedImages = [...images].sort(
+          (a, b) => a.position - b.position,
+        );
+
+        return {
+          ...car,
+          images: sortedImages.map((image) => ({
+            ...image,
+            url: storage.getUrl(image.storageKey),
+          })),
+        };
+      }),
+    );
 
     return {
-      cars,
+      cars: carsWithImages,
     };
   });
 
@@ -173,9 +282,23 @@ export const carsRoutes: FastifyPluginAsync = async (server) => {
 
       const body = result.data;
 
+      const { details, ...carData } = body;
+
       const updatedCar = await server.db.orm.public.Car.where({
         id: request.params.id,
-      }).update(body);
+      }).update({
+        ...carData,
+        ...(details
+          ? {
+              body: details.body,
+              color: details.color,
+              interior: details.interior,
+              seats: details.seats,
+              doors: details.doors,
+              country: details.country,
+            }
+          : {}),
+      });
 
       return {
         car: updatedCar,
