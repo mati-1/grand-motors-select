@@ -82,7 +82,7 @@ export const CarGalleryLightbox = ({
       className="
         fixed
         inset-0
-        z-9999
+        z-10001
         flex
         flex-col
         bg-[#b99a5c]/20
