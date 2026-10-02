@@ -378,7 +378,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
   }, []);
 
   return (
-    <section className="overflow-hidden rounded-[12px] border border-white/8 bg-[#090909]">
+    <section className="overflow-hidden rounded-[10px] border border-white/8 bg-[#090909]">
       {/* HEADER */}
       <div className="border-b border-white/7 px-5 py-5 sm:px-7 sm:py-6">
         <h3 className="text-[16px] font-medium text-white sm:text-[17px]">
@@ -415,11 +415,11 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
             flex-col
             items-center
             justify-center
-            rounded-[12px]
+            rounded-[10px]
             border
             border-dashed
             border-white/10
-            bg-white/[0.02]
+            bg-white/2
             px-5
             transition-all
             duration-300
@@ -468,7 +468,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                   key={image.id}
                   className="
                         overflow-hidden
-                        rounded-[12px]
+                        rounded-[10px]
                         border
                         border-white/10
                         bg-[#050505]
@@ -480,20 +480,20 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                       src={image.previewUrl}
                       alt={image.file.name}
                       className="
-                            aspect-[16/10]
+                            aspect-16/10
                             w-full
                             object-cover
                           "
                     />
 
                     {image.isPrimary && (
-                      <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-[8px] border border-[#b99a5c]/30 bg-[#090909]/90 px-3 py-2 text-[10px] font-medium text-[#d2b878] backdrop-blur-md">
+                      <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-[10px] border border-[#b99a5c]/30 bg-[#090909]/90 px-3 py-2 text-[10px] font-medium text-[#d2b878] backdrop-blur-md">
                         <StarIcon filled />
                         Zdjęcie główne
                       </div>
                     )}
 
-                    <div className="absolute right-3 top-3 flex h-8 min-w-8 items-center justify-center rounded-[8px] bg-black/70 px-2.5 text-[11px] font-medium text-white/65 backdrop-blur-md">
+                    <div className="absolute right-3 top-3 flex h-8 min-w-8 items-center justify-center rounded-[10px] bg-black/70 px-2.5 text-[11px] font-medium text-white/65 backdrop-blur-md">
                       {index + 1}
                     </div>
                   </div>
@@ -554,7 +554,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                               text-white/45
                               transition-all
                               hover:border-white/20
-                              hover:bg-white/[0.03]
+                              hover:bg-white/3
                               hover:text-white
                               disabled:cursor-default
                               disabled:opacity-20
@@ -582,7 +582,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                               text-white/45
                               transition-all
                               hover:border-white/20
-                              hover:bg-white/[0.03]
+                              hover:bg-white/3
                               hover:text-white
                               disabled:cursor-default
                               disabled:opacity-20
@@ -655,7 +655,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                   key={image.id}
                   className="
                         overflow-hidden
-                        rounded-[12px]
+                        rounded-[10px]
                         border
                         border-white/10
                         bg-[#050505]
@@ -667,20 +667,20 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                       src={`${import.meta.env.VITE_API_URL}${image.url}`}
                       alt={image.fileName}
                       className="
-                            aspect-[16/10]
+                            aspect-16/10
                             w-full
                             object-cover
                           "
                     />
 
                     {image.isPrimary && (
-                      <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-[8px] border border-[#b99a5c]/30 bg-[#090909]/90 px-3 py-2 text-[10px] font-medium text-[#d2b878] backdrop-blur-md">
+                      <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-[10px] border border-[#b99a5c]/30 bg-[#090909]/90 px-3 py-2 text-[10px] font-medium text-[#d2b878] backdrop-blur-md">
                         <StarIcon filled />
                         Zdjęcie główne
                       </div>
                     )}
 
-                    <div className="absolute right-3 top-3 flex h-8 min-w-8 items-center justify-center rounded-[8px] bg-black/70 px-2.5 text-[11px] font-medium text-white/65 backdrop-blur-md">
+                    <div className="absolute right-3 top-3 flex h-8 min-w-8 items-center justify-center rounded-[10px] bg-black/70 px-2.5 text-[11px] font-medium text-white/65 backdrop-blur-md">
                       {index + 1}
                     </div>
                   </div>
@@ -742,7 +742,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                               text-white/45
                               transition-all
                               hover:border-white/20
-                              hover:bg-white/[0.03]
+                              hover:bg-white/3
                               hover:text-white
                               disabled:cursor-default
                               disabled:opacity-20
@@ -776,7 +776,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                               text-white/45
                               transition-all
                               hover:border-white/20
-                              hover:bg-white/[0.03]
+                              hover:bg-white/3
                               hover:text-white
                               disabled:cursor-default
                               disabled:opacity-20
@@ -827,7 +827,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
 
         {/* EMPTY */}
         {!carImagesQuery.isPending && carId && sortedImages.length === 0 && (
-          <div className="mt-6 rounded-[10px] border border-white/7 bg-white/[0.015] px-5 py-10 text-center">
+          <div className="mt-6 rounded-[10px] border border-white/7 bg-white/1.5 px-5 py-10 text-center">
             <p className="text-[12px] text-white/35">
               Samochód nie ma jeszcze żadnych zdjęć.
             </p>
