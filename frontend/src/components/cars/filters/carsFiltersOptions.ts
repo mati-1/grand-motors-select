@@ -1,4 +1,4 @@
-import type { CarView, SortOption } from "../../../hooks/useCarFilters";
+import type { SortOption } from "../../../hooks/cars/useCarFilters";
 
 import { priceOptions, fuelOptions } from "./carsFilterOptions";
 
@@ -104,20 +104,6 @@ export const getCarsFilterOptions = ({
     },
   ];
 
-  const viewOptions: {
-    value: CarView;
-    label: string;
-  }[] = [
-    {
-      value: "available",
-      label: "Aktualne",
-    },
-    {
-      value: "sold",
-      label: "Archiwalne",
-    },
-  ];
-
   return {
     brandOptions,
     minYearOptions,
@@ -126,6 +112,5 @@ export const getCarsFilterOptions = ({
     minPriceOptions,
     maxPriceOptions,
     sortOptions,
-    viewOptions,
   };
 };
