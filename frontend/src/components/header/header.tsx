@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import { LinkComponent } from "../link";
 import { ButtonComponent } from "../button";
 import { LogoComponent } from "../logo";
-import { MobileMenuComponent } from "../../sections/mobile-menu";
+import { MobileMenuComponent } from "./mobile-menu";
 
 import HeartIcon from "../../assets/icons/serce.svg?react";
 import ArrowIcon from "../../assets/icons/strzalka.svg?react";

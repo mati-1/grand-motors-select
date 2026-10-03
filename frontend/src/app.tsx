@@ -2,24 +2,24 @@ import {
   SubHeadingComponent,
   MainHeadingComponent,
 } from "./components/headings";
-import WrapPage from "./pages/WrapPage";
-import { CarsComponent } from "./sections/landing/cars";
-import { ContactSectionComponent } from "./sections/landing/contact";
-import { DetailingSectionComponent } from "./sections/landing/detailing";
+import WrapPage from "./pages/client/WrapPage";
+import { CarsComponent } from "./pages/client/landing/cars";
+import { ContactSectionComponent } from "./pages/client/landing/contact";
+import { DetailingSectionComponent } from "./pages/client/landing/detailing";
 import { FooterComponent } from "./components/footer";
 import { HeaderComponent } from "./components/header/header";
-import { HeroComponentSection } from "./sections/landing/hero";
-import { TrustComponent } from "./sections/landing/trust";
-import { WrapSectionComponent } from "./sections/landing/wrap";
+import { HeroComponentSection } from "./pages/client/landing/hero";
+import { TrustComponent } from "./pages/client/landing/trust";
+import { WrapSectionComponent } from "./pages/client/landing/wrap";
 
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AuthGuard } from "./components/auth/AuthGuard";
-import { RegulationPage } from "./pages/regulationPage";
-import { PrivacyPolicyPage } from "./pages/privacyPolicyPage";
-import { DetailingPage } from "./pages/detailingPage";
-import CarsPage from "./pages/carsPage";
-import CarDetailsPage from "./pages/carDetailsPage";
-import ContactPage from "./pages/contactPage";
+import { RegulationPage } from "./pages/client/regulationPage";
+import { PrivacyPolicyPage } from "./pages/client/privacyPolicyPage";
+import { DetailingPage } from "./pages/client/detailingPage";
+import CarsPage from "./pages/client/carsPage";
+import CarDetailsPage from "./pages/client/carDetailsPage";
+import ContactPage from "./pages/client/contactPage";
 import { PageLoader } from "./components/page-loader";
 import { CookieBanner } from "./components/CookieBanner";
 import { Toaster } from "sonner";
