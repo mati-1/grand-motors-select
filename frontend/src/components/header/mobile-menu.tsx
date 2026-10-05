@@ -285,8 +285,8 @@ export const MobileMenuComponent = ({
                 openDropdown === "services" ||
                 activeSection === "/detailing" ||
                 activeSection === "/wrap"
-                  ? "text-[#d2b878]"
-                  : "text-white"
+                  ? "text-[#4C9FE5]"
+                  : "text-[#E8E9E7]"
               }
             `}
           >
@@ -371,7 +371,7 @@ export const MobileMenuComponent = ({
               text-[13px]
               transition-colors
               duration-300
-              ${openDropdown === "favorites" ? "text-[#d2b878]" : "text-white"}
+              ${openDropdown === "favorites" ? "text-[#4C9FE5]" : "text-[#E8E9E7]"}
             `}
           >
             <div className="flex items-center gap-3">
@@ -386,10 +386,10 @@ export const MobileMenuComponent = ({
                     items-center
                     justify-center
                     rounded-full
-                    bg-[#b99a5c]/15
+                    bg-[#4C9FE5]/15
                     px-1.5
                     text-[9px]
-                    text-[#c2ad7a]
+                    text-[#4C9FE5]
                   "
                 >
                   {favoriteCars.length}
@@ -492,7 +492,7 @@ export const MobileMenuComponent = ({
                               truncate
                               text-[12px]
                               font-medium
-                              text-white
+                              text-[#E8E9E7]
                             "
                           >
                             {car.brand} {car.model}
@@ -507,16 +507,16 @@ export const MobileMenuComponent = ({
                               gap-x-2
                               gap-y-1
                               text-[9px]
-                              text-white/40
+                              text-[#E8E9E7]/40
                             "
                           >
                             <span>{car.year}</span>
 
-                            <span className="text-[#b99a5c]/50">·</span>
+                            <span className="text-[#4C9FE5]/50">·</span>
 
                             <span>{car.mileage}</span>
 
-                            <span className="text-[#b99a5c]/50">·</span>
+                            <span className="text-[#4C9FE5]/50">·</span>
 
                             <span>{car.power}</span>
                           </div>
@@ -525,7 +525,7 @@ export const MobileMenuComponent = ({
                             className="
                               mt-1.5
                               text-[12px]
-                              text-white
+                              text-[#E8E9E7]
                             "
                           >
                             {car.price}
@@ -557,8 +557,8 @@ export const MobileMenuComponent = ({
                             duration-300
                             ${
                               isPendingRemoval
-                                ? "border-[#b99a5c]/40 text-[#c2ad7a] hover:border-[#b99a5c]/60 hover:text-[#d2b878]"
-                                : "border-white/10 text-[#777] hover:border-[#b99a5c]/30 hover:text-[#c2ad7a]"
+                                ? "border-[#4C9FE5]/40 text-[#4C9FE5] hover:border-[#4C9FE5]/60 hover:text-[#4C9FE5]"
+                                : "border-white/10 text-[#777] hover:border-[#4C9FE5]/30 hover:text-[#4C9FE5]"
                             }
                           `}
                         >
@@ -592,7 +592,7 @@ export const MobileMenuComponent = ({
                     className="
                       mt-2
                       text-[11px]
-                      text-white/40
+                      text-[#E8E9E7]/40
                     "
                   >
                     Nie masz jeszcze
@@ -613,8 +613,8 @@ export const MobileMenuComponent = ({
           <div className="mt-5">
             <ButtonComponent
               href={isContactPage ? "tel:+48514137133" : contactNavigation.href}
-              type="secondary"
-              className="w-full text-white text-[11px]!"
+              variant="secondary"
+              className="w-full text-[#E8E9E7] text-[11px]!"
             >
               {isContactPage ? (
                 <span className="flex items-center justify-center gap-1">

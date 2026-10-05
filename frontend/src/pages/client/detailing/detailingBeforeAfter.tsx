@@ -7,12 +7,13 @@ import {
   SubHeadingComponent,
 } from "../../../components/headings";
 import { LogoComponent } from "../../../components/logo";
+import { GradientSpan } from "../../../components/gradientSpan";
 
 export const DetailingBeforeAfter = () => {
   return (
     <section
       id="detailing-effect"
-      className="relative overflow-hidden border-t border-white/5 bg-[#b99a5c]/20
+      className="relative overflow-hidden border-t border-white/5 bg-[#4C9FE5]/20
         bg-linear-to-r from-black/90 via-black/75 to-black/90"
     >
       {/* BACKGROUND NUMBER */}
@@ -23,7 +24,7 @@ export const DetailingBeforeAfter = () => {
           select-none
           font-normal text-[18rem]
           leading-none
-          text-white/[0.018]
+          text-[#E8E9E7]/[0.018]
           sm:text-[24rem]
           lg:text-[30rem]
         "
@@ -39,7 +40,7 @@ export const DetailingBeforeAfter = () => {
 
             <MainHeadingComponent className="mt-6! text-[clamp(42px,6vw,70px)]!">
               RÓŻNICĘ
-              <span className="text-[#b99a5c]"> WIDAĆ.</span>
+              <GradientSpan>WIDAĆ.</GradientSpan>
             </MainHeadingComponent>
           </div>
 
@@ -51,7 +52,7 @@ export const DetailingBeforeAfter = () => {
             </p>
 
             <div className="mt-7 flex items-center gap-4">
-              <span className="h-px w-10 bg-[#b99a5c]/50" />
+              <span className="h-px w-10 bg-[#4C9FE5]/50" />
               <SubHeadingComponent className="text-[8px]!  text-[#555]">
                 PRZED / PO
               </SubHeadingComponent>
@@ -63,7 +64,7 @@ export const DetailingBeforeAfter = () => {
       {/* BEFORE / AFTER */}
       <div className="relative">
         {/* TOP LINE */}
-        <div className="absolute left-0 top-0 z-20 h-px w-full bg-linear-to-r from-transparent via-[#b99a5c]/30 to-transparent" />
+        <div className="absolute left-0 top-0 z-20 h-px w-full bg-linear-to-r from-transparent via-[#4C9FE5]/30 to-transparent" />
 
         <div className="grid lg:grid-cols-2">
           {/* BEFORE */}
@@ -90,19 +91,21 @@ export const DetailingBeforeAfter = () => {
             {/* LABEL */}
             <div className="absolute left-6 top-6 sm:left-10 sm:top-10">
               <div className="flex items-center gap-3">
-                <span className="h-px w-8 bg-white/40" />
+                <span className="h-px w-8 bg-[ext-[#E8E9E7]/40" />
 
-                <span className="font-normal text-[12px] text-white/70">
+                <span className="font-normal text-[12px] text-[#E8E9E7]/70">
                   01
                 </span>
               </div>
 
-              <p className="mt-3 text-[9px]  text-white/65">PRZED</p>
+              <p className="mt-3 text-[9px]  text-[#E8E9E7]/65">PRZED</p>
             </div>
 
             {/* BOTTOM DESCRIPTION */}
             <div className="absolute bottom-6 left-6 sm:bottom-10 sm:left-10">
-              <span className="text-[8px]  text-white/35">STAN WYJŚCIOWY</span>
+              <span className="text-[8px]  text-[#E8E9E7]/35">
+                STAN WYJŚCIOWY
+              </span>
             </div>
           </div>
 
@@ -129,19 +132,19 @@ export const DetailingBeforeAfter = () => {
             {/* LABEL */}
             <div className="absolute right-6 top-6 text-right sm:right-10 sm:top-10">
               <div className="flex items-center justify-end gap-3">
-                <span className="font-normal text-[12px] text-[#d2b878]">
+                <span className="font-normal text-[12px] text-[#4C9FE5]">
                   02
                 </span>
 
-                <span className="h-px w-8 bg-[#b99a5c]" />
+                <span className="h-px w-8 bg-[#4C9FE5]" />
               </div>
 
-              <p className="mt-3 text-[9px]  text-[#d2b878]">PO</p>
+              <p className="mt-3 text-[9px]  text-[#4C9FE5]">PO</p>
             </div>
 
             {/* BOTTOM DESCRIPTION */}
             <div className="absolute bottom-6 right-6 text-right sm:bottom-10 sm:right-10">
-              <span className="text-[8px]  text-[#b99a5c]/70">
+              <span className="text-[8px]  text-[#4C9FE5]/70">
                 EFEKT KOŃCOWY
               </span>
             </div>
@@ -156,7 +159,7 @@ export const DetailingBeforeAfter = () => {
             -translate-x-1/2 -translate-y-1/2
             items-center justify-center
             rounded-full
-            border border-[#b99a5c]/45
+            border border-[#4C9FE5]/45
             bg-[#050505]/90
             backdrop-blur-xl
             sm:h-24 sm:w-24
@@ -172,7 +175,7 @@ export const DetailingBeforeAfter = () => {
         </div>
 
         {/* CENTER DIVIDER */}
-        <div className="pointer-events-none absolute left-1/2 top-0 z-10 hidden h-full w-px -translate-x-1/2 bg-[#b99a5c]/20 lg:block" />
+        <div className="pointer-events-none absolute left-1/2 top-0 z-10 hidden h-full w-px -translate-x-1/2 bg-[#4C9FE5]/20 lg:block" />
       </div>
     </section>
   );

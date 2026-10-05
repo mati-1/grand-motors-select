@@ -29,7 +29,9 @@ export const AuthGuard = () => {
   if (meQuery.isPending) {
     return (
       <main className="flex min-h-screen items-center justify-center bg-[#050505]">
-        <div className="text-[10px] text-white/30">Sprawdzanie sesji...</div>
+        <div className="text-[10px] text-[#E8E9E7]/30">
+          Sprawdzanie sesji...
+        </div>
       </main>
     );
   }

@@ -8,15 +8,15 @@ export const AdminCompanyContact = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#090909]
+        bg-[#4C9FE5]/5
       "
     >
       <div className="border-b border-white/7 px-5 py-4">
-        <h3 className="text-[14px] font-medium text-white">
+        <h3 className="text-[14px] font-medium text-[#E8E9E7]">
           Kontakt i obecność online
         </h3>
 
-        <p className="mt-1 text-[11px] text-white/25">
+        <p className="mt-1 text-[11px] text-[#E8E9E7]/25">
           Dane kontaktowe wykorzystywane na stronie firmy
         </p>
       </div>
@@ -55,7 +55,7 @@ export const AdminCompanyContact = () => {
         </div>
 
         <div className="border-t border-white/5 pt-4">
-          <p className="mb-3 text-[10px] text-white/30">Obecność online</p>
+          <p className="mb-3 text-[10px] text-[#E8E9E7]/30">Obecność online</p>
 
           <div className="space-y-4">
             <FormInput
@@ -81,7 +81,7 @@ export const AdminCompanyContact = () => {
         </div>
 
         <div className="border-t border-white/5 pt-4">
-          <p className="mb-3 text-[10px] text-white/30">Godziny pracy</p>
+          <p className="mb-3 text-[10px] text-[#E8E9E7]/30">Godziny pracy</p>
 
           <div className="space-y-2">
             {[
@@ -102,12 +102,12 @@ export const AdminCompanyContact = () => {
                   rounded-[8px]
                   border
                   border-white/5
-                  bg-white/[0.015]
+                  bg-[ext-[#E8E9E7]/[0.015]
                   px-3
                   py-2.5
                 "
               >
-                <span className="text-[10px] text-white/40">{day}</span>
+                <span className="text-[10px] text-[#E8E9E7]/40">{day}</span>
 
                 <div className="flex items-center gap-2">
                   <input
@@ -118,15 +118,15 @@ export const AdminCompanyContact = () => {
                       rounded-[6px]
                       border
                       border-white/8
-                      bg-[#090909]
+                      bg-[#4C9FE5]/5
                       px-2
                       text-[9px]
-                      text-white/50
+                      text-[#E8E9E7]/50
                       outline-none
                     "
                   />
 
-                  <span className="text-[9px] text-white/15">—</span>
+                  <span className="text-[9px] text-[#E8E9E7]/15">—</span>
 
                   <input
                     type="time"
@@ -136,10 +136,10 @@ export const AdminCompanyContact = () => {
                       rounded-[6px]
                       border
                       border-white/8
-                      bg-[#090909]
+                      bg-[#4C9FE5]/5
                       px-2
                       text-[9px]
-                      text-white/50
+                      text-[#E8E9E7]/50
                       outline-none
                     "
                   />
@@ -155,14 +155,14 @@ export const AdminCompanyContact = () => {
                 rounded-[8px]
                 border
                 border-white/5
-                bg-white/[0.015]
+                bg-[ext-[#E8E9E7]/[0.015]
                 px-3
                 py-2.5
               "
             >
-              <span className="text-[10px] text-white/40">Niedziela</span>
+              <span className="text-[10px] text-[#E8E9E7]/40">Niedziela</span>
 
-              <span className="text-[9px] text-white/20">Zamknięte</span>
+              <span className="text-[9px] text-[#E8E9E7]/20">Zamknięte</span>
             </div>
           </div>
         </div>

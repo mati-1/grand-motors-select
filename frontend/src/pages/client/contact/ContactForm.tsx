@@ -4,6 +4,7 @@ import { FormInput } from "../../../components/form/FormInput";
 import { FormTextarea } from "../../../components/form/FormTextarea";
 import { FormSelect } from "../../../components/form/FormSelect";
 import { showToast } from "../../../components/toast/toast";
+import { ButtonComponent } from "../../../components/button";
 
 const subjectOptions = [
   {
@@ -76,7 +77,7 @@ export const ContactForm = () => {
         rounded-[10px]
         border
         border-white/10
-        bg-[#090909]
+        bg-[#4C9FE5]/5
         p-5
         sm:p-7
         lg:p-8
@@ -104,9 +105,9 @@ export const ContactForm = () => {
               justify-center
               rounded-full
               border
-              border-[#b99a5c]/30
-              bg-[#b99a5c]/10
-              text-[#d2b878]
+              border-[#4C9FE5]/30
+              bg-[#4C9FE5]/10
+              text-[#4C9FE5]
             "
           >
             <CheckIcon />
@@ -119,7 +120,7 @@ export const ContactForm = () => {
               text-[21px]
               font-medium
               tracking-[-0.02em]
-              text-white
+              text-[#E8E9E7]
             "
           >
             Wiadomość została wysłana
@@ -132,7 +133,7 @@ export const ContactForm = () => {
               max-w-85
               text-[11px]
               leading-[1.8]
-              text-white/40
+              text-[#E8E9E7]/40
             "
           >
             Dziękujemy za kontakt. Otrzymaliśmy Twoje zapytanie i skontaktujemy
@@ -148,13 +149,13 @@ export const ContactForm = () => {
               gap-3
             "
           >
-            <span className="h-px w-8 bg-[#b99a5c]/40" />
+            <span className="h-px w-8 bg-[#4C9FE5]/40" />
 
-            <span className="text-[9px] text-white/25">
+            <span className="text-[9px] text-[#E8E9E7]/25">
               Grand Motors Select
             </span>
 
-            <span className="h-px w-8 bg-[#b99a5c]/40" />
+            <span className="h-px w-8 bg-[#4C9FE5]/40" />
           </div>
 
           {/* SECONDARY INFO */}
@@ -164,7 +165,7 @@ export const ContactForm = () => {
               max-w-75
               text-[9px]
               leading-[1.7]
-              text-white/25
+              text-[#E8E9E7]/25
             "
           >
             Jeśli sprawa jest pilna, możesz również skontaktować się z nami
@@ -179,7 +180,7 @@ export const ContactForm = () => {
               mt-6
               cursor-pointer
               text-[10px]
-              text-[#d2b878]
+              text-[#4C9FE5]
               transition-colors
               duration-300
               hover:text-[#e0c98b]
@@ -199,7 +200,7 @@ export const ContactForm = () => {
                 text-[18px]
                 font-medium
                 tracking-[-0.01em]
-                text-white
+                text-[#E8E9E7]
               "
             >
               Napisz do nas
@@ -210,7 +211,7 @@ export const ContactForm = () => {
                 mt-1.5
                 text-[11px]
                 leading-[1.7]
-                text-white/40
+                text-[#E8E9E7]/40
               "
             >
               Wypełnij formularz, a skontaktujemy się z Tobą.
@@ -279,31 +280,14 @@ export const ContactForm = () => {
 
             {/* SUBMIT */}
             <div className="pt-1">
-              <button
+              <ButtonComponent
                 type="submit"
+                variant="main"
                 disabled={isSubmitting}
-                className="
-                  flex
-                  h-11
-                  w-full
-                  cursor-pointer
-                  items-center
-                  justify-center
-                  rounded-[10px]
-                  bg-[#d2b878]
-                  px-6
-                  text-[11px]
-                  font-medium
-                  text-black
-                  transition-all
-                  duration-300
-                  hover:bg-[#e0c98b]
-                  disabled:cursor-default
-                  disabled:opacity-60
-                "
+                className="min-w-full"
               >
                 {isSubmitting ? "Wysyłanie..." : "Wyślij wiadomość"}
-              </button>
+              </ButtonComponent>
             </div>
 
             {/* PRIVACY */}
@@ -313,7 +297,7 @@ export const ContactForm = () => {
                 text-center
                 text-[9px]
                 leading-[1.6]
-                text-white/25
+                text-[#E8E9E7]/25
               "
             >
               Wysyłając formularz, zgadzasz się na kontakt w sprawie przesłanego

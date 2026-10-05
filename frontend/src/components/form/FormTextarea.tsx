@@ -13,7 +13,7 @@ export const FormTextarea = ({ label, id, ...props }: FormTextareaProps) => {
           mb-1.5
           block
           text-[10px]
-          text-white/45
+          text-[#E8E9E7]/45
         "
       >
         {label}
@@ -29,18 +29,18 @@ export const FormTextarea = ({ label, id, ...props }: FormTextareaProps) => {
           rounded-[10px]
           border
           border-white/10
-          bg-white/2.5
+          bg-[ext-[#E8E9E7]/2.5
           px-4
           py-3
           text-[12px]
           leading-[1.7]
-          text-white
+          text-[#E8E9E7]
           outline-none
-          placeholder:text-white/20
+          placeholder:text-[#E8E9E7]/20
           transition-all
           duration-300
-          focus:border-[#b99a5c]/50
-          focus:bg-white/[0.035]
+          focus:border-[#4C9FE5]/50
+          focus:bg-[ext-[#E8E9E7]/[0.035]
         "
       />
     </div>

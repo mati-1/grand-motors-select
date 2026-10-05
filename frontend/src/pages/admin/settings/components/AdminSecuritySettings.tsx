@@ -8,13 +8,15 @@ export const AdminSecuritySettings = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#090909]
+        bg-[#4C9FE5]/5
       "
     >
       <div className="border-b border-white/7 px-5 py-4">
-        <h3 className="text-[14px] font-medium text-white">Bezpieczeństwo</h3>
+        <h3 className="text-[14px] font-medium text-[#E8E9E7]">
+          Bezpieczeństwo
+        </h3>
 
-        <p className="mt-1 text-[11px] text-white/25">
+        <p className="mt-1 text-[11px] text-[#E8E9E7]/25">
           Hasło i zabezpieczenia konta administratora
         </p>
       </div>
@@ -41,8 +43,8 @@ export const AdminSecuritySettings = () => {
           placeholder="Powtórz nowe hasło"
         />
 
-        <div className="rounded-[8px] border border-white/5 bg-white/[0.015] p-3">
-          <p className="text-[9px] text-white/30">
+        <div className="rounded-[8px] border border-white/5 bg-[ext-[#E8E9E7]/[0.015] p-3">
+          <p className="text-[9px] text-[#E8E9E7]/30">
             Hasło powinno mieć minimum 8 znaków i zawierać kombinację liter,
             cyfr oraz znaków specjalnych.
           </p>
@@ -56,16 +58,16 @@ export const AdminSecuritySettings = () => {
               cursor-pointer
               rounded-[8px]
               border
-              border-[#b99a5c]/20
-              bg-[#b99a5c]/5
+              border-[#4C9FE5]/20
+              bg-[#4C9FE5]/5
               px-4
               text-[10px]
-              text-[#b99a5c]
+              text-[#4C9FE5]
               transition-all
               duration-300
-              hover:border-[#b99a5c]/35
-              hover:bg-[#b99a5c]/10
-              hover:text-[#d2b878]
+              hover:border-[#4C9FE5]/35
+              hover:bg-[#4C9FE5]/10
+              hover:text-[#4C9FE5]
             "
           >
             Zmień hasło

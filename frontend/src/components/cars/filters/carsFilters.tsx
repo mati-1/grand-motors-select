@@ -123,20 +123,20 @@ export const CarsFilters = ({
             px-5
             transition-all
             duration-300
-            hover:border-[#b99a5c]/30
-            hover:bg-[#b99a5c]/5
+            hover:border-[#4C9FE5]/30
+            hover:bg-[#4C9FE5]/5
           "
         >
           <div className="flex items-center gap-4">
-            <span className="text-[14px] text-[#b99a5c]">☰</span>
+            <span className="text-[14px] text-[#4C9FE5]">☰</span>
 
             <span
               className="
                 text-[14px]
-                text-white
+                text-[#E8E9E7]
                 transition-colors
                 duration-300
-                group-hover:text-[#d2b878]
+                group-hover:text-[#4C9FE5]
               "
             >
               Pokaż filtry
@@ -145,7 +145,7 @@ export const CarsFilters = ({
 
           <div className="flex items-center gap-3">
             {hasActiveFilters && (
-              <span className="text-[13px] text-[#b99a5c]">●</span>
+              <span className="text-[13px] text-[#4C9FE5]">●</span>
             )}
 
             <ArrowIcon className="h-5 w-5 rotate-180" />

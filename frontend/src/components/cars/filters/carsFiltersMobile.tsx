@@ -66,7 +66,7 @@ export const CarsFiltersMobile = ({
             text-[#555]
             transition-colors
             duration-300
-            hover:text-[#d2b878]
+            hover:text-[#4C9FE5]
           "
         >
           ×
@@ -101,7 +101,7 @@ export const CarsFiltersMobile = ({
         onClick={(event) => event.stopPropagation()}
       >
         <ButtonComponent
-          type="secondary"
+          variant="secondary"
           onClick={onClose}
           className="min-w-full"
           arrowIcon

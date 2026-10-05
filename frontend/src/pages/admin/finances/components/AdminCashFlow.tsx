@@ -31,27 +31,29 @@ export const AdminCashFlow = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#090909]
+        bg-[#4C9FE5]/5
       "
     >
       <div className="border-b border-white/7 px-5 py-4">
-        <h3 className="text-[14px] font-medium text-white">Przepływ środków</h3>
+        <h3 className="text-[14px] font-medium text-[#E8E9E7]">
+          Przepływ środków
+        </h3>
 
-        <p className="mt-1 text-[11px] text-white/25">
+        <p className="mt-1 text-[11px] text-[#E8E9E7]/25">
           Aktualny okres rozliczeniowy
         </p>
       </div>
 
       <div className="p-5">
         <div className="mb-6">
-          <p className="text-[9px] text-white/20">Wynik przepływu</p>
+          <p className="text-[9px] text-[#E8E9E7]/20">Wynik przepływu</p>
 
           <p
             className={`
               mt-1
               text-[22px]
               font-medium
-              ${balance >= 0 ? "text-[#d2b878]" : "text-white"}
+              ${balance >= 0 ? "text-[#4C9FE5]" : "text-[#E8E9E7]"}
             `}
           >
             {balance >= 0 ? "+" : "-"}
@@ -72,11 +74,11 @@ export const AdminCashFlow = () => {
                     w-1.5
                     shrink-0
                     rounded-full
-                    ${item.value >= 0 ? "bg-[#b99a5c]" : "bg-white/15"}
+                    ${item.value >= 0 ? "bg-[#4C9FE5]" : "bg-[ext-[#E8E9E7]/15"}
                   `}
                 />
 
-                <span className="truncate text-[11px] text-white/45">
+                <span className="truncate text-[11px] text-[#E8E9E7]/45">
                   {item.label}
                 </span>
               </div>
@@ -85,7 +87,7 @@ export const AdminCashFlow = () => {
                 className={`
                   shrink-0
                   text-[11px]
-                  ${item.value >= 0 ? "text-[#d2b878]" : "text-white/45"}
+                  ${item.value >= 0 ? "text-[#4C9FE5]" : "text-[#E8E9E7]/45"}
                 `}
               >
                 {item.value >= 0 ? "+" : "-"}

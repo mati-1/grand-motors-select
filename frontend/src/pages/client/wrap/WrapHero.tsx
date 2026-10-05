@@ -62,7 +62,7 @@ export const WrapHero = () => {
           w-120
           -translate-y-1/2
           rounded-full
-          bg-[#b99a5c]/5
+          bg-[#4C9FE5]/5
           blur-3xl
           lg:h-180
           lg:w-180
@@ -75,7 +75,7 @@ export const WrapHero = () => {
         <MainHeadingComponent className="mt-6 max-w-190 text-[clamp(48px,8vw,80px)]!">
           ZMIEŃ
           <br />
-          <span className="text-[#d2b878]">CHARAKTER.</span>
+          <span className="text-[#4C9FE5]">CHARAKTER.</span>
         </MainHeadingComponent>
 
         <p
@@ -106,11 +106,11 @@ export const WrapHero = () => {
             sm:items-center
           "
         >
-          <ButtonComponent type="main" href="/contact" size="big">
+          <ButtonComponent variant="main" href="/contact" size="big">
             Umów wrap
           </ButtonComponent>
 
-          <ButtonComponent type="secondary" href="#wrap-services" size="big">
+          <ButtonComponent variant="secondary" href="#wrap-services" size="big">
             Zakres usług
           </ButtonComponent>
         </div>

@@ -47,24 +47,24 @@ export const AdminCompanyFixedCosts = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#090909]
+        bg-[#4C9FE5]/5
       "
     >
       <div className="border-b border-white/7 px-5 py-4">
-        <h3 className="text-[14px] font-medium text-white">Koszty stałe</h3>
+        <h3 className="text-[14px] font-medium text-[#E8E9E7]">Koszty stałe</h3>
 
-        <p className="mt-1 text-[11px] text-white/25">
+        <p className="mt-1 text-[11px] text-[#E8E9E7]/25">
           Regularne koszty niezwiązane z konkretnym samochodem
         </p>
       </div>
 
       <div className="p-5">
-        <div className="mb-5 rounded-[9px] border border-[#b99a5c]/15 bg-[#b99a5c]/[0.035] p-4">
-          <p className="text-[9px] text-white/25">
+        <div className="mb-5 rounded-[9px] border border-[#4C9FE5]/15 bg-[#4C9FE5]/[0.035] p-4">
+          <p className="text-[9px] text-[#E8E9E7]/25">
             Szacunkowy miesięczny koszt stały
           </p>
 
-          <p className="mt-1 text-[20px] font-medium text-[#d2b878]">
+          <p className="mt-1 text-[20px] font-medium text-[#4C9FE5]">
             1 650 zł
           </p>
         </div>
@@ -81,25 +81,29 @@ export const AdminCompanyFixedCosts = () => {
                 rounded-[8px]
                 border
                 border-white/5
-                bg-white/[0.015]
+                bg-[ext-[#E8E9E7]/[0.015]
                 px-3
                 py-3
               "
             >
               <div className="min-w-0">
-                <p className="truncate text-[10px] text-white/55">
+                <p className="truncate text-[10px] text-[#E8E9E7]/55">
                   {cost.name}
                 </p>
 
-                <p className="mt-1 text-[8px] text-white/20">{cost.category}</p>
+                <p className="mt-1 text-[8px] text-[#E8E9E7]/20">
+                  {cost.category}
+                </p>
               </div>
 
               <div className="flex shrink-0 items-center gap-3">
-                <span className="text-[10px] text-white/45">{cost.amount}</span>
+                <span className="text-[10px] text-[#E8E9E7]/45">
+                  {cost.amount}
+                </span>
 
                 <button
                   type="button"
-                  className="cursor-pointer text-[9px] text-white/20 hover:text-white/60"
+                  className="cursor-pointer text-[9px] text-[#E8E9E7]/20 hover:text-[#E8E9E7]/60"
                 >
                   Edytuj
                 </button>
@@ -140,11 +144,11 @@ export const AdminCompanyFixedCosts = () => {
                 border
                 border-white/8
                 text-[10px]
-                text-white/40
+                text-[#E8E9E7]/40
                 transition-all
                 duration-300
-                hover:border-[#b99a5c]/25
-                hover:text-[#d2b878]
+                hover:border-[#4C9FE5]/25
+                hover:text-[#4C9FE5]
               "
             >
               Dodaj koszt stały

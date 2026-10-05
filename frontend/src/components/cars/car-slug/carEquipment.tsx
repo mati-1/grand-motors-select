@@ -46,10 +46,10 @@ export const CarEquipment = ({ car }: CarEquipmentProps) => {
         shrink-0
         text-[9px]
         font-normal
-        text-[#b99a5c]/50
+        text-[#4C9FE5]/50
         transition-colors
         duration-300
-        group-hover:text-[#b99a5c]
+        group-hover:text-[#4C9FE5]
       "
       >
         {String(index + 1).padStart(2, "0")}

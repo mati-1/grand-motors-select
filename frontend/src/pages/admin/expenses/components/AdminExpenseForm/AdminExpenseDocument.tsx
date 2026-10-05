@@ -12,11 +12,11 @@ type Props = {
 
 export const AdminExpenseDocument = ({ values, onChange }: Props) => {
   return (
-    <section className="rounded-[10px] border border-white/8 bg-[#090909]">
+    <section className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/5">
       <div className="border-b border-white/7 px-5 py-4">
-        <h3 className="text-[14px] font-medium text-white">Dokument</h3>
+        <h3 className="text-[14px] font-medium text-[#E8E9E7]">Dokument</h3>
 
-        <p className="mt-1 text-[10px] text-white/30">
+        <p className="mt-1 text-[10px] text-[#E8E9E7]/30">
           Dane faktury, paragonu lub innego dokumentu kosztowego.
         </p>
       </div>

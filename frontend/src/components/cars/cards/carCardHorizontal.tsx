@@ -37,10 +37,10 @@ export const CarCardHorizontal = ({ car }: CarCardHorizontalProps) => {
         rounded-[10px]
         border
         border-white/10
-        bg-[#090909]
+        bg-[#4C9FE5]/5
         transition-colors
         duration-500
-        hover:border-[#b99a5c]/30
+        hover:border-[#4C9FE5]/30
         ${car.status === "sold" ? "grayscale" : ""}
       `}
     >
@@ -112,7 +112,7 @@ export const CarCardHorizontal = ({ car }: CarCardHorizontalProps) => {
                   text-[19px]
                   font-medium
                   leading-tight
-                  text-white
+                  text-[#E8E9E7]
                 "
               >
                 {car.brand} {car.model}
@@ -125,7 +125,7 @@ export const CarCardHorizontal = ({ car }: CarCardHorizontalProps) => {
                     text-[24px]
                     font-normal
                     leading-none
-                    text-white
+                    text-[#E8E9E7]
                     ${car.status === "sold" ? "line-through" : ""}
                   `}
                 >
@@ -150,7 +150,7 @@ export const CarCardHorizontal = ({ car }: CarCardHorizontalProps) => {
                 mt-2
                 text-[11px]
                 leading-relaxed
-                text-white/70
+                text-[#E8E9E7]/70
               "
             >
               {car.condition} · {car.power} · {car.engine} · {car.drive}
@@ -167,7 +167,7 @@ export const CarCardHorizontal = ({ car }: CarCardHorizontalProps) => {
                 gap-x-6
                 gap-y-2.5
                 text-[12px]
-                text-white
+                text-[#E8E9E7]
               "
             >
               <span className="flex items-center gap-1.5">
@@ -198,7 +198,7 @@ export const CarCardHorizontal = ({ car }: CarCardHorizontalProps) => {
               items-center
               gap-1
               text-[12px]
-              text-white
+              text-[#E8E9E7]
               opacity-75
             "
           >

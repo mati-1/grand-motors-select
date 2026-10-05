@@ -13,7 +13,7 @@ export const WrapBeforeAfter = () => {
         px-[4vw] min-[1200px]:px-[13vw]
         py-16
         sm:py-24
-        bg-[#b99a5c]/20
+        bg-[#4C9FE5]/20
           bg-linear-to-r from-black/90 via-black/75 to-black/90
       "
     >
@@ -34,7 +34,7 @@ export const WrapBeforeAfter = () => {
             <MainHeadingComponent className="mt-6 text-[clamp(42px,5vw,60px)]!">
               JEDEN
               <br />
-              <span className="text-[#d2b878]">SAMOCHÓD.</span>
+              <span className="text-[#4C9FE5]">SAMOCHÓD.</span>
             </MainHeadingComponent>
           </div>
 
@@ -54,13 +54,13 @@ export const WrapBeforeAfter = () => {
             overflow-hidden
             border
             border-white/10
-            bg-white/10
+            bg-[ext-[#E8E9E7]/10
             md:grid-cols-2
           "
         >
           {/* BEFORE */}
 
-          <div className="group relative aspect-4/3 overflow-hidden bg-[#090909]">
+          <div className="group relative aspect-4/3 overflow-hidden bg-[#4C9FE5]/5">
             <img
               src="/wrap/wrap-before.jpg"
               alt="Samochód przed oklejeniem"
@@ -92,7 +92,7 @@ export const WrapBeforeAfter = () => {
 
           {/* AFTER */}
 
-          <div className="group relative aspect-4/3 overflow-hidden bg-[#090909]">
+          <div className="group relative aspect-4/3 overflow-hidden bg-[#4C9FE5]/5">
             <img
               src="/wrap/wrap-after.jpg"
               alt="Samochód po oklejeniu"
@@ -115,7 +115,7 @@ export const WrapBeforeAfter = () => {
                 left-5
                 text-[10px]
                 
-                text-[#d2b878]
+                text-[#4C9FE5]
               "
             >
               PO
@@ -138,7 +138,7 @@ export const WrapBeforeAfter = () => {
               items-center
               justify-center
               border
-              border-[#b99a5c]/40
+              border-[#4C9FE5]/40
               bg-[#050505]/90
               backdrop-blur-md
               rounded-full

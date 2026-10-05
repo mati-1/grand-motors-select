@@ -29,7 +29,7 @@ export const DetailingServices = () => {
         px-[4vw] min-[1200px]:px-[13vw]
       "
     >
-      <div className="absolute pointer-events-none right-[5%] top-1/2 hidden -translate-y-1/2 text-[18rem] font-extralight leading-none - text-white/1.5 lg:block">
+      <div className="absolute pointer-events-none right-[5%] top-1/2 hidden -translate-y-1/2 text-[18rem] font-extralight leading-none - text-[#E8E9E7]/1.5 lg:block">
         02
       </div>
       {/* HEADER */}
@@ -41,7 +41,7 @@ export const DetailingServices = () => {
           <MainHeadingComponent className="text-[clamp(42px,6vw,48px)]!">
             ZAKRES
             <br />
-            <span className="text-[#b99a5c]">DETAILINGU.</span>
+            <span className="text-[#4C9FE5]">DETAILINGU.</span>
           </MainHeadingComponent>
         </div>
 
@@ -58,8 +58,8 @@ export const DetailingServices = () => {
           mt-16
           grid
           grid-cols-1
-          border-y border-[#b99a5c]/20
-          bg-[#b99a5c]/20
+          border-y border-[#4C9FE5]/20
+          bg-[#4C9FE5]/20
           bg-linear-to-r from-black/90 via-black/75 to-black/90
           sm:grid-cols-2
           xl:grid-cols-4
@@ -82,7 +82,7 @@ export const DetailingServices = () => {
             className="
               col-span-full
               border-t border-white/10
-              bg-white/2.5
+              bg-[ext-[#E8E9E7]/2.5
             "
           >
             <div className="px-5 py-7 sm:px-8 sm:py-8 lg:px-[4vw] lg:py-9">
@@ -98,7 +98,7 @@ export const DetailingServices = () => {
                 {/* TITLE */}
 
                 <div className="shrink-0">
-                  <span className="text-[11px]  text-[#b99a5c] sm:text-[12px]">
+                  <span className="text-[11px]  text-[#4C9FE5] sm:text-[12px]">
                     {activeData.number} / {activeData.title}
                   </span>
                 </div>
@@ -121,7 +121,7 @@ export const DetailingServices = () => {
                           sm:text-[12px]
                         "
                       >
-                        <span className="text-[#b99a5c]">—</span>
+                        <span className="text-[#4C9FE5]">—</span>
 
                         <span>{detail}</span>
                       </li>

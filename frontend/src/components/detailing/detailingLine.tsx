@@ -5,7 +5,7 @@ type DetailingLineProps = {
 export const DetailingLine = ({ className = "" }: DetailingLineProps) => {
   return (
     <div
-      className={`h-px w-full bg-linear-to-r from-transparent via-[#b99a5c]/30 to-transparent ${className}`}
+      className={`h-px w-full bg-linear-to-r from-transparent via-[#4C9FE5]/30 to-transparent ${className}`}
     />
   );
 };

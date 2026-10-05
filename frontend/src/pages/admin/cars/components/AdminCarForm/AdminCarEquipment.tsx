@@ -23,11 +23,11 @@ export const AdminCarEquipment = ({ value, onChange }: Props) => {
   };
 
   return (
-    <section className="rounded-[10px] border border-white/8 bg-[#090909]">
+    <section className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/5">
       <div className="border-b border-white/7 px-5 py-4">
-        <h3 className="text-[14px] font-medium text-white">Wyposażenie</h3>
+        <h3 className="text-[14px] font-medium text-[#E8E9E7]">Wyposażenie</h3>
 
-        <p className="mt-1 text-[10px] text-white/30">
+        <p className="mt-1 text-[10px] text-[#E8E9E7]/30">
           Dodaj wyposażenie samochodu widoczne w ogłoszeniu.
         </p>
       </div>
@@ -53,7 +53,7 @@ export const AdminCarEquipment = ({ value, onChange }: Props) => {
           <button
             type="button"
             onClick={addItem}
-            className="h-11 shrink-0 cursor-pointer self-end rounded-[10px] border border-white/10 px-4 text-[10px] text-white/50 transition-all duration-300 hover:border-[#b99a5c]/30 hover:text-[#d2b878]"
+            className="h-11 shrink-0 cursor-pointer self-end rounded-[10px] border border-white/10 px-4 text-[10px] text-[#E8E9E7]/50 transition-all duration-300 hover:border-[#4C9FE5]/30 hover:text-[#4C9FE5]"
           >
             Dodaj
           </button>
@@ -64,14 +64,14 @@ export const AdminCarEquipment = ({ value, onChange }: Props) => {
             {value.map((item, index) => (
               <div
                 key={`${item}-${index}`}
-                className="flex items-center justify-between rounded-[10px] border border-white/8 bg-white/2 px-3 py-2.5"
+                className="flex items-center justify-between rounded-[10px] border border-white/8 bg-[ext-[#E8E9E7]/2 px-3 py-2.5"
               >
-                <span className="text-[11px] text-white/55">{item}</span>
+                <span className="text-[11px] text-[#E8E9E7]/55">{item}</span>
 
                 <button
                   type="button"
                   onClick={() => removeItem(index)}
-                  className="cursor-pointer text-[10px] text-white/25 transition-colors hover:text-red-300"
+                  className="cursor-pointer text-[10px] text-[#E8E9E7]/25 transition-colors hover:text-red-300"
                 >
                   Usuń
                 </button>

@@ -99,7 +99,7 @@ export const CarsPage = () => {
           <div className="min-w-0">
             {isLoading && (
               <div className="flex min-h-80 items-center justify-center">
-                <span className="text-[11px] text-white/30">
+                <span className="text-[11px] text-[#E8E9E7]/30">
                   Pobieranie samochodów...
                 </span>
               </div>
@@ -107,11 +107,11 @@ export const CarsPage = () => {
 
             {isError && !isLoading && (
               <div className="flex min-h-80 flex-col items-center justify-center text-center">
-                <span className="text-[10px] text-[#b99a5c]">
+                <span className="text-[10px] text-[#4C9FE5]">
                   Wystąpił problem
                 </span>
 
-                <p className="mt-3 text-[12px] text-white/40">
+                <p className="mt-3 text-[12px] text-[#E8E9E7]/40">
                   Nie udało się pobrać aktualnej oferty samochodów.
                 </p>
 
@@ -126,10 +126,10 @@ export const CarsPage = () => {
                     px-5
                     py-3
                     text-[10px]
-                    text-white/60
+                    text-[#E8E9E7]/60
                     transition-colors
-                    hover:border-[#b99a5c]/40
-                    hover:text-[#d2b878]
+                    hover:border-[#4C9FE5]/40
+                    hover:text-[#4C9FE5]
                   "
                 >
                   Spróbuj ponownie

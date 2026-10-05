@@ -40,7 +40,7 @@ export const ContactSectionComponent = ({
                 {" "}
                 ZNAJDŹMY
                 <br />
-                TWÓJ <span className="text-[#d2b878]">SAMOCHÓD.</span>
+                TWÓJ <span className="text-[#4C9FE5]">SAMOCHÓD.</span>
               </>
             )}
           </MainHeadingComponent>
@@ -73,7 +73,7 @@ export const ContactSectionComponent = ({
       </div>
 
       {/* LINE */}
-      <div className="my-12 h-px w-full bg-white/10 sm:my-14" />
+      <div className="my-12 h-px w-full bg-[ext-[#E8E9E7]/10 sm:my-14" />
 
       {/* CONTACT GRID */}
       <div className="flex flex-col gap-8 lg:flex-row">
@@ -82,7 +82,7 @@ export const ContactSectionComponent = ({
           className="
               flex-1
               border border-white/10
-              bg-white/1.5
+              bg-[ext-[#E8E9E7]/1.5
               p-6
               sm:p-8
               lg:p-10
@@ -104,10 +104,10 @@ export const ContactSectionComponent = ({
               </p>
 
               <MainHeadingComponent
-                className="text-[#d2b878] 
+                className="text-[#4C9FE5] 
                 text-[14px]
                 transition-colors
-                hover:text-[#d2b878]
+                hover:text-[#4C9FE5]
                 sm:text-[18px]! hover:underline"
               >
                 <a
@@ -136,7 +136,7 @@ export const ContactSectionComponent = ({
 
               <p
                 className="transition-colors
-                hover:text-[#d2b878]
+                hover:text-[#4C9FE5]
                  hover:underline text-[12px] leading-[1.8] 
                   sm:text-[13px] text-[#777]"
               >
@@ -209,7 +209,7 @@ export const ContactSectionComponent = ({
           className="
               relative gap-6 md:gap-10 flex flex-1 flex-col justify-between
               overflow-hidden
-              border border-[#b99a5c]/25
+              border border-[#4C9FE5]/25
               bg-[#0a0a0a]
               p-6
               sm:p-8
@@ -223,7 +223,7 @@ export const ContactSectionComponent = ({
                 -right-20 -top-20
                 h-50 w-50
                 rounded-full
-                border border-[#b99a5c]/10
+                border border-[#4C9FE5]/10
               "
           />
 
@@ -233,7 +233,7 @@ export const ContactSectionComponent = ({
             <MainHeadingComponent>
               Masz pytanie?
               <br />
-              <span className="text-[#d2b878]">Jesteśmy tutaj.</span>
+              <span className="text-[#4C9FE5]">Jesteśmy tutaj.</span>
             </MainHeadingComponent>
             <LineComponent type="left" className="mt-0!" />
 
@@ -248,7 +248,7 @@ export const ContactSectionComponent = ({
               procesie zakupu oraz naszych usługach.
             </p>
           </div>
-          <ButtonComponent size="big" type="main" href="tel:+48514137133">
+          <ButtonComponent size="big" variant="main" href="tel:+48514137133">
             Zadzwoń do nas
           </ButtonComponent>
         </div>

@@ -113,8 +113,8 @@ export const CarGalleryThumbnails = ({
           backdrop-blur-md
           transition-all
           duration-300
-          hover:border-[#b99a5c]/50
-          hover:text-[#d2b878]
+          hover:border-[#4C9FE5]/50
+          hover:text-[#4C9FE5]
           sm:flex
           ${showControls ? "opacity-100" : "pointer-events-none opacity-0"}
         `}
@@ -149,8 +149,8 @@ export const CarGalleryThumbnails = ({
           backdrop-blur-md
           transition-all
           duration-300
-          hover:border-[#b99a5c]/50
-          hover:text-[#d2b878]
+          hover:border-[#4C9FE5]/50
+          hover:text-[#4C9FE5]
           sm:flex
           ${showControls ? "opacity-100" : "pointer-events-none opacity-0"}
         `}
@@ -205,7 +205,7 @@ export const CarGalleryThumbnails = ({
                 sm:w-33
                 ${
                   isActive
-                    ? "border-[#d2b878]"
+                    ? "border-[#4C9FE5]"
                     : "border-white/8 hover:border-white/25"
                 }
               `}
@@ -235,7 +235,7 @@ export const CarGalleryThumbnails = ({
                   inset-x-0
                   bottom-0
                   h-px
-                  bg-[#d2b878]
+                  bg-[#4C9FE5]
                   transition-opacity
                   duration-300
                   ${isActive ? "opacity-100" : "opacity-0"}

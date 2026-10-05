@@ -316,9 +316,9 @@ export const AdminSidebar = () => {
           rounded-r-[10px]
           border
           border-l-0
-          border-[#b99a5c]/25
+          border-[#4C9FE5]/25
           bg-[#101010]
-          text-[#d2b878]
+          text-[#4C9FE5]
           shadow-lg
           transition-[left,background-color]
           duration-300
@@ -398,7 +398,9 @@ export const AdminSidebar = () => {
 
         {/* NAVIGATION */}
         <div className="flex min-h-0 flex-1 flex-col overflow-y-auto px-3 py-5">
-          <div className="mb-3 px-3 text-[11px] text-white/20">Zarządzanie</div>
+          <div className="mb-3 px-3 text-[11px] text-[#E8E9E7]/20">
+            Zarządzanie
+          </div>
 
           <nav className="space-y-1" aria-label="Zarządzanie">
             {navigation.map((item) => (
@@ -420,8 +422,8 @@ export const AdminSidebar = () => {
                   duration-200
                   ${
                     isActive
-                      ? "bg-[#b99a5c]/10 text-[#d2b878]"
-                      : "text-white/40 hover:bg-white/[0.035] hover:text-white/70"
+                      ? "bg-[#4C9FE5]/10 text-[#4C9FE5]"
+                      : "text-[#E8E9E7]/40 hover:bg-[ext-[#E8E9E7]/[0.035] hover:text-[#E8E9E7]/70"
                   }
                 `}
               >
@@ -432,7 +434,7 @@ export const AdminSidebar = () => {
                     <span>{item.label}</span>
 
                     {isActive && (
-                      <span className="ml-auto h-1 w-1 rounded-full bg-[#d2b878]" />
+                      <span className="ml-auto h-1 w-1 rounded-full bg-[#4C9FE5]" />
                     )}
                   </>
                 )}
@@ -440,7 +442,7 @@ export const AdminSidebar = () => {
             ))}
           </nav>
 
-          <div className="mb-3 mt-8 px-3 text-[11px] tracking-[0.12em] text-white/20">
+          <div className="mb-3 mt-8 px-3 text-[11px] tracking-[0.12em] text-[#E8E9E7]/20">
             Firma
           </div>
 
@@ -463,8 +465,8 @@ export const AdminSidebar = () => {
                   duration-200
                   ${
                     isActive
-                      ? "bg-[#b99a5c]/10 text-[#d2b878]"
-                      : "text-white/40 hover:bg-white/[0.035] hover:text-white/70"
+                      ? "bg-[#4C9FE5]/10 text-[#4C9FE5]"
+                      : "text-[#E8E9E7]/40 hover:bg-[ext-[#E8E9E7]/[0.035] hover:text-[#E8E9E7]/70"
                   }
                 `}
               >
@@ -475,7 +477,7 @@ export const AdminSidebar = () => {
                     <span>{item.label}</span>
 
                     {isActive && (
-                      <span className="ml-auto h-1 w-1 rounded-full bg-[#d2b878]" />
+                      <span className="ml-auto h-1 w-1 rounded-full bg-[#4C9FE5]" />
                     )}
                   </>
                 )}

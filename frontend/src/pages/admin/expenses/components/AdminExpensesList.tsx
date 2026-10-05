@@ -67,21 +67,21 @@ export const AdminExpensesList = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#090909]
+        bg-[#4C9FE5]/5
       "
     >
       <div className="flex flex-col justify-between gap-3 border-b border-white/7 px-5 py-4 sm:flex-row sm:items-center">
         <div>
-          <h3 className="text-[14px] font-medium text-white">
+          <h3 className="text-[14px] font-medium text-[#E8E9E7]">
             Ostatnie wydatki
           </h3>
 
-          <p className="mt-1 text-[11px] text-white/25">
+          <p className="mt-1 text-[11px] text-[#E8E9E7]/25">
             Zarejestrowane operacje
           </p>
         </div>
 
-        <span className="text-[10px] text-white/20">
+        <span className="text-[10px] text-[#E8E9E7]/20">
           {expenses.length} operacji
         </span>
       </div>
@@ -98,7 +98,7 @@ export const AdminExpensesList = () => {
               py-4
               transition-colors
               duration-300
-              hover:bg-white/[0.015]
+              hover:bg-[ext-[#E8E9E7]/[0.015]
               sm:flex-row
               sm:items-center
             "
@@ -114,8 +114,8 @@ export const AdminExpensesList = () => {
                 rounded-full
                 border
                 border-white/8
-                bg-white/[0.02]
-                text-white/30
+                bg-[ext-[#E8E9E7]/[0.02]
+                text-[#E8E9E7]/30
               "
             >
               <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4">
@@ -131,30 +131,30 @@ export const AdminExpensesList = () => {
 
             <div className="min-w-0 flex-1">
               <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-2">
-                <p className="truncate text-[12px] text-white/70">
+                <p className="truncate text-[12px] text-[#E8E9E7]/70">
                   {expense.title}
                 </p>
 
-                <span className="w-fit rounded-[5px] border border-white/8 px-1.5 py-0.5 text-[8px] text-white/25">
+                <span className="w-fit rounded-[5px] border border-white/8 px-1.5 py-0.5 text-[8px] text-[#E8E9E7]/25">
                   {expense.category}
                 </span>
               </div>
 
-              <p className="mt-1 truncate text-[10px] text-white/20">
+              <p className="mt-1 truncate text-[10px] text-[#E8E9E7]/20">
                 {expense.car ? `${expense.car} · ` : ""}
                 {expense.description}
               </p>
 
-              <p className="mt-1 text-[9px] text-white/15 sm:hidden">
+              <p className="mt-1 text-[9px] text-[#E8E9E7]/15 sm:hidden">
                 {expense.date}
               </p>
             </div>
 
-            <p className="hidden shrink-0 text-[9px] text-white/20 sm:block">
+            <p className="hidden shrink-0 text-[9px] text-[#E8E9E7]/20 sm:block">
               {expense.date}
             </p>
 
-            <p className="shrink-0 text-[12px] font-medium text-white/55">
+            <p className="shrink-0 text-[12px] font-medium text-[#E8E9E7]/55">
               -{formatPrice(expense.amount)}
             </p>
 
@@ -172,11 +172,11 @@ export const AdminExpensesList = () => {
                 border-white/8
                 px-3
                 text-[9px]
-                text-white/30
+                text-[#E8E9E7]/30
                 transition-all
                 duration-300
                 hover:border-white/15
-                hover:text-white
+                hover:text-[#E8E9E7]
               "
             >
               Szczegóły

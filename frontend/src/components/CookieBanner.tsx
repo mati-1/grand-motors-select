@@ -58,12 +58,12 @@ export const CookieBanner = () => {
         "
       >
         {/* GOLD ACCENT */}
-        <div className="absolute left-0 top-0 h-px w-full bg-linear-to-r from-[#b99a5c] via-[#d2b878] to-transparent" />
+        <div className="absolute left-0 top-0 h-px w-full bg-linear-to-r from-[#4C9FE5] via-[#4C9FE5] to-transparent" />
 
         {/* CONTENT */}
         <div className="flex flex-col gap-4">
           <div>
-            <div className="mb-2 text-[9px]  text-[#b99a5c]">PLIKI COOKIES</div>
+            <div className="mb-2 text-[9px]  text-[#4C9FE5]">PLIKI COOKIES</div>
 
             <p className="max-w-95 text-[11px] leading-[1.7] text-[#888]">
               Ta strona wykorzystuje pliki cookies, aby zapewnić jej prawidłowe
@@ -80,7 +80,7 @@ export const CookieBanner = () => {
                 h-10
                 flex-1
                 cursor-pointer
-                bg-[#d2b878]
+                bg-[#4C9FE5]
                 px-4
                 text-[9px]
                 font-medium

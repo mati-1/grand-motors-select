@@ -2,13 +2,13 @@ export const AdminFinancesHeader = () => {
   return (
     <section className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
       <div>
-        <span className="text-[11px] text-[#b99a5c]">Finanse firmy</span>
+        <span className="text-[11px] text-[#4C9FE5]">Finanse firmy</span>
 
-        <h2 className="mt-1 text-[24px] font-medium tracking-tight text-white sm:text-[28px]">
+        <h2 className="mt-1 text-[24px] font-medium tracking-tight text-[#E8E9E7] sm:text-[28px]">
           Finanse
         </h2>
 
-        <p className="mt-2 max-w-150 text-[10px] leading-[1.7] text-white/30">
+        <p className="mt-2 max-w-150 text-[10px] leading-[1.7] text-[#E8E9E7]/30">
           Kontroluj przepływy pieniężne, kapitał zainwestowany w samochody,
           przychody, koszty i wynik firmy.
         </p>
@@ -27,14 +27,14 @@ export const AdminFinancesHeader = () => {
           rounded-[10px]
           border
           border-white/8
-          bg-[#090909]
+          bg-[#4C9FE5]/5
           px-4
           text-[10px]
-          text-white/50
+          text-[#E8E9E7]/50
           transition-all
           duration-300
-          hover:border-[#b99a5c]/25
-          hover:text-[#d2b878]
+          hover:border-[#4C9FE5]/25
+          hover:text-[#4C9FE5]
         "
       >
         <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4">

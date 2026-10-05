@@ -13,11 +13,11 @@ type Props = {
 
 export const AdminExpensePayment = ({ values, onChange }: Props) => {
   return (
-    <section className="rounded-[10px] border border-white/8 bg-[#090909]">
+    <section className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/5">
       <div className="border-b border-white/7 px-5 py-4">
-        <h3 className="text-[14px] font-medium text-white">Płatność</h3>
+        <h3 className="text-[14px] font-medium text-[#E8E9E7]">Płatność</h3>
 
-        <p className="mt-1 text-[10px] text-white/30">
+        <p className="mt-1 text-[10px] text-[#E8E9E7]/30">
           Informacje dotyczące sposobu opłacenia wydatku.
         </p>
       </div>

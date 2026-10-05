@@ -74,19 +74,21 @@ export const AdminCustomersList = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#090909]
+        bg-[#4C9FE5]/5
       "
     >
       <div className="flex flex-col justify-between gap-3 border-b border-white/7 px-5 py-4 sm:flex-row sm:items-center">
         <div>
-          <h3 className="text-[14px] font-medium text-white">Baza klientów</h3>
+          <h3 className="text-[14px] font-medium text-[#E8E9E7]">
+            Baza klientów
+          </h3>
 
-          <p className="mt-1 text-[11px] text-white/25">
+          <p className="mt-1 text-[11px] text-[#E8E9E7]/25">
             Klienci i historia ich transakcji
           </p>
         </div>
 
-        <span className="text-[10px] text-white/20">
+        <span className="text-[10px] text-[#E8E9E7]/20">
           {customers.length} klientów
         </span>
       </div>
@@ -96,27 +98,27 @@ export const AdminCustomersList = () => {
         <table className="w-full">
           <thead>
             <tr className="border-b border-white/5">
-              <th className="px-5 py-3 text-left text-[9px] font-normal text-white/20">
+              <th className="px-5 py-3 text-left text-[9px] font-normal text-[#E8E9E7]/20">
                 Klient
               </th>
 
-              <th className="px-4 py-3 text-left text-[9px] font-normal text-white/20">
+              <th className="px-4 py-3 text-left text-[9px] font-normal text-[#E8E9E7]/20">
                 Kontakt
               </th>
 
-              <th className="px-4 py-3 text-center text-[9px] font-normal text-white/20">
+              <th className="px-4 py-3 text-center text-[9px] font-normal text-[#E8E9E7]/20">
                 Zakupy
               </th>
 
-              <th className="px-4 py-3 text-right text-[9px] font-normal text-white/20">
+              <th className="px-4 py-3 text-right text-[9px] font-normal text-[#E8E9E7]/20">
                 Wartość zakupów
               </th>
 
-              <th className="px-4 py-3 text-right text-[9px] font-normal text-white/20">
+              <th className="px-4 py-3 text-right text-[9px] font-normal text-[#E8E9E7]/20">
                 Ostatni zakup
               </th>
 
-              <th className="px-5 py-3 text-right text-[9px] font-normal text-white/20">
+              <th className="px-5 py-3 text-right text-[9px] font-normal text-[#E8E9E7]/20">
                 Akcja
               </th>
             </tr>
@@ -132,7 +134,7 @@ export const AdminCustomersList = () => {
                   last:border-b-0
                   transition-colors
                   duration-300
-                  hover:bg-white/[0.015]
+                  hover:bg-[ext-[#E8E9E7]/[0.015]
                 "
               >
                 <td className="px-5 py-4">
@@ -148,9 +150,9 @@ export const AdminCustomersList = () => {
                         rounded-full
                         border
                         border-white/8
-                        bg-white/[0.025]
+                        bg-[ext-[#E8E9E7]/[0.025]
                         text-[10px]
-                        text-[#b99a5c]
+                        text-[#4C9FE5]
                       "
                     >
                       {customer.name
@@ -161,11 +163,11 @@ export const AdminCustomersList = () => {
                     </div>
 
                     <div className="min-w-0">
-                      <p className="truncate text-[11px] text-white/70">
+                      <p className="truncate text-[11px] text-[#E8E9E7]/70">
                         {customer.name}
                       </p>
 
-                      <p className="mt-1 text-[9px] text-white/20">
+                      <p className="mt-1 text-[9px] text-[#E8E9E7]/20">
                         {customer.type}
                       </p>
                     </div>
@@ -173,26 +175,28 @@ export const AdminCustomersList = () => {
                 </td>
 
                 <td className="px-4 py-4">
-                  <p className="text-[10px] text-white/45">{customer.phone}</p>
+                  <p className="text-[10px] text-[#E8E9E7]/45">
+                    {customer.phone}
+                  </p>
 
-                  <p className="mt-1 text-[9px] text-white/20">
+                  <p className="mt-1 text-[9px] text-[#E8E9E7]/20">
                     {customer.email}
                   </p>
                 </td>
 
                 <td className="px-4 py-4 text-center">
-                  <span className="text-[11px] text-white/50">
+                  <span className="text-[11px] text-[#E8E9E7]/50">
                     {customer.purchases}
                   </span>
                 </td>
 
                 <td className="px-4 py-4 text-right">
-                  <span className="text-[11px] text-[#d2b878]">
+                  <span className="text-[11px] text-[#4C9FE5]">
                     {formatPrice(customer.totalValue)}
                   </span>
                 </td>
 
-                <td className="px-4 py-4 text-right text-[9px] text-white/20">
+                <td className="px-4 py-4 text-right text-[9px] text-[#E8E9E7]/20">
                   {customer.lastPurchase}
                 </td>
 
@@ -207,11 +211,11 @@ export const AdminCustomersList = () => {
                       border-white/8
                       px-3
                       text-[9px]
-                      text-white/35
+                      text-[#E8E9E7]/35
                       transition-all
                       duration-300
-                      hover:border-[#b99a5c]/25
-                      hover:text-[#d2b878]
+                      hover:border-[#4C9FE5]/25
+                      hover:text-[#4C9FE5]
                     "
                   >
                     Szczegóły
@@ -239,9 +243,9 @@ export const AdminCustomersList = () => {
                   rounded-full
                   border
                   border-white/8
-                  bg-white/[0.025]
+                  bg-[ext-[#E8E9E7]/[0.025]
                   text-[10px]
-                  text-[#b99a5c]
+                  text-[#4C9FE5]
                 "
               >
                 {customer.name
@@ -252,11 +256,13 @@ export const AdminCustomersList = () => {
               </div>
 
               <div className="min-w-0 flex-1">
-                <p className="truncate text-[12px] text-white/70">
+                <p className="truncate text-[12px] text-[#E8E9E7]/70">
                   {customer.name}
                 </p>
 
-                <p className="mt-1 text-[9px] text-white/20">{customer.type}</p>
+                <p className="mt-1 text-[9px] text-[#E8E9E7]/20">
+                  {customer.type}
+                </p>
               </div>
 
               <button
@@ -270,7 +276,7 @@ export const AdminCustomersList = () => {
                   border-white/8
                   px-3
                   text-[9px]
-                  text-white/35
+                  text-[#E8E9E7]/35
                 "
               >
                 Szczegóły
@@ -279,33 +285,33 @@ export const AdminCustomersList = () => {
 
             <div className="mt-4 grid grid-cols-2 gap-4 border-t border-white/5 pt-4">
               <div>
-                <p className="text-[8px] text-white/20">Telefon</p>
+                <p className="text-[8px] text-[#E8E9E7]/20">Telefon</p>
 
-                <p className="mt-1 text-[10px] text-white/45">
+                <p className="mt-1 text-[10px] text-[#E8E9E7]/45">
                   {customer.phone}
                 </p>
               </div>
 
               <div>
-                <p className="text-[8px] text-white/20">E-mail</p>
+                <p className="text-[8px] text-[#E8E9E7]/20">E-mail</p>
 
-                <p className="mt-1 truncate text-[10px] text-white/45">
+                <p className="mt-1 truncate text-[10px] text-[#E8E9E7]/45">
                   {customer.email}
                 </p>
               </div>
 
               <div>
-                <p className="text-[8px] text-white/20">Liczba zakupów</p>
+                <p className="text-[8px] text-[#E8E9E7]/20">Liczba zakupów</p>
 
-                <p className="mt-1 text-[10px] text-white/45">
+                <p className="mt-1 text-[10px] text-[#E8E9E7]/45">
                   {customer.purchases}
                 </p>
               </div>
 
               <div>
-                <p className="text-[8px] text-white/20">Wartość zakupów</p>
+                <p className="text-[8px] text-[#E8E9E7]/20">Wartość zakupów</p>
 
-                <p className="mt-1 text-[10px] text-[#d2b878]">
+                <p className="mt-1 text-[10px] text-[#4C9FE5]">
                   {formatPrice(customer.totalValue)}
                 </p>
               </div>

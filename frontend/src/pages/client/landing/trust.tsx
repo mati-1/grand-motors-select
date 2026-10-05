@@ -18,22 +18,22 @@ export const ProcessItem = ({
     <div
       className={`
         flex gap-5 rounded-[10px] py-5 transition-colors duration-300
-        sm:gap-7 hover:bg-white/2.5
+        sm:gap-7 hover:bg-[ext-[#E8E9E7]/2.5
         ${!last ? "border-b border-white/10" : ""}
       `}
     >
       <div className="flex shrink-0 flex-col items-center">
-        <div className="flex h-8 w-8 items-center justify-center border border-[#b99a5c]/30 font-normal text-[12px] text-[#d2b878]">
+        <div className="flex h-8 w-8 items-center justify-center border border-[#4C9FE5]/30 font-normal text-[12px] text-[#4C9FE5]">
           {number}
         </div>
 
-        {!last && <div className="mt-2 h-full w-px bg-white/10" />}
+        {!last && <div className="mt-2 h-full w-px bg-[ext-[#E8E9E7]/10" />}
       </div>
 
       <div className="pt-0.5">
-        <h4 className="text-[12px] text-white sm:text-[14px]">{title}</h4>
+        <h4 className="text-[12px] text-[#E8E9E7] sm:text-[14px]">{title}</h4>
 
-        <p className="mt-2 max-w-180 text-[11px] leading-[1.8] text-white/70 sm:text-[13px]">
+        <p className="mt-2 max-w-180 text-[11px] leading-[1.8] text-[#E8E9E7]/70 sm:text-[13px]">
           {description}
         </p>
       </div>

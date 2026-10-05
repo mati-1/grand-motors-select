@@ -21,12 +21,12 @@ export const CarsEmptyState = ({ onClearFilters }: CarsEmptyStateProps) => {
           items-center
           justify-center
           border
-          border-[#b99a5c]/20
-          bg-[#b99a5c]/5
+          border-[#4C9FE5]/20
+          bg-[#4C9FE5]/5
           text-center
         "
       >
-        <span className="text-[9px]  text-[#b99a5c]">BRAK WYNIKÓW</span>
+        <span className="text-[9px]  text-[#4C9FE5]">BRAK WYNIKÓW</span>
 
         <h3 className="mt-4 text-[20px] text-[#ddd]">
           NIE ZNALEZIONO SAMOCHODÓW.
@@ -41,14 +41,14 @@ export const CarsEmptyState = ({ onClearFilters }: CarsEmptyStateProps) => {
           onClick={onClearFilters}
           className="
             mt-6
-            border border-[#b99a5c]/30
+            border border-[#4C9FE5]/30
             px-5 py-3
             text-[8px]
             
-            text-[#d2b878]
+            text-[#4C9FE5]
             transition
-            hover:border-[#b99a5c]/60
-            hover:bg-[#b99a5c]/5
+            hover:border-[#4C9FE5]/60
+            hover:bg-[#4C9FE5]/5
           "
         >
           WYCZYŚĆ FILTRY

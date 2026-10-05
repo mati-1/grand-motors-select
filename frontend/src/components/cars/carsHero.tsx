@@ -1,3 +1,4 @@
+import { GradientSpan } from "../gradientSpan";
 import { MainHeadingComponent, SubHeadingComponent } from "../headings";
 
 export const CarsHero = () => {
@@ -11,7 +12,7 @@ export const CarsHero = () => {
         border-b border-white/5
         px-[4vw] min-[1200px]:px-[13vw]
         pt-[10vh]
-         bg-[#b99a5c]/20
+         bg-[#4C9FE5]/20
           bg-linear-to-r from-black/90 via-black/75 to-black/90
       "
     >
@@ -51,7 +52,7 @@ export const CarsHero = () => {
       />
       <div className="relative z-10">
         <MainHeadingComponent className="text-4xl! sm:text-5xl!">
-          Nasza oferta
+          Nasza <GradientSpan>oferta</GradientSpan>
         </MainHeadingComponent>
 
         <SubHeadingComponent

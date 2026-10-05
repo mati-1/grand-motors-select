@@ -23,7 +23,7 @@ export const CarReportCard = ({
         bg-[#080808]
         transition-all
         duration-500
-        hover:border-[#b99a5c]/30
+        hover:border-[#4C9FE5]/30
       "
     >
       {/* GOLD ACCENT */}
@@ -36,7 +36,7 @@ export const CarReportCard = ({
           w-px
           origin-top
           scale-y-0
-          bg-[#b99a5c]
+          bg-[#4C9FE5]
           transition-transform
           duration-500
           group-hover:scale-y-100
@@ -62,7 +62,7 @@ export const CarReportCard = ({
               h-1.5
               w-1.5
               rounded-full
-              bg-[#b99a5c]
+              bg-[#4C9FE5]
             "
           />
 
@@ -136,7 +136,7 @@ export const CarReportCard = ({
           {subtitle}
         </p>
 
-        <div className="my-6 h-px w-full bg-white/6" />
+        <div className="my-6 h-px w-full bg-[ext-[#E8E9E7]/6" />
 
         {/* DOWNLOAD */}
         <a
@@ -154,7 +154,7 @@ export const CarReportCard = ({
             text-[#888]
             transition-colors
             duration-300
-            hover:text-[#d2b878]
+            hover:text-[#4C9FE5]
           "
         >
           <span
@@ -170,8 +170,8 @@ export const CarReportCard = ({
               text-[#666]
               transition-all
               duration-300
-              group-hover/download:border-[#b99a5c]/40
-              group-hover/download:text-[#b99a5c]
+              group-hover/download:border-[#4C9FE5]/40
+              group-hover/download:text-[#4C9FE5]
             "
           >
             ↓

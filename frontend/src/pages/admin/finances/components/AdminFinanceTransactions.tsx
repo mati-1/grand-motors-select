@@ -62,16 +62,16 @@ export const AdminFinanceTransactions = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#090909]
+        bg-[#4C9FE5]/5
       "
     >
       <div className="flex items-center justify-between gap-4 border-b border-white/7 px-5 py-4">
         <div>
-          <h3 className="text-[14px] font-medium text-white">
+          <h3 className="text-[14px] font-medium text-[#E8E9E7]">
             Ostatnie operacje
           </h3>
 
-          <p className="mt-1 text-[11px] text-white/25">
+          <p className="mt-1 text-[11px] text-[#E8E9E7]/25">
             Historia przychodów i wydatków
           </p>
         </div>
@@ -81,10 +81,10 @@ export const AdminFinanceTransactions = () => {
           className="
             cursor-pointer
             text-[10px]
-            text-white/30
+            text-[#E8E9E7]/30
             transition-colors
             duration-300
-            hover:text-[#d2b878]
+            hover:text-[#4C9FE5]
           "
         >
           Zobacz wszystkie
@@ -118,8 +118,8 @@ export const AdminFinanceTransactions = () => {
                 border
                 ${
                   transaction.type === "income"
-                    ? "border-[#b99a5c]/20 bg-[#b99a5c]/5 text-[#d2b878]"
-                    : "border-white/8 bg-white/2 text-white/30"
+                    ? "border-[#4C9FE5]/20 bg-[#4C9FE5]/5 text-[#4C9FE5]"
+                    : "border-white/8 bg-[ext-[#E8E9E7]/2 text-[#E8E9E7]/30"
                 }
               `}
             >
@@ -147,11 +147,11 @@ export const AdminFinanceTransactions = () => {
             </div>
 
             <div className="min-w-0 flex-1">
-              <p className="truncate text-[12px] text-white/70">
+              <p className="truncate text-[12px] text-[#E8E9E7]/70">
                 {transaction.title}
               </p>
 
-              <p className="mt-1 truncate text-[10px] text-white/20">
+              <p className="mt-1 truncate text-[10px] text-[#E8E9E7]/20">
                 {transaction.description} · {transaction.date}
               </p>
             </div>
@@ -163,8 +163,8 @@ export const AdminFinanceTransactions = () => {
                 font-medium
                 ${
                   transaction.type === "income"
-                    ? "text-[#d2b878]"
-                    : "text-white/45"
+                    ? "text-[#4C9FE5]"
+                    : "text-[#E8E9E7]/45"
                 }
               `}
             >

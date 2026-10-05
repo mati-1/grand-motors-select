@@ -5,7 +5,7 @@ export const DetailingCta = () => {
     <ContactSectionComponent text="Opowiedz nam, czego potrzebuje Twój samochód. Po krótkiej konsultacji dobierzemy odpowiedni zakres prac i ustalimy dogodny termin.">
       ODŚWIEŻ
       <br />
-      SWÓJ SAMOCHÓD <br /> <span className="text-[#d2b878]">Z NAMI.</span>
+      SWÓJ SAMOCHÓD <br /> <span className="text-[#4C9FE5]">Z NAMI.</span>
     </ContactSectionComponent>
   );
 };

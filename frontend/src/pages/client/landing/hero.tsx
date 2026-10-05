@@ -1,4 +1,5 @@
 import { ButtonComponent } from "../../../components/button";
+import { GradientSpan } from "../../../components/gradientSpan";
 import {
   MainHeadingComponent,
   SubHeadingComponent,
@@ -114,7 +115,7 @@ export const HeroComponentSection = () => {
           >
             Skupmy się na
             <br />
-            <span className="text-[#d2b878]">samochodach.</span>
+            <GradientSpan>samochodach.</GradientSpan>
           </MainHeadingComponent>
 
           <p
@@ -148,11 +149,11 @@ export const HeroComponentSection = () => {
               sm:gap-4
             "
           >
-            <ButtonComponent type="main" href="/cars" size="big">
+            <ButtonComponent variant="main" href="/cars" size="big">
               Zobacz samochody
             </ButtonComponent>
 
-            <ButtonComponent type="secondary" href="#cars-trust" size="big">
+            <ButtonComponent variant="secondary" href="#cars-trust" size="big">
               Nasze standardy
             </ButtonComponent>
           </div>

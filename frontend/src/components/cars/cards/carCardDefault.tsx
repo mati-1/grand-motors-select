@@ -40,8 +40,8 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
         border-white/10
         transition-colors
         duration-500
-        bg-[#090909]
-        hover:border-[#b99a5c]/30
+        bg-[#4C9FE5]/5
+        hover:border-[#4C9FE5]/30
         ${car.status === "sold" ? "grayscale" : ""}
       `}
     >
@@ -121,7 +121,7 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
                 text-[17px]
                 font-medium
                 leading-tight
-                text-white
+                text-[#E8E9E7]
                 sm:text-[19px]
               "
             >
@@ -135,7 +135,7 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
                   text-[21px]
                   font-normal
                   leading-none
-                  text-white
+                  text-[#E8E9E7]
                   sm:text-[23px]
                   ${car.status === "sold" ? "line-through" : ""}
                 `}
@@ -162,7 +162,7 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
               mt-2
               text-[10px]
               leading-relaxed
-              text-white/70
+              text-[#E8E9E7]/70
               sm:text-[11px]
             "
           >
@@ -179,7 +179,7 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
               gap-x-4
               gap-y-3
               text-[11px]
-              text-white
+              text-[#E8E9E7]
               sm:mt-6
               sm:flex
               sm:flex-wrap
@@ -250,7 +250,7 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
               items-center
               gap-1.5
               text-[11px]
-              text-white
+              text-[#E8E9E7]
               opacity-75
               sm:mt-6
               sm:text-[12px]

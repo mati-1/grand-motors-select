@@ -2,15 +2,15 @@ export const AdminCompanyHeader = () => {
   return (
     <section className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
       <div>
-        <span className="text-[11px] text-[#b99a5c]">
+        <span className="text-[11px] text-[#4C9FE5]">
           Konfiguracja przedsiębiorstwa
         </span>
 
-        <h2 className="mt-1 text-[24px] font-medium tracking-tight text-white sm:text-[28px]">
+        <h2 className="mt-1 text-[24px] font-medium tracking-tight text-[#E8E9E7] sm:text-[28px]">
           Firma
         </h2>
 
-        <p className="mt-2 max-w-[620px] text-[10px] leading-[1.7] text-white/30">
+        <p className="mt-2 max-w-[620px] text-[10px] leading-[1.7] text-[#E8E9E7]/30">
           Zarządzaj danymi Grand Motors Select, rachunkami, kosztami stałymi
           oraz ustawieniami sprzedaży.
         </p>
@@ -27,7 +27,7 @@ export const AdminCompanyHeader = () => {
           justify-center
           gap-2
           rounded-[10px]
-          bg-[#d2b878]
+          bg-[#4C9FE5]
           px-4
           text-[10px]
           font-medium

@@ -49,7 +49,7 @@ export const DetailingHero = () => {
       <div className="absolute inset-0 bg-linear-to-t from-[#050505] via-transparent to-black/20" />
 
       {/* GOLD GLOW */}
-      <div className="absolute bottom-[-20%] left-[45%] h-100 w-100 rounded-full bg-[#b99a5c]/8 blur-[120px]" />
+      <div className="absolute bottom-[-20%] left-[45%] h-100 w-100 rounded-full bg-[#4C9FE5]/8 blur-[120px]" />
 
       <div className="relative z-10 w-full lg:pt-15 pb-14 sm:pb-10 px-[4vw] min-[1200px]:px-[13vw] lg:pb-12">
         <MainHeadingComponent className="text-[clamp(46px,8vw,80px)]!">
@@ -57,7 +57,7 @@ export const DetailingHero = () => {
           <br />
           TKWI W
           <br />
-          <span className="text-[#b99a5c]">SZCZEGÓŁACH.</span>
+          <span className="text-[#4C9FE5]">SZCZEGÓŁACH.</span>
         </MainHeadingComponent>
 
         <div className="mt-10 flex flex-col gap-8">
@@ -76,12 +76,12 @@ export const DetailingHero = () => {
               sm:items-center
               sm:gap-4"
           >
-            <ButtonComponent type="main" href="/contact" size="big">
+            <ButtonComponent variant="main" href="/contact" size="big">
               Umów detailing
             </ButtonComponent>
 
             <ButtonComponent
-              type="secondary"
+              variant="secondary"
               href="#detailing-services"
               size="big"
             >

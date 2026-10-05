@@ -66,7 +66,7 @@ export const AdminCustomersFilters = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#090909]
+        bg-[#4C9FE5]/5
         p-4
       "
     >
@@ -74,7 +74,7 @@ export const AdminCustomersFilters = () => {
         <div className="w-full">
           <label
             htmlFor="customer-search"
-            className="mb-1.5 block text-[10px] text-white/45"
+            className="mb-1.5 block text-[10px] text-[#E8E9E7]/45"
           >
             Wyszukaj klienta
           </label>
@@ -91,7 +91,7 @@ export const AdminCustomersFilters = () => {
                 h-3.5
                 w-3.5
                 -translate-y-1/2
-                text-white/20
+                text-[#E8E9E7]/20
               "
             >
               <circle
@@ -121,17 +121,17 @@ export const AdminCustomersFilters = () => {
                 rounded-[8px]
                 border
                 border-white/10
-                bg-white/[0.025]
+                bg-[ext-[#E8E9E7]/[0.025]
                 pl-10
                 pr-4
                 text-[12px]
-                text-white
+                text-[#E8E9E7]
                 outline-none
-                placeholder:text-white/20
+                placeholder:text-[#E8E9E7]/20
                 transition-all
                 duration-300
-                focus:border-[#b99a5c]/50
-                focus:bg-white/[0.035]
+                focus:border-[#4C9FE5]/50
+                focus:bg-[ext-[#E8E9E7]/[0.035]
               "
             />
           </div>

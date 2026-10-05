@@ -127,7 +127,7 @@ export const FormSelect = ({
           mb-1.5
           block
           text-[10px]
-          text-white/45
+          text-[#E8E9E7]/45
         "
       >
         {label}
@@ -152,14 +152,14 @@ export const FormSelect = ({
           rounded-[10px]
           border
           border-white/10
-          bg-white/2.5
+          bg-[ext-[#E8E9E7]/2.5
           px-4
           text-left
           outline-none
           transition-all
           duration-300
           hover:border-white/15
-          focus:border-[#b99a5c]/50
+          focus:border-[#4C9FE5]/50
         "
       >
         <span
@@ -167,7 +167,7 @@ export const FormSelect = ({
             text-[12px]
             transition-colors
             duration-300
-            ${selectedOption ? "text-[#ddd]" : "text-white/20"}
+            ${selectedOption ? "text-[#ddd]" : "text-[#E8E9E7]/20"}
           `}
         >
           {selectedOption?.label ?? placeholder}
@@ -219,7 +219,7 @@ export const FormSelect = ({
               shrink-0
               bg-linear-to-r
               from-transparent
-              via-[#b99a5c]/60
+              via-[#4C9FE5]/60
               to-transparent
             "
           />
@@ -261,10 +261,10 @@ export const FormSelect = ({
                     ${
                       option.disabled
                         ? "cursor-not-allowed text-[#333]"
-                        : "hover:bg-[#b99a5c]/7"
+                        : "hover:bg-[#4C9FE5]/7"
                     }
 
-                    ${isSelected ? "bg-[#b99a5c]/5" : ""}
+                    ${isSelected ? "bg-[#4C9FE5]/5" : ""}
                   `}
                 >
                   {/* LEFT LINE */}
@@ -276,7 +276,7 @@ export const FormSelect = ({
                       left-0
                       top-2
                       w-px
-                      bg-[#b99a5c]
+                      bg-[#4C9FE5]
                       transition-all
                       duration-300
 
@@ -300,7 +300,7 @@ export const FormSelect = ({
                         option.disabled
                           ? "text-[#333]"
                           : isSelected
-                            ? "translate-x-1 text-[#d2b878]"
+                            ? "translate-x-1 text-[#4C9FE5]"
                             : "text-[#888] group-hover/option:translate-x-1 group-hover/option:text-[#ddd]"
                       }
                     `}
@@ -314,7 +314,7 @@ export const FormSelect = ({
                     <span
                       className="
                         text-[8px]
-                        text-[#b99a5c]
+                        text-[#4C9FE5]
                       "
                     >
                       ●

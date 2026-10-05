@@ -45,16 +45,16 @@ export const AdminCompanyBankAccounts = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#090909]
+        bg-[#4C9FE5]/5
       "
     >
       <div className="flex flex-col justify-between gap-3 border-b border-white/7 px-5 py-4 sm:flex-row sm:items-center">
         <div>
-          <h3 className="text-[14px] font-medium text-white">
+          <h3 className="text-[14px] font-medium text-[#E8E9E7]">
             Rachunki bankowe
           </h3>
 
-          <p className="mt-1 text-[11px] text-white/25">
+          <p className="mt-1 text-[11px] text-[#E8E9E7]/25">
             Konta wykorzystywane do obsługi finansów firmy
           </p>
         </div>
@@ -72,11 +72,11 @@ export const AdminCompanyBankAccounts = () => {
             border-white/8
             px-3
             text-[9px]
-            text-white/40
+            text-[#E8E9E7]/40
             transition-all
             duration-300
-            hover:border-[#b99a5c]/25
-            hover:text-[#d2b878]
+            hover:border-[#4C9FE5]/25
+            hover:text-[#4C9FE5]
           "
         >
           <span className="text-[13px] leading-none">+</span>
@@ -92,7 +92,7 @@ export const AdminCompanyBankAccounts = () => {
               rounded-[10px]
               border
               border-white/8
-              bg-white/[0.015]
+              bg-[ext-[#E8E9E7]/[0.015]
               p-4
               transition-colors
               duration-300
@@ -102,18 +102,20 @@ export const AdminCompanyBankAccounts = () => {
             <div className="flex items-start justify-between gap-4">
               <div>
                 <div className="flex items-center gap-2">
-                  <h4 className="text-[12px] font-medium text-white/70">
+                  <h4 className="text-[12px] font-medium text-[#E8E9E7]/70">
                     {account.name}
                   </h4>
 
                   {account.primary && (
-                    <span className="rounded-[5px] border border-[#b99a5c]/20 bg-[#b99a5c]/5 px-1.5 py-0.5 text-[8px] text-[#b99a5c]">
+                    <span className="rounded-[5px] border border-[#4C9FE5]/20 bg-[#4C9FE5]/5 px-1.5 py-0.5 text-[8px] text-[#4C9FE5]">
                       Główny
                     </span>
                   )}
                 </div>
 
-                <p className="mt-1 text-[9px] text-white/20">{account.bank}</p>
+                <p className="mt-1 text-[9px] text-[#E8E9E7]/20">
+                  {account.bank}
+                </p>
               </div>
 
               <button
@@ -121,9 +123,9 @@ export const AdminCompanyBankAccounts = () => {
                 className="
                   cursor-pointer
                   text-[9px]
-                  text-white/20
+                  text-[#E8E9E7]/20
                   transition-colors
-                  hover:text-white/60
+                  hover:text-[#E8E9E7]/60
                 "
               >
                 Edytuj
@@ -132,17 +134,17 @@ export const AdminCompanyBankAccounts = () => {
 
             <div className="mt-5 flex items-end justify-between gap-4">
               <div>
-                <p className="text-[9px] text-white/20">Numer rachunku</p>
+                <p className="text-[9px] text-[#E8E9E7]/20">Numer rachunku</p>
 
-                <p className="mt-1 text-[10px] tracking-[0.05em] text-white/40">
+                <p className="mt-1 text-[10px] tracking-[0.05em] text-[#E8E9E7]/40">
                   {account.number}
                 </p>
               </div>
 
               <div className="text-right">
-                <p className="text-[9px] text-white/20">Saldo</p>
+                <p className="text-[9px] text-[#E8E9E7]/20">Saldo</p>
 
-                <p className="mt-1 text-[14px] font-medium text-[#d2b878]">
+                <p className="mt-1 text-[14px] font-medium text-[#4C9FE5]">
                   {formatPrice(account.balance)}
                 </p>
               </div>

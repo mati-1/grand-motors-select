@@ -12,7 +12,7 @@ export const WrapIntro = () => {
         px-[4vw] min-[1200px]:px-[13vw]
         py-16
         sm:py-24
-        bg-[#b99a5c]/20
+        bg-[#4C9FE5]/20
           bg-linear-to-r from-black/90 via-black/75 to-black/90
       "
     >
@@ -33,7 +33,7 @@ export const WrapIntro = () => {
           <MainHeadingComponent className="max-w-190 text-[clamp(38px,5vw,64px)]!">
             NIE MUSISZ
             <br />
-            <span className="text-[#d2b878]">KUPOWAĆ NOWEGO.</span>
+            <span className="text-[#4C9FE5]">KUPOWAĆ NOWEGO.</span>
           </MainHeadingComponent>
 
           <div className="mt-8 max-w-165 space-y-5">

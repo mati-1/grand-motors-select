@@ -41,13 +41,13 @@ export const CarsComponent = () => {
         </div>
 
         {carsQuery.isPending && (
-          <div className="py-10 text-center text-[11px] text-white/30">
+          <div className="py-10 text-center text-[11px] text-[#E8E9E7]/30">
             Pobieranie samochodów...
           </div>
         )}
 
         {carsQuery.isError && !carsQuery.isPending && (
-          <div className="py-10 text-center text-[11px] text-white/30">
+          <div className="py-10 text-center text-[11px] text-[#E8E9E7]/30">
             Nie udało się pobrać aktualnej oferty.
           </div>
         )}
@@ -61,7 +61,7 @@ export const CarsComponent = () => {
         )}
 
         {!carsQuery.isPending && !carsQuery.isError && cars.length === 0 && (
-          <div className="py-10 text-center text-[11px] text-white/30">
+          <div className="py-10 text-center text-[11px] text-[#E8E9E7]/30">
             Aktualnie brak samochodów w ofercie.
           </div>
         )}

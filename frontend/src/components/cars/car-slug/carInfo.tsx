@@ -49,7 +49,7 @@ export const SpecificationItem = ({
               text-[#555]
               transition-colors
               duration-300
-              group-hover:text-[#b99a5c]
+              group-hover:text-[#4C9FE5]
             "
           />
         )}
@@ -80,7 +80,7 @@ export const SpecificationItem = ({
                 text-[#c8c8c8]
                 transition-colors
                 duration-300
-                group-hover:text-white
+                group-hover:text-[#E8E9E7]
               "
             >
               {value}
@@ -96,7 +96,7 @@ export const SpecificationItem = ({
                 text-[#c8c8c8]
                 transition-colors
                 duration-300
-                group-hover:text-white
+                group-hover:text-[#E8E9E7]
               "
             >
               {content}
@@ -124,7 +124,7 @@ export const CarInfo = ({ car }: CarInfoProps) => {
         font-normal
         leading-[1.04]
         
-        text-white
+        text-[#E8E9E7]
       "
           >
             {car.brand} {car.model}
@@ -138,7 +138,7 @@ export const CarInfo = ({ car }: CarInfoProps) => {
         gap-2
         text-[14px]
         font-normal
-        text-white/70
+        text-[#E8E9E7]/70
       "
           >
             <span>{car.condition}</span>
@@ -188,7 +188,7 @@ export const CarInfo = ({ car }: CarInfoProps) => {
                 }
               `}
             >
-              <span className="text-[32px] font-normal text-white">
+              <span className="text-[32px] font-normal text-[#E8E9E7]">
                 {car.price.replace(" PLN", "")}
               </span>
 
@@ -260,16 +260,16 @@ export const CarInfo = ({ car }: CarInfoProps) => {
                 gap-1.5
                 border
                 border-white/10
-                bg-white/1.5
+                bg-[ext-[#E8E9E7]/1.5
                 px-4
                 text-[11px]
                 font-normal
                 rounded-[10px]
-                text-white/70
+                text-[#E8E9E7]/70
                 transition-colors
                 duration-300
                 hover:border-white/15
-                hover:text-white
+                hover:text-[#E8E9E7]
               "
           >
             OTOMOTO
@@ -279,7 +279,7 @@ export const CarInfo = ({ car }: CarInfoProps) => {
           {/* PHONE */}
 
           <ButtonComponent
-            type="secondary"
+            variant="secondary"
             href={isPhoneOpened ? "tel:+48514137133" : undefined}
             className="
                 min-h-12!

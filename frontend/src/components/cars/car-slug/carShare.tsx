@@ -94,13 +94,13 @@ export const CarShare = ({ car }: CarShareProps) => {
           justify-center
           border
           border-white/10
-          bg-white/2
+          bg-[ext-[#E8E9E7]/2
           text-[#777]
           transition-all
           duration-300
-          hover:border-[#b99a5c]/40
-          hover:bg-[#b99a5c]/5
-          hover:text-[#d2b878]
+          hover:border-[#4C9FE5]/40
+          hover:bg-[#4C9FE5]/5
+          hover:text-[#4C9FE5]
         "
       >
         <ShareIcon className="w-5 h-5" />
@@ -153,7 +153,7 @@ export const CarShare = ({ car }: CarShareProps) => {
                   className="
                     text-[9px]
                     
-                    text-[#b99a5c]
+                    text-[#4C9FE5]
                   "
                 >
                   GRAND MOTORS SELECT
@@ -165,7 +165,7 @@ export const CarShare = ({ car }: CarShareProps) => {
                     text-[18px]
                     font-normal
                     
-                    text-white
+                    text-[#E8E9E7]
                   "
                 >
                   Udostępnij ofertę
@@ -187,7 +187,7 @@ export const CarShare = ({ car }: CarShareProps) => {
                   text-[#555]
                   transition-colors
                   duration-300
-                  hover:text-[#d2b878]
+                  hover:text-[#4C9FE5]
                 "
               >
                 ×
@@ -233,7 +233,7 @@ export const CarShare = ({ car }: CarShareProps) => {
                 grid
                 grid-cols-2
                 gap-px
-                bg-white/10
+                bg-[ext-[#E8E9E7]/10
               "
             >
               {/* FACEBOOK */}
@@ -256,8 +256,8 @@ export const CarShare = ({ car }: CarShareProps) => {
                   text-[#777]
                   transition-colors
                   duration-300
-                  hover:bg-[#b99a5c]/5
-                  hover:text-[#d2b878]
+                  hover:bg-[#4C9FE5]/5
+                  hover:text-[#4C9FE5]
                 "
               >
                 <span className="font-normal text-[20px]">f</span>
@@ -283,8 +283,8 @@ export const CarShare = ({ car }: CarShareProps) => {
                   text-[#777]
                   transition-colors
                   duration-300
-                  hover:bg-[#b99a5c]/5
-                  hover:text-[#d2b878]
+                  hover:bg-[#4C9FE5]/5
+                  hover:text-[#4C9FE5]
                 "
               >
                 <MailIcon />
@@ -309,14 +309,14 @@ export const CarShare = ({ car }: CarShareProps) => {
                   gap-4
                   border
                   border-white/10
-                  bg-white/2
+                  bg-[ext-[#E8E9E7]/2
                   px-5
                   py-4
                   text-left
                   transition-all
                   duration-300
-                  hover:border-[#b99a5c]/40
-                  hover:bg-[#b99a5c]/5
+                  hover:border-[#4C9FE5]/40
+                  hover:bg-[#4C9FE5]/5
                 "
               >
                 <div className="min-w-0">
@@ -349,7 +349,7 @@ export const CarShare = ({ car }: CarShareProps) => {
                     shrink-0
                     text-[9px]
                     
-                    text-[#b99a5c]
+                    text-[#4C9FE5]
                   "
                 >
                   {copied ? "SKOPIOWANO ✓" : "KOPIUJ"}
@@ -371,16 +371,16 @@ export const CarShare = ({ car }: CarShareProps) => {
                   justify-center
                   gap-3
                   border
-                  border-[#b99a5c]/30
-                  bg-[#b99a5c]/5
+                  border-[#4C9FE5]/30
+                  bg-[#4C9FE5]/5
                   px-5
                   py-4
                   text-[9px]
                   
-                  text-[#d2b878]
+                  text-[#4C9FE5]
                   transition-all
                   duration-300
-                  hover:bg-[#b99a5c]/10
+                  hover:bg-[#4C9FE5]/10
                 "
               >
                 <ShareIcon />

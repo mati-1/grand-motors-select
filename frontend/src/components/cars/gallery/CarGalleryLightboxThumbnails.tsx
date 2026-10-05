@@ -122,7 +122,7 @@ export const CarGalleryLightboxThumbnails = ({
           transition-all
           duration-300
           rounded-[10px]
-          hover:border-[#b99a5c]/50
+          hover:border-[#4C9FE5]/50
           sm:flex
           ${showControls ? "opacity-100" : "pointer-events-none opacity-0"}
         `}
@@ -158,7 +158,7 @@ export const CarGalleryLightboxThumbnails = ({
           transition-all
           rounded-[10px]
           duration-300
-          hover:border-[#b99a5c]/50
+          hover:border-[#4C9FE5]/50
           sm:flex
           ${showControls ? "opacity-100" : "pointer-events-none opacity-0"}
         `}
@@ -208,7 +208,7 @@ export const CarGalleryLightboxThumbnails = ({
                 duration-300
                 ${
                   isActive
-                    ? "border-[#d2b878]"
+                    ? "border-[#4C9FE5]"
                     : "border-white/10 opacity-50 hover:opacity-80"
                 }
               `}

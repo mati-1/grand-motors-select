@@ -4,6 +4,7 @@ import { FormInput } from "../../../components/form/FormInput";
 import { LogoComponent } from "../../../components/logo";
 import { useNavigate } from "react-router-dom";
 import { useLogin } from "../../../hooks/auth/useLogin";
+import { ButtonComponent } from "../../../components/button";
 
 export const AdminLoginPage = () => {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ export const AdminLoginPage = () => {
           -translate-x-1/2
           -translate-y-1/2
           rounded-full
-          bg-[#b99a5c]/[0.035]
+          bg-[#4C9FE5]/[0.035]
           blur-[120px]
         "
       />
@@ -75,14 +76,14 @@ export const AdminLoginPage = () => {
           "
         >
           <div className="mb-7 text-center">
-            <span className="text-[11px] text-[#b99a5c]">Panel firmy</span>
+            <span className="text-[11px] text-[#4C9FE5]">Panel firmy</span>
 
             <h1
               className="
                 text-[20px]
                 font-medium
                 tracking-[-0.02em]
-                text-white
+                text-[#E8E9E7]
               "
             >
               Zaloguj się
@@ -121,31 +122,14 @@ export const AdminLoginPage = () => {
             )}
 
             <div className="pt-2">
-              <button
+              <ButtonComponent
                 type="submit"
+                variant="main"
+                className="min-w-full"
                 disabled={loginMutation.isPending}
-                className="
-                  flex
-                  h-11
-                  w-full
-                  cursor-pointer
-                  items-center
-                  justify-center
-                  rounded-[10px]
-                  bg-[#d2b878]
-                  px-6
-                  text-[11px]
-                  font-medium
-                  text-black
-                  transition-all
-                  duration-300
-                  hover:bg-[#e0c98b]
-                  disabled:cursor-default
-                  disabled:opacity-60
-                "
               >
                 {loginMutation.isPending ? "Logowanie..." : "Zaloguj się"}
-              </button>
+              </ButtonComponent>
             </div>
           </form>
         </div>
@@ -155,7 +139,7 @@ export const AdminLoginPage = () => {
             mt-6
             text-center
             text-[10px]
-            text-white/20
+            text-[#E8E9E7]/20
           "
         >
           Panel administracyjny · Grand Motors Select

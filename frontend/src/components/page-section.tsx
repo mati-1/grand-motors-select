@@ -17,8 +17,8 @@ export const PageSectionComponent = ({
   return (
     <section
       id={id}
-      className="relative flex scroll-mt-22 flex-col border-[#b99a5c]/20
-          bg-[#b99a5c]/20
+      className="relative flex scroll-mt-22 flex-col border-[#4C9FE5]/20
+          bg-[#4C9FE5]/20
           bg-linear-to-r from-black/90 via-black/85 to-black/80"
     >
       <div

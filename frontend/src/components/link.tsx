@@ -13,8 +13,8 @@ export const LinkComponent = ({
     <a
       href={href}
       onClick={onClick}
-      className={`relative font-light whitespace-nowrap text-[13px] md:text-[12px] text-white transition-colors hover:text-[#d2b878]   ${
-        active ? "text-[#d2b878]!" : "hover:text-[#d2b878]"
+      className={`relative font-light whitespace-nowrap text-[13px] md:text-[12px] text-[#E8E9E7] transition-colors hover:text-[#4C9FE5]   ${
+        active ? "text-[#4C9FE5]!" : "hover:text-[#4C9FE5]"
       }`}
     >
       {text}

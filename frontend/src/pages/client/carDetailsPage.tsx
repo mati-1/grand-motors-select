@@ -37,7 +37,7 @@ export const CarDetailsPage = () => {
   if (carQuery.isError) {
     return (
       <main className="flex min-h-screen flex-col items-center justify-center bg-[#050505] px-[4vw] text-center min-[1200px]:px-[13vw]">
-        <span className="text-[9px] text-[#b99a5c]">404 / Nie znaleziono</span>
+        <span className="text-[9px] text-[#4C9FE5]">404 / Nie znaleziono</span>
 
         <h1 className="mt-5 text-[32px] font-normal text-[#ddd]">
           Samochód nie jest dostępny.
@@ -54,14 +54,14 @@ export const CarDetailsPage = () => {
             mt-8
             cursor-pointer
             border
-            border-[#b99a5c]/30
+            border-[#4C9FE5]/30
             px-6
             py-3
             text-[9px]
-            text-[#d2b878]
+            text-[#4C9FE5]
             transition
-            hover:border-[#b99a5c]/60
-            hover:bg-[#b99a5c]/5
+            hover:border-[#4C9FE5]/60
+            hover:bg-[#4C9FE5]/5
           "
         >
           Wróć do oferty
@@ -105,13 +105,13 @@ export const CarDetailsPage = () => {
                   rounded-[10px]
                   border
                   border-white/10
-                  bg-white/2
+                  bg-[ext-[#E8E9E7]/2
                   text-[#777]
                   transition-all
                   duration-300
-                  hover:border-[#b99a5c]/40
-                  hover:bg-[#b99a5c]/5
-                  hover:text-[#d2b878]
+                  hover:border-[#4C9FE5]/40
+                  hover:bg-[#4C9FE5]/5
+                  hover:text-[#4C9FE5]
                 "
               >
                 <ArrowIcon className="h-5 w-5" />

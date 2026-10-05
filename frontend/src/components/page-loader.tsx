@@ -261,12 +261,12 @@ export const PageLoader = ({
           />
         </div>
 
-        <div className="relative h-px w-24 overflow-hidden bg-white/10">
+        <div className="relative h-px w-24 overflow-hidden bg-[ext-[#E8E9E7]/10">
           <div
             className="
               absolute inset-y-0 left-0
               w-full
-              bg-[#d2b878]
+              bg-[#4C9FE5]
               blur-[0.3px]
               animate-[loader_1.8s_ease-in-out_infinite]
             "

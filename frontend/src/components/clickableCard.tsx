@@ -29,7 +29,7 @@ export const ClickableCard = (props: ClickableCardProps) => {
         border-white/10
         transition-all duration-300
         xl:border-l
-        ${isOpen ? "bg-white/[0.035]" : ""}
+        ${isOpen ? "bg-[ext-[#E8E9E7]/[0.035]" : ""}
       `}
     >
       <button
@@ -43,7 +43,7 @@ export const ClickableCard = (props: ClickableCardProps) => {
           gap-4
           text-left
           transition-all duration-300
-          hover:bg-white/2.5
+          hover:bg-[ext-[#E8E9E7]/2.5
           ${isSmall ? "px-5 py-5 sm:px-6" : "px-6 py-7 sm:px-8 sm:py-8"}
         `}
       >
@@ -58,8 +58,8 @@ export const ClickableCard = (props: ClickableCardProps) => {
             ${isSmall ? "h-9 w-9 text-[15px]" : "h-11 w-11 text-[17px]"}
             ${
               isOpen
-                ? "border-[#b99a5c]/70 bg-[#b99a5c]/10 text-[#d2b878]"
-                : "border-[#b99a5c]/30 text-[#d2b878]"
+                ? "border-[#4C9FE5]/70 bg-[#4C9FE5]/10 text-[#4C9FE5]"
+                : "border-[#4C9FE5]/30 text-[#4C9FE5]"
             }
           `}
         >
@@ -79,7 +79,7 @@ export const ClickableCard = (props: ClickableCardProps) => {
                   ? "text-[9px] sm:text-[10px]"
                   : "text-[11px] sm:text-[13px]"
               }
-              ${isOpen ? "text-[#d2b878]" : "text-[#ddd]"}
+              ${isOpen ? "text-[#4C9FE5]" : "text-[#ddd]"}
             `}
           >
             {title}
@@ -128,10 +128,10 @@ export const ClickableCard = (props: ClickableCardProps) => {
             font-light
             text-[#888]
             transition-all duration-300
-            group-hover:border-[#b99a5c]/40
-            group-hover:text-[#d2b878]
+            group-hover:border-[#4C9FE5]/40
+            group-hover:text-[#4C9FE5]
             ${isSmall ? "h-6 w-6 text-[13px]" : "h-7 w-7 text-[15px]"}
-            ${isOpen ? "rotate-45 border-[#b99a5c]/40 text-[#d2b878]" : ""}
+            ${isOpen ? "rotate-45 border-[#4C9FE5]/40 text-[#4C9FE5]" : ""}
           `}
         >
           +

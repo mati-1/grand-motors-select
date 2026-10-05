@@ -26,7 +26,7 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#090909]
+        bg-[#4C9FE5]/5
         transition-all
         duration-300
         hover:border-white/13
@@ -55,21 +55,21 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
                     truncate
                     text-[18px]
                     font-medium
-                    text-white
+                    text-[#E8E9E7]
                   "
                 >
                   {car.brand} {car.model}
                 </h2>
 
-                <p className="mt-1.5 text-[12px] text-white/25">
+                <p className="mt-1.5 text-[12px] text-[#E8E9E7]/25">
                   {car.year} · {car.mileage}
                 </p>
               </div>
 
               <div className="shrink-0 sm:text-right">
-                <p className="text-[12px] text-white/25">Cena sprzedaży</p>
+                <p className="text-[12px] text-[#E8E9E7]/25">Cena sprzedaży</p>
 
-                <p className="mt-1 text-[16px] font-medium text-[#d2b878]">
+                <p className="mt-1 text-[16px] font-medium text-[#4C9FE5]">
                   {car.price}
                 </p>
               </div>
@@ -89,31 +89,33 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
               "
             >
               <div>
-                <p className="text-[12px] text-white/20">Cena zakupu</p>
+                <p className="text-[12px] text-[#E8E9E7]/20">Cena zakupu</p>
 
-                <p className="mt-1 text-[13px] text-white/60">
+                <p className="mt-1 text-[13px] text-[#E8E9E7]/60">
                   {car.purchasePrice}
                 </p>
               </div>
 
               <div>
-                <p className="text-[12px] text-white/20">Inwestycja</p>
+                <p className="text-[12px] text-[#E8E9E7]/20">Inwestycja</p>
 
-                <p className="mt-1 text-[13px] text-white/60">
+                <p className="mt-1 text-[13px] text-[#E8E9E7]/60">
                   {car.investment}
                 </p>
               </div>
 
               <div>
-                <p className="text-[12px] text-white/20">Potencjalny zysk</p>
+                <p className="text-[12px] text-[#E8E9E7]/20">
+                  Potencjalny zysk
+                </p>
 
-                <p className="mt-1 text-[13px] text-[#d2b878]">{car.profit}</p>
+                <p className="mt-1 text-[13px] text-[#4C9FE5]">{car.profit}</p>
               </div>
 
               <div>
-                <p className="text-[12px] text-white/20">Marża</p>
+                <p className="text-[12px] text-[#E8E9E7]/20">Marża</p>
 
-                <p className="mt-1 text-[13px] text-white/60">18,6%</p>
+                <p className="mt-1 text-[13px] text-[#E8E9E7]/60">18,6%</p>
               </div>
             </div>
           </div>
@@ -129,7 +131,7 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
               py-3
             "
           >
-            <span className="text-[10px] text-white/20">
+            <span className="text-[10px] text-[#E8E9E7]/20">
               Ostatnia aktualizacja: dzisiaj
             </span>
 
@@ -141,16 +143,16 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
                 items-center
                 rounded-[10px]
                 border
-                border-[#b99a5c]/20
-                bg-[#b99a5c]/5
+                border-[#4C9FE5]/20
+                bg-[#4C9FE5]/5
                 px-3
                 text-[12px]
-                text-[#b99a5c]
+                text-[#4C9FE5]
                 transition-all
                 duration-300
-                hover:border-[#b99a5c]/35
-                hover:bg-[#b99a5c]/10
-                hover:text-[#d2b878]
+                hover:border-[#4C9FE5]/35
+                hover:bg-[#4C9FE5]/10
+                hover:text-[#4C9FE5]
               "
             >
               Edytuj

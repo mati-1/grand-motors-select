@@ -41,9 +41,11 @@ export const AdminHeader = () => {
     >
       {/* LEFT */}
       <div className="max-lg:hidden">
-        <p className="text-[9px] text-white/25">Grand Motors Select</p>
+        <p className="text-[9px] text-[#E8E9E7]/25">Grand Motors Select</p>
 
-        <h1 className="mt-1 text-[13px] font-medium text-white">Panel firmy</h1>
+        <h1 className="mt-1 text-[13px] font-medium text-[#E8E9E7]">
+          Panel firmy
+        </h1>
       </div>
 
       {/* RIGHT */}
@@ -59,18 +61,18 @@ export const AdminHeader = () => {
             px-4
             text-nowrap
             text-[10px]
-            text-white/40
+            text-[#E8E9E7]/40
             transition-all
             duration-300
             hover:border-white/20
-            hover:text-white
+            hover:text-[#E8E9E7]
             flex
           "
         >
           Zobacz stronę
         </Link>
         <ButtonComponent
-          type="secondary"
+          variant="secondary"
           size="small"
           className="text-[12px]!"
           onClick={handleLogout}

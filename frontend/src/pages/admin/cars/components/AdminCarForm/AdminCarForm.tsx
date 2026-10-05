@@ -36,7 +36,7 @@ export const AdminCarForm = ({ car }: AdminCarFormProps) => {
           brand: car.brand,
           model: car.model,
           condition: car.condition,
-
+          statusType: car?.statusType ?? "preparing",
           vin: car.vin,
           year: car.year,
           mileage: car.mileage,
@@ -174,7 +174,7 @@ export const AdminCarForm = ({ car }: AdminCarFormProps) => {
         <button
           type="button"
           onClick={() => navigate(-1)}
-          className="h-11 cursor-pointer rounded-[10px] border border-white/10 px-5 text-[11px] text-white/40 transition-all duration-300 hover:border-white/20 hover:text-white"
+          className="h-11 cursor-pointer rounded-[10px] border border-white/10 px-5 text-[11px] text-[#E8E9E7]/40 transition-all duration-300 hover:border-white/20 hover:text-[#E8E9E7]"
         >
           Anuluj
         </button>
@@ -182,7 +182,7 @@ export const AdminCarForm = ({ car }: AdminCarFormProps) => {
         <button
           type="submit"
           disabled={isSaving}
-          className="h-11 cursor-pointer rounded-[10px] bg-[#d2b878] px-6 text-[11px] font-medium text-black transition-all duration-300 hover:bg-[#e0c98b]"
+          className="h-11 cursor-pointer rounded-[10px] bg-[#4C9FE5] px-6 text-[11px] font-medium text-black transition-all duration-300 hover:bg-[#e0c98b]"
         >
           {isSaving
             ? "Zapisywanie..."

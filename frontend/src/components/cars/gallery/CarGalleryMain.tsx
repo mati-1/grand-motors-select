@@ -41,14 +41,14 @@ const GalleryNavigationButton = ({
         bg-black/60
         text-[20px]
         font-light
-        text-[#d2b878]
+        text-[#4C9FE5]
         opacity-0
         backdrop-blur-md
         transition-all
         duration-300
-        hover:border-[#b99a5c]/60
+        hover:border-[#4C9FE5]/60
         hover:bg-black/50
-        hover:text-[#d2b878]
+        hover:text-[#4C9FE5]
         group-hover:opacity-100
         md:flex
       "

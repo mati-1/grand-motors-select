@@ -4,6 +4,7 @@ import {
   MainHeadingComponent,
   SubHeadingComponent,
 } from "../../../components/headings";
+import { GradientSpan } from "../../../components/gradientSpan";
 
 export const DetailingSectionComponent = () => {
   return (
@@ -19,7 +20,7 @@ export const DetailingSectionComponent = () => {
         <br />
         KTÓRY
         <br />
-        <span className="text-[#d2b878]">WIDAĆ.</span>
+        <GradientSpan>WIDAĆ.</GradientSpan>
       </MainHeadingComponent>
 
       <SubHeadingComponent className="mb-6 max-w-117.5 leading-[1.8] sm:leading-[1.9]">

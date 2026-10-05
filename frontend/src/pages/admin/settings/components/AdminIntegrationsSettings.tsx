@@ -27,13 +27,13 @@ export const AdminIntegrationsSettings = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#090909]
+        bg-[#4C9FE5]/5
       "
     >
       <div className="border-b border-white/7 px-5 py-4">
-        <h3 className="text-[14px] font-medium text-white">Integracje</h3>
+        <h3 className="text-[14px] font-medium text-[#E8E9E7]">Integracje</h3>
 
-        <p className="mt-1 text-[11px] text-white/25">
+        <p className="mt-1 text-[11px] text-[#E8E9E7]/25">
           Zewnętrzne usługi połączone z panelem
         </p>
       </div>
@@ -63,18 +63,20 @@ export const AdminIntegrationsSettings = () => {
                 rounded-[8px]
                 border
                 border-white/8
-                bg-white/[0.02]
+                bg-[ext-[#E8E9E7]/[0.02]
                 text-[10px]
-                text-white/40
+                text-[#E8E9E7]/40
               "
             >
               {integration.name.charAt(0)}
             </div>
 
             <div className="min-w-0 flex-1">
-              <p className="text-[11px] text-white/60">{integration.name}</p>
+              <p className="text-[11px] text-[#E8E9E7]/60">
+                {integration.name}
+              </p>
 
-              <p className="mt-1 text-[9px] text-white/20">
+              <p className="mt-1 text-[9px] text-[#E8E9E7]/20">
                 {integration.description}
               </p>
             </div>
@@ -89,8 +91,8 @@ export const AdminIntegrationsSettings = () => {
                 text-[8px]
                 ${
                   integration.connected
-                    ? "border-[#b99a5c]/15 bg-[#b99a5c]/5 text-[#b99a5c]"
-                    : "border-white/8 bg-white/[0.02] text-white/25"
+                    ? "border-[#4C9FE5]/15 bg-[#4C9FE5]/5 text-[#4C9FE5]"
+                    : "border-white/8 bg-[ext-[#E8E9E7]/[0.02] text-[#E8E9E7]/25"
                 }
               `}
             >
@@ -107,11 +109,11 @@ export const AdminIntegrationsSettings = () => {
                 border-white/8
                 px-3
                 text-[9px]
-                text-white/30
+                text-[#E8E9E7]/30
                 transition-all
                 duration-300
-                hover:border-[#b99a5c]/25
-                hover:text-[#d2b878]
+                hover:border-[#4C9FE5]/25
+                hover:text-[#4C9FE5]
               "
             >
               {integration.connected ? "Konfiguruj" : "Połącz"}

@@ -24,16 +24,16 @@ export const AdminUsersSettings = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#090909]
+        bg-[#4C9FE5]/5
       "
     >
       <div className="flex flex-col justify-between gap-3 border-b border-white/7 px-5 py-4 sm:flex-row sm:items-center">
         <div>
-          <h3 className="text-[14px] font-medium text-white">
+          <h3 className="text-[14px] font-medium text-[#E8E9E7]">
             Użytkownicy i uprawnienia
           </h3>
 
-          <p className="mt-1 text-[11px] text-white/25">
+          <p className="mt-1 text-[11px] text-[#E8E9E7]/25">
             Konta mające dostęp do panelu administracyjnego
           </p>
         </div>
@@ -51,11 +51,11 @@ export const AdminUsersSettings = () => {
             border-white/8
             px-3
             text-[9px]
-            text-white/40
+            text-[#E8E9E7]/40
             transition-all
             duration-300
-            hover:border-[#b99a5c]/25
-            hover:text-[#d2b878]
+            hover:border-[#4C9FE5]/25
+            hover:text-[#4C9FE5]
           "
         >
           <span className="text-[13px] leading-none">+</span>
@@ -87,27 +87,27 @@ export const AdminUsersSettings = () => {
                 justify-center
                 rounded-full
                 border
-                border-[#b99a5c]/20
-                bg-[#b99a5c]/5
+                border-[#4C9FE5]/20
+                bg-[#4C9FE5]/5
                 text-[10px]
-                text-[#d2b878]
+                text-[#4C9FE5]
               "
             >
               A
             </div>
 
             <div className="min-w-0 flex-1">
-              <p className="text-[11px] text-white/60">{user.name}</p>
+              <p className="text-[11px] text-[#E8E9E7]/60">{user.name}</p>
 
-              <p className="mt-1 text-[9px] text-white/20">{user.email}</p>
+              <p className="mt-1 text-[9px] text-[#E8E9E7]/20">{user.email}</p>
             </div>
 
-            <span className="w-fit rounded-[5px] border border-[#b99a5c]/15 bg-[#b99a5c]/5 px-2 py-1 text-[8px] text-[#b99a5c]">
+            <span className="w-fit rounded-[5px] border border-[#4C9FE5]/15 bg-[#4C9FE5]/5 px-2 py-1 text-[8px] text-[#4C9FE5]">
               {user.role}
             </span>
 
-            <span className="flex items-center gap-2 text-[9px] text-white/25">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#b99a5c]" />
+            <span className="flex items-center gap-2 text-[9px] text-[#E8E9E7]/25">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#4C9FE5]" />
               Aktywny
             </span>
 
@@ -121,11 +121,11 @@ export const AdminUsersSettings = () => {
                 border-white/8
                 px-3
                 text-[9px]
-                text-white/30
+                text-[#E8E9E7]/30
                 transition-all
                 duration-300
                 hover:border-white/15
-                hover:text-white
+                hover:text-[#E8E9E7]
               "
             >
               Zarządzaj

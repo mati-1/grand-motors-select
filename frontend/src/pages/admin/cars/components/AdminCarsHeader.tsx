@@ -4,7 +4,7 @@ export const AdminCarsHeader = () => {
   return (
     <section className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
       <div>
-        <span className="text-[11px] text-[#b99a5c]">
+        <span className="text-[11px] text-[#4C9FE5]">
           Sprawdzanie lub edycja
         </span>
         <h2
@@ -13,14 +13,14 @@ export const AdminCarsHeader = () => {
             text-[24px]
             font-medium
             tracking-tight
-            text-white
+            text-[#E8E9E7]
             sm:text-[28px]
           "
         >
           Samochody
         </h2>
 
-        <p className="mt-2 text-[11px] leading-[1.7] text-white/30">
+        <p className="mt-2 text-[11px] leading-[1.7] text-[#E8E9E7]/30">
           Zarządzaj samochodami, ich statusem, kosztami i sprzedażą.
         </p>
       </div>
@@ -35,7 +35,7 @@ export const AdminCarsHeader = () => {
           justify-center
           gap-2
           rounded-[10px]
-          bg-[#d2b878]
+          bg-[#4C9FE5]
           px-4
           text-[11px]
           font-medium

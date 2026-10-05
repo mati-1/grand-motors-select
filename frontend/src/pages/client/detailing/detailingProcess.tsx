@@ -37,7 +37,7 @@ export const DetailingProcess = () => {
       className="
         relative
         overflow-hidden
-      bg-[#b99a5c]/20
+      bg-[#4C9FE5]/20
         bg-linear-to-r from-black/90 via-black/75 to-black/90
         py-15
         sm:py-27
@@ -54,7 +54,7 @@ export const DetailingProcess = () => {
           -translate-y-1/2
           text-[20rem]
           leading-none
-          text-white/1.5
+          text-[#E8E9E7]/1.5
         "
       >
         03
@@ -77,7 +77,7 @@ export const DetailingProcess = () => {
           <MainHeadingComponent className="md:text-5xl!">
             KAŻDY
             <br />
-            <span className="text-[#b99a5c]">DETAL</span>
+            <span className="text-[#4C9FE5]">DETAL</span>
             <br />
             MA ZNACZENIE.
           </MainHeadingComponent>

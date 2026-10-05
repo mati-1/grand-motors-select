@@ -30,7 +30,7 @@ export const DetailingPackages = () => {
         px-[4vw] min-[1200px]:px-[13vw]
         py-20
         sm:py-27
-        bg-[#b99a5c]/20
+        bg-[#4C9FE5]/20
         bg-linear-to-r from-black/90 via-black/75 to-black/90
       "
     >
@@ -47,7 +47,7 @@ export const DetailingPackages = () => {
           text-[18rem]
           leading-none
           -
-          text-white/1.5
+          text-[#E8E9E7]/1.5
           lg:block
         "
       >
@@ -61,7 +61,7 @@ export const DetailingPackages = () => {
           <MainHeadingComponent className="text-[clamp(42px,6vw,48px)]!">
             NIE KAŻDE AUTO
             <br />
-            <span className="text-[#b99a5c]">POTRZEBUJE TEGO SAMEGO.</span>
+            <span className="text-[#4C9FE5]">POTRZEBUJE TEGO SAMEGO.</span>
           </MainHeadingComponent>
         </div>
 
@@ -85,8 +85,8 @@ export const DetailingPackages = () => {
           mt-16
           grid
           grid-cols-1
-          border-y border-[#b99a5c]/20
-          bg-[#b99a5c]/20
+          border-y border-[#4C9FE5]/20
+          bg-[#4C9FE5]/20
           bg-linear-to-r
           from-black/90
           via-black/75
@@ -105,7 +105,7 @@ export const DetailingPackages = () => {
               py-7
               transition-all
               duration-500
-              hover:bg-white/2.5
+              hover:bg-[ext-[#E8E9E7]/2.5
               sm:px-7
               sm:py-8
               lg:px-8
@@ -123,7 +123,7 @@ export const DetailingPackages = () => {
                 className="
                   font-normal
                   text-[13px]
-                  text-[#b99a5c]
+                  text-[#4C9FE5]
                 "
               >
                 {item.number}
@@ -136,7 +136,7 @@ export const DetailingPackages = () => {
                   transition-all
                   duration-300
                   group-hover:translate-x-1
-                  group-hover:text-[#b99a5c]
+                  group-hover:text-[#4C9FE5]
                 "
               >
                 +
@@ -152,7 +152,7 @@ export const DetailingPackages = () => {
                   text-[#ddd]
                   transition-colors
                   duration-300
-                  group-hover:text-[#d2b878]
+                  group-hover:text-[#4C9FE5]
                 "
               >
                 {item.title}
@@ -179,11 +179,11 @@ export const DetailingPackages = () => {
                 mt-8
                 h-px
                 w-8
-                bg-[#b99a5c]/30
+                bg-[#4C9FE5]/30
                 transition-all
                 duration-500
                 group-hover:w-14
-                group-hover:bg-[#b99a5c]/70
+                group-hover:bg-[#4C9FE5]/70
               "
             />
           </article>

@@ -19,8 +19,8 @@ export const CarWarranty = () => {
           duration-300
           ${
             isOpen
-              ? "border-[#b99a5c]/30 bg-white/2.5"
-              : "hover:border-[#b99a5c]/20"
+              ? "border-[#4C9FE5]/30 bg-[ext-[#E8E9E7]/2.5"
+              : "hover:border-[#4C9FE5]/20"
           }
         `}
       >
@@ -39,7 +39,7 @@ export const CarWarranty = () => {
             text-left
             transition-all
             duration-300
-            hover:bg-white/2.5
+            hover:bg-[ext-[#E8E9E7]/2.5
             sm:p-7
           "
         >
@@ -59,8 +59,8 @@ export const CarWarranty = () => {
               duration-300
               ${
                 isOpen
-                  ? "border-[#b99a5c]/70 bg-[#b99a5c]/10 text-[#d2b878]"
-                  : "border-[#b99a5c]/30 text-[#d2b878]"
+                  ? "border-[#4C9FE5]/70 bg-[#4C9FE5]/10 text-[#4C9FE5]"
+                  : "border-[#4C9FE5]/30 text-[#4C9FE5]"
               }
             `}
           >
@@ -76,13 +76,13 @@ export const CarWarranty = () => {
                 text-[clamp(16px,2vw,22px)]
                 transition-colors
                 duration-300
-                ${isOpen ? "text-[#d2b878]" : "text-[#ddd]"}
+                ${isOpen ? "text-[#4C9FE5]" : "text-[#ddd]"}
               `}
             >
               Gwarancja
             </strong>
 
-            <SubHeadingComponent className="text-white/70 text-[13px]! mt-1">
+            <SubHeadingComponent className="text-[#E8E9E7]/70 text-[13px]! mt-1">
               Dodatkowa ochrona dostępna dla wybranych samochodów.
             </SubHeadingComponent>
           </div>
@@ -103,9 +103,9 @@ export const CarWarranty = () => {
               text-[#888]
               transition-all
               duration-300
-              group-hover:border-[#b99a5c]/40
-              group-hover:text-[#d2b878]
-              ${isOpen ? "rotate-45 border-[#b99a5c]/40 text-[#d2b878]" : ""}
+              group-hover:border-[#4C9FE5]/40
+              group-hover:text-[#4C9FE5]
+              ${isOpen ? "rotate-45 border-[#4C9FE5]/40 text-[#4C9FE5]" : ""}
             `}
           >
             +
@@ -130,7 +130,7 @@ export const CarWarranty = () => {
         <div className="min-h-0 overflow-hidden rounded-[10px]">
           <div
             className="
-              bg-white/2.5
+              bg-[ext-[#E8E9E7]/2.5
             "
           >
             <div className="px-5 py-6 sm:px-7 sm:py-7">
@@ -152,7 +152,7 @@ export const CarWarranty = () => {
                   <span
                     className="
                       text-[13px]
-                      text-[#b99a5c]
+                      text-[#4C9FE5]
                     "
                   >
                     05 / GWARANCJA
@@ -200,7 +200,7 @@ export const CarWarranty = () => {
                         className="
                           block
                           text-[12px]
-                          text-[#b99a5c]
+                          text-[#4C9FE5]
                         "
                       >
                         01 / ZAKRES
@@ -234,7 +234,7 @@ export const CarWarranty = () => {
                         className="
                           block
                           text-[12px]
-                          text-[#b99a5c]
+                          text-[#4C9FE5]
                         "
                       >
                         02 / OKRES
@@ -268,7 +268,7 @@ export const CarWarranty = () => {
                           block
                           text-[12px]
                           
-                          text-[#b99a5c]
+                          text-[#4C9FE5]
                         "
                       >
                         03 / SZCZEGÓŁY
@@ -310,7 +310,7 @@ export const CarWarranty = () => {
                     h-px
                     w-5
                     shrink-0
-                    bg-[#b99a5c]/60
+                    bg-[#4C9FE5]/60
                   "
                 />
 

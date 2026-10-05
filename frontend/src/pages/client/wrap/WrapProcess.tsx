@@ -63,7 +63,7 @@ export const WrapProcess = () => {
           <MainHeadingComponent className="mt-6 text-[clamp(42px,5vw,60px)]!">
             OD POMYSŁU
             <br />
-            <span className="text-[#d2b878]">DO EFEKTU.</span>
+            <span className="text-[#4C9FE5]">DO EFEKTU.</span>
           </MainHeadingComponent>
 
           <p className="mt-7 max-w-110 text-[13px] leading-[1.9] text-[#666]">

@@ -14,7 +14,7 @@ const PrivacySection = ({
     <section className="border-b border-white/10 py-9 first:pt-0 last:border-b-0 sm:py-11">
       <div className="flex flex-col gap-5 sm:flex-row sm:gap-10">
         <div className="shrink-0">
-          <span className="font-normal text-[14px] text-[#b99a5c]">
+          <span className="font-normal text-[14px] text-[#4C9FE5]">
             {number}
           </span>
         </div>
@@ -42,13 +42,13 @@ export const PrivacyPolicyPage = () => {
           <a
             href="/"
             className="
-              border border-[#b99a5c]/40
+              border border-[#4C9FE5]/40
               px-4 py-2.5
               text-[8px]
               
-              text-[#b99a5c]
+              text-[#4C9FE5]
               transition-colors
-              hover:bg-[#b99a5c]/10
+              hover:bg-[#4C9FE5]/10
             "
           >
             WRÓĆ NA STRONĘ
@@ -59,17 +59,17 @@ export const PrivacyPolicyPage = () => {
       <main>
         {/* HERO */}
         <section className="relative overflow-hidden px-[4vw] min-[1200px]:px-[13vw] pb-14 pt-16 sm:pb-18 sm:pt-20 lg:pb-22 lg:pt-24">
-          <div className="absolute right-[-10%] top-[-20%] h-100 w-100 rounded-full bg-[#b99a5c]/5 blur-3xl" />
+          <div className="absolute right-[-10%] top-[-20%] h-100 w-100 rounded-full bg-[#4C9FE5]/5 blur-3xl" />
 
           <div className="relative mx-auto max-w-350">
-            <span className="text-[8px]  text-[#b99a5c] sm:text-[9px]">
+            <span className="text-[8px]  text-[#4C9FE5] sm:text-[9px]">
               GRAND MOTORS SELECT
             </span>
 
             <h1 className="mt-5 max-w-190 text-[38px] font-normal leading-[1.05] text-[#ddd] sm:text-[50px] lg:text-[62px]">
               POLITYKA
               <br />
-              <span className="text-[#b99a5c]">PRYWATNOŚCI.</span>
+              <span className="text-[#4C9FE5]">PRYWATNOŚCI.</span>
             </h1>
 
             <LineComponent className="my-7 w-30 sm:my-9" />
@@ -331,10 +331,10 @@ export const PrivacyPolicyPage = () => {
             </PrivacySection>
 
             {/* COMPANY BOX */}
-            <div className="mt-12 border border-[#b99a5c]/25 bg-[#b99a5c]/5 p-6 sm:mt-16 sm:p-8 lg:p-10">
+            <div className="mt-12 border border-[#4C9FE5]/25 bg-[#4C9FE5]/5 p-6 sm:mt-16 sm:p-8 lg:p-10">
               <div className="flex flex-col gap-7 sm:flex-row sm:items-start sm:justify-between">
                 <div>
-                  <span className="text-[8px]  text-[#b99a5c]">
+                  <span className="text-[8px]  text-[#4C9FE5]">
                     ADMINISTRATOR DANYCH
                   </span>
 
@@ -354,14 +354,14 @@ export const PrivacyPolicyPage = () => {
 
                   <a
                     href="mailto:biuro@grandmotorsselect.pl"
-                    className="transition-colors hover:text-[#d2b878]"
+                    className="transition-colors hover:text-[#4C9FE5]"
                   >
                     biuro@grandmotorsselect.pl
                   </a>
 
                   <a
                     href="tel:+48514137133"
-                    className="transition-colors hover:text-[#d2b878]"
+                    className="transition-colors hover:text-[#4C9FE5]"
                   >
                     +48 514 137 133
                   </a>
@@ -374,13 +374,13 @@ export const PrivacyPolicyPage = () => {
               <a
                 href="/"
                 className="
-                  border border-[#b99a5c]/50
+                  border border-[#4C9FE5]/50
                   px-6 py-3
                   text-[8px]
                   
-                  text-[#b99a5c]
+                  text-[#4C9FE5]
                   transition-all
-                  hover:bg-[#b99a5c]/10
+                  hover:bg-[#4C9FE5]/10
                 "
               >
                 WRÓĆ NA STRONĘ GŁÓWNĄ
@@ -400,12 +400,12 @@ export const PrivacyPolicyPage = () => {
           <div className="flex flex-wrap gap-5 text-[8px]  text-[#444]">
             <a
               href="/regulamin"
-              className="transition-colors hover:text-[#b99a5c]"
+              className="transition-colors hover:text-[#4C9FE5]"
             >
               REGULAMIN
             </a>
 
-            <a href="/" className="transition-colors hover:text-[#b99a5c]">
+            <a href="/" className="transition-colors hover:text-[#4C9FE5]">
               STRONA GŁÓWNA
             </a>
           </div>

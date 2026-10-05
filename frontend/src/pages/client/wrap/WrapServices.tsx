@@ -52,7 +52,7 @@ export const WrapServices = () => {
         px-[4vw] min-[1200px]:px-[13vw]
         py-16
         sm:py-24
-        bg-[#b99a5c]/20
+        bg-[#4C9FE5]/20
           bg-linear-to-r from-black/90 via-black/75 to-black/90
       "
     >
@@ -73,7 +73,7 @@ export const WrapServices = () => {
             <MainHeadingComponent className="mt-6 text-[clamp(42px,6vw,48px)]!">
               USŁUGI
               <br />
-              <span className="text-[#d2b878]">WRAP.</span>
+              <span className="text-[#4C9FE5]">WRAP.</span>
             </MainHeadingComponent>
           </div>
 
@@ -91,7 +91,7 @@ export const WrapServices = () => {
             grid
             grid-cols-1
             border-y
-            border-[#b99a5c]/20
+            border-[#4C9FE5]/20
             sm:grid-cols-2
             xl:grid-cols-4
           "
@@ -129,15 +129,15 @@ export const WrapServices = () => {
                 className="
                   border-b
                   border-x
-                  border-[#b99a5c]/20
-                  bg-[#090909]
+                  border-[#4C9FE5]/20
+                  bg-[#4C9FE5]/5
                   px-6
                   py-7
                   sm:px-8
                 "
               >
                 <div className="flex items-start gap-5">
-                  <span className="font-normal text-[12px] text-[#b99a5c]">
+                  <span className="font-normal text-[12px] text-[#4C9FE5]">
                     {activeData.number}
                   </span>
 

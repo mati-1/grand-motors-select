@@ -320,7 +320,7 @@ export const HeaderComponent = () => {
           w-full
           border-b
           border-white/10
-          bg-[#b99a5c]/10
+          bg-[#4C9FE5]/10
           bg-linear-to-r
           from-black
           via-black/55
@@ -392,8 +392,8 @@ export const HeaderComponent = () => {
                       openDropdown === "services" ||
                       location.pathname === "/detailing" ||
                       location.pathname === "/wrap"
-                        ? "text-[#d2b878]"
-                        : "text-white hover:text-[#d2b878]"
+                        ? "text-[#4C9FE5]"
+                        : "text-[#E8E9E7] hover:text-[#4C9FE5]"
                     }
                   `}
                 >
@@ -468,8 +468,8 @@ export const HeaderComponent = () => {
                     duration-300
                     ${
                       openDropdown === "favorites"
-                        ? "text-[#d2b878]"
-                        : "text-white hover:text-[#d2b878]"
+                        ? "text-[#4C9FE5]"
+                        : "text-[#E8E9E7] hover:text-[#4C9FE5]"
                     }
                   `}
                 >
@@ -484,10 +484,10 @@ export const HeaderComponent = () => {
                         items-center
                         justify-center
                         rounded-full
-                        bg-[#b99a5c]/15
+                        bg-[#4C9FE5]/15
                         px-1
                         text-[8px]
-                        text-[#c2ad7a]
+                        text-[#4C9FE5]
                       "
                     >
                       {favoriteCars.length}
@@ -542,7 +542,7 @@ export const HeaderComponent = () => {
                       py-4
                     "
                   >
-                    <div className="mt-1 text-[14px] font-normal text-white">
+                    <div className="mt-1 text-[14px] font-normal text-[#E8E9E7]">
                       Polubione samochody
                     </div>
                   </div>
@@ -567,7 +567,7 @@ export const HeaderComponent = () => {
                               transition-colors
                               duration-300
                               last:border-b-0
-                              hover:bg-white/2.5
+                              hover:bg-[ext-[#E8E9E7]/2.5
                             "
                           >
                             <button
@@ -615,7 +615,7 @@ export const HeaderComponent = () => {
                                   truncate
                                   text-[12px]
                                   font-medium
-                                  text-white
+                                  text-[#E8E9E7]
                                 "
                               >
                                 {car.brand} {car.model}
@@ -628,7 +628,7 @@ export const HeaderComponent = () => {
                                   items-center
                                   gap-2
                                   text-[9px]
-                                  text-white/40
+                                  text-[#E8E9E7]/40
                                 "
                               >
                                 <span>{car.year}</span>·
@@ -636,7 +636,7 @@ export const HeaderComponent = () => {
                                 <span>{car.power}</span>
                               </div>
 
-                              <div className="mt-1.5 text-[12px] text-white">
+                              <div className="mt-1.5 text-[12px] text-[#E8E9E7]">
                                 {car.price}
                               </div>
                             </button>
@@ -665,8 +665,8 @@ export const HeaderComponent = () => {
                                 duration-300
                                 ${
                                   isPendingRemoval
-                                    ? "border-[#b99a5c]/40 text-[#c2ad7a] hover:border-[#b99a5c]/60 hover:text-[#d2b878]"
-                                    : "border-white/10 text-[#777] hover:border-[#b99a5c]/30 hover:text-[#c2ad7a]"
+                                    ? "border-[#4C9FE5]/40 text-[#4C9FE5] hover:border-[#4C9FE5]/60 hover:text-[#4C9FE5]"
+                                    : "border-white/10 text-[#777] hover:border-[#4C9FE5]/30 hover:text-[#4C9FE5]"
                                 }
                               `}
                             >
@@ -694,7 +694,7 @@ export const HeaderComponent = () => {
                     >
                       <HeartIcon className="mb-2 h-6 w-6" />
 
-                      <div className="text-[11px] text-white/50">
+                      <div className="text-[11px] text-[#E8E9E7]/50">
                         Nie masz jeszcze
                         <br />
                         ulubionych samochodów.
@@ -709,8 +709,8 @@ export const HeaderComponent = () => {
                   href={
                     isContactPage ? "tel:+48514137133" : contactNavigation.href
                   }
-                  type="secondary"
-                  className="text-[11px]! text-white"
+                  variant="secondary"
+                  className="text-[11px]! text-[#E8E9E7]"
                 >
                   {isContactPage ? (
                     <span className="flex items-center gap-1">
@@ -750,7 +750,7 @@ export const HeaderComponent = () => {
                 absolute
                 h-px
                 w-6
-                bg-[#c2ad7a]
+                bg-[#4C9FE5]
                 transition-all
                 duration-300
                 ease-[cubic-bezier(0.76,0,0.24,1)]
@@ -763,7 +763,7 @@ export const HeaderComponent = () => {
                 absolute
                 h-px
                 w-4
-                bg-[#c2ad7a]
+                bg-[#4C9FE5]
                 transition-all
                 duration-200
                 ease-out
@@ -778,7 +778,7 @@ export const HeaderComponent = () => {
                 absolute
                 h-px
                 w-6
-                bg-[#c2ad7a]
+                bg-[#4C9FE5]
                 transition-all
                 duration-300
                 ease-[cubic-bezier(0.76,0,0.24,1)]

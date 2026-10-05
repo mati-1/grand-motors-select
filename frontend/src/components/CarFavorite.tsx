@@ -75,7 +75,7 @@ export const CarFavorite = ({ car }: CarFavoriteProps) => {
         duration-300
         ${
           isFavorite
-            ? "border-[#b99a5c]/40 bg-[#d2b878]/10 text-[#d2b878]"
+            ? "border-[#4C9FE5]/40 bg-[#4C9FE5]/10 text-[#4C9FE5]"
             : "border-white/10 text-[#777] hover:border-white/20 hover:text-[#aaa]"
         }
       `}

@@ -378,14 +378,14 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
   }, []);
 
   return (
-    <section className="overflow-hidden rounded-[10px] border border-white/8 bg-[#090909]">
+    <section className="overflow-hidden rounded-[10px] border border-white/8 bg-[#4C9FE5]/5">
       {/* HEADER */}
       <div className="border-b border-white/7 px-5 py-5 sm:px-7 sm:py-6">
-        <h3 className="text-[16px] font-medium text-white sm:text-[17px]">
+        <h3 className="text-[16px] font-medium text-[#E8E9E7] sm:text-[17px]">
           Zdjęcia
         </h3>
 
-        <p className="mt-1.5 max-w-xl text-[11px] leading-relaxed text-white/30 sm:text-[12px]">
+        <p className="mt-1.5 max-w-xl text-[11px] leading-relaxed text-[#E8E9E7]/30 sm:text-[12px]">
           Dodaj zdjęcia samochodu, ustaw zdjęcie główne oraz kolejność
           prezentacji.
         </p>
@@ -419,28 +419,28 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
             border
             border-dashed
             border-white/10
-            bg-white/2
+            bg-[ext-[#E8E9E7]/2
             px-5
             transition-all
             duration-300
-            hover:border-[#b99a5c]/40
-            hover:bg-white/[0.035]
+            hover:border-[#4C9FE5]/40
+            hover:bg-[ext-[#E8E9E7]/[0.035]
             disabled:cursor-not-allowed
             disabled:opacity-40
             sm:min-h-40
           "
         >
-          <div className="mb-3 text-[#d2b878]">
+          <div className="mb-3 text-[#4C9FE5]">
             <UploadIcon />
           </div>
 
-          <span className="text-[13px] font-medium text-white/70 sm:text-[14px]">
+          <span className="text-[13px] font-medium text-[#E8E9E7]/70 sm:text-[14px]">
             {uploadMutation.isPending
               ? "Przesyłanie zdjęć..."
               : "Wybierz zdjęcia"}
           </span>
 
-          <span className="mt-1.5 text-center text-[10px] text-white/25 sm:text-[11px]">
+          <span className="mt-1.5 text-center text-[10px] text-[#E8E9E7]/25 sm:text-[11px]">
             Możesz wybrać kilka plików jednocześnie
           </span>
         </button>
@@ -452,11 +452,11 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
         {!carId && pendingImages.length > 0 && (
           <div className="mt-8">
             <div className="mb-5">
-              <p className="text-[14px] font-medium text-white/75">
+              <p className="text-[14px] font-medium text-[#E8E9E7]/75">
                 Zdjęcia samochodu
               </p>
 
-              <p className="mt-1 text-[11px] text-white/25">
+              <p className="mt-1 text-[11px] text-[#E8E9E7]/25">
                 {pendingImages.length}{" "}
                 {pendingImages.length === 1 ? "zdjęcie" : "zdjęć"}
               </p>
@@ -487,13 +487,13 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                     />
 
                     {image.isPrimary && (
-                      <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-[10px] border border-[#b99a5c]/30 bg-[#090909]/90 px-3 py-2 text-[10px] font-medium text-[#d2b878] backdrop-blur-md">
+                      <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-[10px] border border-[#4C9FE5]/30 bg-[#4C9FE5]/5/90 px-3 py-2 text-[10px] font-medium text-[#4C9FE5] backdrop-blur-md">
                         <StarIcon filled />
                         Zdjęcie główne
                       </div>
                     )}
 
-                    <div className="absolute right-3 top-3 flex h-8 min-w-8 items-center justify-center rounded-[10px] bg-black/70 px-2.5 text-[11px] font-medium text-white/65 backdrop-blur-md">
+                    <div className="absolute right-3 top-3 flex h-8 min-w-8 items-center justify-center rounded-[10px] bg-black/70 px-2.5 text-[11px] font-medium text-[#E8E9E7]/65 backdrop-blur-md">
                       {index + 1}
                     </div>
                   </div>
@@ -518,15 +518,15 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                             px-4
                             text-[11px]
                             font-medium
-                            text-white/50
+                            text-[#E8E9E7]/50
                             transition-all
-                            hover:border-[#b99a5c]/30
-                            hover:bg-[#b99a5c]/5
-                            hover:text-[#d2b878]
+                            hover:border-[#4C9FE5]/30
+                            hover:bg-[#4C9FE5]/5
+                            hover:text-[#4C9FE5]
                             disabled:cursor-default
-                            disabled:border-[#b99a5c]/20
-                            disabled:bg-[#b99a5c]/5
-                            disabled:text-[#d2b878]
+                            disabled:border-[#4C9FE5]/20
+                            disabled:bg-[#4C9FE5]/5
+                            disabled:text-[#4C9FE5]
                           "
                     >
                       <StarIcon filled={image.isPrimary} />
@@ -551,11 +551,11 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                               border-white/8
                               text-[11px]
                               font-medium
-                              text-white/45
+                              text-[#E8E9E7]/45
                               transition-all
                               hover:border-white/20
-                              hover:bg-white/3
-                              hover:text-white
+                              hover:bg-[ext-[#E8E9E7]/3
+                              hover:text-[#E8E9E7]
                               disabled:cursor-default
                               disabled:opacity-20
                             "
@@ -579,11 +579,11 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                               border-white/8
                               text-[11px]
                               font-medium
-                              text-white/45
+                              text-[#E8E9E7]/45
                               transition-all
                               hover:border-white/20
-                              hover:bg-white/3
-                              hover:text-white
+                              hover:bg-[ext-[#E8E9E7]/3
+                              hover:text-[#E8E9E7]
                               disabled:cursor-default
                               disabled:opacity-20
                             "
@@ -632,18 +632,18 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
           <div className="mt-8">
             <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="text-[14px] font-medium text-white/75">
+                <p className="text-[14px] font-medium text-[#E8E9E7]/75">
                   Zdjęcia samochodu
                 </p>
 
-                <p className="mt-1 text-[11px] text-white/25">
+                <p className="mt-1 text-[11px] text-[#E8E9E7]/25">
                   {sortedImages.length}{" "}
                   {sortedImages.length === 1 ? "zdjęcie" : "zdjęć"}
                 </p>
               </div>
 
               {positionMutation.isPending && (
-                <span className="text-[10px] text-[#d2b878]/70 sm:text-[11px]">
+                <span className="text-[10px] text-[#4C9FE5]/70 sm:text-[11px]">
                   Aktualizowanie kolejności...
                 </span>
               )}
@@ -674,13 +674,13 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                     />
 
                     {image.isPrimary && (
-                      <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-[10px] border border-[#b99a5c]/30 bg-[#090909]/90 px-3 py-2 text-[10px] font-medium text-[#d2b878] backdrop-blur-md">
+                      <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-[10px] border border-[#4C9FE5]/30 bg-[#4C9FE5]/5/90 px-3 py-2 text-[10px] font-medium text-[#4C9FE5] backdrop-blur-md">
                         <StarIcon filled />
                         Zdjęcie główne
                       </div>
                     )}
 
-                    <div className="absolute right-3 top-3 flex h-8 min-w-8 items-center justify-center rounded-[10px] bg-black/70 px-2.5 text-[11px] font-medium text-white/65 backdrop-blur-md">
+                    <div className="absolute right-3 top-3 flex h-8 min-w-8 items-center justify-center rounded-[10px] bg-black/70 px-2.5 text-[11px] font-medium text-[#E8E9E7]/65 backdrop-blur-md">
                       {index + 1}
                     </div>
                   </div>
@@ -705,15 +705,15 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                             px-4
                             text-[11px]
                             font-medium
-                            text-white/50
+                            text-[#E8E9E7]/50
                             transition-all
-                            hover:border-[#b99a5c]/30
-                            hover:bg-[#b99a5c]/5
-                            hover:text-[#d2b878]
+                            hover:border-[#4C9FE5]/30
+                            hover:bg-[#4C9FE5]/5
+                            hover:text-[#4C9FE5]
                             disabled:cursor-default
-                            disabled:border-[#b99a5c]/20
-                            disabled:bg-[#b99a5c]/5
-                            disabled:text-[#d2b878]
+                            disabled:border-[#4C9FE5]/20
+                            disabled:bg-[#4C9FE5]/5
+                            disabled:text-[#4C9FE5]
                           "
                     >
                       <StarIcon filled={image.isPrimary} />
@@ -739,11 +739,11 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                               border-white/8
                               text-[11px]
                               font-medium
-                              text-white/45
+                              text-[#E8E9E7]/45
                               transition-all
                               hover:border-white/20
-                              hover:bg-white/3
-                              hover:text-white
+                              hover:bg-[ext-[#E8E9E7]/3
+                              hover:text-[#E8E9E7]
                               disabled:cursor-default
                               disabled:opacity-20
                             "
@@ -773,11 +773,11 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                               border-white/8
                               text-[11px]
                               font-medium
-                              text-white/45
+                              text-[#E8E9E7]/45
                               transition-all
                               hover:border-white/20
-                              hover:bg-white/3
-                              hover:text-white
+                              hover:bg-[ext-[#E8E9E7]/3
+                              hover:text-[#E8E9E7]
                               disabled:cursor-default
                               disabled:opacity-20
                             "
@@ -827,8 +827,8 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
 
         {/* EMPTY */}
         {!carImagesQuery.isPending && carId && sortedImages.length === 0 && (
-          <div className="mt-6 rounded-[10px] border border-white/7 bg-white/1.5 px-5 py-10 text-center">
-            <p className="text-[12px] text-white/35">
+          <div className="mt-6 rounded-[10px] border border-white/7 bg-[ext-[#E8E9E7]/1.5 px-5 py-10 text-center">
+            <p className="text-[12px] text-[#E8E9E7]/35">
               Samochód nie ma jeszcze żadnych zdjęć.
             </p>
           </div>
@@ -836,7 +836,9 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
 
         {/* LOADING */}
         {carImagesQuery.isPending && carId && (
-          <p className="mt-5 text-[11px] text-white/25">Pobieranie zdjęć...</p>
+          <p className="mt-5 text-[11px] text-[#E8E9E7]/25">
+            Pobieranie zdjęć...
+          </p>
         )}
 
         {/* ERROR */}

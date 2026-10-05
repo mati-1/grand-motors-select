@@ -31,31 +31,33 @@ export const AdminSalesOverview = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#090909]
+        bg-[#4C9FE5]/5
       "
     >
       <div className="flex flex-col justify-between gap-4 border-b border-white/7 px-5 py-4 sm:flex-row sm:items-center">
         <div>
-          <h3 className="text-[14px] font-medium text-white">
+          <h3 className="text-[14px] font-medium text-[#E8E9E7]">
             Wyniki sprzedaży
           </h3>
 
-          <p className="mt-1 text-[11px] text-white/25">
+          <p className="mt-1 text-[11px] text-[#E8E9E7]/25">
             Przychód i liczba sprzedanych samochodów
           </p>
         </div>
 
         <div className="flex items-center gap-5">
           <div>
-            <p className="text-[9px] text-white/20">Sprzedaż</p>
+            <p className="text-[9px] text-[#E8E9E7]/20">Sprzedaż</p>
 
-            <p className="mt-1 text-[12px] text-white/60">{totalSales} aut</p>
+            <p className="mt-1 text-[12px] text-[#E8E9E7]/60">
+              {totalSales} aut
+            </p>
           </div>
 
           <div>
-            <p className="text-[9px] text-white/20">Przychód</p>
+            <p className="text-[9px] text-[#E8E9E7]/20">Przychód</p>
 
-            <p className="mt-1 text-[12px] text-[#d2b878]">
+            <p className="mt-1 text-[12px] text-[#4C9FE5]">
               {formatPrice(totalRevenue)}
             </p>
           </div>
@@ -78,10 +80,10 @@ export const AdminSalesOverview = () => {
                       relative
                       w-full
                       rounded-t-[6px]
-                      bg-[#b99a5c]/30
+                      bg-[#4C9FE5]/30
                       transition-all
                       duration-300
-                      hover:bg-[#d2b878]/50
+                      hover:bg-[#4C9FE5]/50
                     "
                     style={{
                       height: `${height}%`,
@@ -93,7 +95,7 @@ export const AdminSalesOverview = () => {
                         inset-x-0
                         bottom-0
                         rounded-t-[6px]
-                        bg-[#d2b878]
+                        bg-[#4C9FE5]
                       "
                       style={{
                         height: "3px",
@@ -102,7 +104,9 @@ export const AdminSalesOverview = () => {
                   </div>
                 </div>
 
-                <span className="text-[9px] text-white/25">{month.month}</span>
+                <span className="text-[9px] text-[#E8E9E7]/25">
+                  {month.month}
+                </span>
               </div>
             );
           })}

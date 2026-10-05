@@ -8,21 +8,21 @@ export const AdminProfileSettings = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#090909]
+        bg-[#4C9FE5]/5
       "
     >
       <div className="border-b border-white/7 px-5 py-4">
-        <h3 className="text-[14px] font-medium text-white">
+        <h3 className="text-[14px] font-medium text-[#E8E9E7]">
           Konto administratora
         </h3>
 
-        <p className="mt-1 text-[11px] text-white/25">
+        <p className="mt-1 text-[11px] text-[#E8E9E7]/25">
           Dane używane do logowania do panelu
         </p>
       </div>
 
       <div className="space-y-4 p-5">
-        <div className="flex items-center gap-4 rounded-[9px] border border-white/5 bg-white/[0.015] p-4">
+        <div className="flex items-center gap-4 rounded-[9px] border border-white/5 bg-[ext-[#E8E9E7]/[0.015] p-4">
           <div
             className="
               flex
@@ -33,20 +33,22 @@ export const AdminProfileSettings = () => {
               justify-center
               rounded-full
               border
-              border-[#b99a5c]/20
-              bg-[#b99a5c]/5
+              border-[#4C9FE5]/20
+              bg-[#4C9FE5]/5
               text-[12px]
               font-medium
-              text-[#d2b878]
+              text-[#4C9FE5]
             "
           >
             A
           </div>
 
           <div>
-            <p className="text-[12px] text-white/70">Administrator</p>
+            <p className="text-[12px] text-[#E8E9E7]/70">Administrator</p>
 
-            <p className="mt-1 text-[9px] text-white/25">Główne konto panelu</p>
+            <p className="mt-1 text-[9px] text-[#E8E9E7]/25">
+              Główne konto panelu
+            </p>
           </div>
         </div>
 
@@ -78,7 +80,7 @@ export const AdminProfileSettings = () => {
               h-9
               cursor-pointer
               rounded-[8px]
-              bg-[#d2b878]
+              bg-[#4C9FE5]
               px-4
               text-[10px]
               font-medium

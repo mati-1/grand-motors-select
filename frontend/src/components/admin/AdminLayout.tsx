@@ -5,7 +5,7 @@ import { AdminSidebar } from "./AdminSidebar";
 
 export const AdminLayout = () => {
   return (
-    <div className="min-h-screen bg-[#050505] text-white">
+    <div className="min-h-screen bg-[#050505] text-[#E8E9E7]">
       <AdminSidebar />
 
       <div className="min-h-screen lg:pl-62.5">

@@ -10,11 +10,11 @@ type Props = {
 
 export const AdminSaleCar = ({ cars, selectedCar, value, onChange }: Props) => {
   return (
-    <section className="rounded-[10px] border border-white/8 bg-[#090909]">
+    <section className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/5">
       <div className="border-b border-white/7 px-5 py-4">
-        <h3 className="text-[14px] font-medium text-white">Samochód</h3>
+        <h3 className="text-[14px] font-medium text-[#E8E9E7]">Samochód</h3>
 
-        <p className="mt-1 text-[10px] text-white/30">
+        <p className="mt-1 text-[10px] text-[#E8E9E7]/30">
           Wybierz samochód, który został sprzedany.
         </p>
       </div>
@@ -33,34 +33,36 @@ export const AdminSaleCar = ({ cars, selectedCar, value, onChange }: Props) => {
 
         {selectedCar && (
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-            <div className="rounded-[8px] border border-white/8 bg-white/[0.02] p-3">
-              <span className="text-[9px] text-white/25">Przebieg</span>
+            <div className="rounded-[8px] border border-white/8 bg-[ext-[#E8E9E7]/[0.02] p-3">
+              <span className="text-[9px] text-[#E8E9E7]/25">Przebieg</span>
 
-              <p className="mt-1 text-[11px] text-white/65">
+              <p className="mt-1 text-[11px] text-[#E8E9E7]/65">
                 {selectedCar.mileage}
               </p>
             </div>
 
-            <div className="rounded-[8px] border border-white/8 bg-white/[0.02] p-3">
-              <span className="text-[9px] text-white/25">Silnik</span>
+            <div className="rounded-[8px] border border-white/8 bg-[ext-[#E8E9E7]/[0.02] p-3">
+              <span className="text-[9px] text-[#E8E9E7]/25">Silnik</span>
 
-              <p className="mt-1 text-[11px] text-white/65">
+              <p className="mt-1 text-[11px] text-[#E8E9E7]/65">
                 {selectedCar.engine}
               </p>
             </div>
 
-            <div className="rounded-[8px] border border-white/8 bg-white/[0.02] p-3">
-              <span className="text-[9px] text-white/25">Moc</span>
+            <div className="rounded-[8px] border border-white/8 bg-[ext-[#E8E9E7]/[0.02] p-3">
+              <span className="text-[9px] text-[#E8E9E7]/25">Moc</span>
 
-              <p className="mt-1 text-[11px] text-white/65">
+              <p className="mt-1 text-[11px] text-[#E8E9E7]/65">
                 {selectedCar.power}
               </p>
             </div>
 
-            <div className="rounded-[8px] border border-white/8 bg-white/[0.02] p-3">
-              <span className="text-[9px] text-white/25">Cena ogłoszenia</span>
+            <div className="rounded-[8px] border border-white/8 bg-[ext-[#E8E9E7]/[0.02] p-3">
+              <span className="text-[9px] text-[#E8E9E7]/25">
+                Cena ogłoszenia
+              </span>
 
-              <p className="mt-1 text-[11px] text-[#d2b878]">
+              <p className="mt-1 text-[11px] text-[#4C9FE5]">
                 {selectedCar.price}
               </p>
             </div>

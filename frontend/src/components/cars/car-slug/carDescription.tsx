@@ -170,7 +170,7 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
       text-[14px]
       font-normal
       leading-[1.8]
-      text-white/70
+      text-[#E8E9E7]/70
       sm:hidden
     "
             >
@@ -189,7 +189,7 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
       text-[15px]
       font-normal
       leading-[1.85]
-      text-white/70
+      text-[#E8E9E7]/70
       sm:block
     "
             >
@@ -308,8 +308,8 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
                   transition-all
                   rounded-[10px]
                   duration-300
-                  hover:border-[#b99a5c]/40
-                  hover:text-[#d2b878]
+                  hover:border-[#4C9FE5]/40
+                  hover:text-[#4C9FE5]
                 "
               >
                 {copied ? "✓ Skopiowano" : "Skopiuj"}

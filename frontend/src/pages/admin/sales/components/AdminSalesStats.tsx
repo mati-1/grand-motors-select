@@ -41,12 +41,12 @@ export const AdminSalesStats = () => {
               rounded-[10px]
               border
               border-white/8
-              bg-[#090909]
+              bg-[#4C9FE5]/5
               p-5
             "
           >
             <div className="flex items-start justify-between gap-4">
-              <p className="text-[10px] text-white/30">{stat.label}</p>
+              <p className="text-[10px] text-[#E8E9E7]/30">{stat.label}</p>
 
               <span
                 className={`
@@ -55,7 +55,7 @@ export const AdminSalesStats = () => {
                   w-1.5
                   shrink-0
                   rounded-full
-                  ${stat.accent ? "bg-[#b99a5c]" : "bg-white/15"}
+                  ${stat.accent ? "bg-[#4C9FE5]" : "bg-[ext-[#E8E9E7]/15"}
                 `}
               />
             </div>
@@ -66,13 +66,13 @@ export const AdminSalesStats = () => {
                 text-[21px]
                 font-medium
                 tracking-tight
-                ${stat.accent ? "text-[#d2b878]" : "text-white"}
+                ${stat.accent ? "text-[#4C9FE5]" : "text-[#E8E9E7]"}
               `}
             >
               {stat.value}
             </p>
 
-            <p className="mt-1.5 text-[9px] text-white/20">
+            <p className="mt-1.5 text-[9px] text-[#E8E9E7]/20">
               {stat.description}
             </p>
           </div>

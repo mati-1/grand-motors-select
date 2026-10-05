@@ -85,7 +85,7 @@ export const CarGalleryLightbox = ({
         z-10001
         flex
         flex-col
-        bg-[#b99a5c]/20
+        bg-[#4C9FE5]/20
         bg-linear-to-r
         from-black/90
         via-black/75
@@ -127,13 +127,13 @@ export const CarGalleryLightbox = ({
           justify-center
           border
           border-white/10
-          bg-white/2
+          bg-[ext-[#E8E9E7]/2
           text-[#777]
           transition-all
           duration-300
-          hover:border-[#b99a5c]/40
-          hover:bg-[#b99a5c]/5
-          hover:text-[#d2b878]
+          hover:border-[#4C9FE5]/40
+          hover:bg-[#4C9FE5]/5
+          hover:text-[#4C9FE5]
           rounded-[10px]
         "
         >
@@ -260,7 +260,7 @@ export const CarGalleryLightbox = ({
             transition-all
             duration-300
             rounded-[10px]
-            hover:border-[#b99a5c]/60
+            hover:border-[#4C9FE5]/60
             hover:bg-black/70
             sm:left-7
             sm:h-13
@@ -312,7 +312,7 @@ export const CarGalleryLightbox = ({
             backdrop-blur-md
             transition-all
             duration-300
-            hover:border-[#b99a5c]/60
+            hover:border-[#4C9FE5]/60
             hover:bg-black/70
             sm:right-7
             sm:h-13

@@ -31,13 +31,13 @@ export const AdminCompanyDetails = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#090909]
+        bg-[#4C9FE5]/5
       "
     >
       <div className="border-b border-white/7 px-5 py-4">
-        <h3 className="text-[14px] font-medium text-white">Dane firmy</h3>
+        <h3 className="text-[14px] font-medium text-[#E8E9E7]">Dane firmy</h3>
 
-        <p className="mt-1 text-[11px] text-white/25">
+        <p className="mt-1 text-[11px] text-[#E8E9E7]/25">
           Informacje wykorzystywane na dokumentach i fakturach
         </p>
       </div>
@@ -78,7 +78,7 @@ export const AdminCompanyDetails = () => {
         </div>
 
         <div className="border-t border-white/5 pt-4">
-          <p className="mb-3 text-[10px] text-white/30">Adres siedziby</p>
+          <p className="mb-3 text-[10px] text-[#E8E9E7]/30">Adres siedziby</p>
 
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-[1fr_100px]">
             <FormInput

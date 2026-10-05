@@ -20,7 +20,7 @@ export const WrapSectionComponent = () => {
         <br />
         WYGLĄD
         <br />
-        <span className="text-[#d2b878]">NIE CHARAKTER.</span>
+        <span className="text-[#4C9FE5]">NIE CHARAKTER.</span>
       </MainHeadingComponent>
 
       <SubHeadingComponent className="mb-6 max-w-117.5 leading-[1.8] sm:leading-[1.9]">

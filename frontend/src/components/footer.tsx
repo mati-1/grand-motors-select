@@ -4,7 +4,7 @@ import { LineComponent } from "./line";
 
 export const FooterComponent = () => {
   return (
-    <footer className="border-t border-white/10 bg-[#030303] text-white">
+    <footer className="border-t border-white/10 bg-[#030303] text-[#E8E9E7]">
       <div
         className="
           mx-auto
@@ -71,7 +71,7 @@ export const FooterComponent = () => {
                 className="
                   h-px
                   w-8
-                  bg-[#b99a5c]/50
+                  bg-[#4C9FE5]/50
                 "
               />
 
@@ -116,7 +116,7 @@ export const FooterComponent = () => {
                 className="
                   text-[11px]
                   font-medium
-                  text-[#b99a5c]
+                  text-[#4C9FE5]
                 "
               >
                 Nawigacja
@@ -139,7 +139,7 @@ export const FooterComponent = () => {
                     text-[#777]
                     transition-colors
                     duration-300
-                    hover:text-[#d2b878]
+                    hover:text-[#4C9FE5]
                   "
                 >
                   Strona główna
@@ -153,7 +153,7 @@ export const FooterComponent = () => {
                     text-[#777]
                     transition-colors
                     duration-300
-                    hover:text-[#d2b878]
+                    hover:text-[#4C9FE5]
                   "
                 >
                   Samochody
@@ -167,7 +167,7 @@ export const FooterComponent = () => {
                     text-[#777]
                     transition-colors
                     duration-300
-                    hover:text-[#d2b878]
+                    hover:text-[#4C9FE5]
                   "
                 >
                   Detailing
@@ -181,7 +181,7 @@ export const FooterComponent = () => {
                     text-[#777]
                     transition-colors
                     duration-300
-                    hover:text-[#d2b878]
+                    hover:text-[#4C9FE5]
                   "
                 >
                   Wrap
@@ -195,7 +195,7 @@ export const FooterComponent = () => {
                     text-[#777]
                     transition-colors
                     duration-300
-                    hover:text-[#d2b878]
+                    hover:text-[#4C9FE5]
                   "
                 >
                   Kontakt
@@ -220,7 +220,7 @@ export const FooterComponent = () => {
                 className="
                   text-[11px]
                   font-medium
-                  text-[#b99a5c]
+                  text-[#4C9FE5]
                 "
               >
                 Kontakt
@@ -243,7 +243,7 @@ export const FooterComponent = () => {
                     text-[#bbb]
                     transition-colors
                     duration-300
-                    hover:text-[#d2b878]
+                    hover:text-[#4C9FE5]
                   "
                 >
                   +48 514 137 133
@@ -257,7 +257,7 @@ export const FooterComponent = () => {
                     text-[#bbb]
                     transition-colors
                     duration-300
-                    hover:text-[#d2b878]
+                    hover:text-[#4C9FE5]
                   "
                 >
                   biuro@grandmotorsselect.pl
@@ -292,7 +292,7 @@ export const FooterComponent = () => {
                 className="
                   text-[11px]
                   font-medium
-                  text-[#b99a5c]
+                  text-[#4C9FE5]
                 "
               >
                 Dane firmy
@@ -376,7 +376,7 @@ export const FooterComponent = () => {
               className="
                 transition-colors
                 duration-300
-                hover:text-[#b99a5c]
+                hover:text-[#4C9FE5]
               "
             >
               Polityka prywatności
@@ -387,7 +387,7 @@ export const FooterComponent = () => {
               className="
                 transition-colors
                 duration-300
-                hover:text-[#b99a5c]
+                hover:text-[#4C9FE5]
               "
             >
               Regulamin

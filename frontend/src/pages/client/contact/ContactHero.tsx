@@ -28,7 +28,7 @@ export const ContactHero = () => {
           h-100
           w-100
           rounded-full
-          bg-[#b99a5c]/5
+          bg-[#4C9FE5]/5
           blur-[140px]
         "
       />
@@ -68,7 +68,7 @@ export const ContactHero = () => {
                 font-medium
                 leading-[0.98]
                 tracking-[-0.03em]
-                text-white
+                text-[#E8E9E7]
               "
             >
               W czym możemy pomóc?
@@ -112,7 +112,7 @@ export const ContactHero = () => {
                   pl-4
                   transition-colors
                   duration-300
-                  hover:border-[#b99a5c]
+                  hover:border-[#4C9FE5]
                 "
               >
                 <span
@@ -121,7 +121,7 @@ export const ContactHero = () => {
                     text-[9px]
                     uppercase
                     tracking-[0.08em]
-                    text-white/35
+                    text-[#E8E9E7]/35
                   "
                 >
                   Telefon
@@ -132,10 +132,10 @@ export const ContactHero = () => {
                     mt-1
                     block
                     text-[12px]
-                    text-white
+                    text-[#E8E9E7]
                     transition-colors
                     duration-300
-                    group-hover:text-[#d2b878]
+                    group-hover:text-[#4C9FE5]
                   "
                 >
                   +48 514 137 133 (Mateusz)
@@ -151,7 +151,7 @@ export const ContactHero = () => {
                   pl-4
                   transition-colors
                   duration-300
-                  hover:border-[#b99a5c]
+                  hover:border-[#4C9FE5]
                 "
               >
                 <span
@@ -160,7 +160,7 @@ export const ContactHero = () => {
                     text-[9px]
                     uppercase
                     tracking-[0.08em]
-                    text-white/35
+                    text-[#E8E9E7]/35
                   "
                 >
                   E-mail
@@ -172,10 +172,10 @@ export const ContactHero = () => {
                     block
                     truncate
                     text-[12px]
-                    text-white
+                    text-[#E8E9E7]
                     transition-colors
                     duration-300
-                    group-hover:text-[#d2b878]
+                    group-hover:text-[#4C9FE5]
                   "
                 >
                   biuro@grandmotorsselect.pl

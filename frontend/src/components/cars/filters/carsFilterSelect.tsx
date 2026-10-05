@@ -176,7 +176,7 @@ export const CarsFilterSelect = ({
             }
           `}
         >
-          <div className="h-px w-full shrink-0 bg-linear-to-r from-transparent via-[#b99a5c]/60 to-transparent" />
+          <div className="h-px w-full shrink-0 bg-linear-to-r from-transparent via-[#4C9FE5]/60 to-transparent" />
 
           <div
             className="
@@ -211,9 +211,9 @@ export const CarsFilterSelect = ({
                     ${
                       option.disabled
                         ? "cursor-not-allowed text-[#333]"
-                        : "cursor-pointer hover:bg-[#b99a5c]/7"
+                        : "cursor-pointer hover:bg-[#4C9FE5]/7"
                     }
-                    ${isSelected ? "bg-[#b99a5c]/5" : ""}
+                    ${isSelected ? "bg-[#4C9FE5]/5" : ""}
                   `}
                 >
                   <span
@@ -223,7 +223,7 @@ export const CarsFilterSelect = ({
                       left-0
                       top-2
                       w-px
-                      bg-[#b99a5c]
+                      bg-[#4C9FE5]
                       transition-all
                       duration-300
                       ${
@@ -243,7 +243,7 @@ export const CarsFilterSelect = ({
                         option.disabled
                           ? "text-[#333]"
                           : isSelected
-                            ? "translate-x-1 text-[#d2b878]"
+                            ? "translate-x-1 text-[#4C9FE5]"
                             : "text-[#888] group-hover/option:translate-x-1 group-hover/option:text-[#ddd]"
                       }
                     `}
@@ -252,7 +252,7 @@ export const CarsFilterSelect = ({
                   </span>
 
                   {isSelected && (
-                    <span className="text-[8px] text-[#b99a5c]">●</span>
+                    <span className="text-[8px] text-[#4C9FE5]">●</span>
                   )}
                 </button>
               );

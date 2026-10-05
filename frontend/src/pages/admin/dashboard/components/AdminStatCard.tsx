@@ -94,7 +94,7 @@ export const AdminStatCard = ({
         rounded-[10px]
         border
         border-white/8
-        bg-[#090909]
+        bg-[#4C9FE5]/5
         p-5
         transition-all
         duration-300
@@ -111,9 +111,9 @@ export const AdminStatCard = ({
             justify-center
             rounded-[10px]
             border
-            border-[#b99a5c]/20
-            bg-[#b99a5c]/[0.07]
-            text-[#d2b878]
+            border-[#4C9FE5]/20
+            bg-[#4C9FE5]/[0.07]
+            text-[#4C9FE5]
           "
         >
           <StatIcon type={icon} />
@@ -127,7 +127,7 @@ export const AdminStatCard = ({
             text-[11px]
             ${
               positive
-                ? "bg-[#b99a5c]/[0.07] text-[#b99a5c]"
+                ? "bg-[#4C9FE5]/[0.07] text-[#4C9FE5]"
                 : "bg-red-400/[0.07] text-red-300"
             }
           `}
@@ -137,11 +137,11 @@ export const AdminStatCard = ({
       </div>
 
       <div className="mt-6">
-        <p className="text-[12px] text-white/30">{label}</p>
+        <p className="text-[12px] text-[#E8E9E7]/30">{label}</p>
 
-        <p className="mt-1.5 text-[21px] font-medium text-white">{value}</p>
+        <p className="mt-1.5 text-[21px] font-medium text-[#E8E9E7]">{value}</p>
 
-        <p className="mt-1 text-[11px] text-white/40">{description}</p>
+        <p className="mt-1 text-[11px] text-[#E8E9E7]/40">{description}</p>
       </div>
     </div>
   );

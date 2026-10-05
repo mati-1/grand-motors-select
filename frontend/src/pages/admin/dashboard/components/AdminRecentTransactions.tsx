@@ -46,17 +46,17 @@ export const AdminRecentTransactions = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#090909]
+        bg-[#4C9FE5]/5
       "
     >
       {/* HEADER */}
       <div className="flex items-center justify-between border-b border-white/[0.07] px-5 py-4">
         <div>
-          <h3 className="text-[14px] font-medium text-white">
+          <h3 className="text-[14px] font-medium text-[#E8E9E7]">
             Ostatnie transakcje
           </h3>
 
-          <p className="mt-1 text-[11px] text-white/25">
+          <p className="mt-1 text-[11px] text-[#E8E9E7]/25">
             Ostatnie operacje finansowe.
           </p>
         </div>
@@ -65,10 +65,10 @@ export const AdminRecentTransactions = () => {
           to="/admin/finances"
           className="
             text-[12px]
-            text-white/30
+            text-[#E8E9E7]/30
             transition-colors
             duration-300
-            hover:text-[#d2b878]
+            hover:text-[#4C9FE5]
           "
         >
           Zobacz wszystkie
@@ -105,8 +105,8 @@ export const AdminRecentTransactions = () => {
                 text-[14px]
                 ${
                   transaction.type === "income"
-                    ? "bg-[#b99a5c]/8 text-[#d2b878]"
-                    : "bg-white/4 text-white/30"
+                    ? "bg-[#4C9FE5]/8 text-[#4C9FE5]"
+                    : "bg-[ext-[#E8E9E7]/4 text-[#E8E9E7]/30"
                 }
               `}
             >
@@ -114,11 +114,11 @@ export const AdminRecentTransactions = () => {
             </div>
 
             <div className="min-w-0 flex-1">
-              <p className="truncate text-[12px] text-white/70">
+              <p className="truncate text-[12px] text-[#E8E9E7]/70">
                 {transaction.title}
               </p>
 
-              <p className="mt-1 text-[11px] text-white/20">
+              <p className="mt-1 text-[11px] text-[#E8E9E7]/20">
                 {transaction.date}
               </p>
             </div>
@@ -130,8 +130,8 @@ export const AdminRecentTransactions = () => {
                 font-medium
                 ${
                   transaction.type === "income"
-                    ? "text-[#d2b878]"
-                    : "text-white/45"
+                    ? "text-[#4C9FE5]"
+                    : "text-[#E8E9E7]/45"
                 }
               `}
             >

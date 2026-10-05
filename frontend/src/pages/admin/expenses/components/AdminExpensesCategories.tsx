@@ -45,24 +45,24 @@ export const AdminExpensesCategories = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#090909]
+        bg-[#4C9FE5]/5
       "
     >
       <div className="border-b border-white/7 px-5 py-4">
-        <h3 className="text-[14px] font-medium text-white">
+        <h3 className="text-[14px] font-medium text-[#E8E9E7]">
           Kategorie wydatków
         </h3>
 
-        <p className="mt-1 text-[11px] text-white/25">
+        <p className="mt-1 text-[11px] text-[#E8E9E7]/25">
           Struktura kosztów w wybranym okresie
         </p>
       </div>
 
       <div className="p-5">
         <div className="mb-6">
-          <p className="text-[9px] text-white/20">Łączne wydatki</p>
+          <p className="text-[9px] text-[#E8E9E7]/20">Łączne wydatki</p>
 
-          <p className="mt-1 text-[22px] font-medium text-white">
+          <p className="mt-1 text-[22px] font-medium text-[#E8E9E7]">
             {formatPrice(total)}
           </p>
         </div>
@@ -71,18 +71,18 @@ export const AdminExpensesCategories = () => {
           {categories.map((category) => (
             <div key={category.label}>
               <div className="mb-2 flex items-center justify-between gap-3">
-                <span className="text-[10px] text-white/40">
+                <span className="text-[10px] text-[#E8E9E7]/40">
                   {category.label}
                 </span>
 
-                <span className="text-[10px] text-white/50">
+                <span className="text-[10px] text-[#E8E9E7]/50">
                   {formatPrice(category.value)}
                 </span>
               </div>
 
-              <div className="h-1 overflow-hidden rounded-full bg-white/5">
+              <div className="h-1 overflow-hidden rounded-full bg-[ext-[#E8E9E7]/5">
                 <div
-                  className="h-full rounded-full bg-[#b99a5c]"
+                  className="h-full rounded-full bg-[#4C9FE5]"
                   style={{
                     width: `${category.percentage}%`,
                   }}

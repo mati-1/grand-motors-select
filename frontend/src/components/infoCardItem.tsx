@@ -16,7 +16,7 @@ export const InfoCardItem = ({
       className={`
         group flex gap-5 py-5
         transition-colors duration-300
-        hover:bg-white/2.5
+        hover:bg-[ext-[#E8E9E7]/2.5
         sm:gap-7
         ${!last ? "border-b border-white/10" : ""}
       `}
@@ -28,19 +28,19 @@ export const InfoCardItem = ({
           className="
             flex h-8 w-8
             items-center justify-center
-            border border-[#b99a5c]/30
+            border border-[#4C9FE5]/30
             font-normal text-[12px]
-            text-[#d2b878]
+            text-[#4C9FE5]
             transition-all duration-300
-            group-hover:border-[#b99a5c]/60
-            group-hover:bg-[#b99a5c]/5
+            group-hover:border-[#4C9FE5]/60
+            group-hover:bg-[#4C9FE5]/5
           "
         >
           {number}
         </div>
 
         {!last && (
-          <div className="mt-2 h-full w-px bg-white/10 transition-colors duration-300 group-hover:bg-[#b99a5c]/20" />
+          <div className="mt-2 h-full w-px bg-[ext-[#E8E9E7]/10 transition-colors duration-300 group-hover:bg-[#4C9FE5]/20" />
         )}
       </div>
 
@@ -53,7 +53,7 @@ export const InfoCardItem = ({
             
             text-[#ddd]
             transition-colors duration-300
-            group-hover:text-[#d2b878]
+            group-hover:text-[#4C9FE5]
             sm:text-[13px]
           "
         >

@@ -90,7 +90,7 @@ export const AdminSaleForm = () => {
         <button
           type="button"
           onClick={() => navigate("/admin/sprzedaz")}
-          className="h-11 cursor-pointer rounded-[10px] border border-white/10 px-5 text-[11px] text-white/40 transition-all duration-300 hover:border-white/20 hover:text-white"
+          className="h-11 cursor-pointer rounded-[10px] border border-white/10 px-5 text-[11px] text-[#E8E9E7]/40 transition-all duration-300 hover:border-white/20 hover:text-[#E8E9E7]"
         >
           Anuluj
         </button>
@@ -98,7 +98,7 @@ export const AdminSaleForm = () => {
         <button
           type="submit"
           disabled={!form.carId}
-          className="h-11 cursor-pointer rounded-[10px] bg-[#d2b878] px-6 text-[11px] font-medium text-black transition-all duration-300 hover:bg-[#e0c98b] disabled:cursor-default disabled:opacity-40"
+          className="h-11 cursor-pointer rounded-[10px] bg-[#4C9FE5] px-6 text-[11px] font-medium text-black transition-all duration-300 hover:bg-[#e0c98b] disabled:cursor-default disabled:opacity-40"
         >
           Zapisz sprzedaż
         </button>

@@ -1,27 +1,29 @@
 import React from "react";
 import ArrowDownIcon from "../assets/icons/strzalka-w-dol.svg?react";
 import ArrowRightIcon from "../assets/icons/strzalka.svg?react";
+import type { ButtonHTMLAttributes } from "react";
 
 type ButtonComponentProps = {
   children: React.ReactNode;
   href?: string;
   onClick?: () => void;
-  type?: "main" | "secondary";
+  variant?: "main" | "secondary";
   size?: "big" | "small";
   className?: string;
   disabled?: boolean;
   arrowIcon?: boolean;
-};
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const ButtonComponent = ({
   children,
   href,
   onClick,
-  type = "secondary",
+  variant = "secondary",
   size = "big",
   className = "",
   disabled = false,
   arrowIcon,
+  ...buttonProps
 }: ButtonComponentProps) => {
   const classes = `
     flex
@@ -36,21 +38,19 @@ export const ButtonComponent = ({
     transition
     h-auto
     ${
-      type === "main"
+      variant === "main"
         ? `
           gap-3
-          bg-linear-to-r
-          from-[#b6944e]
-          to-[#d6bb7c]
+          bg-gradient-to-r from-[#7FC4F7] via-[#4C9FE5] to-[#2B6DB8]
           text-black
           font-medium
           transition duration-300 hover:brightness-125
         `
         : `
           border
-          border-[#b99a5c]/70
-          text-white
-          hover:bg-[#b99a5c]/10
+          border-[#4C9FE5]/70
+          text-[#E8E9E7]
+          hover:bg-[#6F8FA6]/10
         `
     }
     ${
@@ -94,6 +94,7 @@ export const ButtonComponent = ({
       onClick={onClick}
       disabled={disabled}
       className={classes}
+      {...buttonProps}
     >
       {children}{" "}
       {arrowIcon && <ArrowRightIcon className="w-4 h-4 rotate-180" />}
@@ -130,9 +131,9 @@ export const ButtonExpand = ({
         text-[#777]
         transition-all
         duration-300
-        hover:border-[#b99a5c]/40
-        hover:bg-white/2
-        hover:text-[#d2b878]
+        hover:border-[#4C9FE5]/40
+        hover:bg-[ext-[#E8E9E7]/2
+        hover:text-[#4C9FE5]
       "
     >
       <span>{isExpanded ? "Pokaż mniej" : "Pokaż więcej"}</span>

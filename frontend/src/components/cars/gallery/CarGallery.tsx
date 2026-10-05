@@ -110,7 +110,7 @@ const GalleryNavigationButton = ({
         bg-black/60
         text-[18px]
         font-light
-        text-[#d2b878]
+        text-[#4C9FE5]
         backdrop-blur-md
         transition-all
         duration-400
@@ -125,7 +125,7 @@ const GalleryNavigationButton = ({
               }`
         }
 
-        hover:border-[#b99a5c]/60
+        hover:border-[#4C9FE5]/60
         hover:bg-black/75
 
         ${isPrevious ? "left-4" : "right-4"}
@@ -173,7 +173,7 @@ const GalleryViewAllButton = ({
     backdrop-blur-md
     transition-all
     duration-300
-    hover:border-[#b99a5c]/30
+    hover:border-[#4C9FE5]/30
     hover:bg-[#0c0c0c]/95
     rounded-[10px]
   "
@@ -187,7 +187,7 @@ const GalleryViewAllButton = ({
       text-[#aaa]
       transition-colors
       duration-300
-      group-hover:text-[#c2ad7a]
+      group-hover:text-[#4C9FE5]
     "
       >
         Zobacz {imageCount} zdjęć

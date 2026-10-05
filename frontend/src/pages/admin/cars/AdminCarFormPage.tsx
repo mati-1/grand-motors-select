@@ -14,15 +14,15 @@ export const AdminCarFormPage = () => {
 
   if (isEditMode && carQuery.isPending) {
     return (
-      <div className="rounded-[10px] border border-white/8 bg-[#090909] p-5">
-        <p className="text-[11px] text-white/40">Pobieranie samochodu...</p>
+      <div className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/5 p-5">
+        <p className="text-[11px] text-[#E8E9E7]/40">Pobieranie samochodu...</p>
       </div>
     );
   }
 
   if (isEditMode && carQuery.isError) {
     return (
-      <div className="rounded-[10px] border border-white/8 bg-[#090909] p-5">
+      <div className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/5 p-5">
         <p className="text-[11px] text-red-300">
           Nie udało się pobrać samochodu.
         </p>
@@ -47,24 +47,24 @@ export const AdminCarFormPage = () => {
           justify-center
           border
           border-white/10
-          bg-white/2
+          bg-[ext-[#E8E9E7]/2
           text-[#777]
           transition-all
           duration-300
-          hover:border-[#b99a5c]/40
-          hover:bg-[#b99a5c]/5
-          hover:text-[#d2b878]
+          hover:border-[#4C9FE5]/40
+          hover:bg-[#4C9FE5]/5
+          hover:text-[#4C9FE5]
           rounded-[10px]
         "
         >
           <ArrowIcon className="w-5 h-5" />
         </button>
 
-        <h2 className="mt-1 text-[24px] font-medium tracking-tight text-white sm:text-[28px]">
+        <h2 className="mt-1 text-[24px] font-medium tracking-tight text-[#E8E9E7] sm:text-[28px]">
           {isEditMode ? "Edytuj samochód" : "Dodaj samochód"}
         </h2>
 
-        <p className="mt-2 text-[10px] leading-[1.7] text-white/30">
+        <p className="mt-2 text-[10px] leading-[1.7] text-[#E8E9E7]/30">
           {isEditMode
             ? "Zaktualizuj informacje dotyczące samochodu."
             : "Uzupełnij informacje, aby dodać samochód do magazynu."}
@@ -72,8 +72,10 @@ export const AdminCarFormPage = () => {
       </div>
 
       {isEditMode && !car ? (
-        <div className="rounded-[10px] border border-white/8 bg-[#090909] p-5">
-          <p className="text-[11px] text-white/40">Nie znaleziono samochodu.</p>
+        <div className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/5 p-5">
+          <p className="text-[11px] text-[#E8E9E7]/40">
+            Nie znaleziono samochodu.
+          </p>
         </div>
       ) : (
         <AdminCarForm car={car} />

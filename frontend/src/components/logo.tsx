@@ -1,5 +1,5 @@
-import logo from "../../public/nowe-logo.png";
-import emblemLogo from "../../public/logohd emblem.png";
+import logo from "../../public/logo.png";
+import emblemLogo from "../../public/sygnet.png";
 
 export const LogoComponent = ({
   onClick,

@@ -42,7 +42,7 @@ export const AppToast = ({
         rounded-[10px]
         border
         border-white/10
-        bg-[#090909]/95
+        bg-[#4C9FE5]/5/95
         px-4
         py-3.5
         shadow-2xl
@@ -63,10 +63,10 @@ export const AppToast = ({
           border
           ${
             type === "success"
-              ? "border-[#b99a5c]/30 bg-[#b99a5c]/10 text-[#d2b878]"
+              ? "border-[#4C9FE5]/30 bg-[#4C9FE5]/10 text-[#4C9FE5]"
               : type === "error"
                 ? "border-red-400/20 bg-red-400/10 text-red-300"
-                : "border-white/10 bg-white/5 text-white/50"
+                : "border-white/10 bg-[ext-[#E8E9E7]/5 text-[#E8E9E7]/50"
           }
         `}
       >
@@ -91,7 +91,7 @@ export const AppToast = ({
           className="
             text-[12px]
             font-medium
-            text-white
+            text-[#E8E9E7]
           "
         >
           {title}
@@ -103,7 +103,7 @@ export const AppToast = ({
               mt-1
               truncate
               text-[10px]
-              text-white/40
+              text-[#E8E9E7]/40
             "
           >
             {description}

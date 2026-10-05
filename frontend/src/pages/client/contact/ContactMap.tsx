@@ -52,7 +52,7 @@ export const ContactMap = () => {
                 font-medium
                 leading-tight
                 tracking-[-0.02em]
-                text-white
+                text-[#E8E9E7]
                 sm:text-[34px]
               "
             >
@@ -74,12 +74,12 @@ export const ContactMap = () => {
                 h-4
                 w-4
                 shrink-0
-                text-[#d2b878]
+                text-[#4C9FE5]
                 lg:mt-0
               "
             />
 
-            <p className="text-[12px] text-white">Bochnia, Małopolska</p>
+            <p className="text-[12px] text-[#E8E9E7]">Bochnia, Małopolska</p>
           </div>
         </div>
 
@@ -96,7 +96,7 @@ export const ContactMap = () => {
             rounded-[10px]
             border
             border-white/10
-            bg-[#090909]
+            bg-[#4C9FE5]/5
             lg:h-100
           "
         >

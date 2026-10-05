@@ -75,9 +75,11 @@ export const AdminQuickActions = () => {
   return (
     <section>
       <div className="mb-3">
-        <h3 className="text-[14px] font-medium text-white">Szybkie akcje</h3>
+        <h3 className="text-[14px] font-medium text-[#E8E9E7]">
+          Szybkie akcje
+        </h3>
 
-        <p className="mt-1 text-[11px] text-white/25">
+        <p className="mt-1 text-[11px] text-[#E8E9E7]/25">
           Najczęściej używane funkcje panelu.
         </p>
       </div>
@@ -95,12 +97,12 @@ export const AdminQuickActions = () => {
               rounded-[10px]
               border
               border-white/8
-              bg-[#090909]
+              bg-[#4C9FE5]/5
               p-4
               transition-all
               duration-300
-              hover:border-[#b99a5c]/25
-              hover:bg-[#0b0b0b]
+              hover:border-[#4C9FE5]/25
+              bg-[#4C9FE5]/10
             "
           >
             <div
@@ -114,22 +116,22 @@ export const AdminQuickActions = () => {
                 rounded-[10px]
                 border
                 border-white/10
-                text-white/40
+                text-[#E8E9E7]/40
                 transition-colors
                 duration-300
-                group-hover:border-[#b99a5c]/30
-                group-hover:text-[#d2b878]
+                group-hover:border-[#4C9FE5]/30
+                group-hover:text-[#4C9FE5]
               "
             >
               <ActionIcon type={action.icon} />
             </div>
 
             <div className="min-w-0">
-              <p className="text-[12px] font-medium text-white">
+              <p className="text-[12px] font-medium text-[#E8E9E7]">
                 {action.label}
               </p>
 
-              <p className="mt-1 text-[12px] text-white/25">
+              <p className="mt-1 text-[12px] text-[#E8E9E7]/25">
                 {action.description}
               </p>
             </div>
@@ -137,7 +139,7 @@ export const AdminQuickActions = () => {
             <svg
               viewBox="0 0 24 24"
               fill="none"
-              className="ml-auto h-3.5 w-3.5 text-white/20 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:text-[#b99a5c]"
+              className="ml-auto h-3.5 w-3.5 text-[#E8E9E7]/20 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:text-[#4C9FE5]"
             >
               <path
                 d="M9 5L16 12L9 19"

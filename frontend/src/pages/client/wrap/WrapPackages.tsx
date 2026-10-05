@@ -30,7 +30,7 @@ export const WrapPackages = () => {
         px-[4vw] min-[1200px]:px-[13vw]
         py-16
         sm:py-24
-        bg-[#b99a5c]/20
+        bg-[#4C9FE5]/20
           bg-linear-to-r from-black/90 via-black/75 to-black/90
       "
     >
@@ -51,7 +51,7 @@ export const WrapPackages = () => {
           <MainHeadingComponent className="text-[clamp(42px,5vw,60px)]!">
             NIE KAŻDY
             <br />
-            <span className="text-[#d2b878]">POTRZEBUJE FULL WRAPU.</span>
+            <span className="text-[#4C9FE5]">POTRZEBUJE FULL WRAPU.</span>
           </MainHeadingComponent>
 
           <p className="max-w-110 text-[13px] leading-[1.9] text-[#666]">
@@ -71,7 +71,7 @@ export const WrapPackages = () => {
                 py-8
                 transition-colors
                 duration-300
-                hover:bg-white/2
+                hover:bg-[ext-[#E8E9E7]/2
                 sm:px-8
                 ${
                   index !== packages.length - 1
@@ -80,7 +80,7 @@ export const WrapPackages = () => {
                 }
               `}
             >
-              <span className="font-normal text-[11px] text-[#b99a5c]">
+              <span className="font-normal text-[11px] text-[#4C9FE5]">
                 {item.number}
               </span>
 
@@ -92,7 +92,7 @@ export const WrapPackages = () => {
                   text-[#ddd]
                   transition-colors
                   duration-300
-                  group-hover:text-[#d2b878]
+                  group-hover:text-[#4C9FE5]
                 "
               >
                 {item.title}
@@ -109,7 +109,7 @@ export const WrapPackages = () => {
                   left-0
                   h-px
                   w-0
-                  bg-[#b99a5c]
+                  bg-[#4C9FE5]
                   transition-all
                   duration-500
                   group-hover:w-full
