@@ -31,7 +31,7 @@ export const AdminSalesOverview = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#4C9FE5]/5
+        bg-[#4C9FE5]/2
       "
     >
       <div className="flex flex-col justify-between gap-4 border-b border-white/7 px-5 py-4 sm:flex-row sm:items-center">
@@ -83,7 +83,7 @@ export const AdminSalesOverview = () => {
                       bg-[#4C9FE5]/30
                       transition-all
                       duration-300
-                      hover:bg-[#4C9FE5]/50
+                      hover:bg-[#4C9FE5]/20
                     "
                     style={{
                       height: `${height}%`,

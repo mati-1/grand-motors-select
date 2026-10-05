@@ -24,7 +24,7 @@ export const AdminSaleSummary = ({ car, salePrice }: Props) => {
   const margin = parsedSalePrice > 0 ? (profit / parsedSalePrice) * 100 : 0;
 
   return (
-    <section className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/5">
+    <section className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/2">
       <div className="border-b border-white/7 px-5 py-4">
         <h3 className="text-[14px] font-medium text-[#E8E9E7]">Podsumowanie</h3>
 
@@ -34,7 +34,7 @@ export const AdminSaleSummary = ({ car, salePrice }: Props) => {
       </div>
 
       <div className="grid grid-cols-2 gap-px bg-[ext-[#E8E9E7]/5 md:grid-cols-4">
-        <div className="bg-[#4C9FE5]/5 p-4">
+        <div className="bg-[#4C9FE5]/2 p-4">
           <span className="text-[9px] text-[#E8E9E7]/25">Samochód</span>
 
           <p className="mt-1 text-[11px] text-[#E8E9E7]/65">
@@ -42,7 +42,7 @@ export const AdminSaleSummary = ({ car, salePrice }: Props) => {
           </p>
         </div>
 
-        <div className="bg-[#4C9FE5]/5 p-4">
+        <div className="bg-[#4C9FE5]/2 p-4">
           <span className="text-[9px] text-[#E8E9E7]/25">Inwestycja</span>
 
           <p className="mt-1 text-[11px] text-[#E8E9E7]/65">
@@ -50,7 +50,7 @@ export const AdminSaleSummary = ({ car, salePrice }: Props) => {
           </p>
         </div>
 
-        <div className="bg-[#4C9FE5]/5 p-4">
+        <div className="bg-[#4C9FE5]/2 p-4">
           <span className="text-[9px] text-[#E8E9E7]/25">Cena sprzedaży</span>
 
           <p className="mt-1 text-[11px] text-[#4C9FE5]">
@@ -58,7 +58,7 @@ export const AdminSaleSummary = ({ car, salePrice }: Props) => {
           </p>
         </div>
 
-        <div className="bg-[#4C9FE5]/5 p-4">
+        <div className="bg-[#4C9FE5]/2 p-4">
           <span className="text-[9px] text-[#E8E9E7]/25">Zysk</span>
 
           <p

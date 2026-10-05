@@ -62,7 +62,7 @@ export const AdminFinanceTransactions = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#4C9FE5]/5
+        bg-[#4C9FE5]/2
       "
     >
       <div className="flex items-center justify-between gap-4 border-b border-white/7 px-5 py-4">
@@ -118,7 +118,7 @@ export const AdminFinanceTransactions = () => {
                 border
                 ${
                   transaction.type === "income"
-                    ? "border-[#4C9FE5]/20 bg-[#4C9FE5]/5 text-[#4C9FE5]"
+                    ? "border-[#4C9FE5]/20 bg-[#4C9FE5]/2 text-[#4C9FE5]"
                     : "border-white/8 bg-[ext-[#E8E9E7]/2 text-[#E8E9E7]/30"
                 }
               `}

@@ -30,7 +30,7 @@ export const AdminAppearanceSettings = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#4C9FE5]/5
+        bg-[#4C9FE5]/2
       "
     >
       <div className="border-b border-white/7 px-5 py-4">
@@ -78,7 +78,7 @@ export const AdminAppearanceSettings = () => {
                 text-left
               "
             >
-              <div className="h-12 rounded-[6px] border border-white/5 bg-[#4C9FE5]/5">
+              <div className="h-12 rounded-[6px] border border-white/5 bg-[#4C9FE5]/2">
                 <div className="m-2 h-1.5 w-8 rounded-full bg-[#4C9FE5]" />
                 <div className="mx-2 mt-2 h-1 w-12 rounded-full bg-[ext-[#E8E9E7]/10" />
               </div>

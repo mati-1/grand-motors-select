@@ -71,7 +71,7 @@ export const FooterComponent = () => {
                 className="
                   h-px
                   w-8
-                  bg-[#4C9FE5]/50
+                  bg-[#4C9FE5]/20
                 "
               />
 

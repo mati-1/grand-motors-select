@@ -8,7 +8,7 @@ export const AdminSecuritySettings = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#4C9FE5]/5
+        bg-[#4C9FE5]/2
       "
     >
       <div className="border-b border-white/7 px-5 py-4">
@@ -59,7 +59,7 @@ export const AdminSecuritySettings = () => {
               rounded-[8px]
               border
               border-[#4C9FE5]/20
-              bg-[#4C9FE5]/5
+              bg-[#4C9FE5]/2
               px-4
               text-[10px]
               text-[#4C9FE5]

@@ -62,7 +62,7 @@ export const WrapHero = () => {
           w-120
           -translate-y-1/2
           rounded-full
-          bg-[#4C9FE5]/5
+          bg-[#4C9FE5]/2
           blur-3xl
           lg:h-180
           lg:w-180

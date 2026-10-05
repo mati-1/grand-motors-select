@@ -59,7 +59,7 @@ export const RegulationPage = () => {
       <main>
         {/* HERO */}
         <section className="relative overflow-hidden px-[4vw] min-[1200px]:px-[13vw] pb-14 pt-16 sm:pb-18 sm:pt-20 lg:pb-22 lg:pt-24">
-          <div className="absolute right-[-10%] top-[-20%] h-100 w-100 rounded-full bg-[#4C9FE5]/5 blur-3xl" />
+          <div className="absolute right-[-10%] top-[-20%] h-100 w-100 rounded-full bg-[#4C9FE5]/2 blur-3xl" />
 
           <div className="relative mx-auto max-w-350">
             <span className="text-[8px]  text-[#4C9FE5] sm:text-[9px]">
@@ -325,7 +325,7 @@ export const RegulationPage = () => {
             </RegulationSection>
 
             {/* COMPANY BOX */}
-            <div className="mt-12 border border-[#4C9FE5]/25 bg-[#4C9FE5]/5 p-6 sm:mt-16 sm:p-8 lg:p-10">
+            <div className="mt-12 border border-[#4C9FE5]/25 bg-[#4C9FE5]/2 p-6 sm:mt-16 sm:p-8 lg:p-10">
               <div className="flex flex-col gap-7 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <span className="text-[8px]  text-[#4C9FE5]">

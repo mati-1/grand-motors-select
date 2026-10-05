@@ -50,5 +50,6 @@ export const mapApiCarToCarType = (car: ApiCar): CarType => {
     },
     history: [],
     featured: car.featured,
+    createdAt: car.createdAt,
   };
 };

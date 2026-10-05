@@ -132,7 +132,7 @@ export const CarGalleryLightbox = ({
           transition-all
           duration-300
           hover:border-[#4C9FE5]/40
-          hover:bg-[#4C9FE5]/5
+          hover:bg-[#4C9FE5]/2
           hover:text-[#4C9FE5]
           rounded-[10px]
         "

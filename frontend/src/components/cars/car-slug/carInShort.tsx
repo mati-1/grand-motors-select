@@ -24,7 +24,7 @@ export const CarInShort = ({ car }: { car: CarType }) => {
     },
     {
       label: "PRZEBIEG",
-      value: car.mileage,
+      value: `${car.mileage} km`,
       icon: MileageIcon,
     },
     {
@@ -34,7 +34,7 @@ export const CarInShort = ({ car }: { car: CarType }) => {
     },
     {
       label: "MOC",
-      value: car.power,
+      value: `${car.power} KM`,
       icon: PowerIcon,
     },
     {

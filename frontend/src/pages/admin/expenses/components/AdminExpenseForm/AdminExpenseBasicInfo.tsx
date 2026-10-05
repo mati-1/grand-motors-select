@@ -39,7 +39,7 @@ const categoryOptions = [
 
 export const AdminExpenseBasicInfo = ({ values, onChange }: Props) => {
   return (
-    <section className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/5">
+    <section className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/2">
       <div className="border-b border-white/7 px-5 py-4">
         <h3 className="text-[14px] font-medium text-[#E8E9E7]">
           Informacje o wydatku

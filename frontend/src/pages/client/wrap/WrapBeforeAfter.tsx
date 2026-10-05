@@ -60,7 +60,7 @@ export const WrapBeforeAfter = () => {
         >
           {/* BEFORE */}
 
-          <div className="group relative aspect-4/3 overflow-hidden bg-[#4C9FE5]/5">
+          <div className="group relative aspect-4/3 overflow-hidden bg-[#4C9FE5]/2">
             <img
               src="/wrap/wrap-before.jpg"
               alt="Samochód przed oklejeniem"
@@ -92,7 +92,7 @@ export const WrapBeforeAfter = () => {
 
           {/* AFTER */}
 
-          <div className="group relative aspect-4/3 overflow-hidden bg-[#4C9FE5]/5">
+          <div className="group relative aspect-4/3 overflow-hidden bg-[#4C9FE5]/2">
             <img
               src="/wrap/wrap-after.jpg"
               alt="Samochód po oklejeniu"

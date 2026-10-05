@@ -8,7 +8,7 @@ export const AdminProfileSettings = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#4C9FE5]/5
+        bg-[#4C9FE5]/2
       "
     >
       <div className="border-b border-white/7 px-5 py-4">
@@ -34,7 +34,7 @@ export const AdminProfileSettings = () => {
               rounded-full
               border
               border-[#4C9FE5]/20
-              bg-[#4C9FE5]/5
+              bg-[#4C9FE5]/2
               text-[12px]
               font-medium
               text-[#4C9FE5]

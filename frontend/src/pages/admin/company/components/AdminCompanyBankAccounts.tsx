@@ -45,7 +45,7 @@ export const AdminCompanyBankAccounts = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#4C9FE5]/5
+        bg-[#4C9FE5]/2
       "
     >
       <div className="flex flex-col justify-between gap-3 border-b border-white/7 px-5 py-4 sm:flex-row sm:items-center">
@@ -107,7 +107,7 @@ export const AdminCompanyBankAccounts = () => {
                   </h4>
 
                   {account.primary && (
-                    <span className="rounded-[5px] border border-[#4C9FE5]/20 bg-[#4C9FE5]/5 px-1.5 py-0.5 text-[8px] text-[#4C9FE5]">
+                    <span className="rounded-[5px] border border-[#4C9FE5]/20 bg-[#4C9FE5]/2 px-1.5 py-0.5 text-[8px] text-[#4C9FE5]">
                       Główny
                     </span>
                   )}

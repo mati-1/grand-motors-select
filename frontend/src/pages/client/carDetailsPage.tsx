@@ -61,7 +61,7 @@ export const CarDetailsPage = () => {
             text-[#4C9FE5]
             transition
             hover:border-[#4C9FE5]/60
-            hover:bg-[#4C9FE5]/5
+            hover:bg-[#4C9FE5]/2
           "
         >
           Wróć do oferty
@@ -110,7 +110,7 @@ export const CarDetailsPage = () => {
                   transition-all
                   duration-300
                   hover:border-[#4C9FE5]/40
-                  hover:bg-[#4C9FE5]/5
+                  hover:bg-[#4C9FE5]/2
                   hover:text-[#4C9FE5]
                 "
               >

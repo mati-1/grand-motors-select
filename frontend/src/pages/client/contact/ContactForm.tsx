@@ -77,7 +77,7 @@ export const ContactForm = () => {
         rounded-[10px]
         border
         border-white/10
-        bg-[#4C9FE5]/5
+        bg-[#4C9FE5]/2
         p-5
         sm:p-7
         lg:p-8

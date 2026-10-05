@@ -40,7 +40,7 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
         border-white/10
         transition-colors
         duration-500
-        bg-[#4C9FE5]/5
+        bg-[#4C9FE5]/2
         hover:border-[#4C9FE5]/30
         ${car.status === "sold" ? "grayscale" : ""}
       `}
@@ -166,7 +166,7 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
               sm:text-[11px]
             "
           >
-            {car.condition} · {car.power} · {car.engine} · {car.drive}
+            {car.condition} · {car.power} KM · {car.engine} · {car.drive}
             {car.negotiation && " · Do negocjacji"}
             {car.accidentFree && " · Bezwypadkowy"}
           </div>
@@ -199,7 +199,7 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
             >
               <MileageIcon className="h-4 w-4 shrink-0" />
 
-              <span className="truncate">{car.mileage}</span>
+              <span className="truncate">{car.mileage} km</span>
             </span>
 
             <span

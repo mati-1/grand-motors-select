@@ -52,7 +52,7 @@ const App = () => {
   const videoSrc = pageVideos[location.pathname];
 
   return (
-    <div className="min-h-screen bg-[#050505] text-[#f4f4f2]">
+    <div className="min-h-screen selection:bg-[#4C9FE5] bg-[#050505] text-[#f4f4f2]">
       <Toaster
         position="bottom-right"
         toastOptions={{

@@ -28,7 +28,7 @@ export const ContactHero = () => {
           h-100
           w-100
           rounded-full
-          bg-[#4C9FE5]/5
+          bg-[#4C9FE5]/2
           blur-[140px]
         "
       />

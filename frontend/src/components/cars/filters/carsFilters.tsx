@@ -124,7 +124,7 @@ export const CarsFilters = ({
             transition-all
             duration-300
             hover:border-[#4C9FE5]/30
-            hover:bg-[#4C9FE5]/5
+            hover:bg-[#4C9FE5]/2
           "
         >
           <div className="flex items-center gap-4">

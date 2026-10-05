@@ -11,7 +11,7 @@ export const DetailingSectionLabel = ({
     <div className="flex items-center gap-4">
       <span className="text-[9px]  text-[#4C9FE5]">{number}</span>
 
-      <span className="h-px w-8 bg-[#4C9FE5]/50" />
+      <span className="h-px w-8 bg-[#4C9FE5]/20" />
 
       <span className="text-[9px]  text-[#777]">{children}</span>
     </div>

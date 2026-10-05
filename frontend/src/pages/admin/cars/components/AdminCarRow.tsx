@@ -26,7 +26,7 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#4C9FE5]/5
+        bg-[#4C9FE5]/2
         transition-all
         duration-300
         hover:border-white/13
@@ -62,7 +62,12 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
                 </h2>
 
                 <p className="mt-1.5 text-[12px] text-[#E8E9E7]/25">
-                  {car.year} · {car.mileage}
+                  {car.year} · {car.mileage} · {car.country} · {car.engine} ·{" "}
+                  {new Date(car.createdAt).toLocaleDateString("pl-PL", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                  })}
                 </p>
               </div>
 
@@ -70,7 +75,7 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
                 <p className="text-[12px] text-[#E8E9E7]/25">Cena sprzedaży</p>
 
                 <p className="mt-1 text-[16px] font-medium text-[#4C9FE5]">
-                  {car.price}
+                  {car.price} PLN
                 </p>
               </div>
             </div>
@@ -144,7 +149,7 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
                 rounded-[10px]
                 border
                 border-[#4C9FE5]/20
-                bg-[#4C9FE5]/5
+                bg-[#4C9FE5]/2
                 px-3
                 text-[12px]
                 text-[#4C9FE5]

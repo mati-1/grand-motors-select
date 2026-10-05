@@ -52,7 +52,7 @@ export const DetailingBeforeAfter = () => {
             </p>
 
             <div className="mt-7 flex items-center gap-4">
-              <span className="h-px w-10 bg-[#4C9FE5]/50" />
+              <span className="h-px w-10 bg-[#4C9FE5]/20" />
               <SubHeadingComponent className="text-[8px]!  text-[#555]">
                 PRZED / PO
               </SubHeadingComponent>

@@ -99,7 +99,7 @@ export const CarShare = ({ car }: CarShareProps) => {
           transition-all
           duration-300
           hover:border-[#4C9FE5]/40
-          hover:bg-[#4C9FE5]/5
+          hover:bg-[#4C9FE5]/2
           hover:text-[#4C9FE5]
         "
       >
@@ -256,7 +256,7 @@ export const CarShare = ({ car }: CarShareProps) => {
                   text-[#777]
                   transition-colors
                   duration-300
-                  hover:bg-[#4C9FE5]/5
+                  hover:bg-[#4C9FE5]/2
                   hover:text-[#4C9FE5]
                 "
               >
@@ -283,7 +283,7 @@ export const CarShare = ({ car }: CarShareProps) => {
                   text-[#777]
                   transition-colors
                   duration-300
-                  hover:bg-[#4C9FE5]/5
+                  hover:bg-[#4C9FE5]/2
                   hover:text-[#4C9FE5]
                 "
               >
@@ -316,7 +316,7 @@ export const CarShare = ({ car }: CarShareProps) => {
                   transition-all
                   duration-300
                   hover:border-[#4C9FE5]/40
-                  hover:bg-[#4C9FE5]/5
+                  hover:bg-[#4C9FE5]/2
                 "
               >
                 <div className="min-w-0">
@@ -372,7 +372,7 @@ export const CarShare = ({ car }: CarShareProps) => {
                   gap-3
                   border
                   border-[#4C9FE5]/30
-                  bg-[#4C9FE5]/5
+                  bg-[#4C9FE5]/2
                   px-5
                   py-4
                   text-[9px]

@@ -24,7 +24,7 @@ export const AdminUsersSettings = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#4C9FE5]/5
+        bg-[#4C9FE5]/2
       "
     >
       <div className="flex flex-col justify-between gap-3 border-b border-white/7 px-5 py-4 sm:flex-row sm:items-center">
@@ -88,7 +88,7 @@ export const AdminUsersSettings = () => {
                 rounded-full
                 border
                 border-[#4C9FE5]/20
-                bg-[#4C9FE5]/5
+                bg-[#4C9FE5]/2
                 text-[10px]
                 text-[#4C9FE5]
               "
@@ -102,7 +102,7 @@ export const AdminUsersSettings = () => {
               <p className="mt-1 text-[9px] text-[#E8E9E7]/20">{user.email}</p>
             </div>
 
-            <span className="w-fit rounded-[5px] border border-[#4C9FE5]/15 bg-[#4C9FE5]/5 px-2 py-1 text-[8px] text-[#4C9FE5]">
+            <span className="w-fit rounded-[5px] border border-[#4C9FE5]/15 bg-[#4C9FE5]/2 px-2 py-1 text-[8px] text-[#4C9FE5]">
               {user.role}
             </span>
 

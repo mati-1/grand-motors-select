@@ -14,7 +14,7 @@ export const AdminCarFormPage = () => {
 
   if (isEditMode && carQuery.isPending) {
     return (
-      <div className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/5 p-5">
+      <div className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/2 p-5">
         <p className="text-[11px] text-[#E8E9E7]/40">Pobieranie samochodu...</p>
       </div>
     );
@@ -22,7 +22,7 @@ export const AdminCarFormPage = () => {
 
   if (isEditMode && carQuery.isError) {
     return (
-      <div className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/5 p-5">
+      <div className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/2 p-5">
         <p className="text-[11px] text-red-300">
           Nie udało się pobrać samochodu.
         </p>
@@ -52,7 +52,7 @@ export const AdminCarFormPage = () => {
           transition-all
           duration-300
           hover:border-[#4C9FE5]/40
-          hover:bg-[#4C9FE5]/5
+          hover:bg-[#4C9FE5]/2
           hover:text-[#4C9FE5]
           rounded-[10px]
         "
@@ -72,7 +72,7 @@ export const AdminCarFormPage = () => {
       </div>
 
       {isEditMode && !car ? (
-        <div className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/5 p-5">
+        <div className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/2 p-5">
           <p className="text-[11px] text-[#E8E9E7]/40">
             Nie znaleziono samochodu.
           </p>

@@ -42,7 +42,7 @@ export const AppToast = ({
         rounded-[10px]
         border
         border-white/10
-        bg-[#4C9FE5]/5/95
+        bg-[#4C9FE5]/2/95
         px-4
         py-3.5
         shadow-2xl

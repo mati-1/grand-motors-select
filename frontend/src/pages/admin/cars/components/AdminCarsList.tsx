@@ -26,7 +26,7 @@ export const AdminCarsList = () => {
   if (carsQuery.isError) {
     return (
       <section>
-        <div className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/5 p-5">
+        <div className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/2 p-5">
           <p className="text-[11px] text-red-300">
             Nie udało się pobrać samochodów.
           </p>

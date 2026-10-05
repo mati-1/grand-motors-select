@@ -37,7 +37,7 @@ export const CarCardHorizontal = ({ car }: CarCardHorizontalProps) => {
         rounded-[10px]
         border
         border-white/10
-        bg-[#4C9FE5]/5
+        bg-[#4C9FE5]/2
         transition-colors
         duration-500
         hover:border-[#4C9FE5]/30
@@ -153,7 +153,7 @@ export const CarCardHorizontal = ({ car }: CarCardHorizontalProps) => {
                 text-[#E8E9E7]/70
               "
             >
-              {car.condition} · {car.power} · {car.engine} · {car.drive}
+              {car.condition} · {car.power} KM · {car.engine} · {car.drive}
               {car.negotiation && " · Do negocjacji"}
               {car.accidentFree && " · Bezwypadkowy"}
             </div>
@@ -172,7 +172,7 @@ export const CarCardHorizontal = ({ car }: CarCardHorizontalProps) => {
             >
               <span className="flex items-center gap-1.5">
                 <MileageIcon className="h-4 w-4 shrink-0" />
-                {car.mileage}
+                {car.mileage} km
               </span>
 
               <span className="flex items-center gap-1.5">

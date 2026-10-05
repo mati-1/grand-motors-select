@@ -27,7 +27,7 @@ export const AdminFinancesHeader = () => {
           rounded-[10px]
           border
           border-white/8
-          bg-[#4C9FE5]/5
+          bg-[#4C9FE5]/2
           px-4
           text-[10px]
           text-[#E8E9E7]/50

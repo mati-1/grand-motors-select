@@ -89,7 +89,7 @@ export const AdminExpensesFilters = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#4C9FE5]/5
+        bg-[#4C9FE5]/2
         p-4
       "
     >

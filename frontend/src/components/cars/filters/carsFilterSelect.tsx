@@ -213,7 +213,7 @@ export const CarsFilterSelect = ({
                         ? "cursor-not-allowed text-[#333]"
                         : "cursor-pointer hover:bg-[#4C9FE5]/7"
                     }
-                    ${isSelected ? "bg-[#4C9FE5]/5" : ""}
+                    ${isSelected ? "bg-[#4C9FE5]/2" : ""}
                   `}
                 >
                   <span

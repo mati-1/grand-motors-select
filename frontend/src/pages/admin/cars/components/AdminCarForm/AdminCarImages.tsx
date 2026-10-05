@@ -378,7 +378,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
   }, []);
 
   return (
-    <section className="overflow-hidden rounded-[10px] border border-white/8 bg-[#4C9FE5]/5">
+    <section className="overflow-hidden rounded-[10px] border border-white/8 bg-[#4C9FE5]/2">
       {/* HEADER */}
       <div className="border-b border-white/7 px-5 py-5 sm:px-7 sm:py-6">
         <h3 className="text-[16px] font-medium text-[#E8E9E7] sm:text-[17px]">
@@ -487,7 +487,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                     />
 
                     {image.isPrimary && (
-                      <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-[10px] border border-[#4C9FE5]/30 bg-[#4C9FE5]/5/90 px-3 py-2 text-[10px] font-medium text-[#4C9FE5] backdrop-blur-md">
+                      <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-[10px] border border-[#4C9FE5]/30 bg-[#4C9FE5]/2/90 px-3 py-2 text-[10px] font-medium text-[#4C9FE5] backdrop-blur-md">
                         <StarIcon filled />
                         Zdjęcie główne
                       </div>
@@ -521,11 +521,11 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                             text-[#E8E9E7]/50
                             transition-all
                             hover:border-[#4C9FE5]/30
-                            hover:bg-[#4C9FE5]/5
+                            hover:bg-[#4C9FE5]/2
                             hover:text-[#4C9FE5]
                             disabled:cursor-default
                             disabled:border-[#4C9FE5]/20
-                            disabled:bg-[#4C9FE5]/5
+                            disabled:bg-[#4C9FE5]/2
                             disabled:text-[#4C9FE5]
                           "
                     >
@@ -674,7 +674,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                     />
 
                     {image.isPrimary && (
-                      <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-[10px] border border-[#4C9FE5]/30 bg-[#4C9FE5]/5/90 px-3 py-2 text-[10px] font-medium text-[#4C9FE5] backdrop-blur-md">
+                      <div className="absolute left-3 top-3 flex items-center gap-1.5 rounded-[10px] border border-[#4C9FE5]/30 bg-[#4C9FE5]/2/90 px-3 py-2 text-[10px] font-medium text-[#4C9FE5] backdrop-blur-md">
                         <StarIcon filled />
                         Zdjęcie główne
                       </div>
@@ -708,11 +708,11 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                             text-[#E8E9E7]/50
                             transition-all
                             hover:border-[#4C9FE5]/30
-                            hover:bg-[#4C9FE5]/5
+                            hover:bg-[#4C9FE5]/2
                             hover:text-[#4C9FE5]
                             disabled:cursor-default
                             disabled:border-[#4C9FE5]/20
-                            disabled:bg-[#4C9FE5]/5
+                            disabled:bg-[#4C9FE5]/2
                             disabled:text-[#4C9FE5]
                           "
                     >

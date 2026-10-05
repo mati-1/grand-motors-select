@@ -18,7 +18,7 @@ export const AdminRecentCars = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#4C9FE5]/5
+        bg-[#4C9FE5]/2
       "
     >
       <div className="flex items-center justify-between border-b border-white/[0.07] px-5 py-4">

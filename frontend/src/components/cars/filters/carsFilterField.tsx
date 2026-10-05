@@ -24,7 +24,8 @@ export const CarsFilterField = ({
         border-white/10
         transition-colors
         duration-300
-        bg-[#4C9FE5]/10
+        bg-[#4C9FE5]/2
+        hover:bg-[#4C9FE5]/2
         ${className}
       `}
     >

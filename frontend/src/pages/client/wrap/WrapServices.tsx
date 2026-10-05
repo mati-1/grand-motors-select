@@ -130,7 +130,7 @@ export const WrapServices = () => {
                   border-b
                   border-x
                   border-[#4C9FE5]/20
-                  bg-[#4C9FE5]/5
+                  bg-[#4C9FE5]/2
                   px-6
                   py-7
                   sm:px-8

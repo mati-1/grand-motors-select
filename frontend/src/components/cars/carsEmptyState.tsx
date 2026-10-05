@@ -22,7 +22,7 @@ export const CarsEmptyState = ({ onClearFilters }: CarsEmptyStateProps) => {
           justify-center
           border
           border-[#4C9FE5]/20
-          bg-[#4C9FE5]/5
+          bg-[#4C9FE5]/2
           text-center
         "
       >
@@ -48,7 +48,7 @@ export const CarsEmptyState = ({ onClearFilters }: CarsEmptyStateProps) => {
             text-[#4C9FE5]
             transition
             hover:border-[#4C9FE5]/60
-            hover:bg-[#4C9FE5]/5
+            hover:bg-[#4C9FE5]/2
           "
         >
           WYCZYŚĆ FILTRY

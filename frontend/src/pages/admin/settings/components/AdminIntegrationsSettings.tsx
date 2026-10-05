@@ -27,7 +27,7 @@ export const AdminIntegrationsSettings = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#4C9FE5]/5
+        bg-[#4C9FE5]/2
       "
     >
       <div className="border-b border-white/7 px-5 py-4">
@@ -91,7 +91,7 @@ export const AdminIntegrationsSettings = () => {
                 text-[8px]
                 ${
                   integration.connected
-                    ? "border-[#4C9FE5]/15 bg-[#4C9FE5]/5 text-[#4C9FE5]"
+                    ? "border-[#4C9FE5]/15 bg-[#4C9FE5]/2 text-[#4C9FE5]"
                     : "border-white/8 bg-[ext-[#E8E9E7]/[0.02] text-[#E8E9E7]/25"
                 }
               `}

@@ -8,7 +8,7 @@ export const AdminCompanyContact = () => {
         rounded-[10px]
         border
         border-white/8
-        bg-[#4C9FE5]/5
+        bg-[#4C9FE5]/2
       "
     >
       <div className="border-b border-white/7 px-5 py-4">
@@ -118,7 +118,7 @@ export const AdminCompanyContact = () => {
                       rounded-[6px]
                       border
                       border-white/8
-                      bg-[#4C9FE5]/5
+                      bg-[#4C9FE5]/2
                       px-2
                       text-[9px]
                       text-[#E8E9E7]/50
@@ -136,7 +136,7 @@ export const AdminCompanyContact = () => {
                       rounded-[6px]
                       border
                       border-white/8
-                      bg-[#4C9FE5]/5
+                      bg-[#4C9FE5]/2
                       px-2
                       text-[9px]
                       text-[#E8E9E7]/50

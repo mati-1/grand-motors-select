@@ -297,6 +297,14 @@ export const CarInfo = ({ car }: CarInfoProps) => {
           </ButtonComponent>
         </div>
       )}
+      <p className="mt-5 text-[11px] text-[#E8E9E7]/25">
+        Dodano{" "}
+        {new Date(car.createdAt).toLocaleDateString("pl-PL", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+        })}
+      </p>
     </div>
   );
 };

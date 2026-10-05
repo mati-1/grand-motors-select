@@ -33,7 +33,7 @@ export const InfoCardItem = ({
             text-[#4C9FE5]
             transition-all duration-300
             group-hover:border-[#4C9FE5]/60
-            group-hover:bg-[#4C9FE5]/5
+            group-hover:bg-[#4C9FE5]/2
           "
         >
           {number}
