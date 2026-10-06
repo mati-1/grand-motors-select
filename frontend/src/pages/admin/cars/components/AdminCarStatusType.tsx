@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { useQueryClient } from "@tanstack/react-query";
 
-import { apiClient } from "../../../../api/client";
 import type { ApiCar } from "../../../../api/cars";
 import { FormSelect } from "../../../../components/form/FormSelect";
 import { ButtonComponent } from "../../../../components/button";
+import { useUpdateCarStatusType } from "../../../../hooks/cars/useUpdateCar";
 
 type StatusType = ApiCar["statusType"];
 
@@ -19,44 +18,22 @@ const options: { value: StatusType; label: string }[] = [
 ];
 
 export const AdminCarStatusType = ({ car }: Props) => {
-  const queryClient = useQueryClient();
-
   const [statusType, setStatusType] = useState<StatusType>(car.statusType);
 
-  const [saving, setSaving] = useState(false);
-  const [error, setError] = useState("");
+  const updateStatus = useUpdateCarStatusType();
 
   const handleSave = async () => {
-    if (saving || statusType === car.statusType) return;
-
-    setSaving(true);
-    setError("");
+    if (updateStatus.isPending || statusType === car.statusType) {
+      return;
+    }
 
     try {
-      await apiClient(`/api/cars/${car.id}`, {
-        method: "PATCH",
-        body: { statusType },
+      await updateStatus.mutateAsync({
+        carId: car.id,
+        statusType,
       });
-
-      await Promise.all([
-        queryClient.invalidateQueries({
-          queryKey: ["cars"],
-        }),
-        queryClient.invalidateQueries({
-          queryKey: ["admin", "cars"],
-        }),
-        queryClient.invalidateQueries({
-          queryKey: ["car", car.id],
-        }),
-      ]);
-    } catch (error) {
-      setError(
-        error instanceof Error
-          ? error.message
-          : "Nie udało się zmienić statusu.",
-      );
-    } finally {
-      setSaving(false);
+    } catch {
+      // Błąd jest obsługiwany przez mutation.error.
     }
   };
 
@@ -84,13 +61,11 @@ export const AdminCarStatusType = ({ car }: Props) => {
           variant="secondary"
           size="small"
           className="max-sm:min-w-full"
-          disabled={saving || statusType === car.statusType}
+          disabled={updateStatus.isPending || statusType === car.statusType}
         >
-          {saving ? "Zapisywanie..." : "Zapisz status"}
+          {updateStatus.isPending ? "Zapisywanie..." : "Zapisz status"}
         </ButtonComponent>
       </div>
-
-      {error && <p className="mt-3 text-[11px] text-red-300">{error}</p>}
     </section>
   );
 };
