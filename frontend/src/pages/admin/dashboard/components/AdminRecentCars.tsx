@@ -92,7 +92,7 @@ export const AdminRecentCars = () => {
                 </div>
               </div>
 
-              <div className="mt-3 flex items-center gap-6 lg:mt-0">
+              <div className="mt-3 flex max-sm:w-full max-sm:flex-col max-sm:items-end items-center gap-6 lg:mt-0">
                 <div className="text-right">
                   <p className="text-[12px] text-[#E8E9E7]/25">Inwestycja</p>
                   <p className="mt-1 text-[13px] text-[#E8E9E7]">

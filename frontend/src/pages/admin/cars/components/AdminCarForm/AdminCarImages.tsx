@@ -340,7 +340,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
   }, []);
 
   return (
-    <section className="overflow-hidden rounded-[10px] border border-white/8 bg-[#4C9FE5]/2">
+    <section className="overflow-hidden md:col-span-2 rounded-[10px] border border-white/8 bg-[#4C9FE5]/2">
       {/* HEADER */}
       <div className="border-b border-white/7 px-5 py-5 sm:px-7 sm:py-6">
         <h3 className="text-[16px] font-medium text-[#E8E9E7] sm:text-[17px]">
@@ -424,7 +424,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 2xl:grid-cols-3">
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-3 2xl:grid-cols-4">
               {pendingImages.map((image, index) => (
                 <div
                   key={image.id}
@@ -619,7 +619,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
               )}
             </div>
 
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 2xl:grid-cols-2">
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-3 2xl:grid-cols-4">
               {sortedImages.map((image, index) => (
                 <div
                   key={image.id}
