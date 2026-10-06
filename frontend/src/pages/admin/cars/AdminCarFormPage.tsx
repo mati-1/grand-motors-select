@@ -3,6 +3,7 @@ import { AdminCarForm } from "./components/AdminCarForm/AdminCarForm";
 import { useCar } from "../../../hooks/cars/useCar";
 
 import ArrowIcon from "../../../assets/icons/strzalka.svg?react";
+import { AdminCarStatusType } from "./components/AdminCarStatusType";
 
 export const AdminCarFormPage = () => {
   const { id } = useParams();
@@ -78,7 +79,10 @@ export const AdminCarFormPage = () => {
           </p>
         </div>
       ) : (
-        <AdminCarForm car={car} />
+        <>
+          {car && <AdminCarStatusType key={car.id} car={car} />}
+          <AdminCarForm car={car} />
+        </>
       )}
     </div>
   );

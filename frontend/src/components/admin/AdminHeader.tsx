@@ -9,7 +9,6 @@ export const AdminHeader = () => {
   const handleLogout = () => {
     logoutMutation.mutate(undefined, {
       onSuccess: () => {
-        console.log("LOGOUT OK");
         navigate("/admin/login", { replace: true });
       },
       onError: (error) => {

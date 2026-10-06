@@ -125,30 +125,15 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
 
   const images = carImagesQuery.data?.images ?? [];
 
-  /*
-   * Zawsze utrzymujemy zdjęcia w kolejności pozycji.
-   *
-   * Dzięki temu:
-   * 0 = pierwsze zdjęcie
-   * 1 = drugie zdjęcie
-   * 2 = trzecie zdjęcie
-   * itd.
-   */
   const sortedImages = useMemo(
     () => [...images].sort((a, b) => a.position - b.position),
     [images],
   );
 
-  /*
-   * Przekazujemy lokalne zdjęcia do formularza.
-   */
   useEffect(() => {
     onPendingImagesChange?.(pendingImages);
   }, [pendingImages, onPendingImagesChange]);
 
-  /*
-   * Przy zmianie samochodu czyścimy lokalne zdjęcia.
-   */
   useEffect(() => {
     setPendingImages([]);
   }, [carId]);
@@ -157,9 +142,6 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
     fileInputRef.current?.click();
   };
 
-  /*
-   * Dodawanie zdjęć.
-   */
   const handleFilesChange = async (
     event: React.ChangeEvent<HTMLInputElement>,
   ) => {
@@ -171,11 +153,6 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
 
     event.target.value = "";
 
-    /*
-     * EDYCJA ISTNIEJĄCEGO AUTA
-     *
-     * Zdjęcia od razu trafiają do backendu.
-     */
     if (carId) {
       try {
         for (const file of files) {
@@ -193,11 +170,6 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
       return;
     }
 
-    /*
-     * NOWE AUTO
-     *
-     * Zdjęcia pozostają lokalnie do czasu zapisania auta.
-     */
     setPendingImages((current) => {
       const newImages = files.map((file, index) => ({
         id: `${file.name}-${file.lastModified}-${Date.now()}-${index}`,
@@ -210,9 +182,6 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
     });
   };
 
-  /*
-   * Usuwanie lokalnego zdjęcia.
-   */
   const handleRemovePending = (pendingId: string) => {
     setPendingImages((current) => {
       const imageToRemove = current.find((image) => image.id === pendingId);
@@ -223,10 +192,6 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
 
       const next = current.filter((image) => image.id !== pendingId);
 
-      /*
-       * Jeżeli usunęliśmy główne zdjęcie,
-       * pierwsze pozostałe zostaje głównym.
-       */
       if (imageToRemove?.isPrimary && next.length > 0) {
         return next.map((image, index) => ({
           ...image,
@@ -238,22 +203,31 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
     });
   };
 
-  /*
-   * Ustawienie głównego zdjęcia
-   * podczas tworzenia auta.
-   */
   const handleSetPendingPrimary = (pendingId: string) => {
-    setPendingImages((current) =>
-      current.map((image) => ({
-        ...image,
-        isPrimary: image.id === pendingId,
-      })),
-    );
+    setPendingImages((current) => {
+      const selectedImage = current.find((image) => image.id === pendingId);
+
+      if (!selectedImage) {
+        return current;
+      }
+
+      const remainingImages = current
+        .filter((image) => image.id !== pendingId)
+        .map((image) => ({
+          ...image,
+          isPrimary: false,
+        }));
+
+      return [
+        {
+          ...selectedImage,
+          isPrimary: true,
+        },
+        ...remainingImages,
+      ];
+    });
   };
 
-  /*
-   * Zmiana kolejności lokalnych zdjęć.
-   */
   const handleMovePending = (
     pendingId: string,
     direction: "left" | "right",
@@ -281,12 +255,8 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
     });
   };
 
-  /*
-   * Ustawienie głównego zdjęcia
-   * istniejącego auta.
-   */
   const handleSetPrimary = async (imageId: string) => {
-    if (!carId) {
+    if (!carId || primaryMutation.isPending || positionMutation.isPending) {
       return;
     }
 
@@ -296,15 +266,19 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
         imageId,
       });
 
+      await positionMutation.mutateAsync({
+        carId,
+        imageId,
+        position: 0,
+      });
+
       await carImagesQuery.refetch();
     } catch (error) {
       console.error(error);
+      await carImagesQuery.refetch();
     }
   };
 
-  /*
-   * Usuwanie zdjęcia istniejącego auta.
-   */
   const handleDelete = async (imageId: string) => {
     if (!carId) {
       return;
@@ -328,28 +302,19 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
     }
   };
 
-  /*
-   * ZMIANA POZYCJI ISTNIEJĄCEGO ZDJĘCIA.
-   *
-   * Nie używamy tutaj bezpośrednio image.position
-   * jako źródła kolejności UI.
-   *
-   * sortedImages jest naszym aktualnym źródłem
-   * prawdy dla kolejności.
-   */
   const handleMove = async (
     imageId: string,
     currentIndex: number,
     direction: "left" | "right",
   ) => {
-    if (!carId || positionMutation.isPending) {
-      return;
-    }
-
     const targetIndex =
       direction === "left" ? currentIndex - 1 : currentIndex + 1;
 
-    if (targetIndex < 0 || targetIndex >= sortedImages.length) {
+    if (targetIndex < 1 || targetIndex >= sortedImages.length) {
+      return;
+    }
+
+    if (!carId || positionMutation.isPending) {
       return;
     }
 
@@ -366,9 +331,6 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
     }
   };
 
-  /*
-   * Sprzątanie lokalnych preview.
-   */
   useEffect(() => {
     return () => {
       pendingImages.forEach((image) => {
@@ -527,6 +489,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                             disabled:border-[#4C9FE5]/20
                             disabled:bg-[#4C9FE5]/2
                             disabled:text-[#4C9FE5]
+                            cursor-pointer
                           "
                     >
                       <StarIcon filled={image.isPrimary} />
@@ -538,7 +501,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                     <div className="grid grid-cols-2 gap-2">
                       <button
                         type="button"
-                        disabled={index === 0}
+                        disabled={index === 0 || index === 1 || image.isPrimary}
                         onClick={() => handleMovePending(image.id, "left")}
                         className="
                               flex
@@ -558,6 +521,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                               hover:text-[#E8E9E7]
                               disabled:cursor-default
                               disabled:opacity-20
+                              cursor-pointer
                             "
                       >
                         <ChevronLeftIcon />
@@ -566,7 +530,11 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
 
                       <button
                         type="button"
-                        disabled={index === pendingImages.length - 1}
+                        disabled={
+                          index === pendingImages.length - 1 ||
+                          index === 0 ||
+                          image.isPrimary
+                        }
                         onClick={() => handleMovePending(image.id, "right")}
                         className="
                               flex
@@ -586,6 +554,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                               hover:text-[#E8E9E7]
                               disabled:cursor-default
                               disabled:opacity-20
+                              cursor-pointer
                             "
                       >
                         <span className="hidden sm:inline">W prawo</span>
@@ -611,6 +580,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                               hover:border-red-400/25
                               hover:bg-red-400/5
                               hover:text-red-300
+                              cursor-pointer
                             "
                       >
                         <TrashIcon />
@@ -713,6 +683,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                             disabled:cursor-default
                             disabled:border-[#4C9FE5]/20
                             disabled:bg-[#4C9FE5]/2
+                            cursor-pointer
                             disabled:text-[#4C9FE5]
                           "
                     >
@@ -726,7 +697,12 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                       {/* LEFT */}
                       <button
                         type="button"
-                        disabled={index === 0 || positionMutation.isPending}
+                        disabled={
+                          index === 0 ||
+                          index === 1 ||
+                          image.isPrimary ||
+                          positionMutation.isPending
+                        }
                         onClick={() => handleMove(image.id, index, "left")}
                         className="
                               flex
@@ -746,6 +722,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                               hover:text-[#E8E9E7]
                               disabled:cursor-default
                               disabled:opacity-20
+                              cursor-pointer
                             "
                         aria-label="Przesuń zdjęcie w lewo"
                       >
@@ -759,6 +736,8 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                         type="button"
                         disabled={
                           index === sortedImages.length - 1 ||
+                          index === 0 ||
+                          image.isPrimary ||
                           positionMutation.isPending
                         }
                         onClick={() => handleMove(image.id, index, "right")}
@@ -780,6 +759,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                               hover:text-[#E8E9E7]
                               disabled:cursor-default
                               disabled:opacity-20
+                              cursor-pointer
                             "
                         aria-label="Przesuń zdjęcie w prawo"
                       >
@@ -810,6 +790,7 @@ export const AdminCarImages = ({ carId, onPendingImagesChange }: Props) => {
                               hover:bg-red-400/5
                               hover:text-red-300
                               disabled:opacity-30
+                              cursor-pointer
                             "
                         aria-label="Usuń zdjęcie"
                       >

@@ -63,12 +63,8 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
 
                 <p className="mt-1.5 text-[12px] text-[#E8E9E7]/25">
                   {car.year} · {car.mileage} · {car.country} · {car.engine} cm
-                  <sup>3</sup> ·{" "}
-                  {new Date(car.createdAt).toLocaleDateString("pl-PL", {
-                    day: "2-digit",
-                    month: "2-digit",
-                    year: "numeric",
-                  })}
+                  <sup>3</sup> · {car.power} KM · {car.fuel} ·{" "}
+                  {car.transmission}
                 </p>
               </div>
 
@@ -137,8 +133,13 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
               py-3
             "
           >
-            <span className="text-[10px] text-[#E8E9E7]/20">
-              Ostatnia aktualizacja: dzisiaj
+            <span className="text-[11px] text-[#E8E9E7]/20">
+              Ostatnia aktualizacja: dzisiaj · Dodano:{" "}
+              {new Date(car.createdAt).toLocaleDateString("pl-PL", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+              })}
             </span>
 
             <Link

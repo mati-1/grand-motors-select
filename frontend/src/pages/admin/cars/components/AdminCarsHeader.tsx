@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { ButtonComponent } from "../../../../components/button";
 
 export const AdminCarsHeader = () => {
   return (
@@ -25,36 +25,14 @@ export const AdminCarsHeader = () => {
         </p>
       </div>
 
-      <Link
-        to="/admin/cars/new"
-        className="
-          flex
-          h-10
-          shrink-0
-          items-center
-          justify-center
-          gap-2
-          rounded-[10px]
-          bg-[#4C9FE5]
-          px-4
-          text-[11px]
-          font-medium
-          text-black
-          transition-all
-          duration-300
-          hover:bg-[#e0c98b]
-        "
+      <ButtonComponent
+        arrowIcon
+        variant="secondary"
+        size="small"
+        href="/admin/cars/new"
       >
-        <svg viewBox="0 0 24 24" fill="none" className="h-4 w-4">
-          <path
-            d="M12 5V19M5 12H19"
-            stroke="currentColor"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-          />
-        </svg>
         Dodaj samochód
-      </Link>
+      </ButtonComponent>
     </section>
   );
 };

@@ -52,7 +52,8 @@ export const AdminRecentCars = () => {
             "/logohd emblem.png";
 
           return (
-            <div
+            <Link
+              to={`/admin/cars/${car.id}/edit`}
               key={car.id}
               className={`
                 group
@@ -64,14 +65,14 @@ export const AdminRecentCars = () => {
                 py-4
                 transition-colors
                 duration-300
-                hover:bg-[ext-[#E8E9E7]/2
+                hover:bg-[#4C9FE5]/2
                 lg:flex-row
                 lg:items-center
                 ${index !== cars.length - 1 ? "border-b border-white/5" : ""}
               `}
             >
               <div className="flex min-w-0 items-center gap-3 lg:flex-1">
-                <div className="h-16 w-24 shrink-0 overflow-hidden rounded-md bg-[ext-[#E8E9E7]/5">
+                <div className="h-16 w-24 shrink-0 overflow-hidden rounded-md bg-[#E8E9E7]/5">
                   <img
                     src={primaryImage}
                     alt={`${car.brand} ${car.model}`}
@@ -80,12 +81,13 @@ export const AdminRecentCars = () => {
                 </div>
 
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-[12px] font-medium text-[#E8E9E7]">
+                  <p className="truncate text-[13px] font-semibold text-[#E8E9E7]">
                     {car.brand} {car.model}
                   </p>
 
                   <p className="mt-1 text-[11px] text-[#E8E9E7]/25">
-                    {car.body}
+                    {car.body} · {car.year} · {car.mileage} · {car.country} ·{" "}
+                    {car.engine} cm
                   </p>
                 </div>
               </div>
@@ -93,12 +95,12 @@ export const AdminRecentCars = () => {
               <div className="mt-3 flex items-center gap-6 lg:mt-0">
                 <div className="text-right">
                   <p className="text-[12px] text-[#E8E9E7]/25">Inwestycja</p>
-
-                  {/* <p className="mt-1 text-[13px] text-[#E8E9E7]">
-                    {car.investment > 0
+                  <p className="mt-1 text-[13px] text-[#E8E9E7]">
+                    {/* {car.investment > 0
                       ? `${car.investment.toLocaleString("pl-PL")} zł`
-                      : "—"}
-                  </p> */}
+                      : "—"} */}
+                    0 PLN
+                  </p>
                 </div>
 
                 <div className="text-right">
@@ -106,31 +108,36 @@ export const AdminRecentCars = () => {
                     Cena w ogłoszeniu
                   </p>
 
-                  <p className="mt-1 text-[13px] text-[#E8E9E7]">{car.price}</p>
+                  <p className="mt-1 text-[13px] text-[#E8E9E7]">
+                    {car.price} PLN
+                  </p>
                 </div>
 
                 <div
                   className={`
                     ml-4
                     rounded-full
-                    px-2
-                    py-1
-                    text-[10px]
+                    px-3
+                    py-2
+                    text-[11px]
+                    text-white/80
                     ${
                       car.statusType === "sale"
-                        ? "bg-[#4C9FE5]/[0.07] text-[#4C9FE5]"
-                        : "bg-[ext-[#E8E9E7]/5 text-[#E8E9E7]/35"
+                        ? "bg-green-500/20"
+                        : car.statusType === "preparing"
+                          ? "bg-yellow-500/20"
+                          : "bg-red-500/20"
                     }
                   `}
                 >
                   {car.statusType === "sale"
                     ? "W sprzedaży"
                     : car.statusType === "preparing"
-                      ? "W oczekiwaniu"
+                      ? "W przygotowaniu"
                       : "Sprzedany"}
                 </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>

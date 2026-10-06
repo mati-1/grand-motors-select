@@ -15,6 +15,7 @@ import { AdminCarDescription } from "./AdminCarDescription";
 import { AdminCarEquipment } from "./AdminCarEquipment";
 import { AdminCarImages } from "./AdminCarImages";
 import { useCreateCar } from "../../../../../hooks/cars/useCreateCar";
+import { ButtonComponent } from "../../../../../components/button";
 
 type AdminCarFormProps = {
   car?: ApiCar;
@@ -36,7 +37,6 @@ export const AdminCarForm = ({ car }: AdminCarFormProps) => {
           brand: car.brand,
           model: car.model,
           condition: car.condition,
-          // statusType: car?.statusType ?? "preparing",
           vin: car.vin,
           year: car.year,
           mileage: car.mileage,
@@ -178,18 +178,13 @@ export const AdminCarForm = ({ car }: AdminCarFormProps) => {
         >
           Anuluj
         </button>
-
-        <button
-          type="submit"
-          disabled={isSaving}
-          className="h-11 cursor-pointer rounded-[10px] bg-[#4C9FE5] px-6 text-[11px] font-medium text-black transition-all duration-300 hover:bg-[#e0c98b]"
-        >
+        <ButtonComponent type="submit" size="small" disabled={isSaving}>
           {isSaving
             ? "Zapisywanie..."
             : isEditMode
               ? "Zapisz zmiany"
               : "Dodaj samochód"}
-        </button>
+        </ButtonComponent>
       </div>
     </form>
   );
