@@ -39,8 +39,15 @@ export const AdminCarStatusType = ({ car }: Props) => {
       });
 
       await Promise.all([
-        queryClient.invalidateQueries({ queryKey: ["car", car.id] }),
-        queryClient.invalidateQueries({ queryKey: ["cars"] }),
+        queryClient.invalidateQueries({
+          queryKey: ["cars"],
+        }),
+        queryClient.invalidateQueries({
+          queryKey: ["admin", "cars"],
+        }),
+        queryClient.invalidateQueries({
+          queryKey: ["car", car.id],
+        }),
       ]);
     } catch (error) {
       setError(

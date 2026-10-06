@@ -1,4 +1,4 @@
-import { useCars } from "../../../../hooks/cars/useCars";
+import { useAdminCars } from "../../../../hooks/cars/useCars";
 
 import { AdminCarRow, type AdminCar } from "./AdminCarRow";
 
@@ -7,7 +7,7 @@ const formatPrice = (value: number) => {
 };
 
 export const AdminCarsList = () => {
-  const carsQuery = useCars();
+  const carsQuery = useAdminCars();
 
   if (carsQuery.isPending) {
     return (
@@ -35,14 +35,12 @@ export const AdminCarsList = () => {
     );
   }
 
-  const adminCars: AdminCar[] = carsQuery.data.cars
-    .filter((car) => car.status !== "sold")
-    .map((car) => ({
-      ...car,
-      purchasePrice: 0,
-      investment: 0,
-      profit: 0,
-    }));
+  const adminCars: AdminCar[] = carsQuery.data.cars.map((car: AdminCar) => ({
+    ...car,
+    purchasePrice: 0,
+    investment: 0,
+    profit: 0,
+  }));
 
   const totalInvestment = adminCars.reduce(
     (total, car) => total + (car.investment ?? 0),

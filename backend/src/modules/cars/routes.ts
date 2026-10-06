@@ -31,6 +31,42 @@ const parseNumber = (value: string) => {
 const storage = new LocalStorage();
 
 export const carsRoutes: FastifyPluginAsync = async (server) => {
+  server.get("/admin", async (request, reply) => {
+    try {
+      await request.jwtVerify();
+    } catch {
+      return reply.code(401).send({
+        message: "Nie jesteś zalogowany.",
+      });
+    }
+
+    const allCars = await server.db.orm.public.Car.all();
+
+    const carsWithImages = await Promise.all(
+      allCars.map(async (car) => {
+        const images = await server.db.orm.public.CarImage.where({
+          carId: car.id,
+        }).all();
+
+        const sortedImages = [...images].sort(
+          (a, b) => a.position - b.position,
+        );
+
+        return {
+          ...car,
+          images: sortedImages.map((image) => ({
+            ...image,
+            url: storage.getUrl(image.storageKey),
+          })),
+        };
+      }),
+    );
+
+    return {
+      cars: carsWithImages,
+    };
+  });
+
   server.get<{
     Querystring: CarsQuery;
   }>("/", async (request) => {
@@ -47,9 +83,7 @@ export const carsRoutes: FastifyPluginAsync = async (server) => {
 
     const allCars = await server.db.orm.public.Car.all();
 
-    let cars = allCars.filter(
-      (car) => car.status === "available" || car.status === "reservation",
-    );
+    let cars = allCars.filter((car) => car.statusType === "sale");
 
     if (search.trim()) {
       const query = search.toLowerCase().trim();

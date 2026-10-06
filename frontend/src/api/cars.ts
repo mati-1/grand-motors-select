@@ -155,6 +155,21 @@ export const getCars = async (
   return apiClient<CarsResponse>(`/api/cars${buildCarsQuery(filters)}`);
 };
 
+export const getAdminCars = async () => {
+  const response = await fetch("/api/cars/admin", {
+    method: "GET",
+    credentials: "include",
+    cache: "no-store",
+  });
+
+  if (!response.ok) {
+    const message = await response.text();
+    throw new Error(`Błąd pobierania aut: ${response.status} ${message}`);
+  }
+
+  return response.json() as Promise<{ cars: any[] }>;
+};
+
 export const getCar = async (carId: string): Promise<CarResponse> => {
   return apiClient<CarResponse>(`/api/cars/${carId}`);
 };

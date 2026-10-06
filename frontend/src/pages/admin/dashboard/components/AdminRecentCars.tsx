@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
 
-import { useCars } from "../../../../hooks/cars/useCars";
+import { useAdminCars } from "../../../../hooks/cars/useCars";
 import type { ApiCar } from "../../../../api/cars";
 import { mapApiCarToAdminCar } from "../../cars/mapApiCarToAdminCar";
 
 export const AdminRecentCars = () => {
-  const carsQuery = useCars();
+  const carsQuery = useAdminCars();
 
   const cars: ApiCar[] = (carsQuery.data?.cars ?? [])
     .slice(0, 3)
