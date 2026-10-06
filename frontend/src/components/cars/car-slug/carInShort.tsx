@@ -29,7 +29,7 @@ export const CarInShort = ({ car }: { car: CarType }) => {
     },
     {
       label: "SILNIK",
-      value: car.engine,
+      value: `${car.engine} cm³`,
       icon: EngineIcon,
     },
     {

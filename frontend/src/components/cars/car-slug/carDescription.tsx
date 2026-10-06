@@ -114,9 +114,10 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
     DESKTOP_DESCRIPTION_LIMIT,
   );
 
-  const needsDescriptionExpansion =
-    car.description.length > MOBILE_DESCRIPTION_LIMIT ||
+  const needsDescriptionExpansionDesktop =
     car.description.length > DESKTOP_DESCRIPTION_LIMIT;
+  const needsDescriptionExpansionMobile =
+    car.description.length > MOBILE_DESCRIPTION_LIMIT;
 
   const copyVin = async () => {
     try {
@@ -201,8 +202,8 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
             </div>
 
             {/* DESCRIPTION BUTTON */}
-            {needsDescriptionExpansion && (
-              <div className="mt-5">
+            {needsDescriptionExpansionDesktop ? (
+              <div className="mt-5 hidden lg:block">
                 <ButtonExpand
                   onClick={() =>
                     setIsDescriptionExpanded((previous) => !previous)
@@ -210,7 +211,16 @@ export const CarDescription = ({ car }: CarDescriptionProps) => {
                   isExpanded={isDescriptionExpanded}
                 />
               </div>
-            )}
+            ) : needsDescriptionExpansionMobile ? (
+              <div className="mt-5 block lg:hidden">
+                <ButtonExpand
+                  onClick={() =>
+                    setIsDescriptionExpanded((previous) => !previous)
+                  }
+                  isExpanded={isDescriptionExpanded}
+                />
+              </div>
+            ) : null}
           </div>
         </div>
 

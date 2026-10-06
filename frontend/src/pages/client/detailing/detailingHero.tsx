@@ -48,7 +48,7 @@ export const DetailingHero = () => {
 
       <div className="absolute inset-0 bg-linear-to-t from-[#050505] via-transparent to-black/20" />
 
-      {/* GOLD GLOW */}
+      {/* blue glow */}
       <div className="absolute bottom-[-20%] left-[45%] h-100 w-100 rounded-full bg-[#4C9FE5]/8 blur-[120px]" />
 
       <div className="relative z-10 w-full lg:pt-15 pb-14 sm:pb-10 px-[4vw] min-[1200px]:px-[13vw] lg:pb-12">

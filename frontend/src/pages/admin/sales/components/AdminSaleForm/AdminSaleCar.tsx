@@ -45,7 +45,7 @@ export const AdminSaleCar = ({ cars, selectedCar, value, onChange }: Props) => {
               <span className="text-[9px] text-[#E8E9E7]/25">Silnik</span>
 
               <p className="mt-1 text-[11px] text-[#E8E9E7]/65">
-                {selectedCar.engine}
+                {selectedCar.engine} cm<sup>3</sup>
               </p>
             </div>
 

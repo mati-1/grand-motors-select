@@ -5,14 +5,11 @@ import {
   SubHeadingComponent,
 } from "../../../components/headings";
 import { GradientSpan } from "../../../components/gradientSpan";
+import DetailingImg from "../../../../public/detailing-landing.jpg";
 
 export const DetailingSectionComponent = () => {
   return (
-    <PageSectionComponent
-      id="detailing"
-      type="right"
-      image="https://img.magnific.com/free-photo/man-working-car-detailing-coating-car_1303-30592.jpg?t=st=1789496500~exp=1789500100~hmac=49f8aab811cf826ec04e502215a258d9e1b1129af186054a7ab7ed2b14613e16&w=1480"
-    >
+    <PageSectionComponent id="detailing" type="right" image={DetailingImg}>
       <SubHeadingComponent>Profesjonalny detailing</SubHeadingComponent>
 
       <MainHeadingComponent className="text-[32px]! mb-5 sm:text-[40px]!">

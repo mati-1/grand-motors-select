@@ -10,7 +10,8 @@ import CheckIcon from "../../assets/icons/ptaszek-podwojny.svg?react";
 import HeartIcon from "../../assets/icons/serce.svg?react";
 
 import { pageHeaderNavigation } from "./navigation";
-import { carsList } from "../cars/cars";
+import { useCars } from "../../hooks/cars/useCars";
+import { mapApiCarToCarType } from "../cars/mapApiCarToCarType";
 
 import type { CarType } from "../cars/cars";
 import { showToast } from "../toast/toast";
@@ -32,6 +33,7 @@ export const MobileMenuComponent = ({
   onClose,
   activeSection,
 }: MobileMenuComponentProps) => {
+  const { data } = useCars();
   const [openDropdown, setOpenDropdown] = useState<MobileDropdown>(null);
 
   const [favoriteCars, setFavoriteCars] = useState<CarType[]>([]);
@@ -57,7 +59,9 @@ export const MobileMenuComponent = ({
   const isContactPage = activeSection === "/contact";
 
   const loadFavorites = () => {
-    const favorites = carsList.filter((car) => {
+    const cars = (data?.cars ?? []).map(mapApiCarToCarType);
+
+    const favorites = cars.filter((car) => {
       return localStorage.getItem(getFavoriteStorageKey(car)) === "true";
     });
 
@@ -93,7 +97,7 @@ export const MobileMenuComponent = ({
         handleFavoritesChanged,
       );
     };
-  }, []);
+  }, [data]);
 
   useEffect(() => {
     return () => {
@@ -286,7 +290,7 @@ export const MobileMenuComponent = ({
                 activeSection === "/detailing" ||
                 activeSection === "/wrap"
                   ? "text-[#4C9FE5]"
-                  : "text-[#E8E9E7]"
+                  : "text-white"
               }
             `}
           >
@@ -371,7 +375,7 @@ export const MobileMenuComponent = ({
               text-[13px]
               transition-colors
               duration-300
-              ${openDropdown === "favorites" ? "text-[#4C9FE5]" : "text-[#E8E9E7]"}
+              ${openDropdown === "favorites" ? "text-[#4C9FE5]" : "text-white"}
             `}
           >
             <div className="flex items-center gap-3">
@@ -386,10 +390,10 @@ export const MobileMenuComponent = ({
                     items-center
                     justify-center
                     rounded-full
-                    bg-[#4C9FE5]/15
+                    bg-[#4C9FE5]/10
                     px-1.5
                     text-[9px]
-                    text-[#4C9FE5]
+                    text-[#ffffff]
                   "
                 >
                   {favoriteCars.length}
@@ -491,8 +495,8 @@ export const MobileMenuComponent = ({
                             className="
                               truncate
                               text-[12px]
-                              font-medium
-                              text-[#E8E9E7]
+                              font-semibold
+                              text-white
                             "
                           >
                             {car.brand} {car.model}
@@ -507,16 +511,16 @@ export const MobileMenuComponent = ({
                               gap-x-2
                               gap-y-1
                               text-[9px]
-                              text-[#E8E9E7]/40
+                              text-white/40
                             "
                           >
                             <span>{car.year}</span>
 
-                            <span className="text-[#4C9FE5]/50">·</span>
+                            <span className="text-white/50">·</span>
 
                             <span>{car.mileage}</span>
 
-                            <span className="text-[#4C9FE5]/50">·</span>
+                            <span className="text-white/50">·</span>
 
                             <span>{car.power}</span>
                           </div>
@@ -525,7 +529,7 @@ export const MobileMenuComponent = ({
                             className="
                               mt-1.5
                               text-[12px]
-                              text-[#E8E9E7]
+                              text-white
                             "
                           >
                             {car.price}
@@ -557,8 +561,8 @@ export const MobileMenuComponent = ({
                             duration-300
                             ${
                               isPendingRemoval
-                                ? "border-[#4C9FE5]/40 text-[#4C9FE5] hover:border-[#4C9FE5]/60 hover:text-[#4C9FE5]"
-                                : "border-white/10 text-[#777] hover:border-[#4C9FE5]/30 hover:text-[#4C9FE5]"
+                                ? "border-white/40 text-[#c2ad7a] hover:border-white/60 hover:text-[#4C9FE5]"
+                                : "border-white/10 text-[#777] hover:border-white/30 hover:text-[#c2ad7a]"
                             }
                           `}
                         >
@@ -592,7 +596,7 @@ export const MobileMenuComponent = ({
                     className="
                       mt-2
                       text-[11px]
-                      text-[#E8E9E7]/40
+                      text-white/40
                     "
                   >
                     Nie masz jeszcze
@@ -614,7 +618,7 @@ export const MobileMenuComponent = ({
             <ButtonComponent
               href={isContactPage ? "tel:+48514137133" : contactNavigation.href}
               variant="secondary"
-              className="w-full text-[#E8E9E7] text-[11px]!"
+              className="w-full text-white text-[11px]!"
             >
               {isContactPage ? (
                 <span className="flex items-center justify-center gap-1">

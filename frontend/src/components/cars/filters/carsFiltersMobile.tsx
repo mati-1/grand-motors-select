@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import CancelIcon from "../../../assets/icons/zamknij.svg?react";
 import { ButtonComponent } from "../../button";
 import { MainHeadingComponent } from "../../headings";
 
@@ -23,7 +24,7 @@ export const CarsFiltersMobile = ({
       className="
         fixed
         inset-0
-        z-100
+        z-100003
         flex
         h-dvh
         w-full
@@ -50,26 +51,31 @@ export const CarsFiltersMobile = ({
         onClick={(event) => event.stopPropagation()}
       >
         <MainHeadingComponent>Filtry</MainHeadingComponent>
-
         <button
           type="button"
           onClick={onClose}
           aria-label="Zamknij filtry"
           className="
-            flex
-            h-10
-            w-10
-            cursor-pointer
-            items-center
-            justify-center
-            text-[22px]
-            text-[#555]
-            transition-colors
-            duration-300
-            hover:text-[#4C9FE5]
-          "
+          group
+          flex
+          h-10
+          w-10
+          cursor-pointer
+          items-center
+          justify-center
+          border
+          border-white/10
+          bg-[ext-[#E8E9E7]/2
+          text-[#777]
+          transition-all
+          duration-300
+          hover:border-[#4C9FE5]/40
+          hover:bg-[#4C9FE5]/2
+          hover:text-[#4C9FE5]
+          rounded-[10px]
+        "
         >
-          ×
+          <CancelIcon className="w-5 h-5" />
         </button>
       </header>
 

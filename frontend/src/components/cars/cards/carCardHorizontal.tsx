@@ -110,7 +110,7 @@ export const CarCardHorizontal = ({ car }: CarCardHorizontalProps) => {
                 className="
                   min-w-0
                   text-[19px]
-                  font-medium
+                  font-semibold
                   leading-tight
                   text-[#E8E9E7]
                 "
@@ -153,7 +153,8 @@ export const CarCardHorizontal = ({ car }: CarCardHorizontalProps) => {
                 text-[#E8E9E7]/70
               "
             >
-              {car.condition} · {car.power} KM · {car.engine} · {car.drive}
+              {car.condition} · {car.power} KM · {car.engine} cm<sup>3</sup> ·{" "}
+              {car.drive}
               {car.negotiation && " · Do negocjacji"}
               {car.accidentFree && " · Bezwypadkowy"}
             </div>

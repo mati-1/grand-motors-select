@@ -119,7 +119,7 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
               className="
                 min-w-0
                 text-[17px]
-                font-medium
+                font-semibold
                 leading-tight
                 text-[#E8E9E7]
                 sm:text-[19px]
@@ -166,7 +166,8 @@ export const CarCardDefault = ({ car }: CarCardDefaultProps) => {
               sm:text-[11px]
             "
           >
-            {car.condition} · {car.power} KM · {car.engine} · {car.drive}
+            {car.condition} · {car.power} KM · {car.engine} cm<sup>3</sup> ·{" "}
+            {car.drive}
             {car.negotiation && " · Do negocjacji"}
             {car.accidentFree && " · Bezwypadkowy"}
           </div>

@@ -54,7 +54,7 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
                     block
                     truncate
                     text-[18px]
-                    font-medium
+                    font-semibold
                     text-[#E8E9E7]
                   "
                 >
@@ -62,7 +62,8 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
                 </h2>
 
                 <p className="mt-1.5 text-[12px] text-[#E8E9E7]/25">
-                  {car.year} · {car.mileage} · {car.country} · {car.engine} ·{" "}
+                  {car.year} · {car.mileage} · {car.country} · {car.engine} cm
+                  <sup>3</sup> ·{" "}
                   {new Date(car.createdAt).toLocaleDateString("pl-PL", {
                     day: "2-digit",
                     month: "2-digit",

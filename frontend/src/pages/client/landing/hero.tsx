@@ -82,6 +82,8 @@ export const HeroComponentSection = () => {
         "
       />
 
+      <div className="absolute bottom-[-20%] left-[45%] h-100 w-100 rounded-full bg-[#4C9FE5]/8 blur-[120px]" />
+
       {/* ================================================= */}
       {/* CONTENT */}
       {/* ================================================= */}

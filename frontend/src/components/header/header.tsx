@@ -176,6 +176,7 @@ export const HeaderComponent = () => {
           },
           history: [],
           featured: car.featured,
+          createdAt: car.createdAt,
         };
       });
 
@@ -613,8 +614,8 @@ export const HeaderComponent = () => {
                               <div
                                 className="
                                   truncate
-                                  text-[12px]
-                                  font-medium
+                                  text-[13px]
+                                  font-semibold
                                   text-[#E8E9E7]
                                 "
                               >
@@ -627,17 +628,17 @@ export const HeaderComponent = () => {
                                   flex
                                   items-center
                                   gap-2
-                                  text-[9px]
+                                  text-[10px]
                                   text-[#E8E9E7]/40
                                 "
                               >
                                 <span>{car.year}</span>·
-                                <span>{car.mileage}</span>·
-                                <span>{car.power}</span>
+                                <span>{car.mileage} km</span>·
+                                <span>{car.power} KM</span>
                               </div>
 
                               <div className="mt-1.5 text-[12px] text-[#E8E9E7]">
-                                {car.price}
+                                {car.price} PLN
                               </div>
                             </button>
 

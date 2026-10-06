@@ -121,7 +121,7 @@ export const CarInfo = ({ car }: CarInfoProps) => {
           <h1
             className="
         text-[24px]
-        font-normal
+        font-semibold
         leading-[1.04]
         
         text-[#E8E9E7]

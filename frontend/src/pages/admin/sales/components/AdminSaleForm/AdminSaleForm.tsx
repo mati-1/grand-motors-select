@@ -1,8 +1,6 @@
 import { useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { carsList } from "../../../../../components/cars/cars";
-
 import { AdminSaleCar } from "./AdminSaleCar";
 import { AdminSaleCustomer } from "./AdminSaleCustomer";
 import { AdminSalePayment } from "./AdminSalePayment";
@@ -16,19 +14,6 @@ export const AdminSaleForm = () => {
   const navigate = useNavigate();
 
   const [form, setForm] = useState<AdminSaleFormValues>(defaultSaleFormValues);
-
-  /*
-   * Na razie dane pochodzą z carsList.
-   *
-   * Docelowo:
-   * GET /api/cars?status=available
-   */
-  const availableCars = useMemo(
-    () => carsList.filter((car) => car.status === "available"),
-    [],
-  );
-
-  const selectedCar = availableCars.find((car) => car.id === form.carId);
 
   const updateField = <K extends keyof AdminSaleFormValues>(
     field: K,
@@ -71,12 +56,12 @@ export const AdminSaleForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
-      <AdminSaleCar
+      {/* <AdminSaleCar
         cars={availableCars}
         selectedCar={selectedCar}
         value={form.carId}
         onChange={(value) => updateField("carId", value)}
-      />
+      /> */}
 
       <AdminSaleCustomer values={form} onChange={updateField} />
 
@@ -84,7 +69,7 @@ export const AdminSaleForm = () => {
 
       <AdminSaleDocument values={form} onChange={updateField} />
 
-      <AdminSaleSummary car={selectedCar} salePrice={form.salePrice} />
+      {/* <AdminSaleSummary car={selectedCar} salePrice={form.salePrice} /> */}
 
       <div className="flex flex-col-reverse gap-3 border-t border-white/8 pt-5 sm:flex-row sm:justify-end">
         <button
