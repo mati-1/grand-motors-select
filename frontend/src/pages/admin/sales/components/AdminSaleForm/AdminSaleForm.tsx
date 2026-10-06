@@ -1,11 +1,11 @@
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { AdminSaleCar } from "./AdminSaleCar";
+// import { AdminSaleCar } from "./AdminSaleCar";
 import { AdminSaleCustomer } from "./AdminSaleCustomer";
 import { AdminSalePayment } from "./AdminSalePayment";
 import { AdminSaleDocument } from "./AdminSaleDocument";
-import { AdminSaleSummary } from "./AdminSaleSummary";
+// import { AdminSaleSummary } from "./AdminSaleSummary";
 
 import { defaultSaleFormValues } from "./defaultValues";
 import type { AdminSaleFormValues } from "./types";

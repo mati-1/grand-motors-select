@@ -36,7 +36,7 @@ export const AdminCarForm = ({ car }: AdminCarFormProps) => {
           brand: car.brand,
           model: car.model,
           condition: car.condition,
-          statusType: car?.statusType ?? "preparing",
+          // statusType: car?.statusType ?? "preparing",
           vin: car.vin,
           year: car.year,
           mileage: car.mileage,
