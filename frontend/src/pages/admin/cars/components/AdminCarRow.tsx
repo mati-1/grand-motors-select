@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import type { ApiCar } from "../../../../api/cars";
+import { AdminCarStatusType } from "./AdminCarStatusType";
 
 export type AdminCar = ApiCar & {
   purchasePrice: number;
@@ -19,9 +20,11 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
     "/logohd emblem.png";
 
   return (
-    <div
-      className="
+    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 border-b border-white/8 pb-6">
+      <div
+        className="
         group
+        col-span-3 
         overflow-hidden
         rounded-[10px]
         border
@@ -31,54 +34,56 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
         duration-300
         hover:border-white/13
       "
-    >
-      <div className="flex flex-col lg:flex-row">
-        <img
-          src={primaryImage}
-          alt={`${car.brand} ${car.model}`}
-          className="
+      >
+        <div className="flex flex-col lg:flex-row">
+          <img
+            src={primaryImage}
+            alt={`${car.brand} ${car.model}`}
+            className="
             h-52.5
             object-cover
-            lg:h-60
+            lg:h-65
             lg:w-65
             xl:w-72.5
           "
-        />
+          />
 
-        <div className="flex min-w-0 flex-1 flex-col">
-          <div className="flex min-w-0 flex-1 flex-col p-5">
-            <div className="flex flex-col justify-between gap-4 sm:flex-row">
-              <div className="min-w-0">
-                <h2
-                  className="
+          <div className="flex min-w-0 flex-1 flex-col">
+            <div className="flex min-w-0 flex-1 flex-col p-5">
+              <div className="flex flex-col justify-between gap-4 sm:flex-row">
+                <div className="min-w-0">
+                  <h2
+                    className="
                     block
                     truncate
                     text-[18px]
                     font-semibold
                     text-[#E8E9E7]
                   "
-                >
-                  {car.brand} {car.model}
-                </h2>
+                  >
+                    {car.brand} {car.model}
+                  </h2>
 
-                <p className="mt-1.5 text-[12px] text-[#E8E9E7]/25">
-                  {car.year} · {car.mileage} · {car.country} · {car.engine} cm
-                  <sup>3</sup> · {car.power} KM · {car.fuel} ·{" "}
-                  {car.transmission}
-                </p>
+                  <p className="mt-1.5 text-[12px] text-[#E8E9E7]/25 truncate">
+                    {car.year} · {car.mileage} · {car.country} · {car.engine} cm
+                    <sup>3</sup> · {car.power} KM · {car.fuel} ·{" "}
+                    {car.transmission}
+                  </p>
+                </div>
+
+                <div className="shrink-0 sm:text-right">
+                  <p className="text-[12px] text-[#E8E9E7]/25">
+                    Cena sprzedaży
+                  </p>
+
+                  <p className="mt-1 text-[16px] font-medium text-[#4C9FE5]">
+                    {car.price} PLN
+                  </p>
+                </div>
               </div>
 
-              <div className="shrink-0 sm:text-right">
-                <p className="text-[12px] text-[#E8E9E7]/25">Cena sprzedaży</p>
-
-                <p className="mt-1 text-[16px] font-medium text-[#4C9FE5]">
-                  {car.price} PLN
-                </p>
-              </div>
-            </div>
-
-            <div
-              className="
+              <div
+                className="
                 mt-5
                 grid
                 grid-cols-2
@@ -89,41 +94,43 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
                 pt-4
                 sm:grid-cols-4
               "
-            >
-              <div>
-                <p className="text-[12px] text-[#E8E9E7]/20">Cena zakupu</p>
+              >
+                <div>
+                  <p className="text-[12px] text-[#E8E9E7]/20">Cena zakupu</p>
 
-                <p className="mt-1 text-[13px] text-[#E8E9E7]/60">
-                  {car.purchasePrice}
-                </p>
-              </div>
+                  <p className="mt-1 text-[13px] text-[#E8E9E7]/60">
+                    {car.purchasePrice}
+                  </p>
+                </div>
 
-              <div>
-                <p className="text-[12px] text-[#E8E9E7]/20">Inwestycja</p>
+                <div>
+                  <p className="text-[12px] text-[#E8E9E7]/20">Inwestycja</p>
 
-                <p className="mt-1 text-[13px] text-[#E8E9E7]/60">
-                  {car.investment}
-                </p>
-              </div>
+                  <p className="mt-1 text-[13px] text-[#E8E9E7]/60">
+                    {car.investment}
+                  </p>
+                </div>
 
-              <div>
-                <p className="text-[12px] text-[#E8E9E7]/20">
-                  Potencjalny zysk
-                </p>
+                <div>
+                  <p className="text-[12px] text-[#E8E9E7]/20">
+                    Potencjalny zysk
+                  </p>
 
-                <p className="mt-1 text-[13px] text-[#4C9FE5]">{car.profit}</p>
-              </div>
+                  <p className="mt-1 text-[13px] text-[#4C9FE5]">
+                    {car.profit}
+                  </p>
+                </div>
 
-              <div>
-                <p className="text-[12px] text-[#E8E9E7]/20">Marża</p>
+                <div>
+                  <p className="text-[12px] text-[#E8E9E7]/20">Marża</p>
 
-                <p className="mt-1 text-[13px] text-[#E8E9E7]/60">18,6%</p>
+                  <p className="mt-1 text-[13px] text-[#E8E9E7]/60">18,6%</p>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div
-            className="
+            <div
+              className="
               flex
               items-center
               justify-between
@@ -132,19 +139,19 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
               px-5
               py-3
             "
-          >
-            <span className="text-[11px] text-[#E8E9E7]/20">
-              Ostatnia aktualizacja: dzisiaj · Dodano:{" "}
-              {new Date(car.createdAt).toLocaleDateString("pl-PL", {
-                day: "2-digit",
-                month: "2-digit",
-                year: "numeric",
-              })}
-            </span>
+            >
+              <span className="text-[11px] text-[#E8E9E7]/20">
+                Ostatnia aktualizacja: dzisiaj · Dodano:{" "}
+                {new Date(car.createdAt).toLocaleDateString("pl-PL", {
+                  day: "2-digit",
+                  month: "2-digit",
+                  year: "numeric",
+                })}
+              </span>
 
-            <Link
-              to={`/admin/cars/${car.id}/edit`}
-              className="
+              <Link
+                to={`/admin/cars/${car.id}/edit`}
+                className="
                 flex
                 h-8
                 items-center
@@ -161,12 +168,18 @@ export const AdminCarRow = ({ car }: AdminCarRowProps) => {
                 hover:bg-[#4C9FE5]/10
                 hover:text-[#4C9FE5]
               "
-            >
-              Edytuj
-            </Link>
+              >
+                Edytuj
+              </Link>
+            </div>
           </div>
         </div>
       </div>
+      {car && (
+        <div className="col-span-1">
+          <AdminCarStatusType key={car.id} car={car} />
+        </div>
+      )}
     </div>
   );
 };

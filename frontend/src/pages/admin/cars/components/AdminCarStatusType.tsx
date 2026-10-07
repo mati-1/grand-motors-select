@@ -17,6 +17,13 @@ const options: { value: StatusType; label: string }[] = [
   { value: "sold", label: "Sprzedany" },
 ];
 
+export const colorByStatus = (status: ApiCar["statusType"]) => {
+  if (status === "sale") return "green-500/20";
+  if (status === "preparing") return "yellow-500/20";
+
+  return "red-500/20";
+};
+
 export const AdminCarStatusType = ({ car }: Props) => {
   const [statusType, setStatusType] = useState<StatusType>(car.statusType);
 
@@ -32,20 +39,16 @@ export const AdminCarStatusType = ({ car }: Props) => {
         carId: car.id,
         statusType,
       });
-    } catch {
-      // Błąd jest obsługiwany przez mutation.error.
-    }
+    } catch {}
   };
 
   return (
-    <section className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/2 p-5 sm:p-7">
-      <h3 className="text-[16px] font-medium text-white">Etap przygotowania</h3>
+    <section
+      className={`rounded-[10px] border p-5 sm:p-7 border-${colorByStatus(statusType)}`}
+    >
+      <h3 className="text-[14px] font-medium text-white">Etap przygotowania</h3>
 
-      <p className="mt-1.5 text-[11px] text-white/30">
-        Wybierz aktualny etap przygotowania samochodu.
-      </p>
-
-      <div className="mt-6 items-end flex flex-col gap-3 sm:flex-row">
+      <div className="mt-6 items-end flex flex-col gap-3">
         <FormSelect
           label="Stan"
           value={statusType}
@@ -60,7 +63,7 @@ export const AdminCarStatusType = ({ car }: Props) => {
           onClick={handleSave}
           variant="secondary"
           size="small"
-          className="max-sm:min-w-full"
+          className="min-w-full"
           disabled={updateStatus.isPending || statusType === car.statusType}
         >
           {updateStatus.isPending ? "Zapisywanie..." : "Zapisz status"}

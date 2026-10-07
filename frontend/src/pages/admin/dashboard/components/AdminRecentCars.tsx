@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useAdminCars } from "../../../../hooks/cars/useCars";
 import type { ApiCar } from "../../../../api/cars";
 import { mapApiCarToAdminCar } from "../../cars/mapApiCarToAdminCar";
+import { colorByStatus } from "../../cars/components/AdminCarStatusType";
 
 export const AdminRecentCars = () => {
   const carsQuery = useAdminCars();
@@ -121,13 +122,7 @@ export const AdminRecentCars = () => {
                     py-2
                     text-[11px]
                     text-white/80
-                    ${
-                      car.statusType === "sale"
-                        ? "bg-green-500/20"
-                        : car.statusType === "preparing"
-                          ? "bg-yellow-500/20"
-                          : "bg-red-500/20"
-                    }
+                    bg-${colorByStatus(car.statusType)}
                   `}
                 >
                   {car.statusType === "sale"
