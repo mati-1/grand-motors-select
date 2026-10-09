@@ -1,28 +1,60 @@
-const cashFlow = [
-  {
-    label: "Przychody ze sprzedaży",
-    value: 186500,
-  },
-  {
-    label: "Zakup samochodów",
-    value: -112000,
-  },
-  {
-    label: "Koszty samochodów",
-    value: -18400,
-  },
-  {
-    label: "Koszty firmy",
-    value: -6200,
-  },
-];
+import { useFinance } from "../../../../hooks/finance/useFinance";
 
-const formatPrice = (value: number) => {
-  return new Intl.NumberFormat("pl-PL").format(Math.abs(value)) + " zł";
-};
+export const AdminCashFlow = ({ period }: { period: string }) => {
+  const { data, isLoading, isError } = useFinance(period);
 
-export const AdminCashFlow = () => {
-  const balance = cashFlow.reduce((total, item) => total + item.value, 0);
+  if (isLoading) {
+    return (
+      <section className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/2 p-5">
+        <div className="animate-pulse">
+          <div className="h-4 w-32 rounded bg-white/5" />
+          <div className="mt-2 h-3 w-48 rounded bg-white/5" />
+          <div className="mt-8 h-8 w-40 rounded bg-white/5" />
+          <div className="mt-8 space-y-5">
+            <div className="h-3 rounded bg-white/5" />
+            <div className="h-3 rounded bg-white/5" />
+            <div className="h-3 rounded bg-white/5" />
+            <div className="h-3 rounded bg-white/5" />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (isError || !data) {
+    return (
+      <section className="rounded-[10px] border border-white/8 bg-[#4C9FE5]/2 p-5">
+        <p className="text-[11px] text-[#E8E9E7]/40">
+          Nie udało się pobrać przepływu środków.
+        </p>
+      </section>
+    );
+  }
+
+  const cashFlow = [
+    {
+      label: "Przychody ze sprzedaży",
+      value: data.cashFlow.salesRevenue,
+      formatted: data.cashFlow.salesRevenueFormatted,
+    },
+    {
+      label: "Zakup samochodów",
+      value: -data.cashFlow.carPurchases,
+      formatted: data.cashFlow.carPurchasesFormatted,
+    },
+    {
+      label: "Koszty samochodów",
+      value: -data.cashFlow.carCosts,
+      formatted: data.cashFlow.carCostsFormatted,
+    },
+    {
+      label: "Koszty firmy",
+      value: -data.cashFlow.companyCosts,
+      formatted: data.cashFlow.companyCostsFormatted,
+    },
+  ];
+
+  const result = data.cashFlow.result;
 
   return (
     <section
@@ -40,7 +72,7 @@ export const AdminCashFlow = () => {
         </h3>
 
         <p className="mt-1 text-[11px] text-[#E8E9E7]/25">
-          Aktualny okres rozliczeniowy
+          Wybrany okres rozliczeniowy
         </p>
       </div>
 
@@ -53,11 +85,11 @@ export const AdminCashFlow = () => {
               mt-1
               text-[22px]
               font-medium
-              ${balance >= 0 ? "text-[#4C9FE5]" : "text-[#E8E9E7]"}
+              ${result >= 0 ? "text-[#4C9FE5]" : "text-[#E8E9E7]"}
             `}
           >
-            {balance >= 0 ? "+" : "-"}
-            {formatPrice(balance)}
+            {result >= 0 ? "+" : "-"}
+            {new Intl.NumberFormat("pl-PL").format(Math.abs(result))} zł
           </p>
         </div>
 
@@ -74,7 +106,7 @@ export const AdminCashFlow = () => {
                     w-1.5
                     shrink-0
                     rounded-full
-                    ${item.value >= 0 ? "bg-[#4C9FE5]" : "bg-[ext-[#E8E9E7]/15"}
+                    ${item.value >= 0 ? "bg-[#4C9FE5]" : "bg-[#E8E9E7]/15"}
                   `}
                 />
 
@@ -91,7 +123,7 @@ export const AdminCashFlow = () => {
                 `}
               >
                 {item.value >= 0 ? "+" : "-"}
-                {formatPrice(item.value)}
+                {item.formatted}
               </span>
             </div>
           ))}

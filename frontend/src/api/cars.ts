@@ -47,7 +47,11 @@ export type ApiCar = {
   slug: string;
   createdAt: string;
   updatedAt: string;
-
+  finance: {
+    purchasePrice: number;
+    expenses: number;
+    totalCost: number;
+  };
   images: CarImage[];
 };
 

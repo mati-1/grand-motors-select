@@ -2,10 +2,6 @@ import { useAdminCars } from "../../../../hooks/cars/useCars";
 
 import { AdminCarRow, type AdminCar } from "./AdminCarRow";
 
-const formatPrice = (value: number) => {
-  return new Intl.NumberFormat("pl-PL").format(value) + " zł";
-};
-
 export const AdminCarsList = () => {
   const carsQuery = useAdminCars();
 
@@ -37,13 +33,10 @@ export const AdminCarsList = () => {
 
   const adminCars: AdminCar[] = carsQuery.data.cars.map((car: AdminCar) => ({
     ...car,
-    purchasePrice: 0,
-    investment: 0,
-    profit: 0,
   }));
 
   const totalInvestment = adminCars.reduce(
-    (total, car) => total + (car.investment ?? 0),
+    (total, car) => total + (car.finance?.totalCost ?? 0),
     0,
   );
 
@@ -67,7 +60,12 @@ export const AdminCarsList = () => {
         <span className="hidden text-right text-[11px] text-[#E8E9E7]/25 sm:block">
           Łączna inwestycja:{" "}
           <span className="text-[#E8E9E7]/50">
-            {totalInvestment > 0 ? formatPrice(totalInvestment) : "—"}
+            {totalInvestment > 0
+              ? (totalInvestment / 100).toLocaleString("pl-PL", {
+                  style: "currency",
+                  currency: "PLN",
+                })
+              : "—"}
           </span>
         </span>
       </div>

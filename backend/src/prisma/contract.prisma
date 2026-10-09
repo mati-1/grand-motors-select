@@ -59,6 +59,7 @@ model Car {
   updatedAt     temporal.updatedAt()
 
   images        CarImage[]
+  financeTransactions   FinanceTransaction[]
 }
 
 model CarImage {
@@ -77,4 +78,30 @@ model CarImage {
   createdAt   DateTime @default(now())
 
   car         Car      @relation(fields: [carId], references: [id], onDelete: Cascade)
+}
+
+model FinanceTransaction {
+  id          String   @id @default(cuid(2))
+
+  type        String
+  category    String
+  title       String
+  description String?
+
+  amount      Int
+  date        DateTime @default(now())
+
+  carId       String?
+
+  affectsProfit Boolean @default(true)
+
+  createdAt   DateTime @default(now())
+  updatedAt   temporal.updatedAt()
+
+  car         Car? @relation(fields: [carId], references: [id], onDelete: SetNull)
+
+  @@index([date])
+  @@index([type])
+  @@index([category])
+  @@index([carId])
 }

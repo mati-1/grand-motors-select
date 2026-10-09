@@ -8,16 +8,10 @@ const actions = [
     icon: "car",
   },
   {
-    label: "Dodaj wydatek",
+    label: "Dodaj transakcję",
     description: "Zapisz koszt firmowy",
-    path: "/admin/expenses/new",
+    path: "/admin/finances",
     icon: "expense",
-  },
-  {
-    label: "Dodaj sprzedaż",
-    description: "Zarejestruj sprzedaż auta",
-    path: "/admin/sales/new",
-    icon: "sale",
   },
 ];
 

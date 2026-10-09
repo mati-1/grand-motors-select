@@ -42,6 +42,9 @@ export const carsRoutes: FastifyPluginAsync = async (server) => {
 
     const allCars = await server.db.orm.public.Car.all();
 
+    const allFinanceTransactions =
+      await server.db.orm.public.FinanceTransaction.all();
+
     const carsWithImages = await Promise.all(
       allCars.map(async (car) => {
         const images = await server.db.orm.public.CarImage.where({
@@ -52,12 +55,45 @@ export const carsRoutes: FastifyPluginAsync = async (server) => {
           (a, b) => a.position - b.position,
         );
 
+        // ---------------------------------------------------------
+        // FINANSE SAMOCHODU
+        // ---------------------------------------------------------
+
+        const carTransactions = allFinanceTransactions.filter(
+          (transaction) => transaction.carId === car.id,
+        );
+
+        const purchasePrice = carTransactions
+          .filter(
+            (transaction) =>
+              transaction.category === "car_purchase" &&
+              transaction.type === "expense",
+          )
+          .reduce((sum, transaction) => sum + transaction.amount, 0);
+
+        const expenses = carTransactions
+          .filter(
+            (transaction) =>
+              transaction.type === "expense" &&
+              transaction.category !== "car_purchase",
+          )
+          .reduce((sum, transaction) => sum + transaction.amount, 0);
+
+        const totalCost = purchasePrice + expenses;
+
         return {
           ...car,
+
           images: sortedImages.map((image) => ({
             ...image,
             url: storage.getUrl(image.storageKey),
           })),
+
+          finance: {
+            purchasePrice,
+            expenses,
+            totalCost,
+          },
         };
       }),
     );

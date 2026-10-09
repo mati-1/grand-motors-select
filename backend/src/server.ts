@@ -7,8 +7,10 @@ import { cookiePlugin } from "./modules/plugins/cookie.js";
 import { multipartPlugin } from "./plugins/multipart.js";
 import { staticPlugin } from "./plugins/static.js";
 
+import { dashboardRoutes } from "./modules/dashboard/routes.js";
 import { authRoutes } from "./modules/auth/routes.js";
 import { carsRoutes } from "./modules/cars/routes.js";
+import { financeRoutes } from "./modules/finance/routes.js";
 
 const server = Fastify({
   logger: true,
@@ -32,6 +34,12 @@ await server.register(authRoutes, {
 await server.register(carsRoutes, {
   prefix: "/api/cars",
 });
+
+server.register(financeRoutes, {
+  prefix: "/api/finance",
+});
+
+server.register(dashboardRoutes, { prefix: "/api/dashboard" });
 
 server.get("/", async () => {
   return {
